@@ -1,0 +1,18 @@
+<project name="Example">
+
+	<target name="Apple">
+		<framework name="UIKit" />
+		<framework name="Foundation" />
+		<framework name="CoreGraphics" />
+		<framework name="QuartzCore" />
+		
+		<device name="ios" main="example.ApplicationMain" />
+		<argument name="iphonesim" />
+		
+	</target>
+	
+	<src path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/src" />
+		
+	<builddir path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/build" />
+
+</project>

@@ -1,0 +1,4 @@
+-cp basis/src
+-lib Basis
+-neko build/run.n
+-main basisapple.ApplicationMain
