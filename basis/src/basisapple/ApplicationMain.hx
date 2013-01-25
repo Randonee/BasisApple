@@ -31,12 +31,15 @@ class ApplicationMain
 				Util.createDirectory(haxeBuildPath);
 				Util.createDirectory(haxeBuildPath + "/cpp/src");
 				
-				var xcodeBin:String = devicePath + "/Files/bin/";
+				var xcodeFiles:String = devicePath + "/Files/";
+				var xcodeAssets:String = xcodeFiles + "/assets";
+				var xcodeBin:String = xcodeFiles + "/bin/";
 				
 				if(FileSystem.exists(xcodeBin))
 					Util.deleteDirectoryRecursive(xcodeBin);
 					
 				Util.createDirectory(xcodeBin);
+				Util.createDirectory(xcodeAssets);
 					
 				var buildFile:FileOutput = File.write(devicePath + "/build.hxml");
 				buildFile.writeString("-cp " + haxeBuildPath + "\n");
@@ -63,6 +66,24 @@ class ApplicationMain
 									Util.copyInto(project.srcPaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
 								else
 									File.copy(project.srcPaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
+							}
+						}
+					}
+				}
+				
+				for(a in 0...project.assetPaths.length)
+				{
+					if(FileSystem.exists(project.assetPaths[a]))
+					{
+						var contents:Array<String> = FileSystem.readDirectory(project.assetPaths[a]);
+						for(b in 0...contents.length)
+						{
+							if(contents[b].charAt(0) != ".")
+							{
+								if(FileSystem.isDirectory(project.assetPaths[a] + "/" + contents[b]))
+									Util.copyInto(project.assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
+								else
+									File.copy(project.assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
 							}
 						}
 					}
@@ -124,16 +145,17 @@ class ApplicationMain
 					Util.copyInto(libPath + "ndll/Mac/", xcodeBin + "/hxcpp/");
 				}
 
-				Util.createDirectory(devicePath + "/Files");
+				Util.createDirectory(xcodeFiles);
 				
-				File.copy(libPath + "template/Main.mm", devicePath + "/Files/Main.mm");
-				File.copy(libPath + "template/Info.plist" , devicePath + "/Files/" + project.name + "-Info.plist");
-				File.copy(libPath + "template/prefix.pch" , devicePath + "/Files/prefix.pch");
+				File.copy(libPath + "template/Main.mm", xcodeFiles + "/Main.mm");
+				File.copy(libPath + "template/Info.plist" , xcodeFiles + project.name + "-Info.plist");
+				File.copy(libPath + "template/prefix.pch" , xcodeFiles + "/prefix.pch");
 				
 				var xcode:XCodeProject = new XCodeProject(project.name);
 				xcode.addSouce("Main.mm");
 				
 				xcode.addSourceDirectory("bin", xcodeBin);
+				xcode.addSourceDirectory("assets", xcodeAssets);
 				xcode.addPlist(project.name + "-Info.plist");
 				
 				for(b in 0...project.frameworks.length)

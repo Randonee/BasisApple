@@ -108,7 +108,12 @@ class XCodeProject
 	public function addSouce(name:String):Void
 	{
 		var fileRes:FileResource = new FileResource(name, createGUID(), createGUID(), _filesGroup.path + name);
-		sources.push(fileRes);
+		
+		if(isResource(fileRes))
+			resources.push(fileRes);
+		else
+			sources.push(fileRes);
+			
 		_filesGroup.items.push(fileRes);
 		addToFrameworksIfNeeded(fileRes);
 	}
@@ -136,7 +141,12 @@ class XCodeProject
 			else if(fileName.indexOf(".") != 0)
 			{
 				var fileRes:FileResource = new FileResource(fileName, createGUID(), createGUID(), group.path + fileName);
-				sources.push(fileRes);
+				
+				if(isResource(fileRes))
+					resources.push(fileRes);
+				else
+					sources.push(fileRes);
+
 				group.items.push(fileRes);
 				addToFrameworksIfNeeded(fileRes);
 			}
@@ -148,11 +158,6 @@ class XCodeProject
 		var framework:FileResource = new FileResource(name, createGUID(), createGUID());
 		_frameworksGroup.items.push(framework);
 		frameworks.push(framework);
-	}
-	
-	public function addResource(name:String):Void
-	{
-		resources.push(new FileResource(name, createGUID(), createGUID()));
 	}
 	
 	public function addPlist(name:String):Void
@@ -211,6 +216,10 @@ class XCodeProject
 		
 		for(resource in frameworks)
 			writeLn(fout, "\t\t" + resource.guid + " /* " + resource.name + ".framework in Frameworks */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + ".framework */; };");
+		
+		for(resource in resources)
+			writeLn(fout, "\t\t" + resource.guid + " /* " + resource.name + " in Sourcess */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + " */; };");
+		
 		for(resource in sources)
 		{
 			if(!fileIsHeader(resource))
@@ -228,16 +237,24 @@ class XCodeProject
 			writeLn(fout, "\t\t" + resource.fileRef + " /* " + resource.name + ".framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = " + resource.name + ".framework; path = System/Library/Frameworks/" + resource.name + ".framework; sourceTree = SDKROOT; };");
 		for(resource in plists)
 			writeLn(fout, "\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };");
+		
+		for(resource in resources)
+			writePBXFileReferenceFileRef(fout, resource);
+		
 		for(resource in sources)
-		{
-			var line:String = "\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; ";
-			if(fileIsSource(resource))
-				line +=  "fileEncoding = 4; ";
-				
-			line += "lastKnownFileType = " + getFileType(resource.name) + "; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };";
-			writeLn(fout, line);
-		}
+			writePBXFileReferenceFileRef(fout, resource);
+			
 		writeLn(fout, "/* End PBXFileReference section */");
+	}
+	
+	private function writePBXFileReferenceFileRef(fout:FileOutput, resource:FileResource):Void
+	{
+		var line:String = "\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; ";
+		if(fileIsSource(resource))
+			line +=  "fileEncoding = 4; ";
+			
+		line += "lastKnownFileType = " + getFileType(resource.name) + "; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };";
+		writeLn(fout, line);
 	}
 	
 	
@@ -339,6 +356,8 @@ class XCodeProject
 		writeLn(fout, "\t\t\tbuildActionMask = " + _buildActionMask + ";");
 		writeLn(fout, "\t\t\tfiles = (");
 		for(resource in plists)
+			writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + " in Resources */,");
+		for(resource in resources)
 			writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + " InfoPlist.strings in Resources */,");
 		writeLn(fout, "\t\t\t);");
 		writeLn(fout, "\t\t\trunOnlyForDeploymentPostprocessing = 0;");
@@ -578,6 +597,16 @@ class XCodeProject
 		groupData += "\t\t};\n";
 		
 		return groupData;
+	}
+	
+	private function isResource(file:FileResource):Bool
+	{
+		var type:String = getFileType(file.name);
+		
+		if(type.indexOf("image") >= 0)
+			return true;
+				
+		return false;
 	}
 	
 	
