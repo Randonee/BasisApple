@@ -12,7 +12,7 @@ AutoGCRoot *viewHandler;
 
 -(void) callHanlders:(int) viewTag :(const char*) type
 {
-	//val_call2(viewHandler->get(), alloc_string(type), alloc_int(viewTag));
+	val_call2(viewHandler->get(), alloc_string(type), alloc_int(viewTag));
 }
 
 -(void) installAddSubviewListener:(void (^)(id _self, UIView* subview))listener
