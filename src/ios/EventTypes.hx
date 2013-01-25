@@ -1,4 +1,4 @@
-package com.season.basis.ios;
+package ios;
 
 class EventTypes
 {

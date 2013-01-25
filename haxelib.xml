@@ -1,5 +1,5 @@
-<project name="BasisApple" url="https://github.com/Randonee/Basis" license="GPL">
+<project name="BasisApple" url="https://github.com/Randonee/BasisApple" license="MIT">
     <user name="randonee"/>
     <description>BasisApple</description>
-    <version name="0.1">alpha</version>
+    <version name="0.0.1">alpha</version>
 </project>

@@ -9,9 +9,8 @@ import basis.xml.ProjectXML;
 
 enum DeviceType
 {
-	ios;
-	iphone;
-	mac;
+	IOS;
+	MAC;
 }
 
 typedef Device =
@@ -21,11 +20,14 @@ typedef Device =
 }
 
 
+
 class AppleProjectXML extends ProjectXML
 {
 	public var devices(default, null):Hash<Device>;
 	public var frameworks(default, null):Array<String>;
 	public var commandLineArguments(default, null):Array<String>;
+	
+	public var buildForSimulator(default, null):Bool;
 
 	override public function parse():Void
 	{
@@ -63,6 +65,9 @@ class AppleProjectXML extends ProjectXML
 	
 	private function parseCommandArg(arg:Fast):Void
 	{
+		if(arg.att.name == "iphonesim")
+			buildForSimulator = true;
+		
 		commandLineArguments.push(arg.att.name);
 	}
 }

@@ -1,8 +1,8 @@
-package com.season.basis.ios;
+package ios;
 
 import cpp.Lib;
 
-import com.season.basis.ios.ViewBase;
+import ios.ViewBase;
 
 
 class ViewManager
@@ -87,10 +87,7 @@ class ViewManager
 		_eventManager.removeEventListener(type, view, handler);
 	}
 	
-	#if ios
 	private static var cpp_call_create_view = Lib.load ("basis", "viewmanager_createView", 1);
 	private static var cpp_call_add_to_root_view = Lib.load ("basis", "viewmanager_addToRootView", 1);
 	private static var cpp_call_set_event_handler = Lib.load ("basis", "viewmanager_setEventHandler", 1);
-	#end
-	
 }

@@ -12,35 +12,55 @@
 		<zip destfile="build/BasisApple.zip" basedir="build/BasisApple" />
 	</target>
 	
+	<target name="extension">
+		<delete dir="extension/project/obj" failOnError="false" includeEmptyDirs="true"/>
+						
+		<exec dir="extension/project" failonerror="true" executable="haxelib">
+			<arg line="run hxcpp Build.xml -Diphonesim" />
+		</exec>
+		<exec dir="extension/project" failonerror="true" executable="haxelib">
+			<arg line="run hxcpp Build.xml -Diphoneos -DHXCPP_ARMV7" />
+		</exec>
+		<exec dir="extension/project" failonerror="true" executable="haxelib">
+			<arg line="run hxcpp Build.xml -Diphoneos" />
+		</exec>
+		
+	</target>
+
 	<target name="testlib">
-			<delete dir="build"/>
-			<mkdir dir="build/testlib/"/>
-			<mkdir dir="build/testlib/BasisApple"/>
-			<mkdir dir="build/testlib/BasisApple/0,0,1"/>
-			<mkdir dir="build/testlib/BasisApple/0,0,1/template"/>
-			
-			<exec dir="." failonerror="true" executable="haxe">
-				<arg line="build.hxml" />
-			</exec>
-			
-			<copy todir="build/testlib/BasisApple/0,0,1">
-				<fileset dir="src"/>
-			</copy>
+		<delete dir="build"/>
+		<mkdir dir="build/testlib/"/>
+		<mkdir dir="build/testlib/BasisApple"/>
+		<mkdir dir="build/testlib/BasisApple/0,0,1"/>
+		<mkdir dir="build/testlib/BasisApple/0,0,1/bin"/>
+		<mkdir dir="build/testlib/BasisApple/0,0,1/template"/>
 		
-			<copy todir="build/testlib/BasisApple/0,0,1/template">
-				<fileset dir="template"/>
-			</copy>
+		<exec dir="." failonerror="true" executable="haxe">
+			<arg line="build.hxml" />
+		</exec>
 		
-			<copy file="haxelib.xml" tofile="build/testlib/BasisApple/0,0,1/haxelib.xml"/>
-			<copy file="build/run.n" tofile="build/testlib/BasisApple/0,0,1/run.n"/>
-			
-			<echo file="build/testlib/BasisApple/.current" >0.0.1</echo>
-			
-			<delete dir="/usr/lib/haxe/lib/BasisApple"/>
-			
-			<copy todir="/usr/lib/haxe/lib/BasisApple">
-				<fileset dir="build/testlib/BasisApple"/>
-			</copy>
-		</target>
+		<copy todir="build/testlib/BasisApple/0,0,1">
+			<fileset dir="src"/>
+		</copy>
+	
+		<copy todir="build/testlib/BasisApple/0,0,1/bin">
+			<fileset dir="extension/ndll"/>
+		</copy>
+	
+		<copy todir="build/testlib/BasisApple/0,0,1/template">
+			<fileset dir="template"/>
+		</copy>
+	
+		<copy file="haxelib.xml" tofile="build/testlib/BasisApple/0,0,1/haxelib.xml"/>
+		<copy file="build/run.n" tofile="build/testlib/BasisApple/0,0,1/run.n"/>
+		
+		<echo file="build/testlib/BasisApple/.current" >0.0.1</echo>
+		
+		<delete dir="/usr/lib/haxe/lib/BasisApple"/>
+		
+		<copy todir="/usr/lib/haxe/lib/BasisApple">
+			<fileset dir="build/testlib/BasisApple"/>
+		</copy>
+	</target>
 	
 </project>

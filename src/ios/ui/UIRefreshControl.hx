@@ -1,8 +1,8 @@
-package com.season.basis.ios.ui;
+package ios.ui;
 
 import cpp.Lib;
-import com.season.basis.ios.ViewManager;
-import com.season.basis.ios.ViewBase;
+import ios.ViewManager;
+import ios.ViewBase;
 
 class UIRefreshControl extends UIControl
 {

@@ -1,4 +1,4 @@
-package com.season.basis.ios.applicationservices;
+package ios.applicationservices;
 
 @:core_api extern class CGGeometry
 {

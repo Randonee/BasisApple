@@ -1,7 +1,7 @@
-package com.season.basis.ios;
+package ios;
 
 import cpp.Lib;
-import com.season.basis.ios.ViewManager;
+import ios.ViewManager;
 
 class ViewBase
 {

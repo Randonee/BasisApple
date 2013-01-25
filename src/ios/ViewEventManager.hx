@@ -1,6 +1,6 @@
-package com.season.basis.ios;
+package ios;
 
-import com.season.basis.ios.ViewBase;
+import ios.ViewBase;
 
 typedef BasisEventListener =
 {

@@ -37,11 +37,11 @@ class GroupResource extends FileResource
 class XCodeProject
 {
 	public var name(default, default):String;
-	public var sources(default, null):Hash<FileResource>;
-	public var frameworks(default, null):Hash<FileResource>;
-	public var resources(default, null):Hash<FileResource>;
-	public var plists(default, null):Hash<FileResource>;
-	public var sourceDirectories(default, null):Hash<GroupResource>;
+	public var sources(default, null):Array<FileResource>;
+	public var frameworks(default, null):Array<FileResource>;
+	public var resources(default, null):Array<FileResource>;
+	public var plists(default, null):Array<FileResource>;
+	public var sourceDirectories(default, null):Array<GroupResource>;
 	
 	private var _frameworkFiles:Array<FileResource>;
 	
@@ -72,11 +72,11 @@ class XCodeProject
 	public function new(name:String)
 	{
 		this.name = name;
-		sources = new Hash<FileResource>();
-		resources = new Hash<FileResource>();
-		frameworks = new Hash<FileResource>();
-		plists = new Hash<FileResource>();
-		sourceDirectories = new Hash<GroupResource>();
+		sources = new Array<FileResource>();
+		resources = new Array<FileResource>();
+		frameworks = new Array<FileResource>();
+		plists = new Array<FileResource>();
+		sourceDirectories = new Array<GroupResource>();
 		
 		_frameworkFiles = new Array<FileResource>();
 		
@@ -108,7 +108,7 @@ class XCodeProject
 	public function addSouce(name:String):Void
 	{
 		var fileRes:FileResource = new FileResource(name, createGUID(), createGUID(), _filesGroup.path + name);
-		sources.set(name, fileRes);
+		sources.push(fileRes);
 		_filesGroup.items.push(fileRes);
 		addToFrameworksIfNeeded(fileRes);
 	}
@@ -117,7 +117,7 @@ class XCodeProject
 	{
 		var group:GroupResource = new GroupResource(name, createGUID(), createGUID(), [], _filesGroup.path + name +  "/");
 		_filesGroup.items.push(group);
-		sourceDirectories.set(name, group);
+		sourceDirectories.push(group);
 		addDirectoryItems(group, path);
 	}
 	
@@ -129,14 +129,14 @@ class XCodeProject
 			if(FileSystem.isDirectory(path + "/" + fileName))
 			{
 				var subGroup:GroupResource = new GroupResource(fileName, createGUID(), createGUID(), [], group.path +  fileName + "/");
-				sourceDirectories.set(fileName, subGroup);
+				sourceDirectories.push(subGroup);
 				group.items.push(subGroup);
 				addDirectoryItems(subGroup,  path + "/" + fileName);
 			}
 			else if(fileName.indexOf(".") != 0)
 			{
 				var fileRes:FileResource = new FileResource(fileName, createGUID(), createGUID(), group.path + fileName);
-				sources.set(fileName, fileRes);
+				sources.push(fileRes);
 				group.items.push(fileRes);
 				addToFrameworksIfNeeded(fileRes);
 			}
@@ -147,19 +147,19 @@ class XCodeProject
 	{
 		var framework:FileResource = new FileResource(name, createGUID(), createGUID());
 		_frameworksGroup.items.push(framework);
-		frameworks.set(name, framework);
+		frameworks.push(framework);
 	}
 	
 	public function addResource(name:String):Void
 	{
-		resources.set(name, new FileResource(name, createGUID(), createGUID()));
+		resources.push(new FileResource(name, createGUID(), createGUID()));
 	}
 	
 	public function addPlist(name:String):Void
 	{
 		var plist:FileResource = new FileResource(name, createGUID(), createGUID(), _filesGroup.path + name);
 		_filesGroup.items.push(plist);
-		plists.set(name, plist);
+		plists.push(plist);
 	}
 
 	public function save(path:String):Void

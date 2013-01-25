@@ -6,7 +6,7 @@
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
 		
-		<device name="ios" main="example.ApplicationMain" />
+		<device name="IOS" main="example.ApplicationMain" />
 		<argument name="iphonesim" />
 		
 	</target>

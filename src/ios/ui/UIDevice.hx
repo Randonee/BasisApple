@@ -1,6 +1,6 @@
-package com.season.basis.ios.ui;
+package ios.ui;
 
-import com.season.basis.ios.DeviceEventManager;
+import ios.DeviceEventManager;
 
 import cpp.Lib;
 

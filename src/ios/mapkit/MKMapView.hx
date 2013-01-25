@@ -1,6 +1,6 @@
-package com.season.basis.ios.mapkit;
+package ios.mapkit;
 
-import com.season.basis.ios.ui.UIView;
+import ios.ui.UIView;
 
 class MKMapView extends UIView
 {
