@@ -10,7 +10,9 @@
 		<argument name="iphonesim" />
 		
 	</target>
-	
+	<haxelib name="msignal" />
+		<haxelib name="mpartial" />
+		<haxelib name="mmvc" />
 	<src path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/src" />
 		
 	<builddir path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/build" />

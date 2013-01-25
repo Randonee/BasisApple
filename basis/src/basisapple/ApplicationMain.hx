@@ -43,7 +43,9 @@ class ApplicationMain
 				buildFile.writeString("-cpp " + haxeBuildPath + "/cpp\n");
 				for(arg in project.commandLineArguments)
 					buildFile.writeString("-D " + arg + "\n");
-				
+					
+				for(haxelib in project.haxeLibs)
+					buildFile.writeString("-lib " + haxelib + "\n");
 				
 				buildFile.writeString("-main RealMain\n");
 				buildFile.close();
@@ -55,7 +57,13 @@ class ApplicationMain
 						var contents:Array<String> = FileSystem.readDirectory(project.srcPaths[a]);
 						for(b in 0...contents.length)
 						{
-							Sys.command("cp", ["-r", project.srcPaths[a] + "/" + contents[a], haxeBuildPath + contents[a]]);
+							if(contents[b].charAt(0) != ".")
+							{
+								if(FileSystem.isDirectory(project.srcPaths[a] + "/" + contents[b]))
+									Util.copyInto(project.srcPaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
+								else
+									File.copy(project.srcPaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
+							}
 						}
 					}
 				}
@@ -88,7 +96,8 @@ class ApplicationMain
 				{
 					if(project.buildForSimulator)
 					{
-						Sys.command("cp", ["-r", haxeBuildPath + "cpp/obj/iphonesim/src/", xcodeBin]);
+						Util.copyInto(haxeBuildPath + "cpp/obj/iphonesim/src/", xcodeBin);
+						
 						File.copy(libPath + "/bin/iPhone/libbasis.iphonesim.a" , xcodeBin + "/libbasis.iphonesim.a");
 					
 						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphonesim.a" , xcodeBin + "/hxcpp/libregexp.iphonesim.a");
@@ -111,8 +120,8 @@ class ApplicationMain
 				}
 				else if(device.type == MAC)
 				{
-					Sys.command("cp",[Util.getHaxelib("hxcpp") + "bin/Mac/" , xcodeBin + "/hxcpp/"]);
-					Sys.command("cp",[libPath + "ndll/Mac/" , xcodeBin + "/hxcpp/"]);
+					Util.copyInto(Util.getHaxelib("hxcpp") + "bin/Mac/", xcodeBin + "/hxcpp/");
+					Util.copyInto(libPath + "ndll/Mac/", xcodeBin + "/hxcpp/");
 				}
 
 				Util.createDirectory(devicePath + "/Files");
