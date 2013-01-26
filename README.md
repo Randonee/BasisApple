@@ -3,9 +3,10 @@ BasisApple
 
 Haxe Native Apple Development
 
-This project uses hxcpp and CFFI to allow the use of native Apple UI components.
-
 This haxelib is used by the Basis haxelib
+https://github.com/Randonee/Basis
+
+This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
 
 **License:**
