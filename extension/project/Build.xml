@@ -48,7 +48,7 @@
 	
 	<set name="name_prefix" value="lib" if="iphone" />
 	
-	<target id="NDLL" output="${name_prefix}basis${name_extra}" tool="linker" toolid="${ndll-tool}">
+	<target id="NDLL" output="${name_prefix}basisapple${name_extra}" tool="linker" toolid="${ndll-tool}">
 
 		<outdir name="../ndll/${BINDIR}" />
 		<ext value=".ndll" unless="mobile"/>

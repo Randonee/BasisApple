@@ -1,20 +1,18 @@
-<project name="Example">
-
-	<target name="Apple">
+<target name="Example">
+	<haxelib name="msignal" />
+	<haxelib name="mpartial" />
+	<haxelib name="mmvc" />
+	<source path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/src" />
+	<builddir path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/build" />
+	<target type="Apple">
 		<framework name="UIKit" />
 		<framework name="Foundation" />
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
-		
-		<device name="IOS" main="example.ApplicationMain" />
-		<argument name="iphonesim" />
-		
+		<target>
+			<device type="ios" />
+			<simulator use="true" />
+			<main classpath="example.ApplicationMain" />
+		</target>
 	</target>
-	<haxelib name="msignal" />
-		<haxelib name="mpartial" />
-		<haxelib name="mmvc" />
-	<src path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/src" />
-		
-	<builddir path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/build" />
-
-</project>
+</target>
