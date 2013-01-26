@@ -3,6 +3,7 @@ package basisapple;
 import basis.settings.ISettings;
 import basis.settings.Target;
 import basis.FileUtil;
+import basis.ProcessUtil;
 import basisapple.settings.XmlAppleSettings;
 import basisapple.settings.AppleTarget;
 import basisapple.XCodeProject;
@@ -72,7 +73,7 @@ class AppleBuildTool extends basis.BuildTool
 				
 				buildFile.writeString("-D " + deviceTarget.getDeviceTypeCompilerArgument() + "\n");
 				
-				
+				buildFile.writeString("-lib BasisApple\n");
 				for(arg in args)
 					buildFile.writeString("-D " + arg + "\n");
 					
@@ -139,8 +140,7 @@ class AppleBuildTool extends basis.BuildTool
 				fout.writeString(realMainContent);
 				fout.close();
 				
-				if(Sys.command("haxe", [targetPath + "/build.hxml"]) > 0)
-					throw("Error");
+				ProcessUtil.runCommand(targetPath, "haxe", ["build.hxml"]);
 					
 				FileUtil.createDirectory(xcodeBin + "/hxcpp/");
 				
@@ -154,8 +154,7 @@ class AppleBuildTool extends basis.BuildTool
 				fout.close();
 				
 				
-				var command:String = "(cd " + targetPath + "/haxe/cpp; haxelib run hxcpp BuildBasisStart.xml -D"+ deviceTarget.getDeviceTypeCompilerArgument() + ")";
-				Sys.command(command);
+				ProcessUtil.runCommand(targetPath + "/haxe/cpp", "haxelib", ["run", "hxcpp", "BuildBasisStart.xml", "-D"+ deviceTarget.getDeviceTypeCompilerArgument()]);
 				
 				if(deviceType == "ios")
 				{
