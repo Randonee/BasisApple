@@ -2,7 +2,7 @@ package basisapple;
 
 import basis.settings.ISettings;
 import basis.settings.Target;
-import basis.Util;
+import basis.FileUtil;
 import basisapple.settings.XmlAppleSettings;
 import basisapple.settings.AppleTarget;
 import basisapple.XCodeProject;
@@ -24,7 +24,7 @@ class AppleBuildTool extends basis.BuildTool
 		
 		try
 		{
-			var libPath:String = Util.getHaxelib("BasisApple");
+			var libPath:String = FileUtil.getHaxelib("BasisApple");
 			
 			for(subTarget in appleTarget.subTargets)
 			{
@@ -46,25 +46,25 @@ class AppleBuildTool extends basis.BuildTool
 				var appName:String = deviceTarget.getSetting(Target.NAME);
 			
 				var targetPath:String = deviceTarget.getSetting(Target.BUILD_DIR) + "/" + deviceType;
-				Util.createDirectory(targetPath);
+				FileUtil.createDirectory(targetPath);
 				
 				var haxeBuildPath:String = targetPath + "/haxe/";
 				
 				if(FileSystem.exists(haxeBuildPath))
-					Util.deleteDirectoryRecursive(haxeBuildPath);
+					FileUtil.deleteDirectoryRecursive(haxeBuildPath);
 				
-				Util.createDirectory(haxeBuildPath);
-				Util.createDirectory(haxeBuildPath + "/cpp/src");
+				FileUtil.createDirectory(haxeBuildPath);
+				FileUtil.createDirectory(haxeBuildPath + "/cpp/src");
 				
 				var xcodeFiles:String = targetPath + "/Files/";
 				var xcodeAssets:String = xcodeFiles + "/assets";
 				var xcodeBin:String = xcodeFiles + "/bin/";
 				
 				if(FileSystem.exists(xcodeBin))
-					Util.deleteDirectoryRecursive(xcodeBin);
+					FileUtil.deleteDirectoryRecursive(xcodeBin);
 					
-				Util.createDirectory(xcodeBin);
-				Util.createDirectory(xcodeAssets);
+				FileUtil.createDirectory(xcodeBin);
+				FileUtil.createDirectory(xcodeAssets);
 					
 				var buildFile:FileOutput = File.write(targetPath + "/build.hxml");
 				buildFile.writeString("-cp " + haxeBuildPath + "\n");
@@ -96,7 +96,7 @@ class AppleBuildTool extends basis.BuildTool
 							if(contents[b].charAt(0) != ".")
 							{
 								if(FileSystem.isDirectory(sourcePaths[a] + "/" + contents[b]))
-									Util.copyInto(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
+									FileUtil.copyInto(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
 								else
 									File.copy(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
 							}
@@ -121,7 +121,7 @@ class AppleBuildTool extends basis.BuildTool
 							if(contents[b].charAt(0) != ".")
 							{
 								if(FileSystem.isDirectory(assetPaths[a] + "/" + contents[b]))
-									Util.copyInto(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
+									FileUtil.copyInto(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
 								else
 									File.copy(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
 							}
@@ -142,7 +142,7 @@ class AppleBuildTool extends basis.BuildTool
 				if(Sys.command("haxe", [targetPath + "/build.hxml"]) > 0)
 					throw("Error");
 					
-				Util.createDirectory(xcodeBin + "/hxcpp/");
+				FileUtil.createDirectory(xcodeBin + "/hxcpp/");
 				
 				File.copy(libPath + "template/BuildBasisStart.xml" , targetPath + "/haxe/cpp/BuildBasisStart.xml");
 				
@@ -161,35 +161,35 @@ class AppleBuildTool extends basis.BuildTool
 				{
 					if(deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
 					{
-						Util.copyInto(haxeBuildPath + "cpp/obj/iphonesim/src/", xcodeBin);
+						FileUtil.copyInto(haxeBuildPath + "cpp/obj/iphonesim/src/", xcodeBin);
 						
 						File.copy(libPath + "/bin/iPhone/libbasisapple.iphonesim.a" , xcodeBin + "/libbasisapple.iphonesim.a");
 					
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphonesim.a" , xcodeBin + "/hxcpp/libregexp.iphonesim.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libstd.iphonesim.a" , xcodeBin + "/hxcpp/libstd.iphonesim.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libzlib.iphonesim.a" , xcodeBin + "/hxcpp/libzlib.iphonesim.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphonesim.a" , xcodeBin + "/hxcpp/libregexp.iphonesim.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libstd.iphonesim.a" , xcodeBin + "/hxcpp/libstd.iphonesim.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libzlib.iphonesim.a" , xcodeBin + "/hxcpp/libzlib.iphonesim.a");
 					}
 					else
 					{
 						File.copy(libPath + "bin/iPhone/libbasisapple.iphoneos-v7.a" , xcodeBin + "/libbasisapple.iphoneos-v7.a");
 						File.copy(libPath + "bin/iPhone/libbasisapple.iphoneos.a" , xcodeBin + "/libbasisapple.iphoneos.a");
 						
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphoneos.a" , xcodeBin + "/hxcpp/libregexp.iphoneos.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libstd.iphoneos.a" , xcodeBin + "/hxcpp/libstd.iphoneos.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libzlib.iphoneos.a" , xcodeBin + "/hxcpp/libzlib.iphoneos.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphoneos-v7.a" , xcodeBin + "/hxcpp/libregexp.iphoneos-v7.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libstd.iphoneos-v7.a" , xcodeBin + "/hxcpp/libstd.iphoneos-v7.a");
-						File.copy(Util.getHaxelib("hxcpp") + "bin/iPhone/libzlib.iphoneos-v7.a" , xcodeBin + "/hxcpp/libzlib.iphoneos-v7.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphoneos.a" , xcodeBin + "/hxcpp/libregexp.iphoneos.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libstd.iphoneos.a" , xcodeBin + "/hxcpp/libstd.iphoneos.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libzlib.iphoneos.a" , xcodeBin + "/hxcpp/libzlib.iphoneos.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphoneos-v7.a" , xcodeBin + "/hxcpp/libregexp.iphoneos-v7.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libstd.iphoneos-v7.a" , xcodeBin + "/hxcpp/libstd.iphoneos-v7.a");
+						File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libzlib.iphoneos-v7.a" , xcodeBin + "/hxcpp/libzlib.iphoneos-v7.a");
 					}
 					
 				}
 				else if(deviceTarget.getSetting(Target.TYPE) == "mac")
 				{
-					Util.copyInto(Util.getHaxelib("hxcpp") + "bin/Mac/", xcodeBin + "/hxcpp/");
-					Util.copyInto(libPath + "ndll/Mac/", xcodeBin + "/hxcpp/");
+					FileUtil.copyInto(FileUtil.getHaxelib("hxcpp") + "bin/Mac/", xcodeBin + "/hxcpp/");
+					FileUtil.copyInto(libPath + "ndll/Mac/", xcodeBin + "/hxcpp/");
 				}
 
-				Util.createDirectory(xcodeFiles);
+				FileUtil.createDirectory(xcodeFiles);
 				
 				File.copy(libPath + "template/Main.mm", xcodeFiles + "/Main.mm");
 				File.copy(libPath + "template/Info.plist" , xcodeFiles + appName + "-Info.plist");

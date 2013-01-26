@@ -4,7 +4,7 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.FileOutput;
 
-import basis.Util;
+import basis.FileUtil;
 
 class FileResource
 {
@@ -170,7 +170,7 @@ class XCodeProject
 	public function save(path:String):Void
 	{
 		if(FileSystem.exists(path + "/" + name + ".xcodeproj"))
-			Util.deleteDirectoryRecursive(path + "/" + name + ".xcodeproj");
+			FileUtil.deleteDirectoryRecursive(path + "/" + name + ".xcodeproj");
 	
 		FileSystem.createDirectory(path + "/" + name + ".xcodeproj");
 	
@@ -518,7 +518,7 @@ class XCodeProject
 	
 	private function getFileType(fileName:String):String
 	{
-		var extention:String = Util.getFileExtention(fileName);
+		var extention:String = FileUtil.getFileExtention(fileName);
 		
 		switch(extention)
 		{
@@ -558,7 +558,7 @@ class XCodeProject
 	
 	private function fileIsSource(file:FileResource):Bool
 	{
-		var extension:String = Util.getFileExtention(file.name);
+		var extension:String = FileUtil.getFileExtention(file.name);
 		if(extension == "o" || extension == "a" || extension == "file" )
 			return false;
 		
@@ -567,13 +567,13 @@ class XCodeProject
 	
 	private function fileIsHeader(file:FileResource):Bool
 	{
-		var extension:String = Util.getFileExtention(file.name);
+		var extension:String = FileUtil.getFileExtention(file.name);
 		return (extension == "h");
 	}
 	
 	private function addToFrameworksIfNeeded(file:FileResource):Void
 	{
-		var extention:String = Util.getFileExtention(file.name);
+		var extention:String = FileUtil.getFileExtention(file.name);
 		
 		if(extention == "a" || extention == "o")
 		{
