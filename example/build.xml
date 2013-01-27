@@ -1,7 +1,4 @@
 <target name="Example">
-	<haxelib name="msignal" />
-	<haxelib name="mpartial" />
-	<haxelib name="mmvc" />
 	<source path="src" />
 	<builddir path="build" />
 	<target type="Apple">
