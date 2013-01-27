@@ -198,7 +198,7 @@ class AppleBuildTool extends basis.BuildTool
 				xcode.addSouce("Main.mm");
 				
 				xcode.addSourceDirectory("bin", xcodeBin);
-				xcode.addSourceDirectory("assets", xcodeAssets);
+				xcode.addSourceDirectory("assets", xcodeAssets, true);
 				xcode.addPlist(appName + "-Info.plist");
 				
 				for(b in 0...frameworks.length)

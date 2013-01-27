@@ -25,11 +25,13 @@ class FileResource
 class GroupResource extends FileResource
 {
 	public var items:Array<FileResource>;
+	public var isResource:Bool;
 	
-	public function new(name:String, guid:String, fileRef:String, items:Array<FileResource>, ?path:String="")
+	public function new(name:String, guid:String, fileRef:String, items:Array<FileResource>, ?path:String="", ?isResource = false)
 	{
 		super(name, guid, fileRef, path);
 		this.items = items;
+		this.isResource = isResource;
 	}
 }
 
@@ -118,12 +120,15 @@ class XCodeProject
 		addToFrameworksIfNeeded(fileRes);
 	}
 	
-	public function addSourceDirectory(name:String, path:String):Void
+	public function addSourceDirectory(name:String, path:String, ?isResource:Bool=false):Void
 	{
-		var group:GroupResource = new GroupResource(name, createGUID(), createGUID(), [], _filesGroup.path + name +  "/");
+		var group:GroupResource = new GroupResource(name, createGUID(), createGUID(), [], _filesGroup.path + name +  "/", isResource);
 		_filesGroup.items.push(group);
 		sourceDirectories.push(group);
-		addDirectoryItems(group, path);
+		if(!isResource)
+			addDirectoryItems(group, path);
+		else
+			resources.push(group);
 	}
 	
 	private function addDirectoryItems(group:GroupResource, path:String):Void
@@ -287,7 +292,10 @@ class XCodeProject
 		writeLn(fout,createGroup(_frameworksGroup));
 		writeLn(fout,createGroup(_filesGroup));
 		for(group in sourceDirectories)
-			writeLn(fout,createGroup(group));
+		{
+			if(!group.isResource)
+				writeLn(fout,createGroup(group));
+		}
 		
 		
 		writeLn(fout, "/* End PBXGroup section */");

@@ -9,4 +9,10 @@ class IOSUtil
 		return cpp_basis_getBundlePath();
 	}
 	private static var cpp_basis_getBundlePath = Lib.load ("basis", "basis_getBundlePath", 0);
+	
+	
+	static public function getAssetPath(fileName:String):String
+	{
+		return cpp_basis_getBundlePath() + "/assets/" + fileName;
+	}
 }
