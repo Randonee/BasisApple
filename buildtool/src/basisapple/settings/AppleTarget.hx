@@ -7,6 +7,7 @@ class AppleTarget extends Target
 	//Settings
 	static inline public var DEVICE_TYPE:String = "deviceType";
 	static inline public var SIMULATOR:String = "simulator";
+	static inline public var SIMULATOR_TYPE:String = "simulatorType";
 	
 	
 	//Collections

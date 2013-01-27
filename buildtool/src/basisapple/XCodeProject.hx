@@ -39,6 +39,8 @@ class GroupResource extends FileResource
 class XCodeProject
 {
 	public var name(default, default):String;
+	public var fileName(getFileName, null):String;
+	
 	public var sources(default, null):Array<FileResource>;
 	public var frameworks(default, null):Array<FileResource>;
 	public var resources(default, null):Array<FileResource>;
@@ -174,12 +176,12 @@ class XCodeProject
 
 	public function save(path:String):Void
 	{
-		if(FileSystem.exists(path + "/" + name + ".xcodeproj"))
-			FileUtil.deleteDirectoryRecursive(path + "/" + name + ".xcodeproj");
+		if(FileSystem.exists(path + "/" + fileName))
+			FileUtil.deleteDirectoryRecursive(path + "/" + fileName);
 	
-		FileSystem.createDirectory(path + "/" + name + ".xcodeproj");
+		FileSystem.createDirectory(path + "/" + fileName);
 	
-		var fout:FileOutput = File.write(path + "/" + name + ".xcodeproj/project.pbxproj");
+		var fout:FileOutput = File.write(path + "/" + fileName + "/project.pbxproj");
 		writeLn(fout, "// !$*UTF8*$!");
 		writeLn(fout, "{");
 		writeLn(fout, "\tarchiveVersion = 1;");
@@ -212,6 +214,8 @@ class XCodeProject
 		writeLn(fout, "\t};");
 		writeLn(fout, "\trootObject = " + _rootObjectID + " /* Project object */;");
 		writeLn(fout, "}");
+		
+		fout.close();
 	}
 	
 	
@@ -617,5 +621,9 @@ class XCodeProject
 		return false;
 	}
 	
+	private function getFileName():String
+	{
+		return name + ".xcodeproj";
+	}
 	
 }

@@ -11,8 +11,10 @@
 		<framework name="QuartzCore" />
 		<target>
 			<device type="ios" />
-			<simulator use="true" />
+			<simulator use="true" type="ipad"/>
 			<main classpath="example.ApplicationMain" />
+			<debug value="true" />
+			<runWhenFinished value="true" />
 		</target>
 	</target>
 </target>

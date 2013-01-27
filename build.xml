@@ -36,6 +36,10 @@
 		<copy todir="build/BasisApple/0,0,1/bin">
 			<fileset dir="extension/ndll"/>
 		</copy>
+		
+		<copy todir="build/BasisApple/0,0,1/bin">
+			<fileset dir="bin"/>
+		</copy>
 	
 		<copy todir="build/BasisApple/0,0,1/template">
 			<fileset dir="template"/>

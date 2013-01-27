@@ -33,6 +33,7 @@ class XmlAppleSettings extends XmlSettings
 	private function parseSimulator(xml:Fast, currentTarget:Target):Void
 	{
 		currentTarget.setSetting(AppleTarget.SIMULATOR, xml.att.use.toLowerCase());
+		currentTarget.setSetting(AppleTarget.SIMULATOR_TYPE, xml.att.type);
 	}
 	
 	private function parseFramework(xml:Fast, currentTarget):Void

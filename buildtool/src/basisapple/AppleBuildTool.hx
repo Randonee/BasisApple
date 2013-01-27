@@ -14,6 +14,8 @@ import sys.io.FileOutput;
 
 class AppleBuildTool extends basis.BuildTool
 {
+	static inline public var SIMULATOR_LOCATION:String = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app/Contents/MacOS/iPhone Simulator";
+
 	override private function createSettings(path:String):ISettings
 	{
 		return new XmlAppleSettings(path);
@@ -199,6 +201,33 @@ class AppleBuildTool extends basis.BuildTool
 					xcode.addFramework(frameworks[b]);
 					
 				xcode.save(targetPath);
+				
+				
+				var configuration:String = "Debug";
+				var commands = [ "-configuration", configuration ];
+				
+				if (deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
+				{
+					
+		            commands.push ("-arch");
+		            commands.push ("i386");
+		            commands.push ("-sdk");
+		            commands.push ("iphonesimulator");
+				}
+				ProcessUtil.runCommand(targetPath, "xcodebuild", commands);
+				
+				if(deviceTarget.getSetting(Target.RUN_WHEN_FINISHED) == "true")
+				{
+					var launcher:String = libPath + "/bin/ios-sim";
+					Sys.command ("chmod", [ "+x", launcher ]);
+					
+					var family:String = "iphone";
+					if(deviceTarget.getSetting(AppleTarget.SIMULATOR_TYPE) == "ipad")
+						family = "ipad";
+					
+					ProcessUtil.runCommand ("", launcher, [ "launch", FileSystem.fullPath (targetPath + "/build/Debug-iphonesimulator/" + appName + ".app"), "--family", family ] );
+			
+				}
 			}
 		}
 		catch(error:String)
