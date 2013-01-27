@@ -11,7 +11,7 @@ This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
 **Installation**
 
-run command :
+run command run command (make sure Bases has a capital "B")::
 
 	haxelib install Basis
 	
