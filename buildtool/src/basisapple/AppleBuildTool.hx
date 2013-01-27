@@ -51,19 +51,13 @@ class AppleBuildTool extends basis.BuildTool
 				
 				var haxeBuildPath:String = targetPath + "/haxe/";
 				
-				if(FileSystem.exists(haxeBuildPath))
-					FileUtil.deleteDirectoryRecursive(haxeBuildPath);
-				
-				FileUtil.createDirectory(haxeBuildPath);
 				FileUtil.createDirectory(haxeBuildPath + "/cpp/src");
 				
 				var xcodeFiles:String = targetPath + "/Files/";
 				var xcodeAssets:String = xcodeFiles + "/assets";
 				var xcodeBin:String = xcodeFiles + "/bin/";
 				
-				if(FileSystem.exists(xcodeBin))
-					FileUtil.deleteDirectoryRecursive(xcodeBin);
-					
+
 				FileUtil.createDirectory(xcodeBin);
 				FileUtil.createDirectory(xcodeAssets);
 					
