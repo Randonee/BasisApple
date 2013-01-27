@@ -2,8 +2,8 @@
 	<haxelib name="msignal" />
 	<haxelib name="mpartial" />
 	<haxelib name="mmvc" />
-	<source path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/src" />
-	<builddir path="/Users/acs/Documents/workspaces4.5.1/harry/BasisApple/example/build" />
+	<source path="src" />
+	<builddir path="build" />
 	<target type="Apple">
 		<framework name="UIKit" />
 		<framework name="Foundation" />

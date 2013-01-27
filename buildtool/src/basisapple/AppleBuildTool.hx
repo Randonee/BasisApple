@@ -68,8 +68,8 @@ class AppleBuildTool extends basis.BuildTool
 				FileUtil.createDirectory(xcodeAssets);
 					
 				var buildFile:FileOutput = File.write(targetPath + "/build.hxml");
-				buildFile.writeString("-cp " + haxeBuildPath + "\n");
-				buildFile.writeString("-cpp " + haxeBuildPath + "/cpp\n");
+				buildFile.writeString("-cp haxe\n");
+				buildFile.writeString("-cpp haxe/cpp\n");
 				
 				buildFile.writeString("-D " + deviceTarget.getDeviceTypeCompilerArgument() + "\n");
 				
