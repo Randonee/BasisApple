@@ -9,6 +9,18 @@ https://github.com/Randonee/Basis
 This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
 
+**Installation**
+
+run command :
+
+	haxelib install Basis
+	
+
+**Running the Example**
+
+* Download the example in the example directory. https://github.com/Randonee/BasisApple/tree/master/example
+* From the example directory run the command: haxelib run Basis build.xml
+
 **License:**
 
     Unless indicated otherwise, this code was created by Aaron Spjut and
