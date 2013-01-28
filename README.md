@@ -18,8 +18,8 @@ run command run command (make sure Basis has a capital "B")::
 
 **Running the Example**
 
-* Download the example in the example directory. https://github.com/Randonee/BasisApple/tree/master/example
-* From the example directory run the command: haxelib run Basis build.xml apple
+* Download the 0.0.1 example: https://github.com/Randonee/BasisApple/tree/v0.0.1/example
+* From the example directory run the command: haxelib run Basis build.xml
 
 **License:**
 
