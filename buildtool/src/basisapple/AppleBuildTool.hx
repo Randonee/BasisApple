@@ -67,7 +67,11 @@ class AppleBuildTool extends basis.BuildTool
 				buildFile.writeString("-cpp haxe/cpp\n");
 				
 				buildFile.writeString("-D " + deviceTarget.getDeviceTypeCompilerArgument() + "\n");
-				
+				if(deviceType == "ios")
+					buildFile.writeString("-D ios\n");
+				else
+					buildFile.writeString("-D macos\n");
+					
 				buildFile.writeString("-lib BasisApple\n");
 				for(arg in args)
 					buildFile.writeString("-D " + arg + "\n");
