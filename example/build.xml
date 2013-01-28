@@ -1,12 +1,13 @@
-<target name="Example">
+<target name="main">
+	<appName value="Example" />
 	<source path="src" />
 	<builddir path="build" />
-	<target type="Apple">
+	<target name="apple" type="Apple">
 		<framework name="UIKit" />
 		<framework name="Foundation" />
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
-		<target>
+		<target name="ipad">
 			<device type="ios" />
 			<simulator use="true" type="ipad"/>
 			<main classpath="example.ApplicationMain" />

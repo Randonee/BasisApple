@@ -21,10 +21,9 @@ class AppleBuildTool extends basis.BuildTool
 		return new XmlAppleSettings(path);
 	}
 	
-	override private function getSettings_complete(target:Target):Void
+	override private function compileTarget(target:Target):Void
 	{
-		var appleTarget:AppleTarget = cast(target, AppleTarget).getAppleTarget();
-		
+		var appleTarget:AppleTarget = cast(target, AppleTarget);
 		try
 		{
 			var libPath:String = FileUtil.getHaxelib("BasisApple");
@@ -46,7 +45,7 @@ class AppleBuildTool extends basis.BuildTool
 					throw("No main class for: " + deviceType);
 				
 				
-				var appName:String = deviceTarget.getSetting(Target.NAME);
+				var appName:String = deviceTarget.getSetting(Target.APP_NAME);
 			
 				var targetPath:String = deviceTarget.getSetting(Target.BUILD_DIR) + "/" + deviceType;
 				FileUtil.createDirectory(targetPath);

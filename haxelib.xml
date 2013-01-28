@@ -3,7 +3,6 @@
     <tag v="apple"/>
     <tag v="ios"/>
     <tag v="cross"/>
-    <depends name="Basis"/>
     <description>BasisApple</description>
     <version name="0.0.1">alpha</version>
 </project>
