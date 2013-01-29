@@ -13,16 +13,6 @@ class AppleTarget extends Target
 	//Collections
 	static inline public var FRAMEWORKS:String = "frameworks";
 	
-	public function getAppleTarget():AppleTarget
-	{
-		for(target in subTargets)
-			if(target.getSetting(Target.TYPE) == "apple")
-				return cast(target, AppleTarget);
-		
-		return null;
-	}
-	
-	
 	public function getDeviceTypeCompilerArgument():String
 	{
 		var type:String = getSetting(DEVICE_TYPE);
