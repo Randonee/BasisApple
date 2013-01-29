@@ -5,6 +5,7 @@ import ios.ui.UIView;
 import ios.ui.UILabel;
 import ios.ui.UITextField;
 import ios.ui.UIButton;
+import ios.ui.UIControl;
 import ios.EventTypes;
 
 class MainView extends UIView
@@ -42,7 +43,7 @@ class MainView extends UIView
 		
 		_sampleButton = new UIButton();
 		_sampleButton.frame = [50.0,160,100,30];
-		_sampleButton.setTitle("Button", 0);
+		_sampleButton.setTitle("Button", UIControl.StateNormal);
 		_sampleButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onButtonClick);
 		addSubview(_sampleButton);
 		
