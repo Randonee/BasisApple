@@ -62,10 +62,11 @@ class AppleBuildTool extends basis.BuildTool
 				FileUtil.createDirectory(xcodeBin);
 				FileUtil.createDirectory(xcodeAssets);
 					
+				
+				//------ Create haxe build file ------
 				var buildFile:FileOutput = File.write(targetPath + "/build.hxml");
 				buildFile.writeString("-cp haxe\n");
 				buildFile.writeString("-cpp haxe/cpp\n");
-				
 				buildFile.writeString("-D " + deviceTarget.getDeviceTypeCompilerArgument() + "\n");
 				if(deviceType == "ios")
 					buildFile.writeString("-D ios\n");
@@ -81,7 +82,10 @@ class AppleBuildTool extends basis.BuildTool
 				
 				buildFile.writeString("-main RealMain\n");
 				buildFile.close();
+				//------------------------------------
 				
+				
+				//-------- Add source paths ----------
 				var mainFound:Bool = false;
 				for(a in 0...sourcePaths.length)
 				{
@@ -110,7 +114,10 @@ class AppleBuildTool extends basis.BuildTool
 				
 				if(!mainFound)
 					throw("Error: main file not found: " + mainClass);
+				//------------------------------------
 				
+				
+				//-------- Add asset paths -----------
 				for(a in 0...assetPaths.length)
 				{
 					if(FileSystem.exists(assetPaths[a]))
@@ -132,19 +139,23 @@ class AppleBuildTool extends basis.BuildTool
 						throw("Error: asset directory not found: " + assetPaths[a]);
 					}
 				}
+				//------------------------------------
 				
+				//-------- Main haxe class -----------
 				var realMainContent:String = File.getContent(libPath + "template/RealMain.hx");
 				realMainContent = StringTools.replace(realMainContent, "MAIN_INCLUDE", mainClass);
 				var fout = neko.io.File.write(targetPath + "/haxe/RealMain.hx");
 				fout.writeString(realMainContent);
 				fout.close();
+				//------------------------------------
 				
+				//------------ Build cpp -------------
 				ProcessUtil.runCommand(targetPath, "haxe", ["build.hxml"]);
-					
 				FileUtil.createDirectory(xcodeBin + "/hxcpp/");
+				//------------------------------------
 				
+				//----------- Build Start ------------
 				File.copy(libPath + "template/BuildBasisStart.xml" , targetPath + "/haxe/cpp/BuildBasisStart.xml");
-				
 				var basisStartContent:String = File.getContent(libPath + "template/BasisStart.cpp");
 				basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", StringTools.replace(mainClass, ".", "/") );
 				basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", StringTools.replace(mainClass, ".", "::"));
@@ -152,9 +163,11 @@ class AppleBuildTool extends basis.BuildTool
 				fout.writeString(basisStartContent);
 				fout.close();
 				
-				
 				ProcessUtil.runCommand(targetPath + "/haxe/cpp", "haxelib", ["run", "hxcpp", "BuildBasisStart.xml", "-D"+ deviceTarget.getDeviceTypeCompilerArgument()]);
+				//------------------------------------
 				
+				
+				//------------ Copy Libs -------------
 				if(deviceType == "ios")
 				{
 					if(deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
@@ -186,13 +199,17 @@ class AppleBuildTool extends basis.BuildTool
 					FileUtil.copyInto(FileUtil.getHaxelib("hxcpp") + "bin/Mac/", xcodeBin + "/hxcpp/");
 					FileUtil.copyInto(libPath + "ndll/Mac/", xcodeBin + "/hxcpp/");
 				}
-
-				FileUtil.createDirectory(xcodeFiles);
+				//------------------------------------
 				
+				//---- Copy xcode project files ------
+				FileUtil.createDirectory(xcodeFiles);
 				File.copy(libPath + "template/Main.mm", xcodeFiles + "/Main.mm");
 				File.copy(libPath + "template/Info.plist" , xcodeFiles + appName + "-Info.plist");
 				File.copy(libPath + "template/prefix.pch" , xcodeFiles + "/prefix.pch");
+				//------------------------------------
 				
+				
+				//-------- Create XCode Project -------
 				var xcode:XCodeProject = new XCodeProject(appName);
 				xcode.addSouce("Main.mm");
 				
@@ -204,8 +221,10 @@ class AppleBuildTool extends basis.BuildTool
 					xcode.addFramework(frameworks[b]);
 					
 				xcode.save(targetPath);
+				//------------------------------------
 				
 				
+				//-------- Build Xcode Project -------
 				var configuration:String = "Debug";
 				var commands = [ "-configuration", configuration ];
 				
@@ -218,7 +237,10 @@ class AppleBuildTool extends basis.BuildTool
 		            commands.push ("iphonesimulator");
 				}
 				ProcessUtil.runCommand(targetPath, "xcodebuild", commands);
+				//------------------------------------
 				
+				
+				//-------- Run Xcode Project ---------
 				if(deviceTarget.getSetting(Target.RUN_WHEN_FINISHED) == "true")
 				{
 					var launcher:String = libPath + "/bin/ios-sim";
@@ -231,6 +253,7 @@ class AppleBuildTool extends basis.BuildTool
 					ProcessUtil.runCommand ("", launcher, [ "launch", FileSystem.fullPath (targetPath + "/build/Debug-iphonesimulator/" + appName + ".app"), "--family", family ] );
 			
 				}
+				//------------------------------------
 			}
 		}
 		catch(error:String)
