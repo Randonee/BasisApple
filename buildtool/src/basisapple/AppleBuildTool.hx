@@ -32,7 +32,7 @@ class AppleBuildTool extends basis.BuildTool
 			{
 				var deviceTarget:AppleTarget = cast(subTarget, AppleTarget);
 			
-				var args:Array<String> = deviceTarget.getCollection(Target.COMMAND_LINE_ARGUMENTS, true);
+				var haxeArgs:Array<String> = deviceTarget.getCollection(Target.HAXE_ARGS, true);
 				var sourcePaths:Array<String> = deviceTarget.getCollection(Target.SOURCE_PATHS, true);
 				var frameworks:Array<String> = deviceTarget.getCollection(AppleTarget.FRAMEWORKS, true);
 				var assetPaths:Array<String> = deviceTarget.getCollection(Target.ASSET_PATHS, true);
@@ -74,8 +74,8 @@ class AppleBuildTool extends basis.BuildTool
 					buildFile.writeString("-D macos\n");
 					
 				buildFile.writeString("-lib BasisApple\n");
-				for(arg in args)
-					buildFile.writeString("-D " + arg + "\n");
+				for(arg in haxeArgs)
+					buildFile.writeString(arg + "\n");
 					
 				for(haxelib in haxeLibs)
 					buildFile.writeString("-lib " + haxelib + "\n");
