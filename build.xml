@@ -1,7 +1,7 @@
 <project basedir=".">
 	
 	
-	<target name="extension">
+	<target name="ios">
 		<delete dir="extension/project/obj" failOnError="false" includeEmptyDirs="true"/>
 						
 		<exec dir="extension/project" failonerror="true" executable="haxelib">
@@ -15,9 +15,18 @@
 		</exec>
 	</target>
 	
+	<target name="osx">
+		<delete dir="extension/project/obj" failOnError="false" includeEmptyDirs="true"/>
+						
+		<exec dir="extension/project" failonerror="true" executable="haxelib">
+			<arg line="run hxcpp Build.xml -Dmacos" />
+		</exec>
+	</target>
+	
 	<target name="buildHaxelib">
 		<delete dir="build"/>
-		<!--<antcall target="extension" />-->
+		<!--<antcall target="ios" />-->
+		<!--<antcall target="osx" />-->
 		
 		<mkdir dir="build/"/>
 		<mkdir dir="build/BasisApple"/>

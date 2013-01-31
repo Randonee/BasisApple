@@ -2,13 +2,19 @@
 	
 	<set name="GCC_THIN_ARCHIVE" value="1" if="iphone"/>
 	
+	<set name="HXCPP_M64" value="1" if="macos"/>
+	<set name="OSX" value="1" if="macos"/>
+
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 
 	<set name="mobile" value="1" if="iphone"/>
+
+	<set name="OSX" value="1" if="macos"/>
 	
+	<depend name="${HXCPP}/include/hx/Macros.h"/>
+      <depend name="${HXCPP}/include/hx/CFFI.h"/>
+
     <files id="iphone">
-        <depend name="${HXCPP}/include/hx/Macros.h"/>
-        <depend name="${HXCPP}/include/hx/CFFI.h"/>
         <compilerflag value="-Iinclude"/>
 		<file name="common/ExternalInterface.cpp"/>
 		<file name="basis/ios/BasisApplication.mm"/>
@@ -17,25 +23,31 @@
 		<file name="basis/ios/ViewEventManager.mm"/>
 		<file name="basis/Basis.mm"/>
     </files>
-    
-	<files id="common">
-		
-	</files>
 
-	<set name="tool" value="exe" unless="iphone"/>
+	
+	<files id="osx">
+        <compilerflag value="-Iinclude"/>
+		<file name="common/ExternalInterface.cpp"/>
+		<file name="basis/osx/BasisOSXApplication.mm"/>
+		<file name="basis/osx/WindowManager.mm"/>
+		<file name="basis/osx/WindowEventManager.mm"/>
+		<file name="basis/Basis.mm"/>
+    </files>
+    
+	<set name="tool" value="exe" if="macos"/>
 	<set name="tool" value="static_link" if="iphone"/>
 	
 	
 	<set name="IOS_ARCH" value="-v7" if="HXCPP_ARMV7"/>
 	
-	<set name="ndll-tool" value="dll" unless="iphone"/>
+	<set name="ndll-tool" value="dll" if="macos"/>
 	<set name="ndll-tool" value="static_link" if="iphone"/>
 	<set name="name_extra" value=".iphoneos${IOS_ARCH}" if="iphoneos"/>
 	<set name="name_extra" value=".iphonesim" if="iphonesim"/>
 
 	<set name="no_thirdparty_extras" value="1" if="iphone"/>
 	
-	<set name="sdl_static" value="1" unless="mobile"/>
+	<set name="sdl_static" value="1" if="macos"/>
 	<unset name="sdl_static" if="dynamic_sdl"/>
 	<set name="no_thirdparty_extras" value="1" if="dynamic_sdl"/>
 	
@@ -44,9 +56,9 @@
 	<target id="NDLL" output="${name_prefix}basisapple${name_extra}" tool="linker" toolid="${ndll-tool}">
 
 		<outdir name="../ndll/${BINDIR}" />
-		<ext value=".ndll" unless="mobile"/>
+		<ext value=".ndll" if="macos"/>
 		<files id="iphone" if="iphone"/>
-		<files id="common"/>
+		<files id="osx" if="macos"/>
 	</target>
 
 	<target id="default">
