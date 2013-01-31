@@ -14,12 +14,9 @@
 
 using namespace basis;
 
-
-
 extern "C" void basis_main ()
 {	
-	//Hack: Linker errors unless this is here
-	//viewManager_doesNothing();
+	//Linker errors unless this is here
 	doesNothing();
 }
 DEFINE_ENTRY_POINT (basis_main);

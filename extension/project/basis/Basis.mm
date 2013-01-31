@@ -10,7 +10,6 @@ namespace basis
 
 void doesNothing()
 {
-
 }
 
 #include "Util.mm"
@@ -28,7 +27,5 @@ void initBasis()
 	[BasisApplication start];
 }
 DEFINE_PRIM (initBasis, 0);
-
-    
     
 }
