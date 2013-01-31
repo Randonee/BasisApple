@@ -68,15 +68,3 @@ CGPoint arrayToCGPoint(value arr)
 	return CGPointMake(val_float(val_array_i(arr, 0)),
 					  val_float(val_array_i(arr, 1))); 
 }
-
-
-
-#include "applicationservices/CGAffineTransformExtern.mm"
-#include "ui/UIView.mm"
-#include "ui/UIControl.mm"
-#include "ui/UIScreen.mm"
-#include "ui/UIImageView.mm"
-#include "ui/UILabel.mm"
-#include "ui/UITextField.mm"
-#include "ui/UIButton.mm"
-

@@ -1,4 +1,4 @@
-#import "DeviceEventManager.h"
+#import "basis/ios/DeviceEventManager.h"
 
 @implementation DeviceEventManager
 
@@ -11,7 +11,8 @@ AutoGCRoot *eventHandler;
 
 -(void) callHandler:(const char*) type
 {
-	val_call1(eventHandler->get(), alloc_string(type));
+	if(eventHandler != NULL)
+		val_call1(eventHandler->get(), alloc_string(type));
 }
 
 //-(void) onUIDeviceBatteryStateDidChangeNotification:(NSNotification *) notification{[self callHandler:"UIDeviceBatteryStateDidChangeNotification"];}

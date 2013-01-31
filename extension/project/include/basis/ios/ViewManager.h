@@ -4,19 +4,15 @@
 #include <hx/CFFI.h>
 
 
-@interface BasisApplication : UIResponder <UIApplicationDelegate>
-
-	+(void) start;
-	+(BasisApplication *) getInstance;
+@interface ViewManager : UIResponder <UIApplicationDelegate>
 	
 	-(UIView*) getView:(int) tag;
 	-(UIView*) createViewOfType:(int) type;
 	-(void) setEventHandler:(AutoGCRoot *) handler;
 	-(void) removeView:(int) tag;
 	-(void) addToRootView:(int) tag;
-	
+	-(void) setMainWindow:(UIWindow *) win;
 	
 	@property (nonatomic, retain) UIWindow *window;
-	@property (nonatomic, retain) UIViewController *controller;
 
 @end

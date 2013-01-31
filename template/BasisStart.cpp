@@ -1,4 +1,5 @@
 #include <MAIN_INCLUDE.h>
+#include <basis/Basis.h>
 #include <ios/ViewManager.h>
 #include <ios/DeviceEventManager.h>
 

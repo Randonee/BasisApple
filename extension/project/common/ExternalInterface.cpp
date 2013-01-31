@@ -10,27 +10,17 @@
 #include <hx/CFFI.h>
 #include <hxcpp.h>
 
-#include "ViewManager.h"
-#include "DeviceManager.h"
+#include "basis/Basis.h"
 
 using namespace basis;
 
 
-#ifdef IPHONE
-
-void initBasis()
-{
-	viewManager_initViewManager();
-	deviceManager_init();
-}
-DEFINE_PRIM (initBasis, 0);
-
-#endif
 
 extern "C" void basis_main ()
 {	
 	//Hack: Linker errors unless this is here
-	viewManager_doesNothing();
+	//viewManager_doesNothing();
+	doesNothing();
 }
 DEFINE_ENTRY_POINT (basis_main);
 extern "C" int basis_register_prims () { return 0; }

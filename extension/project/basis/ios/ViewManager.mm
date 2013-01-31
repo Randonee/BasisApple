@@ -1,17 +1,32 @@
-#import "BasisApplication.h"
-#include <BasisStart.h>
+#import "basis/ios/ViewManager.h"
 
-@implementation BasisApplication
+@implementation ViewManager
 
 @synthesize window;
-@synthesize controller;
 
 UIView* createViewOfType(int type);
 NSMutableDictionary *views;
 int currentTag;
 ViewEventManager *eventManager;
 
-BasisApplication *instance;
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil)
+	{
+		currentTag = 2;
+	    views = [[NSMutableDictionary alloc] init];
+	    eventManager = [[ViewEventManager alloc] init];
+	    
+		[eventManager installAddSubviewListener:(^(id _self, UIView *view)
+		{
+			[eventManager callHanlders:view.tag :"DID_MOVE_TO_SUPERVIEW"];
+		})];
+	}
+	return self;
+}
+
 
 void initUIViewEventListeners(int tag);
 void initUIButtonEventListeners(int tag);
@@ -46,18 +61,12 @@ void initUIControlEventListeners(int tag);
 void initUITextFieldEventListeners(int tag);
 
 
-
-+(void) start
+-(void) setMainWindow:(UIWindow *) win
 {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	UIApplicationMain(0, nil, nil,  NSStringFromClass([BasisApplication class]));
-	[pool release];
+	self.window = win;
+	[views setObject:win forKey:[NSNumber numberWithInt:1]];
 }
 
-+(BasisApplication *) getInstance
-{
-	return instance;
-}
 
 -(UIView*) getView:(int) tag
 {
@@ -379,65 +388,6 @@ void initUITextFieldEventListeners(int tag)
 	[[NSNotificationCenter defaultCenter] addObserver:eventManager selector:@selector(onUITextFieldTextDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:view];
 	[[NSNotificationCenter defaultCenter] addObserver:eventManager selector:@selector(onUITextFieldTextDidEndEditingNotification:) name:UITextFieldTextDidEndEditingNotification object:view];
 	
-}
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-
-	instance = self;
-	currentTag = 2;
-    views = [[NSMutableDictionary alloc] init];
-    eventManager = [[ViewEventManager alloc] init];
-
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	self.window.backgroundColor = [UIColor whiteColor];
-	[self.window makeKeyAndVisible];
-	
-	UIViewController  *c = [[UIViewController alloc] init];
-   	self.controller = c;
-   	self.window.rootViewController = c;
-	
-	
-	self.window = [[UIApplication sharedApplication] keyWindow];
-    self.window.tag = 1;
-    [views setObject:self.window forKey:[NSNumber numberWithInt:1]];
-   
-    [eventManager installAddSubviewListener:(^(id _self, UIView *view)
-	{
-		[eventManager callHanlders:view.tag :"DID_MOVE_TO_SUPERVIEW"];
-	})];
-	
-	startBasis();
-	
-	return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

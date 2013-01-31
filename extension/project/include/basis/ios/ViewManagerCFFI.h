@@ -1,5 +1,5 @@
-#ifndef ViewManager
-#define ViewManager
+#ifndef CGAffineTransformExtern
+#define CGAffineTransformExtern
 
 #include <hx/CFFI.h>
 

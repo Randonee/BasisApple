@@ -5,24 +5,17 @@
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 
 	<set name="mobile" value="1" if="iphone"/>
-	<set name="mobile" value="1" if="android"/>
-	<set name="mobile" value="1" if="webos"/>
-	<set name="mobile" value="1" if="blackberry"/>
 	
-	<set name="SLIBEXT" value=".lib" if="windows"/>
-	<set name="SLIBEXT" value=".a" unless="windows"/>
-	<set name="SLIBEXT" value=".so" if="webos"/>
-    
     <files id="iphone">
         <depend name="${HXCPP}/include/hx/Macros.h"/>
         <depend name="${HXCPP}/include/hx/CFFI.h"/>
         <compilerflag value="-Iinclude"/>
-		<file name="iphone/ViewManager.mm"/>
-		<file name="iphone/ViewEventManager.mm"/>
-		<file name="iphone/BasisApplication.mm"/>
-		<file name="iphone/DeviceManager.mm"/>
-		<file name="iphone/DeviceEventManager.mm"/>
 		<file name="common/ExternalInterface.cpp"/>
+		<file name="basis/ios/BasisApplication.mm"/>
+		<file name="basis/ios/DeviceEventManager.mm"/>
+		<file name="basis/ios/ViewManager.mm"/>
+		<file name="basis/ios/ViewEventManager.mm"/>
+		<file name="basis/Basis.mm"/>
     </files>
     
 	<files id="common">

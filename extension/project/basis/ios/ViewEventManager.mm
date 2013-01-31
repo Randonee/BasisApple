@@ -1,4 +1,4 @@
-#import "ViewEventManager.h"
+#import "basis/ios/ViewEventManager.h"
 #import <objc/runtime.h>
 
 @implementation ViewEventManager
@@ -12,16 +12,12 @@ AutoGCRoot *viewHandler;
 
 -(void) callHanlders:(int) viewTag :(const char*) type
 {
-	val_call2(viewHandler->get(), alloc_string(type), alloc_int(viewTag));
+	if(viewHandler != NULL)
+		val_call2(viewHandler->get(), alloc_string(type), alloc_int(viewTag));
 }
 
 -(void) installAddSubviewListener:(void (^)(id _self, UIView* subview))listener
 {
-    if ( listener == NULL )
-    {
-        NSLog(@"listener cannot be NULL.");
-        return;
-    }
 
     Method addSubviewMethod = class_getInstanceMethod([UIView class], @selector(didAddSubview:));
     IMP originalImp = method_getImplementation(addSubviewMethod);
