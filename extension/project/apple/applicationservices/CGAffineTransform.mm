@@ -1,6 +1,3 @@
-#include "applicationservices/CGAffineTransformExtern.h"
-#import <Foundation/Foundation.h>
-
 namespace basis
 {
     value CGAffineTransform_MakeRotation(value num)

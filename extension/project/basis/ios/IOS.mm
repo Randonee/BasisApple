@@ -28,5 +28,7 @@
 #include "../../apple/ui/UIWebView.mm"
 #include "../../apple/ui/UIWindow.mm"
 
+#include "../../apple/applicationservices/CGAffineTransform.mm"
+
 #include "DeviceManagerCFFI.mm"
 #include "ViewManagerCFFI.mm"
