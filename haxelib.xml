@@ -4,5 +4,5 @@
     <tag v="ios"/>
     <tag v="cross"/>
     <description>BasisApple</description>
-    <version name="0.0.1">alpha</version>
+    <version name="0.0.2">alpha</version>
 </project>
