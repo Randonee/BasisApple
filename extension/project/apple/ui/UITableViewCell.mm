@@ -1,3 +1,11 @@
+void uitableviewcell_setLabel(value tag, value arg1)
+{
+	UITableViewCell *view = (UITableViewCell *)[[BasisApplication getViewManager] getView:val_int(tag)];
+	view.textLabel.text = [NSString stringWithCString:val_string(arg1)encoding:NSUTF8StringEncoding];
+}
+DEFINE_PRIM (uitableviewcell_setLabel, 2);
+
+
 void uitableviewcell_setBackgroundView(value tag, value tag1)
 {
 	UITableViewCell *view = (UITableViewCell *)[[BasisApplication getViewManager] getView:val_int(tag)];

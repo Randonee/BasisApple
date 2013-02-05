@@ -74,6 +74,17 @@ void initUITextFieldEventListeners(int tag);
 	return view;
 }
 
+-(int) addView:(UIView*) view
+{
+	view.tag = currentTag;
+    ++currentTag;
+    
+    [views setObject:view forKey:[NSNumber numberWithInt:view.tag]];
+    return view.tag;
+}
+
+
+
 -(void) setEventHandler:(AutoGCRoot *) handler
 {
 	[eventManager setEventHandler:handler];
@@ -200,7 +211,7 @@ void initUITextFieldEventListeners(int tag);
             view = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
             break;
 		case 28:
-            view = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+            view = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"group"] autorelease];
             break;
 		case 29:
             view = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];

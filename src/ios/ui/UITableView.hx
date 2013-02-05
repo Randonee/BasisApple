@@ -6,11 +6,16 @@ import ios.ViewBase;
 
 class UITableView extends UIScrollView
 {
+
+	public var dataSource(default, null):UITableViewDataSource;
+
 	public function new(?type:Int = 27)
 	{
 		super(type);
+		dataSource = new UITableViewDataSource();
+		dataSource.addTableView(this);
+		
 	}
-	
 	
 	public var allowsMultipleSelection(getAllowsMultipleSelection, setAllowsMultipleSelection) : Bool;
 	private function setAllowsMultipleSelection(value:Bool):Bool
@@ -115,9 +120,13 @@ class UITableView extends UIScrollView
 	}
 	private static var cpp_uitableview_beginUpdates = Lib.load("basis", "uitableview_beginUpdates", 1);
 
-	public function dequeueReusableCellWithIdentifier(arg1:String):UIView
+	public function dequeueReusableCellWithIdentifier(arg1:String):UITableViewCell
 	{
-		return cpp_uitableview_dequeueReusableCellWithIdentifier(_tag, arg1);
+		var tag:Int = cpp_uitableview_dequeueReusableCellWithIdentifier(_tag, arg1);
+		if(tag <= 0)
+			return null;
+		
+		return cast(ViewManager.getView(tag), UITableViewCell);
 	}
 	private static var cpp_uitableview_dequeueReusableCellWithIdentifier = Lib.load("basis", "uitableview_dequeueReusableCellWithIdentifier", 2);
 

@@ -32,3 +32,4 @@
 
 #include "DeviceManagerCFFI.mm"
 #include "ViewManagerCFFI.mm"
+#include "../../apple/ui/UITableViewDataSourceCFFI.mm"

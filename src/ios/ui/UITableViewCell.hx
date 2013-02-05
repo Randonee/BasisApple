@@ -6,6 +6,34 @@ import ios.ViewBase;
 
 class UITableViewCell extends UIView
 {
+
+	static public inline var UITableViewCellStyleDefault:Int = 0;
+	static public inline var UITableViewCellStyleValue1:Int = 1;
+	static public inline var UITableViewCellStyleValue2:Int = 2;
+	static public inline var UITableViewCellStyleSubtitle:Int = 3;
+	
+	static public inline var UITableViewCellSelectionStyleNone:Int = 0;
+	static public inline var UITableViewCellSelectionStyleBlue:Int = 1;
+	static public inline var UITableViewCellSelectionStyleGray:Int = 2;
+	
+	static public inline var UITableViewCellEditingStyleNone:Int = 0;
+	static public inline var UITableViewCellEditingStyleDelete:Int = 1;
+	static public inline var UITableViewCellEditingStyleInsert:Int = 2;
+	
+	static public inline var UITableViewCellAccessoryNone:Int = 0;
+	static public inline var UITableViewCellAccessoryDisclosureIndicator:Int = 1;
+	static public inline var UITableViewCellAccessoryDetailDisclosureButton:Int = 2;
+	static public inline var UITableViewCellAccessoryCheckmark:Int = 3;
+	
+	static public inline var UITableViewCellStateDefaultMask:Int = 0;
+	static public inline var UITableViewCellStateShowingEditControlMask:Int = 1 << 0;
+	static public inline var UITableViewCellStateShowingDeleteConfirmationMask:Int = 1 << 1;
+
+	static public inline var UITableViewCellSeparatorStyleNone:Int = 0;
+	static public inline var UITableViewCellSeparatorStyleSingleLine:Int = 1;
+	static public inline var UITableViewCellSeparatorStyleSingleLineEtched:Int = 2;
+
+
 	public function new(?type:Int = 28)
 	{
 		super(type);
@@ -150,5 +178,13 @@ class UITableViewCell extends UIView
 		cpp_uitableviewcell_setHighlighted(_tag, arg1, arg2);
 	}
 	private static var cpp_uitableviewcell_setHighlighted = Lib.load("basis", "uitableviewcell_setHighlighted", 3);
+	
+	public function setLabel(text:String):Void
+	{
+		cpp_uitableviewcell_setLabel(_tag, text);
+	}
+	private static var cpp_uitableviewcell_setLabel = Lib.load("basis", "uitableviewcell_setLabel", 2);
+	
+	
 
 }

@@ -123,8 +123,13 @@ DEFINE_PRIM (uitableview_beginUpdates, 1);
 value uitableview_dequeueReusableCellWithIdentifier(value tag, value arg1)
 {
 	UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView:val_int(tag)];
-	id returnVar = (id)[view dequeueReusableCellWithIdentifier:[NSString stringWithCString:val_string(arg1)encoding:NSUTF8StringEncoding] ];
-	return alloc_int((int)[returnVar tag]);
+	UITableViewCell *cell = (UITableViewCell*)[view dequeueReusableCellWithIdentifier:[NSString stringWithCString:val_string(arg1)encoding:NSUTF8StringEncoding] ];
+	if(cell != nil)
+	{
+		[[BasisApplication getViewManager] addView:cell];
+		return alloc_int((int)[cell tag]);
+	}
+	return alloc_int(-1);
 }
 DEFINE_PRIM (uitableview_dequeueReusableCellWithIdentifier, 2);
 value uitableview_dequeueReusableHeaderFooterViewWithIdentifier(value tag, value arg1)

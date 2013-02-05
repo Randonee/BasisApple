@@ -7,6 +7,7 @@
 @interface ViewManager : UIResponder <UIApplicationDelegate>
 	
 	-(UIView*) getView:(int) tag;
+	-(int) addView:(UIView*) view;
 	-(UIView*) createViewOfType:(int) type;
 	-(void) setEventHandler:(AutoGCRoot *) handler;
 	-(void) removeView:(int) tag;
