@@ -107,6 +107,15 @@ void initUITextFieldEventListeners(int tag);
 	[self.window addSubview:childView];
 }
 
+-(void)destroyView:(int) tag
+{
+	UIView *view = [views objectForKey:[NSNumber numberWithInt:tag]];
+	if(view.superview != nil)
+		[view removeFromSuperview];
+		
+	[views removeObjectForKey:[NSNumber numberWithInt:tag]];
+}
+
 -(UIView*) createViewOfType:(int) type
 {
     

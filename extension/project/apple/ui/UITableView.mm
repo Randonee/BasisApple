@@ -126,7 +126,8 @@ value uitableview_dequeueReusableCellWithIdentifier(value tag, value arg1)
 	UITableViewCell *cell = (UITableViewCell*)[view dequeueReusableCellWithIdentifier:[NSString stringWithCString:val_string(arg1)encoding:NSUTF8StringEncoding] ];
 	if(cell != nil)
 	{
-		[[BasisApplication getViewManager] addView:cell];
+		if(cell.tag != 0)
+			[[BasisApplication getViewManager] addView:cell];
 		return alloc_int((int)[cell tag]);
 	}
 	return alloc_int(-1);

@@ -19,7 +19,6 @@ class MainView extends UIView
 	private var _sampleButton:UIButton;
 	private var _table:UITableView;
 	private var _tableEventLabel:UILabel;
-	private var _cellCount:Int;
 	private var _tableCellLabels:Array<String>;
 	
 	public function new()
@@ -53,7 +52,6 @@ class MainView extends UIView
 		addSubview(_sampleButton);
 		
 		_tableCellLabels = [];
-		_cellCount = 0;
 		_table = new UITableView();
 		_table.dataSource.titleForHeaderInSectionHandler = titleForHeaderInSection;
 		_table.dataSource.numberOfSectionsInTableViewHandler = numberOfSectionsInTableView;
@@ -67,6 +65,9 @@ class MainView extends UIView
 		addSubview(_tableEventLabel);
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 210, 150, 30];
+		
+		for(a in 1...100)
+			_tableCellLabels.push("Cell Label " + Std.string(a));
 		
 	}
 	
@@ -104,10 +105,7 @@ class MainView extends UIView
 	        cell = new UITableViewCell();
 	    }
 	    
-	    var label:String = "Cell Label " + Std.string(++_cellCount);
-	    _tableCellLabels.push(label);
-	    cell.setLabel(label);
-	    
+	   cell.setLabel(_tableCellLabels[indexPath[1]]);
 		return cell;
 	}
 	

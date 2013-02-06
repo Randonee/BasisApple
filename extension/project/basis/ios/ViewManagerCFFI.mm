@@ -17,6 +17,12 @@ namespace basis
     }
     DEFINE_PRIM (viewmanager_createView, 1);
     
+    void viewmanager_destroyView(value tag)
+    {
+        [[BasisApplication getViewManager] destroyView:(val_int(tag))];
+    }
+    DEFINE_PRIM (viewmanager_destroyView, 1);
+    
     void viewmanager_setEventHandler(value handler)
     {
     	[[BasisApplication getViewManager] setEventHandler: new AutoGCRoot(handler)];

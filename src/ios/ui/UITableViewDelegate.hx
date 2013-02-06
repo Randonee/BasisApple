@@ -88,12 +88,13 @@ class UITableViewDelegate
 	
 	private function didEndDisplayingCell(tableViewTag:Int, cellTag:Int, indexPath:Array<Int>):Void
 	{
+		var cell:UITableViewCell = cast(ViewManager.getView(cellTag), UITableViewCell);
 		if(didEndDisplayingCellHandler != null)
 		{
 			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
-			var cell:UITableViewCell = cast(ViewManager.getView(cellTag), UITableViewCell);
 			didEndDisplayingCellHandler(tableView, cell, indexPath);
 		}
+		ViewManager.destroyView(cell.tag);
 	}
 	
 	private function didEndDisplayingFooterView(tableViewTag:Int, viewTag:Int, section:Int):Void

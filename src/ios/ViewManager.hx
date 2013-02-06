@@ -49,7 +49,7 @@ class ViewManager
 	**/
 	public static function destroyView(tag:Int):Void
 	{
-	//	cpp_call_destroy_view(tag);
+		cpp_call_destroy_view(tag);
 		_views.remove(Std.string(tag));
 	}
 	
@@ -88,6 +88,7 @@ class ViewManager
 	}
 	
 	private static var cpp_call_create_view = Lib.load ("basis", "viewmanager_createView", 1);
+	private static var cpp_call_destroy_view = Lib.load ("basis", "viewmanager_destroyView", 1);
 	private static var cpp_call_add_to_root_view = Lib.load ("basis", "viewmanager_addToRootView", 1);
 	private static var cpp_call_set_event_handler = Lib.load ("basis", "viewmanager_setEventHandler", 1);
 }
