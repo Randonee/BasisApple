@@ -66,7 +66,7 @@ class MainView extends UIView
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 210, 150, 30];
 		
-		for(a in 1...100)
+		for(a in 1...101)
 			_tableCellLabels.push("Cell Label " + Std.string(a));
 		
 	}
