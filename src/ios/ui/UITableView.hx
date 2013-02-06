@@ -8,6 +8,7 @@ class UITableView extends UIScrollView
 {
 
 	public var dataSource(default, null):UITableViewDataSource;
+	public var delegate(default, null):UITableViewDelegate;
 
 	public function new(?type:Int = 27)
 	{
@@ -15,6 +16,8 @@ class UITableView extends UIScrollView
 		dataSource = new UITableViewDataSource();
 		dataSource.addTableView(this);
 		
+		delegate = new UITableViewDelegate();
+		delegate.addTableView(this);
 	}
 	
 	public var allowsMultipleSelection(getAllowsMultipleSelection, setAllowsMultipleSelection) : Bool;

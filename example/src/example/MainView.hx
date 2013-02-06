@@ -18,8 +18,9 @@ class MainView extends UIView
 	private var _outputLabel:UILabel;
 	private var _sampleButton:UIButton;
 	private var _table:UITableView;
-	
+	private var _tableEventLabel:UILabel;
 	private var _cellCount:Int;
+	private var _tableCellLabels:Array<String>;
 	
 	public function new()
 	{
@@ -29,7 +30,6 @@ class MainView extends UIView
 		_inputLabel = new UILabel();
 		addSubview(_inputLabel);
 		_inputLabel.text  = "Input";
-		
 		_inputLabel.frame = [5.0,0,200,30];
 		
 		_inputField= new UITextField();
@@ -52,14 +52,21 @@ class MainView extends UIView
 		_sampleButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onButtonClick);
 		addSubview(_sampleButton);
 		
+		_tableCellLabels = [];
 		_cellCount = 0;
 		_table = new UITableView();
 		_table.dataSource.titleForHeaderInSectionHandler = titleForHeaderInSection;
 		_table.dataSource.numberOfSectionsInTableViewHandler = numberOfSectionsInTableView;
 		_table.dataSource.numberOfRowsInSectionHandler = numberOfRowsInSection;
 		_table.dataSource.cellForRowAtIndexPathHandler = cellForRowAtIndexPath;
+		_table.delegate.didSelectRowAtIndexPathHandler = didSelectRowAtIndexPath;
 		_table.frame = [0.0, 250, 300, 200];
 		addSubview(_table);
+		
+		_tableEventLabel = new UILabel();
+		addSubview(_tableEventLabel);
+		_tableEventLabel.text  = "";
+		_tableEventLabel.frame = [30.0, 210, 150, 30];
 		
 	}
 	
@@ -88,6 +95,7 @@ class MainView extends UIView
 		return 100;
 	}
 	
+	
 	private function cellForRowAtIndexPath(tableView:UITableView, indexPath:Array<Int>):UITableViewCell
 	{
 		var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableCell");
@@ -96,8 +104,16 @@ class MainView extends UIView
 	        cell = new UITableViewCell();
 	    }
 	    
-	    cell.setLabel("Cell Label " + Std.string(++_cellCount));
+	    var label:String = "Cell Label " + Std.string(++_cellCount);
+	    _tableCellLabels.push(label);
+	    cell.setLabel(label);
 	    
 		return cell;
+	}
+	
+	
+	private function didSelectRowAtIndexPath(tableView:UITableView, indexPath:Array<Int>):Void
+	{
+		_tableEventLabel.text = _tableCellLabels[indexPath[1]];
 	}
 }

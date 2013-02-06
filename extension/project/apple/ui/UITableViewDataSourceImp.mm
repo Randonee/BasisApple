@@ -82,7 +82,6 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSLog(@"imp4");
 	return true;
 }
 
@@ -95,12 +94,10 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSLog(@"imp6");
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-	NSLog(@"imp7");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -111,7 +108,6 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-	NSLog(@"imp9");
 	return 0;
 }
 

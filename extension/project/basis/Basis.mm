@@ -1,6 +1,8 @@
 #include <hx/CFFI.h>
 #import <Foundation/Foundation.h>
 #import "apple/ui/UITableViewDataSourceImp.h"
+#import "apple/ui/UITableViewDelegateImp.h"
+
 
 #ifdef IPHONE
 #include "basis/ios/BasisApplication.h"
