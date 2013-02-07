@@ -69,4 +69,36 @@ CGPoint arrayToCGPoint(value arr)
 					  val_float(val_array_i(arr, 1))); 
 }
 
+value cgSizeToArray(CGSize size)
+{
+	value arr = alloc_array(2); 
+	
+	val_array_set_i(arr, 0, alloc_float(size.width));
+	val_array_set_i(arr, 1, alloc_float(size.height));
+	return arr;
+}
 
+CGSize arrayToCGSize(value arr)
+{
+	return CGSizeMake(val_float(val_array_i(arr, 0)),
+					  val_float(val_array_i(arr, 1))); 
+}
+
+
+value uiColorToArray(UIColor color)
+{
+	float *parts = CGColorGetComponents(color);
+	value arr = alloc_array(2); 
+	
+	val_array_set_i(arr, 0, alloc_float(parts[0]));
+	val_array_set_i(arr, 1, alloc_float(parts[1]));
+	val_array_set_i(arr, 2, alloc_float(parts[2]));
+	val_array_set_i(arr, 3, alloc_float(parts[3]));
+	return arr;
+}
+
+UIColor arrayToUIColor(value arr)
+{
+	return [UIColor colorWithRed:val_float(val_array_i(arr, 0) green:val_float(val_array_i(arr, 1)
+							blue:val_float(val_array_i(arr, 2) alpha:val_float(val_array_i(arr, 3)];
+}

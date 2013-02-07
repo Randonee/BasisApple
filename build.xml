@@ -30,32 +30,32 @@
 		
 		<mkdir dir="build/"/>
 		<mkdir dir="build/BasisApple"/>
-		<mkdir dir="build/BasisApple/0,0,1"/>
-		<mkdir dir="build/BasisApple/0,0,1/bin"/>
-		<mkdir dir="build/BasisApple/0,0,1/template"/>
+		<mkdir dir="build/BasisApple/0,0,2"/>
+		<mkdir dir="build/BasisApple/0,0,2/bin"/>
+		<mkdir dir="build/BasisApple/0,0,2/template"/>
 		
 		<exec dir="." failonerror="true" executable="haxe">
 			<arg line="build.hxml" />
 		</exec>
 		
-		<copy todir="build/BasisApple/0,0,1">
+		<copy todir="build/BasisApple/0,0,2">
 			<fileset dir="src"/>
 		</copy>
 	
-		<copy todir="build/BasisApple/0,0,1/bin">
+		<copy todir="build/BasisApple/0,0,2/bin">
 			<fileset dir="extension/ndll"/>
 		</copy>
 		
-		<copy todir="build/BasisApple/0,0,1/bin">
+		<copy todir="build/BasisApple/0,0,2/bin">
 			<fileset dir="bin"/>
 		</copy>
 	
-		<copy todir="build/BasisApple/0,0,1/template">
+		<copy todir="build/BasisApple/0,0,2/template">
 			<fileset dir="template"/>
 		</copy>
 	
-		<copy file="haxelib.xml" tofile="build/BasisApple/0,0,1/haxelib.xml"/>
-		<copy file="build/run.n" tofile="build/BasisApple/0,0,1/run.n"/>
+		<copy file="haxelib.xml" tofile="build/BasisApple/0,0,2/haxelib.xml"/>
+		<copy file="build/run.n" tofile="build/BasisApple/0,0,2/run.n"/>
 		
 		<echo file="build/BasisApple/.current" >0.0.1</echo>
 		
