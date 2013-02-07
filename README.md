@@ -11,12 +11,16 @@ This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
 **Installation**
 
+
 run this command (make sure Basis has a capital "B")
 
 	haxelib install Basis
 	
 
 **Running the Example**
+
+**There is a bug with 0.0.2 of BasisApple. To run the example you will need the latest trunk code**
+See https://github.com/Randonee/Basis for build instructions.
 
 * Download the 0.0.2 example: https://github.com/Randonee/BasisApple/tree/v0.0.2/example
 * From the example directory run the command: haxelib run Basis build.xml apple
