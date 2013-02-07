@@ -85,9 +85,9 @@ CGSize arrayToCGSize(value arr)
 }
 
 
-value uiColorToArray(UIColor color)
+value cgColorToArray(CGColorRef color)
 {
-	float *parts = CGColorGetComponents(color);
+	const CGFloat *parts = CGColorGetComponents(color);
 	value arr = alloc_array(2); 
 	
 	val_array_set_i(arr, 0, alloc_float(parts[0]));
@@ -97,8 +97,12 @@ value uiColorToArray(UIColor color)
 	return arr;
 }
 
-UIColor arrayToUIColor(value arr)
+CGColorRef arrayToCGColor(value arr)
 {
-	return [UIColor colorWithRed:val_float(val_array_i(arr, 0) green:val_float(val_array_i(arr, 1)
-							blue:val_float(val_array_i(arr, 2) alpha:val_float(val_array_i(arr, 3)];
+	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat components[4] = { val_float(val_array_i(arr, 0)), val_float(val_array_i(arr, 1)), 
+    						  val_float(val_array_i(arr, 2)), val_float(val_array_i(arr, 3)) };
+    CGColorRef color = CGColorCreate(colorSpace, components);
+    
+	return color;
 }
