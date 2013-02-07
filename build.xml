@@ -66,7 +66,6 @@
 		<copy todir="build/BasisApple/0,0,2">
 			<fileset dir="src_test"/>
 		</copy>
-		<echo message="don" />
 	</target> 
 
 	<target name="testlib">
