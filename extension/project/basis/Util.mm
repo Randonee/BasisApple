@@ -45,6 +45,27 @@ CGRect arrayToCGRect(value arr)
 					  val_float(val_array_i(arr, 3))); 
 }
 
+value uiEdgeInsetsToArray(UIEdgeInsets edgeInset)
+{
+	value arr = alloc_array(4); 
+	
+	val_array_set_i(arr, 0, alloc_float(edgeInset.top));
+	val_array_set_i(arr, 1, alloc_float(edgeInset.left));
+	val_array_set_i(arr, 2, alloc_float(edgeInset.bottom));
+	val_array_set_i(arr, 3, alloc_float(edgeInset.right));
+	return arr;
+}
+
+UIEdgeInsets arrayToUIEdgeInsets(value arr)
+{
+	return UIEdgeInsetsMake(val_float(val_array_i(arr, 0)),
+					  val_float(val_array_i(arr, 1)),
+					  val_float(val_array_i(arr, 2)),
+					  val_float(val_array_i(arr, 3))); 
+}
+
+
+
 value cgAffineTransformToArray(CGAffineTransform transform)
 {
 	value arr = alloc_array(6); 
