@@ -11,7 +11,7 @@ class TestMain
         var r = new haxe.unit.TestRunner();
         r.add(new ViewManagerTester());
         if(r.run())
-        	trace("TESTS_SUCCESS");
+        	IOSUtil.outputTestSuccess();
         trace("END_TESTS");
         
         IOSUtil.quitForUnitTests();

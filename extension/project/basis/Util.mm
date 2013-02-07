@@ -12,12 +12,18 @@ value basis_getBundlePath()
 DEFINE_PRIM (basis_getBundlePath, 0);
 
 
-value basis_quit_for_unit_tests()
+void basis_quit_for_unit_tests()
 {
 	abort();
 }
 DEFINE_PRIM (basis_quit_for_unit_tests, 0);
 
+
+void basis_outputTestSuccess()
+{
+	NSLog(@"TESTS_SUCCESS");
+}
+DEFINE_PRIM (basis_outputTestSuccess, 0);
 
 
 value cgRectToArray(CGRect rect)
