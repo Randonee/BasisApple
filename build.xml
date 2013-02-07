@@ -25,8 +25,6 @@
 	
 	<target name="buildHaxelib">
 		<delete dir="build"/>
-		<!--<antcall target="ios" />-->
-		<!--<antcall target="osx" />-->
 		
 		<mkdir dir="build/"/>
 		<mkdir dir="build/BasisApple"/>
@@ -38,10 +36,12 @@
 			<arg line="build.hxml" />
 		</exec>
 		
+		<antcall target="copyTests" />
+		
 		<copy todir="build/BasisApple/0,0,2">
 			<fileset dir="src"/>
 		</copy>
-	
+		
 		<copy todir="build/BasisApple/0,0,2/bin">
 			<fileset dir="extension/ndll"/>
 		</copy>
@@ -57,16 +57,52 @@
 		<copy file="haxelib.xml" tofile="build/BasisApple/0,0,2/haxelib.xml"/>
 		<copy file="build/run.n" tofile="build/BasisApple/0,0,2/run.n"/>
 		
-		<echo file="build/BasisApple/.current" >0.0.1</echo>
+		<echo file="build/BasisApple/.current" >0.0.2</echo>
 		
 		<zip destfile="build/BasisApple.zip" basedir="build/BasisApple" />
 	</target>
+	
+	<target name="copyTests" if="buildProps.installTests"> 
+		<copy todir="build/BasisApple/0,0,2">
+			<fileset dir="src_test"/>
+		</copy>
+		<echo message="don" />
+	</target> 
 
 	<target name="testlib">
 		<antcall target="buildHaxelib" />
 		<exec dir="." failonerror="true" executable="haxelib">
 			<arg line="test build/BasisApple.zip" />
 		</exec>
+	</target>
+	
+	<target name="runtests">
+		<antcall target="testlib" >
+			<param name="buildProps.installTests" value="true"/>
+		</antcall>
+		
+		<echo file="build/test/ouput.txt" ></echo>
+		<exec dir="." failonerror="true" executable="haxelib" output="build/test/ouput.txt">
+			<arg line="run basis buildtests.xml apple" />
+		</exec>
+		<fail message="Tests Failed">
+		    <condition>
+		        <resourcecontains resource="build/test/ouput.txt" substring="TESTS_FAILED"/>
+		    </condition>
+		</fail>
+	</target>
+	
+	<target name="ci">
+		<delete dir="build"/>
+		<mkdir dir="build/"/>
+		<get src="https://github.com/Randonee/Basis/archive/master.zip" dest="build/basis.zip"/>
+		<unzip src="build/basis.zip" dest="build"/>
+		<exec dir="build/Basis-master" failonerror="true" executable="ant">
+			<arg line="testlib" />
+		</exec>
+
+		<antcall target="ios" />
+		<antcall target="runtests" />
 	</target>
 	
 </project>

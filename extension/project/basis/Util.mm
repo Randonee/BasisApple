@@ -11,6 +11,15 @@ value basis_getBundlePath()
 }
 DEFINE_PRIM (basis_getBundlePath, 0);
 
+
+value basis_quit_for_unit_tests()
+{
+	abort();
+}
+DEFINE_PRIM (basis_quit_for_unit_tests, 0);
+
+
+
 value cgRectToArray(CGRect rect)
 {
 	value arr = alloc_array(4); 

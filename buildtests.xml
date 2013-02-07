@@ -1,0 +1,19 @@
+<target name="main">
+	<appName value="TestBasisApple" />
+	<source path="src" />
+	<source path="src_test" />
+	<builddir path="build/test" />
+	<target name="apple" type="Apple">
+		<framework name="UIKit" />
+		<framework name="Foundation" />
+		<framework name="CoreGraphics" />
+		<framework name="QuartzCore" />
+		<target name="ipad">
+			<device type="ios" />
+			<simulator use="true" type="ipad"/>
+			<main classpath="test.TestMain" />
+			<debug value="true" />
+			<runWhenFinished value="true" />
+		</target>
+	</target>
+</target>
