@@ -1,6 +1,4 @@
 <project basedir=".">
-	
-	
 	<target name="ios">
 		<delete dir="extension/project/obj" failOnError="false" includeEmptyDirs="true"/>
 						
@@ -84,11 +82,14 @@
 		<exec dir="." failonerror="true" executable="haxelib" output="build/test/ouput.txt">
 			<arg line="run basis buildtests.xml apple" />
 		</exec>
-		<fail message="Tests Failed">
-		    <condition>
-		        <resourcecontains resource="build/test/ouput.txt" substring="TESTS_FAILED"/>
-		    </condition>
-		</fail>
+		
+		<loadfile property="output" srcFile="build/test/ouput.txt"/>
+		<echo message="${output}" />
+		<condition property="testsPassed">
+			<resourcecontains resource="build/test/ouput.txt" substring="TESTS_SUCCESS"/>
+		</condition>
+		
+		<fail message="Build or tests Failed" unless="testsPassed"/>
 	</target>
 	
 	<target name="ci">

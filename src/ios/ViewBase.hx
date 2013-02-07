@@ -27,4 +27,8 @@ class ViewBase
 		ViewManager.addEventListener(type, this, handler);
 	}
 	
+	public function destroy():Void
+	{
+		ViewManager.destroyView(this.tag);
+	}
 }

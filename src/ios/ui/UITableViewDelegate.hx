@@ -94,7 +94,7 @@ class UITableViewDelegate
 			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
 			didEndDisplayingCellHandler(tableView, cell, indexPath);
 		}
-		ViewManager.destroyView(cell.tag);
+		cell.destroy();
 	}
 	
 	private function didEndDisplayingFooterView(tableViewTag:Int, viewTag:Int, section:Int):Void
