@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UISlider extends UIControl
 {
-	public function new(?type:Int = 23)
+	public function new(?type:String = "UISlider")
 	{
 		super(type);
 	}

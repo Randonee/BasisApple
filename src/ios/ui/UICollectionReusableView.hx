@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UICollectionReusableView extends UIView
 {
-	public function new(?type:Int = 9)
+	public function new(?type:String = "UICollectionReusableView")
 	{
 		super(type);
 	}

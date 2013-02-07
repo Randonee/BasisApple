@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UITabBar extends UIView
 {
-	public function new(?type:Int = 26)
+	public function new(?type:String = "UITabBar")
 	{
 		super(type);
 	}

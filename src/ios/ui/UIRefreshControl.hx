@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIRefreshControl extends UIControl
 {
-	public function new(?type:Int = 19)
+	public function new(?type:String = "UIRefreshControl")
 	{
 		super(type);
 	}

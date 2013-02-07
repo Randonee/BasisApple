@@ -12,7 +12,7 @@ namespace basis
     
     value viewmanager_createView(value type)
     {
-        UIView *view = [[BasisApplication getViewManager] createViewOfType:(val_int(type))];
+        UIView *view = [[BasisApplication getViewManager] createViewOfType:[NSString stringWithCString:val_string(type)encoding:NSUTF8StringEncoding]];
         return alloc_int(view.tag);
     }
     DEFINE_PRIM (viewmanager_createView, 1);
@@ -39,6 +39,5 @@ namespace basis
     	[[BasisApplication getViewManager] addToRootView:val_int(tag)];
     }
     DEFINE_PRIM (viewmanager_addToRootView, 1);
-    
     
 }

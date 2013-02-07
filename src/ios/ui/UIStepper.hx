@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIStepper extends UIControl
 {
-	public function new(?type:Int = 24)
+	public function new(?type:String = "UIStepper")
 	{
 		super(type);
 	}

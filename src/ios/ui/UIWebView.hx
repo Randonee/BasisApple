@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIWebView extends UIView
 {
-	public function new(?type:Int = 31)
+	public function new(?type:String = "UIWebView")
 	{
 		super(type);
 	}

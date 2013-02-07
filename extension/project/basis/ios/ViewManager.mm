@@ -4,7 +4,6 @@
 
 @synthesize window;
 
-UIView* createViewOfType(int type);
 NSMutableDictionary *views;
 int currentTag;
 ViewEventManager *eventManager;
@@ -116,129 +115,162 @@ void initUITextFieldEventListeners(int tag);
 	[views removeObjectForKey:[NSNumber numberWithInt:tag]];
 }
 
--(UIView*) createViewOfType:(int) type
+-(UIView*) createViewOfType:(NSString*) type
 {
     
     UIView *view;
     void (*initFunction)(int) = NULL;
     
-    switch (type)
-    {
-        case 0:
-            view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-            
-            
-        case 1:
-            view = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-            
-        case 2:
-            view = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-            
-        case 3:
-            view = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            view.frame = CGRectMake(0,0, 200,200);
-            initFunction = &initUIButtonEventListeners;
-            break;
-            
-        case 4:
-            view = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
-            [(UITextField *)view setBorderStyle:UITextBorderStyleRoundedRect];
-            initFunction = &initUITextFieldEventListeners;
-            break;
-            
-        case 5:
-            view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-            
-       	case 6:
-        //    view = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 7:
-            view = [[UIResponder alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 8:
-            view = [[UIAlertView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 9:
-            view = [[UICollectionReusableView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 10:
-            view = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 11:
-            view = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 12:
-            view = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 13:
-            view = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        case 14:
-            view = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 15:
-            view = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 16:
-            view = [[UIResponder alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 17:
-            view = [[UIPopoverBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 18:
-            view = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 19:
-            view = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 20:
-            view = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 21:
-            view = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 22:
-            view = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 23:
-            view = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 24:
-            view = [[UIStepper alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 25:
-            view = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 26:
-            view = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 27:
-            view = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 28:
-            view = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"group"] autorelease];
-            break;
-		case 29:
-            view = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 30:
-            view = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 31:
-            view = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-		case 32:
-            view = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-        default:
-            view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-            break;
-    }
     
+    if([type isEqualToString:@"UIView"])
+    {
+    	view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UILabel"])
+    {
+    	view = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIControl"])
+    {
+    	view = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIButton"])
+    {
+    	view = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        view.frame = CGRectMake(0,0, 200,200);
+        initFunction = &initUIButtonEventListeners;
+    }
+    else if([type isEqualToString:@"UITextField"])
+    {
+    	view = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+        [(UITextField *)view setBorderStyle:UITextBorderStyleRoundedRect];
+        initFunction = &initUITextFieldEventListeners;
+    }
+    else if([type isEqualToString:@"UIImageView"])
+    {
+    	view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"MKMapView"])
+    {
+    	//view = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIResponder"])
+    {
+    	view = [[UIResponder alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIAlertView"])
+    {
+    	view = [[UIAlertView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UICollectionReusableView"])
+    {
+    	[[UICollectionReusableView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UICollectionView"])
+    {
+    	view = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UICollectionViewCell"])
+    {
+    	view = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UICollectionViewCell"])
+    {
+    	view = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIDatePicker"])
+    {
+    	view = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UINavigationBar"])
+    {
+    	view = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIPageControl"])
+    {
+    	view = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIPickerView"])
+    {
+    	view = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIPickerView"])
+    {
+    	view = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIResponder"])
+    {
+    	view = [[UIResponder alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIPopoverBackgroundView"])
+    {
+    	view = [[UIPopoverBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIProgressView"])
+    {
+    	view = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIProgressView"])
+    {
+    	view = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIRefreshControl"])
+    {
+    	view = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIScrollView"])
+    {
+    	view = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UISearchBar"])
+    {
+    	view = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UISegmentedControl"])
+    {
+    	view = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UISlider"])
+    {
+    	view = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIStepper"])
+    {
+    	view = [[UIStepper alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+	else if([type isEqualToString:@"UISwitch"])
+    {
+    	view = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UITabBar"])
+    {
+    	view = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UITableView"])
+    {
+    	view = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UITableViewCell"])
+    {
+    	view = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UITableViewHeaderFooterView"])
+    {
+    	view = [[UITableViewHeaderFooterView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UITextView"])
+    {
+    	view = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIWebView"])
+    {
+    	view = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    else if([type isEqualToString:@"UIWindow"])
+    {
+    	view = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+            
     view.tag = currentTag;
     ++currentTag;
     

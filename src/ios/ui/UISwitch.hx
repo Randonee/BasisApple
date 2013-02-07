@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UISwitch extends UIControl
 {
-	public function new(?type:Int = 25)
+	public function new(?type:String = "UISwitch")
 	{
 		super(type);
 	}

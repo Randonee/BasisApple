@@ -20,7 +20,7 @@ class UIControl extends UIView
 	static public inline var ContentVerticalAlignmentFill:Int = 3;
 	
 
-	public function new(?type:Int = 2)
+	public function new(?type:String = "UIControl")
 	{
 		super(type);
 	}

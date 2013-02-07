@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UISegmentedControl extends UIControl
 {
-	public function new(?type:Int = 22)
+	public function new(?type:String = "UISegmentedControl")
 	{
 		super(type);
 	}

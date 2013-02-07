@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIScrollView extends UIView
 {
-	public function new(?type:Int = 20)
+	public function new(?type:String = "UIScrollView")
 	{
 		super(type);
 	}

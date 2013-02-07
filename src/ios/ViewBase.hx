@@ -9,9 +9,9 @@ class ViewBase
 	public var tag(getTag, null) : Int;
 	private function getTag():Int {return _tag;}
 	
-	private var _type:Int;
+	private var _type:String;
 	
-	public function new(?type:Int = 0)
+	public function new(type:String)
 	{
 		_type = type;
 		init();

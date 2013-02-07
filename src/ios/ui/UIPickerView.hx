@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIPickerView extends UIView
 {
-	public function new(?type:Int = 15)
+	public function new(?type:String = "UIPickerView")
 	{
 		super(type);
 	}

@@ -8,7 +8,7 @@
 	
 	-(UIView*) getView:(int) tag;
 	-(int) addView:(UIView*) view;
-	-(UIView*) createViewOfType:(int) type;
+	-(UIView*) createViewOfType:(NSString*) type;
 	-(void)destroyView:(int) tag;
 	-(void) setEventHandler:(AutoGCRoot *) handler;
 	-(void) removeView:(int) tag;

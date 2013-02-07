@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UICollectionView extends UIScrollView
 {
-	public function new(?type:Int = 10)
+	public function new(?type:String = "UICollectionView")
 	{
 		super(type);
 	}

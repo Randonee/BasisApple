@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIDatePicker extends UIControl
 {
-	public function new(?type:Int = 12)
+	public function new(?type:String = "UIDatePicker")
 	{
 		super(type);
 	}

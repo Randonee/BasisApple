@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIProgressView extends UIView
 {
-	public function new(?type:Int = 18)
+	public function new(?type:String = "UIProgressView")
 	{
 		super(type);
 	}

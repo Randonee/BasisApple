@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIWindow extends UIView
 {
-	public function new(?type:Int = 32)
+	public function new(?type:String = "UIWindow")
 	{
 		super(type);
 	}

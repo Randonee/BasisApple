@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UITextField extends UIControl
 {
-	public function new(?type:Int = 4)
+	public function new(?type:String = "UITextField")
 	{
 		super(type);
 	}

@@ -24,7 +24,7 @@ class ViewManager
 	* @param view the view object this view is associated with.
 	* @param type the type of view to be added
 	**/
-	public static function createView(view:ViewBase, type:Int):Int
+	public static function createView(view:ViewBase, type:String):Int
 	{
 		var tag:Int = cpp_call_create_view(type);
 		_views.set(Std.string(tag), view);

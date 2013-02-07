@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIAlertView extends UIView
 {
-	public function new(?type:Int = 8)
+	public function new(?type:String = "UIAlertView")
 	{
 		super(type);
 	}

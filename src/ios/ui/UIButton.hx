@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIButton extends UIControl
 {
-	public function new(?type:Int = 3)
+	public function new(?type:String = "UIButton")
 	{
 		super(type);
 	}

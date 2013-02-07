@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIResponder extends ViewBase
 {
-	public function new(?type:Int = 7)
+	public function new(?type:String = "UIResponder")
 	{
 		super(type);
 	}

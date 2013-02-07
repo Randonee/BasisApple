@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UICollectionViewCell extends UICollectionReusableView
 {
-	public function new(?type:Int = 11)
+	public function new(?type:String = "UICollectionViewCell")
 	{
 		super(type);
 	}

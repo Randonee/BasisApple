@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UITableViewHeaderFooterView extends UIView
 {
-	public function new(?type:Int = 29)
+	public function new(?type:String = "UITableViewHeaderFooterView")
 	{
 		super(type);
 	}

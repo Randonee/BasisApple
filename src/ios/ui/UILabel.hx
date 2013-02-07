@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UILabel extends UIView
 {
-	public function new(?type:Int = 1)
+	public function new(?type:String = "UILabel")
 	{
 		super(type);
 	}

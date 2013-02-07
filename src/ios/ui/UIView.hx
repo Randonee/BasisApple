@@ -49,7 +49,7 @@ class UIView extends UIResponder
 	}
 	private static var cpp_uiview_commitAnimations = Lib.load("basis", "uiview_commitAnimations", 0);
 
-	public function new(?type:Int = 0)
+	public function new(?type:String = "UIView")
 	{
 		super(type);
 	}

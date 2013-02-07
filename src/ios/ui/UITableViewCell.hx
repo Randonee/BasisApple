@@ -34,7 +34,7 @@ class UITableViewCell extends UIView
 	static public inline var UITableViewCellSeparatorStyleSingleLineEtched:Int = 2;
 
 
-	public function new(?type:Int = 28)
+	public function new(?type:String = "UITableViewCell")
 	{
 		super(type);
 	}

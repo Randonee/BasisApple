@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIPageControl extends UIControl
 {
-	public function new(?type:Int = 14)
+	public function new(?type:String = "UIPageControl")
 	{
 		super(type);
 	}

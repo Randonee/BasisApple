@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UISearchBar extends UIView
 {
-	public function new(?type:Int = 21)
+	public function new(?type:String = "UISearchBar")
 	{
 		super(type);
 	}

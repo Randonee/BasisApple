@@ -10,7 +10,7 @@ class UITableView extends UIScrollView
 	public var dataSource(default, null):UITableViewDataSource;
 	public var delegate(default, null):UITableViewDelegate;
 
-	public function new(?type:Int = 27)
+	public function new(?type:String = "UITableView")
 	{
 		super(type);
 		dataSource = new UITableViewDataSource();

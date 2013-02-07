@@ -6,7 +6,7 @@ import ios.ViewBase;
 
 class UIImageView extends UIView
 {
-	public function new(?type:Int = 5)
+	public function new(?type:String = "UIImageView")
 	{
 		super(type);
 	}
