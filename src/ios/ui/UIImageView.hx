@@ -1,52 +1,88 @@
+//This code was generated using ObjcToHaxeExtern
+//https://github.com/Randonee/ObjcToHaxeExtern
+
 package ios.ui;
 
 import cpp.Lib;
 import ios.ViewManager;
 import ios.ViewBase;
+import appkit.NSText;
+import appkit.NSParagraphStyle;
+import ios.ui.UIkit;
 
 class UIImageView extends UIView
 {
-	public function new(?type:String = "UIImageView")
+
+	 public function new(?type="UIImageView")
 	{
 		super(type);
 	}
-	
-	public function setImageWithFilePath(path:String):Void
-	{
-		cpp_uiimageview_setImageWithFilePath(_tag, path);
-	}
-	private static var cpp_uiimageview_setImageWithFilePath = Lib.load("basis", "uiimageview_setImageWithFilePath", 2);
-	
-	
-	public var highlighted(getHighlighted, setHighlighted) : Bool;
-	private function setHighlighted(value:Bool):Bool
-	{
-		cpp_uiimageview_setHighlighted(_tag, value);
-		return cpp_uiimageview_getHighlighted(_tag);
-	}
-	private static var cpp_uiimageview_setHighlighted = Lib.load("basis", "uiimageview_setHighlighted", 2);
+
+	//Constants
+
+	//Properties
+	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{
-		return cpp_uiimageview_getHighlighted(_tag);
+		return uiimageview_getHighlighted(_tag);
 	}
-	private static var cpp_uiimageview_getHighlighted = Lib.load("basis", "uiimageview_getHighlighted", 1);
+	private static var uiimageview_getHighlighted = Lib.load("basis", "uiimageview_getHighlighted", 1);
 
-	public function isAnimating():Bool
+	private function setHighlighted(value:Bool):Bool
 	{
-		return cpp_uiimageview_isAnimating(_tag);
+		uiimageview_setHighlighted(_tag, value);
+		return uiimageview_getHighlighted(_tag);
 	}
-	private static var cpp_uiimageview_isAnimating = Lib.load("basis", "uiimageview_isAnimating", 1);
+	private static var uiimageview_setHighlighted = Lib.load("basis", "uiimageview_setHighlighted", 2);
 
-	public function startAnimating():Void
+	public var animationDuration(getAnimationDuration, setAnimationDuration):Float;
+	private function getAnimationDuration():Float
 	{
-		cpp_uiimageview_startAnimating(_tag);
+		return uiimageview_getAnimationDuration(_tag);
 	}
-	private static var cpp_uiimageview_startAnimating = Lib.load("basis", "uiimageview_startAnimating", 1);
+	private static var uiimageview_getAnimationDuration = Lib.load("basis", "uiimageview_getAnimationDuration", 1);
 
+	private function setAnimationDuration(value:Float):Float
+	{
+		uiimageview_setAnimationDuration(_tag, value);
+		return uiimageview_getAnimationDuration(_tag);
+	}
+	private static var uiimageview_setAnimationDuration = Lib.load("basis", "uiimageview_setAnimationDuration", 2);
+
+	public var animationRepeatCount(getAnimationRepeatCount, setAnimationRepeatCount):Int;
+	private function getAnimationRepeatCount():Int
+	{
+		return uiimageview_getAnimationRepeatCount(_tag);
+	}
+	private static var uiimageview_getAnimationRepeatCount = Lib.load("basis", "uiimageview_getAnimationRepeatCount", 1);
+
+	private function setAnimationRepeatCount(value:Int):Int
+	{
+		uiimageview_setAnimationRepeatCount(_tag, value);
+		return uiimageview_getAnimationRepeatCount(_tag);
+	}
+	private static var uiimageview_setAnimationRepeatCount = Lib.load("basis", "uiimageview_setAnimationRepeatCount", 2);
+
+
+	//Methods
 	public function stopAnimating():Void
 	{
-		cpp_uiimageview_stopAnimating(_tag);
+		uiimageview_stopAnimating(_tag);
 	}
-	private static var cpp_uiimageview_stopAnimating = Lib.load("basis", "uiimageview_stopAnimating", 1);
+	private static var uiimageview_stopAnimating = Lib.load("basis", "uiimageview_stopAnimating", 1);
+	public function startAnimating():Void
+	{
+		uiimageview_startAnimating(_tag);
+	}
+	private static var uiimageview_startAnimating = Lib.load("basis", "uiimageview_startAnimating", 1);
+	public function isAnimating():Bool
+	{
+		return uiimageview_isAnimating(_tag);
+	}
+	private static var uiimageview_isAnimating = Lib.load("basis", "uiimageview_isAnimating", 1);
+
+
+
 
 }
+

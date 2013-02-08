@@ -47,7 +47,7 @@ class MainView extends UIView
 		
 		_sampleButton = new UIButton();
 		_sampleButton.frame = [50.0,160,100,30];
-		_sampleButton.setTitleForState("Button", UIControl.StateNormal);
+		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
 		_sampleButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onButtonClick);
 		addSubview(_sampleButton);
 		
