@@ -27,6 +27,7 @@
 #include "../../apple/ui/UITextView.mm"
 #include "../../apple/ui/UIWebView.mm"
 #include "../../apple/ui/UIWindow.mm"
+#include "../../apple/ui/UINavigationBar.mm"
 
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 

@@ -270,6 +270,10 @@ void initUITextFieldEventListeners(int tag);
     {
     	view = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     }
+    else if([type isEqualToString:@"UINavigationBar"])
+    {
+    	view = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
             
     view.tag = currentTag;
     ++currentTag;
