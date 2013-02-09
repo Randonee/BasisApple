@@ -8,6 +8,7 @@ import ios.ui.UIButton;
 import ios.ui.UIControl;
 import ios.ui.UITableView;
 import ios.ui.UITableViewCell;
+import ios.ui.UIWebView;
 import ios.EventTypes;
 
 class MainView extends UIView
@@ -20,6 +21,7 @@ class MainView extends UIView
 	private var _table:UITableView;
 	private var _tableEventLabel:UILabel;
 	private var _tableCellLabels:Array<String>;
+	private var _webView:UIWebView;
 	
 	public function new()
 	{
@@ -68,6 +70,11 @@ class MainView extends UIView
 		
 		for(a in 1...101)
 			_tableCellLabels.push("Cell Label " + Std.string(a));
+			
+		_webView = new UIWebView();
+		_webView.frame = [0.0, 460, 700, 500];
+		_webView.loadRequest("http://haxe.org");
+		addSubview(_webView);
 		
 	}
 	

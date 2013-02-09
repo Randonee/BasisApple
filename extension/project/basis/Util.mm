@@ -142,3 +142,24 @@ CGColorRef arrayToCGColor(value arr)
     
 	return color;
 }
+
+value nsUrlToString(NSURL* url)
+{
+	return alloc_string([[url absoluteString] cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
+NSURL* stringToNSURL(value url)
+{
+	return [NSURL URLWithString:[NSString stringWithCString:val_string(url) encoding:NSUTF8StringEncoding]];
+}
+
+value nsUrlRequestToString(NSURLRequest *request)
+{
+	return nsUrlToString([request URL]);
+}
+
+NSURLRequest* stringToNSURLRequest(value url)
+{
+	return [NSURLRequest requestWithURL:stringToNSURL(url)];
+}
+
