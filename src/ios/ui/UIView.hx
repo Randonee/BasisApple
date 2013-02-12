@@ -12,6 +12,26 @@ import ios.ui.UIkit;
 
 class UIView extends UIResponder
 {
+	public static inline var DID_MOVE_TO_SUPERVIEW:String = "DID_MOVE_TO_SUPERVIEW";
+	
+	static public function beginAnimations(animationID:String)
+	{
+		cpp_uiview_beginAmimations(animationID);
+	}
+	private static var cpp_uiview_beginAmimations = Lib.load("basis", "uiview_beginAmimations", 1);
+
+
+	static public function setAnimationDuration(duration:Float)
+	{
+		cpp_uiview_setAnimationDuration(duration);
+	}
+	private static var cpp_uiview_setAnimationDuration = Lib.load("basis", "uiview_setAnimationDuration", 1);
+
+	static public function commitAnimations()
+	{
+		cpp_uiview_commitAnimations();
+	}
+	private static var cpp_uiview_commitAnimations = Lib.load("basis", "uiview_commitAnimations", 0);
 
 	 public function new(?type="UIView")
 	{

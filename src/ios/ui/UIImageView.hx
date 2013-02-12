@@ -65,6 +65,14 @@ class UIImageView extends UIView
 
 
 	//Methods
+	
+	public function setImageWithFilePath(path:String):Void
+	{
+		cpp_uiimageview_setImageWithFilePath(_tag, path);
+	}
+	private static var cpp_uiimageview_setImageWithFilePath = Lib.load("basis", "uiimageview_setImageWithFilePath", 2);
+	
+	
 	public function stopAnimating():Void
 	{
 		uiimageview_stopAnimating(_tag);
