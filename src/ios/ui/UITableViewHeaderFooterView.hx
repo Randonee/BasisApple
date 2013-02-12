@@ -1,58 +1,97 @@
+//This code was generated using ObjcToHaxeExtern
+//https://github.com/Randonee/ObjcToHaxeExtern
+
 package ios.ui;
 
 import cpp.Lib;
 import ios.ViewManager;
 import ios.ViewBase;
+import appkit.NSText;
+import appkit.NSParagraphStyle;
+import ios.ui.UIkit;
 
 class UITableViewHeaderFooterView extends UIView
 {
-	public function new(?type:String = "UITableViewHeaderFooterView")
+
+	 public function new(?type="UITableViewHeaderFooterView")
 	{
 		super(type);
 	}
-	
-	
-	public var backgroundView(getBackgroundView, setBackgroundView) : UIView;
-	private function setBackgroundView(value:UIView):UIView
+
+	//Constants
+
+	//Properties
+	public var tintColor(getTintColor, setTintColor):Array<Float>;
+	private function getTintColor():Array<Float>
 	{
-		cpp_uitableviewheaderfooterview_setBackgroundView(_tag, value);
-		return cpp_uitableviewheaderfooterview_getBackgroundView(_tag);
+		return uitableviewheaderfooterview_getTintColor(_tag);
 	}
-	private static var cpp_uitableviewheaderfooterview_setBackgroundView = Lib.load("basis", "uitableviewheaderfooterview_setBackgroundView", 2);
+	private static var uitableviewheaderfooterview_getTintColor = Lib.load("basis", "uitableviewheaderfooterview_getTintColor", 1);
+
+	private function setTintColor(value:Array<Float>):Array<Float>
+	{
+		uitableviewheaderfooterview_setTintColor(_tag, value);
+		return uitableviewheaderfooterview_getTintColor(_tag);
+	}
+	private static var uitableviewheaderfooterview_setTintColor = Lib.load("basis", "uitableviewheaderfooterview_setTintColor", 2);
+
+	public var textLabel(getTextLabel, null):UILabel;
+	private function getTextLabel():UILabel
+	{
+		var viewTag:Int = uitableviewheaderfooterview_getTextLabel(_tag);
+		return cast(ViewManager.getView(viewTag), UILabel);
+	}
+	private static var uitableviewheaderfooterview_getTextLabel = Lib.load("basis", "uitableviewheaderfooterview_getTextLabel", 1);
+
+	public var detailTextLabel(getDetailTextLabel, null):UILabel;
+	private function getDetailTextLabel():UILabel
+	{
+		var viewTag:Int = uitableviewheaderfooterview_getDetailTextLabel(_tag);
+		return cast(ViewManager.getView(viewTag), UILabel);
+	}
+	private static var uitableviewheaderfooterview_getDetailTextLabel = Lib.load("basis", "uitableviewheaderfooterview_getDetailTextLabel", 1);
+
+	public var contentView(getContentView, null):UIView;
+	private function getContentView():UIView
+	{
+		var viewTag:Int = uitableviewheaderfooterview_getContentView(_tag);
+		return cast(ViewManager.getView(viewTag), UIView);
+	}
+	private static var uitableviewheaderfooterview_getContentView = Lib.load("basis", "uitableviewheaderfooterview_getContentView", 1);
+
+	public var backgroundView(getBackgroundView, setBackgroundView):UIView;
 	private function getBackgroundView():UIView
 	{
-		return cpp_uitableviewheaderfooterview_getBackgroundView(_tag);
+		var viewTag:Int = uitableviewheaderfooterview_getBackgroundView(_tag);
+		return cast(ViewManager.getView(viewTag), UIView);
 	}
-	private static var cpp_uitableviewheaderfooterview_getBackgroundView = Lib.load("basis", "uitableviewheaderfooterview_getBackgroundView", 1);
-	public var contentView(getContentView, null) : UIView;
-		private function getContentView():UIView
-	{
-		return cpp_uitableviewheaderfooterview_getContentView(_tag);
-	}
-	private static var cpp_uitableviewheaderfooterview_getContentView = Lib.load("basis", "uitableviewheaderfooterview_getContentView", 1);
-	public var detailTextLabel(getDetailTextLabel, null) : UILabel;
-		private function getDetailTextLabel():UILabel
-	{
-		return cpp_uitableviewheaderfooterview_getDetailTextLabel(_tag);
-	}
-	private static var cpp_uitableviewheaderfooterview_getDetailTextLabel = Lib.load("basis", "uitableviewheaderfooterview_getDetailTextLabel", 1);
-	public var reuseIdentifier(getReuseIdentifier, null) : String;
-		private function getReuseIdentifier():String
-	{
-		return cpp_uitableviewheaderfooterview_getReuseIdentifier(_tag);
-	}
-	private static var cpp_uitableviewheaderfooterview_getReuseIdentifier = Lib.load("basis", "uitableviewheaderfooterview_getReuseIdentifier", 1);
-	public var textLabel(getTextLabel, null) : UILabel;
-		private function getTextLabel():UILabel
-	{
-		return cpp_uitableviewheaderfooterview_getTextLabel(_tag);
-	}
-	private static var cpp_uitableviewheaderfooterview_getTextLabel = Lib.load("basis", "uitableviewheaderfooterview_getTextLabel", 1);
+	private static var uitableviewheaderfooterview_getBackgroundView = Lib.load("basis", "uitableviewheaderfooterview_getBackgroundView", 1);
 
+	private function setBackgroundView(value:UIView):UIView
+	{
+		uitableviewheaderfooterview_setBackgroundView(_tag, value.tag);
+		var viewTag:Int = uitableviewheaderfooterview_getBackgroundView(_tag);
+		return cast(ViewManager.getView(viewTag), UIView);
+	}
+	private static var uitableviewheaderfooterview_setBackgroundView = Lib.load("basis", "uitableviewheaderfooterview_setBackgroundView", 2);
+
+	public var reuseIdentifier(getReuseIdentifier, null):String;
+	private function getReuseIdentifier():String
+	{
+		return uitableviewheaderfooterview_getReuseIdentifier(_tag);
+	}
+	private static var uitableviewheaderfooterview_getReuseIdentifier = Lib.load("basis", "uitableviewheaderfooterview_getReuseIdentifier", 1);
+
+
+	//Methods
 	public function prepareForReuse():Void
 	{
-		cpp_uitableviewheaderfooterview_prepareForReuse(_tag);
+		uitableviewheaderfooterview_prepareForReuse(_tag);
 	}
-	private static var cpp_uitableviewheaderfooterview_prepareForReuse = Lib.load("basis", "uitableviewheaderfooterview_prepareForReuse", 1);
+	private static var uitableviewheaderfooterview_prepareForReuse = Lib.load("basis", "uitableviewheaderfooterview_prepareForReuse", 1);
+
+
+
 
 }
+

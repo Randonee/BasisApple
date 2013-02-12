@@ -163,4 +163,39 @@ NSURLRequest* stringToNSURLRequest(value url)
 	return [NSURLRequest requestWithURL:stringToNSURL(url)];
 }
 
+value nsIndexPathToArray(NSIndexPath* indexPath)
+{
+	value arr = alloc_array(indexPath.length); 
+	for(int a=0; a < indexPath.length; ++a)
+	{
+		val_array_set_i(arr, a, alloc_int([indexPath indexAtPosition:a]));
+	}
+	return arr;
+}
+
+NSIndexPath* arrayToNSIndexPath(value indexes)
+{
+	int indexCount = val_array_size(indexes);
+	NSUInteger values[indexCount];
+	
+	for(int a=0; a < indexCount; ++a)
+		values[a] = val_int(val_array_i(indexes, a));
+		
+	return [NSIndexPath indexPathWithIndexes:values length:indexCount];
+}
+
+value nsIndexSetToArray(NSIndexSet* indexSet)
+{
+	value arr = alloc_array(2); 
+	val_array_set_i(arr, 0, alloc_int(indexSet.firstIndex));
+	val_array_set_i(arr, 1, alloc_int(indexSet.lastIndex));
+	return arr;
+}
+
+NSIndexSet* arrayToNSIndexSet(value indexes)
+{
+	NSRange range = {val_int(val_array_i(indexes, 0)), val_int(val_array_i(indexes, 1))};
+	return [NSIndexSet indexSetWithIndexesInRange:range];
+}
+
 

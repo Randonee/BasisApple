@@ -22,6 +22,11 @@ class ViewBase
 		_tag = ViewManager.createView(this, _type);
 	}
 	
+	public function setTagFromCFFI(newTag:Int):Void
+	{
+		_tag = newTag;
+	}
+	
 	public function addEventListener(type:String, handler:ViewBase->String->Void):Void
 	{
 		ViewManager.addEventListener(type, this, handler);

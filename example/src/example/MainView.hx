@@ -150,7 +150,7 @@ class MainView extends UIView
 	        cell = new UITableViewCell();
 	    }
 	    
-	   cell.setLabel(_tableCellLabels[indexPath[1]]);
+	   cell.textLabel.text = _tableCellLabels[indexPath[1]];
 		return cell;
 	}
 	

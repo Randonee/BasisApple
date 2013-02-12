@@ -29,6 +29,18 @@ namespace basis
     }
     DEFINE_PRIM (viewmanager_setEventHandler, 1);
     
+    void viewmanager_setCFFICreateViewHandler(value handler)
+    {
+    	[[BasisApplication getViewManager] setCFFICreateViewHandler: new AutoGCRoot(handler)];
+    }
+    DEFINE_PRIM (viewmanager_setCFFICreateViewHandler, 1);
+    
+    void viewmanager_setCFFIDestroyViewHandler(value handler)
+    {
+    	[[BasisApplication getViewManager] setCFFIDestroyViewHandler: new AutoGCRoot(handler)];
+    }
+    DEFINE_PRIM (viewmanager_setCFFIDestroyViewHandler, 1);
+    
 	void removeView(int tag)
 	{
 		[[BasisApplication getViewManager] removeView:tag];

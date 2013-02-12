@@ -7,7 +7,8 @@
 NSMutableDictionary *views;
 int currentTag;
 ViewEventManager *eventManager;
-
+AutoGCRoot *_cffiCreateViewHandler;
+AutoGCRoot *_cffiDestroyViewHandler;
 
 - (id) init
 {
@@ -73,15 +74,15 @@ void initUITextFieldEventListeners(int tag);
 	return view;
 }
 
--(int) addView:(UIView*) view
+-(int) addView:(UIView*) view type:(NSString*)type
 {
 	view.tag = currentTag;
     ++currentTag;
     
     [views setObject:view forKey:[NSNumber numberWithInt:view.tag]];
+    val_call2(_cffiCreateViewHandler->get(), alloc_string([type cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(view.tag));
     return view.tag;
 }
-
 
 
 -(void) setEventHandler:(AutoGCRoot *) handler
@@ -89,15 +90,20 @@ void initUITextFieldEventListeners(int tag);
 	[eventManager setEventHandler:handler];
 }
 
+-(void) setCFFICreateViewHandler:(AutoGCRoot *) handler
+{
+	_cffiCreateViewHandler = handler;
+}
+
+-(void) setCFFIDestroyViewHandler:(AutoGCRoot *) handler
+{
+	_cffiDestroyViewHandler = handler;
+}
+
 
 -(void) removeView:(int) tag
 {
-	UIView *view = [views objectForKey:[NSNumber numberWithInt:tag]];
-	
-	if(view != nil)
-	{
-		[views removeObjectForKey:[NSNumber numberWithInt:tag]];
-	}
+	[views removeObjectForKey:[NSNumber numberWithInt:tag]];
 }
 
 -(void) addToRootView:(int) tag
@@ -111,8 +117,22 @@ void initUITextFieldEventListeners(int tag);
 	UIView *view = [views objectForKey:[NSNumber numberWithInt:tag]];
 	if(view.superview != nil)
 		[view removeFromSuperview];
-		
+	
 	[views removeObjectForKey:[NSNumber numberWithInt:tag]];
+	[self destroyCFFIView:view];
+	
+	if([view isKindOfClass:[UITableViewCell class]])
+    {
+    	[self destroyCFFIView:((UITableViewCell*)view).textLabel];
+    	[self destroyCFFIView:((UITableViewCell*)view).detailTextLabel];
+    }
+}
+
+-(void)destroyCFFIView:(UIView *) view
+{
+	[views removeObjectForKey:[NSNumber numberWithInt:view.tag]];
+	if(view != nil)
+		val_call1(_cffiDestroyViewHandler->get(), alloc_int(view.tag));
 }
 
 -(UIView*) createViewOfType:(NSString*) type
@@ -253,6 +273,9 @@ void initUITextFieldEventListeners(int tag);
     else if([type isEqualToString:@"UITableViewCell"])
     {
     	view = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    	[self addView:((UITableViewCell*)view).textLabel type:@"UILabel"];
+    	if(((UITableViewCell*)view).detailTextLabel != nil)
+    		[self addView:((UITableViewCell*)view).detailTextLabel type:@"UILabel"];
     }
     else if([type isEqualToString:@"UITableViewHeaderFooterView"])
     {
@@ -283,8 +306,7 @@ void initUITextFieldEventListeners(int tag);
     if(initFunction != NULL)
    		initFunction(view.tag);
     
-    [view release];
-    return view;
+    return [view autorelease];
 }
 
 void initUIViewEventListeners(int tag)
