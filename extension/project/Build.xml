@@ -23,6 +23,7 @@
 		<file name="basis/ios/BasisApplication.mm"/>
 		<file name="basis/ios/DeviceEventManager.mm"/>
 		<file name="basis/ios/ViewManager.mm"/>
+		<file name="basis/ios/UIBarItemManager.mm"/>
 		<file name="basis/ios/ViewEventManager.mm"/>
 		<file name="basis/Basis.mm"/>
     </files>

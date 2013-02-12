@@ -6,6 +6,7 @@
 @synthesize window;
 @synthesize controller;
 @synthesize viewManager;
+@synthesize barItemManager;
 @synthesize deviceEventManager;
 
 BasisApplication *instance;
@@ -27,6 +28,11 @@ BasisApplication *instance;
 	return instance.viewManager;
 }
 
++(UIBarItemManager *) getBarItemManager
+{
+	return instance.barItemManager;
+}
+
 +(DeviceEventManager *) getDeviceEventManager
 {
 	return instance.deviceEventManager;
@@ -40,6 +46,7 @@ BasisApplication *instance;
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
 	viewManager = [[ViewManager alloc] init];
+	barItemManager = [[UIBarItemManager alloc] init];
 	[viewManager setMainWindow:self.window];
 	
 	deviceEventManager = [[DeviceEventManager alloc] init];

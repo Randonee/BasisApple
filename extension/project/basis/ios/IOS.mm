@@ -28,10 +28,13 @@
 #include "../../apple/ui/UIWebView.mm"
 #include "../../apple/ui/UIWindow.mm"
 #include "../../apple/ui/UINavigationBar.mm"
+#include "../../apple/ui/UINavigationItemCFFI.mm"
+#include "../../apple/ui/UIBarItemCFFI.mm"
 
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 
 #include "DeviceManagerCFFI.mm"
 #include "ViewManagerCFFI.mm"
+#include "UIBarItemManagerCFFI.mm"
 #include "../../apple/ui/UITableViewDataSourceCFFI.mm"
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"
