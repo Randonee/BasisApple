@@ -2,6 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "apple/ui/UITableViewDataSourceImp.h"
 #import "apple/ui/UITableViewDelegateImp.h"
+#import "apple/ui/UIBarButtonItemTarget.h"
 
 
 #ifdef IPHONE

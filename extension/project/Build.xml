@@ -20,6 +20,7 @@
 		<file name="apple/ui/UITableViewDataSourceImp.mm"/>
 		<file name="apple/ui/UITableViewDelegateImp.mm"/>
 		<file name="apple/ui/UIScrollViewDelegateImp.mm"/>
+		<file name="apple/ui/UIBarButtonItemTarget.mm"/>
 		<file name="basis/ios/BasisApplication.mm"/>
 		<file name="basis/ios/DeviceEventManager.mm"/>
 		<file name="basis/ios/ViewManager.mm"/>

@@ -30,6 +30,7 @@
 #include "../../apple/ui/UINavigationBar.mm"
 #include "../../apple/ui/UINavigationItemCFFI.mm"
 #include "../../apple/ui/UIBarItemCFFI.mm"
+#include "../../apple/ui/UIBarButtonItemCFFI.mm"
 
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 

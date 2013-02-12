@@ -39,9 +39,14 @@ class UIBarButtonItem extends UIBarItem
 	}
 	
 	
+	private var _didTapHandler:UIBarButtonItem->Void;
+	
+	
 	public function new(?type:String="UIBarButtonItem", ?style:Int=0)
 	{
 		super(type, style);
+		
+		uibarbuttonitem_setHandler(tag, didTapButtonBarItemHandler);
 	}
 	
 	//public static function initWithCustomView
@@ -49,6 +54,19 @@ class UIBarButtonItem extends UIBarItem
 	//public static function initWithImageLandscapeImagePhone
 	
 	
+	public function setHandler(handler:UIBarButtonItem->Void):Void
+	{
+		_didTapHandler = handler;
+	}
+	
+	private function didTapButtonBarItemHandler(barTag:Int):Void
+	{
+		if(_didTapHandler != null && barTag == tag)
+		{
+			_didTapHandler(this);
+		}
+	}
 	
 	
+	private static var uibarbuttonitem_setHandler = Lib.load("basis", "uibarbuttonitem_setHandler", 2);
 }

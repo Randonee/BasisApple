@@ -283,6 +283,7 @@ void initUITextFieldEventListeners(int tag);
     if(initFunction != NULL)
    		initFunction(view.tag);
     
+    [view release];
     return view;
 }
 
