@@ -43,8 +43,6 @@ class UITableView extends UIScrollView
 	}
 	private static var uitableview_dequeueReusableHeaderFooterViewWithIdentifier = Lib.load("basis", "uitableview_dequeueReusableHeaderFooterViewWithIdentifier", 2);
 
-	
-	
 
 	//Constants
 	//static public inline var UITableViewAutomaticDimension:Float;
@@ -109,8 +107,11 @@ class UITableView extends UIScrollView
 
 	private function setBackgroundView(value:UIView):UIView
 	{
-		uitableview_setBackgroundView(_tag, value.tag);
+		var setTag:Int = -1;
+		if(value != null){setTag = value.tag;}
+		uitableview_setBackgroundView(_tag, setTag);
 		var viewTag:Int = uitableview_getBackgroundView(_tag);
+		if(viewTag <= 0){return null;}
 		return cast(ViewManager.getView(viewTag), UIView);
 	}
 	private static var uitableview_setBackgroundView = Lib.load("basis", "uitableview_setBackgroundView", 2);
@@ -265,8 +266,11 @@ class UITableView extends UIScrollView
 
 	private function setTableHeaderView(value:UIView):UIView
 	{
-		uitableview_setTableHeaderView(_tag, value.tag);
+		var setTag:Int = -1;
+		if(value != null){setTag = value.tag;}
+		uitableview_setTableHeaderView(_tag, setTag);
 		var viewTag:Int = uitableview_getTableHeaderView(_tag);
+		if(viewTag <= 0){return null;}
 		return cast(ViewManager.getView(viewTag), UIView);
 	}
 	private static var uitableview_setTableHeaderView = Lib.load("basis", "uitableview_setTableHeaderView", 2);
@@ -281,8 +285,11 @@ class UITableView extends UIScrollView
 
 	private function setTableFooterView(value:UIView):UIView
 	{
-		uitableview_setTableFooterView(_tag, value.tag);
+		var setTag:Int = -1;
+		if(value != null){setTag = value.tag;}
+		uitableview_setTableFooterView(_tag, setTag);
 		var viewTag:Int = uitableview_getTableFooterView(_tag);
+		if(viewTag <= 0){return null;}
 		return cast(ViewManager.getView(viewTag), UIView);
 	}
 	private static var uitableview_setTableFooterView = Lib.load("basis", "uitableview_setTableFooterView", 2);
