@@ -1,7 +1,7 @@
 package apple.ui;
 
 import cpp.Lib;
-import ios.UIBarItemManager;
+import basis.ios.UIBarItemManager;
 
 class UIBarButtonItem extends UIBarItem
 {
