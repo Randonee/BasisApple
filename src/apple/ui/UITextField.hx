@@ -13,6 +13,36 @@ import apple.ui.UIkit;
 class UITextField extends UIControl
 {
 
+	//------ Added - NOT GENERATED ------
+	public var secureTextEntry(getSecureTextEntry, setSecureTextEntry) : Bool;
+	private function setSecureTextEntry(value:Bool):Bool
+	{
+		cpp_uitextfield_setSecureTextEntry(_tag, value);
+		return cpp_uitextfield_getSecureTextEntry(_tag);
+	}
+	private static var cpp_uitextfield_setSecureTextEntry = Lib.load("basis", "uitextfield_setSecureTextEntry", 2);
+	private function getSecureTextEntry():Bool
+	{
+		return cpp_uitextfield_getSecureTextEntry(_tag);
+	}
+	private static var cpp_uitextfield_getSecureTextEntry = Lib.load("basis", "uitextfield_getSecureTextEntry", 1);
+	
+	public var fontSize(getFontSize, setFontSize) : Float;
+	private function setFontSize(value:Float):Float
+	{
+		cpp_uitextfield_setFontSize(_tag, value);
+		return cpp_uitextfield_getFontSize(_tag);
+	}
+	private static var cpp_uitextfield_setFontSize = Lib.load("basis", "uitextfield_setFontSize", 2);
+	private function getFontSize():Float
+	{
+		return cpp_uitextfield_getFontSize(_tag);
+	}
+	private static var cpp_uitextfield_getFontSize = Lib.load("basis", "uitextfield_getFontSize", 1);
+	// ---------------------------------
+
+
+
 	 public function new(?type="UITextField")
 	{
 		super(type);
@@ -297,6 +327,14 @@ class UITextField extends UIControl
 	private static var uitextfield_clearButtonRectForBounds = Lib.load("basis", "uitextfield_clearButtonRectForBounds", 2);
 
 
+	public static inline var UITextBorderStyleNone:Int = 0;
+	public static inline var UITextBorderStyleLine:Int = 1;
+	public static inline var UITextBorderStyleBezel:Int = 2;
+	public static inline var UITextBorderStyleRoundedRect:Int = 3;
+	public static inline var UITextFieldViewModeNever:Int = 0;
+	public static inline var UITextFieldViewModeWhileEditing:Int = 1;
+	public static inline var UITextFieldViewModeUnlessEditing:Int = 2;
+	public static inline var UITextFieldViewModeAlways:Int = 3;
 
 
 }
