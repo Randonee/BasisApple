@@ -67,6 +67,9 @@
 	</target> 
 
 	<target name="testlib">
+		<exec dir="." failonerror="false" executable="haxelib">
+			<arg line="remove BasisApple" />
+		</exec>
 		<antcall target="buildHaxelib" />
 		<exec dir="." failonerror="true" executable="haxelib">
 			<arg line="test build/BasisApple.zip" />
