@@ -1,17 +1,17 @@
 package example;
 
-import ios.ViewBase;
-import ios.ui.UIView;
-import ios.ui.UILabel;
-import ios.ui.UITextField;
-import ios.ui.UIButton;
-import ios.ui.UIControl;
-import ios.ui.UITableView;
-import ios.ui.UITableViewCell;
-import ios.ui.UIWebView;
-import ios.ui.UINavigationBar;
-import ios.ui.UIBarButtonItem;
-import ios.ui.UIAlertView;
+import basis.ios.ViewBase;
+import apple.ui.UIView;
+import apple.ui.UILabel;
+import apple.ui.UITextField;
+import apple.ui.UIButton;
+import apple.ui.UIControl;
+import apple.ui.UITableView;
+import apple.ui.UITableViewCell;
+import apple.ui.UIWebView;
+import apple.ui.UINavigationBar;
+import apple.ui.UIBarButtonItem;
+import apple.ui.UIAlertView;
 
 
 import ios.EventTypes;
@@ -83,6 +83,9 @@ class MainView extends UIView
 		addSubview(_sampleButton);
 		
 		_tableCellLabels = [];
+		for(a in 1...101)
+			_tableCellLabels.push("Cell Label " + Std.string(a));
+		
 		_table = new UITableView();
 		_table.dataSource.titleForHeaderInSectionHandler = titleForHeaderInSection;
 		_table.dataSource.numberOfSectionsInTableViewHandler = numberOfSectionsInTableView;
@@ -97,8 +100,7 @@ class MainView extends UIView
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 270, 150, 30];
 		
-		for(a in 1...101)
-			_tableCellLabels.push("Cell Label " + Std.string(a));
+		
 			
 		_webView = new UIWebView();
 		_webView.frame = [0.0, 520, 700, 500];

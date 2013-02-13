@@ -1,6 +1,6 @@
 package example;
 
-import ios.ViewManager;
+import basis.ios.ViewManager;
 
 class ApplicationMain
 {

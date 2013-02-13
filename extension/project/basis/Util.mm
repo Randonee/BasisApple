@@ -198,4 +198,34 @@ NSIndexSet* arrayToNSIndexSet(value indexes)
 	return [NSIndexSet indexSetWithIndexesInRange:range];
 }
 
+value nsRangeToArray(NSRange range)
+{
+	value arr = alloc_array(2); 
+	val_array_set_i(arr, 0, alloc_int(range.location));
+	val_array_set_i(arr, 1, alloc_int(range.length));
+	return arr;
+}
+
+NSRange arrayToNSRange(value arr)
+{
+	NSRange range = {val_int(val_array_i(arr, 0)), val_int(val_array_i(arr, 1))};
+	return range;
+}
+
+value uiOffsetToArray(UIOffset offset)
+{
+	value arr = alloc_array(2); 
+	val_array_set_i(arr, 0, alloc_int(offset.horizontal));
+	val_array_set_i(arr, 1, alloc_int(offset.vertical));
+	return arr;
+}
+
+UIOffset arrayToUIOffset(value arr)
+{
+	UIOffset offset = {val_int(val_array_i(arr, 0)), val_int(val_array_i(arr, 1))};
+	return offset;
+}
+
+
+
 

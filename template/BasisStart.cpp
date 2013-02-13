@@ -1,14 +1,14 @@
 #include <MAIN_INCLUDE.h>
 #include <basis/Basis.h>
-#include <ios/ViewManager.h>
-#include <ios/UIBarItemManager.h>
-#include <ios/DeviceEventManager.h>
+#include <basis/ios/ViewManager.h>
+#include <basis/ios/UIBarItemManager.h>
+#include <basis/ios/DeviceEventManager.h>
 
 void startBasis()
 {
-	::ios::ViewManager_obj::init();
-	::ios::UIBarItemManager_obj::init();
-	::ios::DeviceEventManager_obj::init();
+	::basis::ios::ViewManager_obj::init();
+	::basis::ios::UIBarItemManager_obj::init();
+	::basis::ios::DeviceEventManager_obj::init();
 	::MAIN_CLASS_obj::main();
 }
 

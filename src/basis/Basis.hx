@@ -1,9 +1,9 @@
 package basis;
 
 import cpp.Lib;
-import ios.ViewManager;
-import ios.UIBarItemManager;
-import ios.DeviceEventManager;
+import basis.ios.ViewManager;
+import basis.ios.UIBarItemManager;
+import basis.ios.DeviceEventManager;
 
 class Basis
 {
