@@ -1,6 +1,6 @@
 package test;
 
-import ios.IOSUtil;
+import basis.ios.IOSUtil;
 import test.ios.ViewManagerTester;
 
 class TestMain

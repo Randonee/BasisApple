@@ -1,8 +1,8 @@
 package apple.ui;
 
 import cpp.Lib;
-import ios.ViewManager;
-import ios.ViewBase;
+import basis.ios.ViewManager;
+import basis.ios.ViewBase;
 
 class UICollectionReusableView extends UIView
 {
