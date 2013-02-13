@@ -11,10 +11,8 @@ This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
 **Installation**
 
-
-run this command (make sure Basis has a capital "B")
-
-	haxelib install Basis
+1. Install BasisApple haxelib with instructions found here: https://github.com/Randonee/Basis
+2. Install xcode
 	
 
 **Running the Example**
