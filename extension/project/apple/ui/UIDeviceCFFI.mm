@@ -1,21 +1,21 @@
 
 namespace basis
 {
-    value cpp_uidevice_getName()
+    value uidevice_getName()
 	{
 		return alloc_string([UIDevice.currentDevice.name cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
-	DEFINE_PRIM (cpp_uidevice_getName, 0);
+	DEFINE_PRIM (uidevice_getName, 0);
 	
-	value cpp_uidevice_getModel()
+	value uidevice_getModel()
 	{
 		return alloc_string([UIDevice.currentDevice.model cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
-	DEFINE_PRIM (cpp_uidevice_getModel, 0);
+	DEFINE_PRIM (uidevice_getModel, 0);
 	
-	value cpp_uidevice_getOrientation()
+	value uidevice_getOrientation()
 	{
 		return alloc_int(UIDevice.currentDevice.orientation);
 	}
-	DEFINE_PRIM (cpp_uidevice_getOrientation, 0);
+	DEFINE_PRIM (uidevice_getOrientation, 0);
 }

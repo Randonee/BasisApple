@@ -29,14 +29,14 @@ class UIDevice
 	static public var model(getModel,  null):String;
 	static public var orientation(getOrientation,  null):Int;
 
-	static private function getName():String{return cpp_uidevice_getName();}
-	private static var cpp_uidevice_getName = Lib.load("basis", "cpp_uidevice_getName", 0);
+	static private function getName():String{return uidevice_getName();}
+	private static var uidevice_getName = Lib.load("basis", "uidevice_getName", 0);
 	
-	static private function getModel():String{return cpp_uidevice_getModel();}
-	private static var cpp_uidevice_getModel = Lib.load("basis", "cpp_uidevice_getModel", 0);
+	static private function getModel():String{return uidevice_getModel();}
+	private static var uidevice_getModel = Lib.load("basis", "uidevice_getModel", 0);
 	
-	static private function getOrientation():Int{return cpp_uidevice_getOrientation();}
-	private static var cpp_uidevice_getOrientation = Lib.load("basis", "cpp_uidevice_getOrientation", 0);
+	static private function getOrientation():Int{return uidevice_getOrientation();}
+	private static var uidevice_getOrientation = Lib.load("basis", "uidevice_getOrientation", 0);
 	
 //	public var model (default, null) :String;             // e.g. @"iPhone", @"iPod touch"
 //	public var localizedModel (default, null) :String;    // localized version of model
