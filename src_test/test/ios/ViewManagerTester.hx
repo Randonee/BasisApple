@@ -1,8 +1,8 @@
 package test.ios;
 
-import ios.ViewManager;
-import ios.ViewBase;
-import ios.ui.UIView;
+import basis.ios.ViewManager;
+import basis.ios.ViewBase;
+import apple.ui.UIView;
 
 class ViewManagerTester extends haxe.unit.TestCase
 {
