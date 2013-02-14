@@ -1,4 +1,4 @@
-package test.ios;
+package test.basis.ios;
 
 import basis.ios.ViewManager;
 import basis.ios.ViewBase;
