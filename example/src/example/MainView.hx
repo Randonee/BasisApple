@@ -13,8 +13,7 @@ import apple.ui.UINavigationBar;
 import apple.ui.UIBarButtonItem;
 import apple.ui.UIAlertView;
 
-
-import ios.EventTypes;
+import basis.ios.EventTypes;
 
 class MainView extends UIView
 {
@@ -23,6 +22,7 @@ class MainView extends UIView
 	private var _outputField:UITextField;
 	private var _outputLabel:UILabel;
 	private var _sampleButton:UIButton;
+	private var _animateButton:UIButton;
 	private var _table:UITableView;
 	private var _tableEventLabel:UILabel;
 	private var _tableCellLabels:Array<String>;
@@ -100,12 +100,17 @@ class MainView extends UIView
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 270, 150, 30];
 		
-		
-			
 		_webView = new UIWebView();
 		_webView.frame = [0.0, 520, 700, 500];
 		_webView.loadRequest("http://haxe.org");
 		addSubview(_webView);
+		
+		
+		_animateButton = new UIButton();
+		_animateButton.frame = [400.0,220,100,30];
+		_animateButton.setTitleForState("Animate", UIControl.UIControlStateNormal);
+		_animateButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onAnimateButtonClick);
+		addSubview(_animateButton);
 		
 	}
 	
@@ -121,6 +126,16 @@ class MainView extends UIView
 	private function onButtonClick(view:ViewBase, type):Void
 	{
 		_inputField.text = "Button Clicked";
+	}
+	
+	private function onAnimateButtonClick(view:ViewBase, type):Void
+	{
+		UIView.beginAnimations("buttonAnimate");
+		if(_animateButton.frame[1] < 220)
+			_animateButton.frame = [400.0,220,100,30];
+		else
+			_animateButton.frame = [400.0,80,100,30];
+		UIView.commitAnimations();
 	}
 	
 	private function onInputChanged(view:ViewBase, type):Void
