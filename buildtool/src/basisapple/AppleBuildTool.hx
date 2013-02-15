@@ -113,9 +113,9 @@ class AppleBuildTool extends basis.BuildTool
 						if(contents[b].charAt(0) != ".")
 						{
 							if(FileSystem.isDirectory(sourcePaths[a] + "/" + contents[b]))
-								FileUtil.copyInto(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
+								FileUtil.copyInto(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b], null, true);
 							else
-								File.copy(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b]);
+								FileUtil.copyFile(sourcePaths[a] + "/" + contents[b], haxeBuildPath + contents[b], null, true);
 						}
 					}
 				}
@@ -143,7 +143,7 @@ class AppleBuildTool extends basis.BuildTool
 							if(FileSystem.isDirectory(assetPaths[a] + "/" + contents[b]))
 								FileUtil.copyInto(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b], null, true);
 							else
-								File.copy(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b], null, true);
+								FileUtil.copyFile(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b], null, true);
 						}
 					}
 				}
@@ -233,7 +233,7 @@ class AppleBuildTool extends basis.BuildTool
 			for(b in 0...frameworks.length)
 				xcode.addFramework(frameworks[b]);
 				
-			xcode.save(targetPath);
+			xcode.save(targetPath, true);
 			//------------------------------------
 			
 			
@@ -243,7 +243,6 @@ class AppleBuildTool extends basis.BuildTool
 			
 			if (deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
 			{
-				
 	            commands.push ("-arch");
 	            commands.push ("i386");
 	            commands.push ("-sdk");
