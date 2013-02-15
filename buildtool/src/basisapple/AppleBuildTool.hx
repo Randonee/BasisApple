@@ -141,9 +141,9 @@ class AppleBuildTool extends basis.BuildTool
 						if(contents[b].charAt(0) != ".")
 						{
 							if(FileSystem.isDirectory(assetPaths[a] + "/" + contents[b]))
-								FileUtil.copyInto(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
+								FileUtil.copyInto(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b], null, true);
 							else
-								File.copy(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b]);
+								File.copy(assetPaths[a] + "/" + contents[b], xcodeAssets + "/" + contents[b], null, true);
 						}
 					}
 				}
