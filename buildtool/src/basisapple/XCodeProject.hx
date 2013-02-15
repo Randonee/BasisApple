@@ -47,8 +47,9 @@ class XCodeProject
 	public var plists(default, null):Array<FileResource>;
 	public var sourceDirectories(default, null):Array<GroupResource>;
 	
-	private var _frameworkFiles:Array<FileResource>;
+	private var _data:String;
 	
+	private var _frameworkFiles:Array<FileResource>;
 	private var _mainGroup:GroupResource;
 	private var _filesGroup:GroupResource;
 	private var _frameworksGroup:GroupResource;
@@ -174,350 +175,372 @@ class XCodeProject
 		plists.push(plist);
 	}
 
-	public function save(path:String):Void
+	public function save(path:String, ?onlyIfChanged:Bool=false):Void
 	{
-		if(FileSystem.exists(path + "/" + fileName))
-			FileUtil.deleteDirectoryRecursive(path + "/" + fileName);
-	
-		FileSystem.createDirectory(path + "/" + fileName);
-	
-		var fout:FileOutput = File.write(path + "/" + fileName + "/project.pbxproj");
-		writeLn(fout, "// !$*UTF8*$!");
-		writeLn(fout, "{");
-		writeLn(fout, "\tarchiveVersion = 1;");
-		writeLn(fout, "\tclasses = {");
-		writeLn(fout, "\t};");
-		writeLn(fout, "\tobjectVersion = 46;");
-		writeLn(fout, "\tobjects = {");
-		writeLn(fout, "");
 		
-		writePBXBuildFileSection(fout);
-		writeLn(fout, "");
-		writePBXFileReferenceSection(fout);
-		writeLn(fout, "");
-		writePBXFrameworksBuildPhaseSection(fout);
-		writeLn(fout, "");
-		writePBXGroupSection(fout);
-		writeLn(fout, "");
-		writePBXNativeTargetSection(fout);
-		writeLn(fout, "");
-		writePBXProjectSection(fout);
-		writeLn(fout, "");
-		writePBXResourcesBuildPhaseSection(fout);
-		writeLn(fout, "");
-		writePBXSourcesBuildPhaseSection(fout);
-		writeLn(fout, "");
-		writeXCBuildConfigurationSection(fout);
-		writeLn(fout, "");
-		writeXCConfigurationListSection(fout);
+		var changed:Bool = true;
+		var projectFilepath:String = path + "/" + fileName + "/project.pbxproj";
 		
-		writeLn(fout, "\t};");
-		writeLn(fout, "\trootObject = " + _rootObjectID + " /* Project object */;");
-		writeLn(fout, "}");
+		createProjectData();
+		if(onlyIfChanged)
+		{
+			if(FileSystem.exists(projectFilepath))
+			{
+				var currentProjectData:String = File.getContent(projectFilepath);
+				changed = (_data != currentProjectData);
+			}
+		}
 		
-		fout.close();
+		if(changed)
+		{
+			if(!FileSystem.exists(path + "/" + fileName))
+				FileSystem.createDirectory(path + "/" + fileName);
+				
+			var fout:FileOutput = File.write(projectFilepath);
+			fout.writeString(_data);
+			fout.close();
+		}
 	}
 	
 	
-	private function writePBXBuildFileSection(fout:FileOutput):Void
+	private function createProjectData()
 	{
-		writeLn(fout, "/* Begin PBXBuildFile section */");
+		_data = "";
+	
+		addLine("// !$*UTF8*$!");
+		addLine("{");
+		addLine("\tarchiveVersion = 1;");
+		addLine("\tclasses = {");
+		addLine("\t};");
+		addLine("\tobjectVersion = 46;");
+		addLine("\tobjects = {");
+		addLine("");
+		
+		addPBXBuildFileSection();
+		addLine("");
+		addPBXFileReferenceSection();
+		addLine("");
+		addPBXFrameworksBuildPhaseSection();
+		addLine("");
+		addPBXGroupSection();
+		addLine("");
+		addPBXNativeTargetSection();
+		addLine("");
+		addPBXProjectSection();
+		addLine("");
+		addPBXResourcesBuildPhaseSection();
+		addLine("");
+		addPBXSourcesBuildPhaseSection();
+		addLine("");
+		addXCBuildConfigurationSection();
+		addLine("");
+		addXCConfigurationListSection();
+		
+		addLine("\t};");
+		addLine("\trootObject = " + _rootObjectID + " /* Project object */;");
+		addLine("}");
+	}
+	
+	
+	private function addPBXBuildFileSection():Void
+	{
+		addLine("/* Begin PBXBuildFile section */");
 		
 		for(resource in frameworks)
-			writeLn(fout, "\t\t" + resource.guid + " /* " + resource.name + ".framework in Frameworks */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + ".framework */; };");
+			addLine("\t\t" + resource.guid + " /* " + resource.name + ".framework in Frameworks */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + ".framework */; };");
 		
 		for(resource in resources)
-			writeLn(fout, "\t\t" + resource.guid + " /* " + resource.name + " in Sourcess */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + " */; };");
+			addLine("\t\t" + resource.guid + " /* " + resource.name + " in Sourcess */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + " */; };");
 		
 		for(resource in sources)
 		{
 			if(!fileIsHeader(resource))
-				writeLn(fout, "\t\t" + resource.guid + " /* " + resource.name + " in Sourcess */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + " */; };");
+				addLine("\t\t" + resource.guid + " /* " + resource.name + " in Sourcess */ = {isa = PBXBuildFile; fileRef = " + resource.fileRef + " /* " + resource.name + " */; };");
 		}
-		writeLn(fout, "/* End PBXBuildFile section */");
+		addLine("/* End PBXBuildFile section */");
 	}
 	
 	
-	private function writePBXFileReferenceSection(fout:FileOutput):Void
+	private function addPBXFileReferenceSection():Void
 	{
-		writeLn(fout, "/* Begin PBXFileReference section */");
-		writeLn(fout, "\t\t" + _projectResource.fileRef + " /* " + _projectResource.name + " */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = \"" + _projectResource.name + "\"; sourceTree = BUILT_PRODUCTS_DIR; };");
+		addLine("/* Begin PBXFileReference section */");
+		addLine("\t\t" + _projectResource.fileRef + " /* " + _projectResource.name + " */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = \"" + _projectResource.name + "\"; sourceTree = BUILT_PRODUCTS_DIR; };");
 		for(resource in frameworks)
-			writeLn(fout, "\t\t" + resource.fileRef + " /* " + resource.name + ".framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = " + resource.name + ".framework; path = System/Library/Frameworks/" + resource.name + ".framework; sourceTree = SDKROOT; };");
+			addLine("\t\t" + resource.fileRef + " /* " + resource.name + ".framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = " + resource.name + ".framework; path = System/Library/Frameworks/" + resource.name + ".framework; sourceTree = SDKROOT; };");
 		for(resource in plists)
-			writeLn(fout, "\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };");
+			addLine("\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };");
 		
 		for(resource in resources)
-			writePBXFileReferenceFileRef(fout, resource);
+			addPBXFileReferenceFileRef(resource);
 		
 		for(resource in sources)
-			writePBXFileReferenceFileRef(fout, resource);
+			addPBXFileReferenceFileRef(resource);
 			
-		writeLn(fout, "/* End PBXFileReference section */");
+		addLine("/* End PBXFileReference section */");
 	}
 	
-	private function writePBXFileReferenceFileRef(fout:FileOutput, resource:FileResource):Void
+	private function addPBXFileReferenceFileRef(resource:FileResource):Void
 	{
 		var line:String = "\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; ";
 		if(fileIsSource(resource))
 			line +=  "fileEncoding = 4; ";
 			
 		line += "lastKnownFileType = " + getFileType(resource.name) + "; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };";
-		writeLn(fout, line);
+		addLine(line);
 	}
 	
 	
-	private function writePBXFrameworksBuildPhaseSection(fout:FileOutput):Void
+	private function addPBXFrameworksBuildPhaseSection():Void
 	{
-		writeLn(fout, "/* Begin PBXFrameworksBuildPhase section */");
-		writeLn(fout, "\t\t" + _frameworksID +  " /* Frameworks */ = {");
-		writeLn(fout, "\t\t\tisa = PBXFrameworksBuildPhase;");
-		writeLn(fout, "\t\t\tbuildActionMask = " + _buildActionMask + ";");
-		writeLn(fout, "\t\t\tfiles = (");
+		addLine("/* Begin PBXFrameworksBuildPhase section */");
+		addLine("\t\t" + _frameworksID +  " /* Frameworks */ = {");
+		addLine("\t\t\tisa = PBXFrameworksBuildPhase;");
+		addLine("\t\t\tbuildActionMask = " + _buildActionMask + ";");
+		addLine("\t\t\tfiles = (");
 		
 		for(resource in frameworks)
-			writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + ".framework in Frameworks */,");
+			addLine("\t\t\t\t" + resource.guid + " /* " + resource.name + ".framework in Frameworks */,");
 			
 		for(resource in _frameworkFiles)
-			writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + " in Frameworks */,");
+			addLine("\t\t\t\t" + resource.guid + " /* " + resource.name + " in Frameworks */,");
 		
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\trunOnlyForDeploymentPostprocessing = 0;");
-		writeLn(fout, "\t\t};");
-		writeLn(fout, "/* End PBXFrameworksBuildPhase section */");
+		addLine("\t\t\t);");
+		addLine("\t\t\trunOnlyForDeploymentPostprocessing = 0;");
+		addLine("\t\t};");
+		addLine("/* End PBXFrameworksBuildPhase section */");
 	}
 	
 	
-	private function writePBXGroupSection(fout:FileOutput):Void
+	private function addPBXGroupSection():Void
 	{
-		writeLn(fout, "/* Begin PBXGroup section */");
-		writeLn(fout,createGroup(_mainGroup));
-		writeLn(fout,createGroup(_productsGroup));
-		writeLn(fout,createGroup(_frameworksGroup));
-		writeLn(fout,createGroup(_filesGroup));
+		addLine("/* Begin PBXGroup section */");
+		addLine(createGroup(_mainGroup));
+		addLine(createGroup(_productsGroup));
+		addLine(createGroup(_frameworksGroup));
+		addLine(createGroup(_filesGroup));
 		for(group in sourceDirectories)
 		{
 			if(!group.isResource)
-				writeLn(fout,createGroup(group));
+				addLine(createGroup(group));
 		}
 		
 		
-		writeLn(fout, "/* End PBXGroup section */");
+		addLine("/* End PBXGroup section */");
 	}
 	
-	private function writePBXNativeTargetSection(fout:FileOutput):Void
+	private function addPBXNativeTargetSection():Void
 	{
-		writeLn(fout, "/* Begin PBXNativeTarget section */");
-		writeLn(fout, "\t\t" + _targetID + " /* " + name + " */ = {");
-		writeLn(fout, "\t\t\tisa = PBXNativeTarget;");
-		writeLn(fout, "\t\t\tbuildConfigurationList = " + _buildConfigurationList2ID + " /* Build configuration list for PBXNativeTarget \"" + name + "\" */;");
-		writeLn(fout, "\t\t\tbuildPhases = (");
-		writeLn(fout, "\t\t\t\t" + _sourcesID + " /* Sources */,");
-		writeLn(fout, "\t\t\t\t" + _frameworksID + " /* Frameworks */,");
-		writeLn(fout, "\t\t\t\t" + _resourcesID + " /* Resources */,");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\tbuildRules = (");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\tdependencies = (");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\tname = " + name + ";");
-		writeLn(fout, "\t\t\tproductName = " + name + ";");
-		writeLn(fout, "\t\t\tproductReference = " + _projectResource.fileRef + " /* " + name + ".app */;");
+		addLine("/* Begin PBXNativeTarget section */");
+		addLine("\t\t" + _targetID + " /* " + name + " */ = {");
+		addLine("\t\t\tisa = PBXNativeTarget;");
+		addLine("\t\t\tbuildConfigurationList = " + _buildConfigurationList2ID + " /* Build configuration list for PBXNativeTarget \"" + name + "\" */;");
+		addLine("\t\t\tbuildPhases = (");
+		addLine("\t\t\t\t" + _sourcesID + " /* Sources */,");
+		addLine("\t\t\t\t" + _frameworksID + " /* Frameworks */,");
+		addLine("\t\t\t\t" + _resourcesID + " /* Resources */,");
+		addLine("\t\t\t);");
+		addLine("\t\t\tbuildRules = (");
+		addLine("\t\t\t);");
+		addLine("\t\t\tdependencies = (");
+		addLine("\t\t\t);");
+		addLine("\t\t\tname = " + name + ";");
+		addLine("\t\t\tproductName = " + name + ";");
+		addLine("\t\t\tproductReference = " + _projectResource.fileRef + " /* " + name + ".app */;");
 		
 		
-		writeLn(fout, "\t\t\tproductType = \"com.apple.product-type.application\";");
-		writeLn(fout, "\t\t};");
+		addLine("\t\t\tproductType = \"com.apple.product-type.application\";");
+		addLine("\t\t};");
 		
-		writeLn(fout, "/* End PBXNativeTarget section */");
-	}
-	
-	
-	private function writePBXProjectSection(fout:FileOutput):Void
-	{
-		writeLn(fout, "/* Begin PBXProject section */");
-		writeLn(fout, "\t\t" + _rootObjectID + " /* Project object */ = {");
-		writeLn(fout, "\t\t\tisa = PBXProject;");
-		writeLn(fout, "\t\t\tattributes = {");
-		writeLn(fout, "\t\t\t\tLastUpgradeCheck = 0450;");
-		writeLn(fout, "\t\t\t\tORGANIZATIONNAME = Organization;");
-		writeLn(fout, "\t\t\t};");
-		writeLn(fout, "\t\t\tbuildConfigurationList = " + _buildConfigurationListID + " /* Build configuration list for PBXProject \"" + name + "\" */;");
-		writeLn(fout, "\t\t\tcompatibilityVersion = \"Xcode 3.2\";");
-		writeLn(fout, "\t\t\tdevelopmentRegion = English;");
-		writeLn(fout, "\t\t\thasScannedForEncodings = 0;");
-		writeLn(fout, "\t\t\tknownRegions = (");
-		writeLn(fout, "\t\t\t\ten,");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\tmainGroup = " + _mainGroup.fileRef + ";");
-		writeLn(fout, "\t\t\tproductRefGroup = " +_productsGroup.guid + " /* Products */;");
-		writeLn(fout, "\t\t\tprojectDirPath = \"\";");
-		writeLn(fout, "\t\t\tprojectRoot = \"\";");
-		writeLn(fout, "\t\t\ttargets = (");
-		writeLn(fout, "\t\t\t\t" + _targetID + " /* " + name + " */,");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t};");
-		writeLn(fout, "/* End PBXProject section */");
+		addLine("/* End PBXNativeTarget section */");
 	}
 	
 	
-	private function writePBXResourcesBuildPhaseSection(fout:FileOutput):Void
+	private function addPBXProjectSection():Void
 	{
-		writeLn(fout, "/* Begin PBXResourcesBuildPhase section */");
-		writeLn(fout, "\t\t" + _resourcesID + " /* Resources */ = {");
-		writeLn(fout, "\t\t\tisa = PBXResourcesBuildPhase;");
-		writeLn(fout, "\t\t\tbuildActionMask = " + _buildActionMask + ";");
-		writeLn(fout, "\t\t\tfiles = (");
+		addLine("/* Begin PBXProject section */");
+		addLine("\t\t" + _rootObjectID + " /* Project object */ = {");
+		addLine("\t\t\tisa = PBXProject;");
+		addLine("\t\t\tattributes = {");
+		addLine("\t\t\t\tLastUpgradeCheck = 0450;");
+		addLine("\t\t\t\tORGANIZATIONNAME = Organization;");
+		addLine("\t\t\t};");
+		addLine("\t\t\tbuildConfigurationList = " + _buildConfigurationListID + " /* Build configuration list for PBXProject \"" + name + "\" */;");
+		addLine("\t\t\tcompatibilityVersion = \"Xcode 3.2\";");
+		addLine("\t\t\tdevelopmentRegion = English;");
+		addLine("\t\t\thasScannedForEncodings = 0;");
+		addLine("\t\t\tknownRegions = (");
+		addLine("\t\t\t\ten,");
+		addLine("\t\t\t);");
+		addLine("\t\t\tmainGroup = " + _mainGroup.fileRef + ";");
+		addLine("\t\t\tproductRefGroup = " +_productsGroup.guid + " /* Products */;");
+		addLine("\t\t\tprojectDirPath = \"\";");
+		addLine("\t\t\tprojectRoot = \"\";");
+		addLine("\t\t\ttargets = (");
+		addLine("\t\t\t\t" + _targetID + " /* " + name + " */,");
+		addLine("\t\t\t);");
+		addLine("\t\t};");
+		addLine("/* End PBXProject section */");
+	}
+	
+	
+	private function addPBXResourcesBuildPhaseSection():Void
+	{
+		addLine("/* Begin PBXResourcesBuildPhase section */");
+		addLine("\t\t" + _resourcesID + " /* Resources */ = {");
+		addLine("\t\t\tisa = PBXResourcesBuildPhase;");
+		addLine("\t\t\tbuildActionMask = " + _buildActionMask + ";");
+		addLine("\t\t\tfiles = (");
 		for(resource in plists)
-			writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + " in Resources */,");
+			addLine("\t\t\t\t" + resource.guid + " /* " + resource.name + " in Resources */,");
 		for(resource in resources)
-			writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + " InfoPlist.strings in Resources */,");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\trunOnlyForDeploymentPostprocessing = 0;");
-		writeLn(fout, "\t\t};");
-		writeLn(fout, "/* End PBXResourcesBuildPhase section */");
+			addLine("\t\t\t\t" + resource.guid + " /* " + resource.name + " InfoPlist.strings in Resources */,");
+		addLine("\t\t\t);");
+		addLine("\t\t\trunOnlyForDeploymentPostprocessing = 0;");
+		addLine("\t\t};");
+		addLine("/* End PBXResourcesBuildPhase section */");
 	}
 	
 	
-	private function writePBXSourcesBuildPhaseSection(fout:FileOutput):Void
+	private function addPBXSourcesBuildPhaseSection():Void
 	{
-		writeLn(fout, "/* Begin PBXSourcesBuildPhase section */");
-		writeLn(fout, "\t\t" + _sourcesID + " /* Sources */ = {");
-		writeLn(fout, "\t\t\tisa = PBXSourcesBuildPhase;");
-		writeLn(fout, "\t\t\tbuildActionMask = " + _buildActionMask + ";");
-		writeLn(fout, "\t\t\tfiles = (");
+		addLine("/* Begin PBXSourcesBuildPhase section */");
+		addLine("\t\t" + _sourcesID + " /* Sources */ = {");
+		addLine("\t\t\tisa = PBXSourcesBuildPhase;");
+		addLine("\t\t\tbuildActionMask = " + _buildActionMask + ";");
+		addLine("\t\t\tfiles = (");
 		for(resource in sources)
 		{
 			if(fileIsSource(resource) && !fileIsHeader(resource))
-				writeLn(fout, "\t\t\t\t" + resource.guid + " /* " + resource.name + " in Sources */,");
+				addLine("\t\t\t\t" + resource.guid + " /* " + resource.name + " in Sources */,");
 		}
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\trunOnlyForDeploymentPostprocessing = 0;");
-		writeLn(fout, "\t\t};");
-		writeLn(fout, "/* End PBXSourcesBuildPhase section */");
+		addLine("\t\t\t);");
+		addLine("\t\t\trunOnlyForDeploymentPostprocessing = 0;");
+		addLine("\t\t};");
+		addLine("/* End PBXSourcesBuildPhase section */");
 	}
 	
-	private function writeXCBuildConfigurationSection(fout:FileOutput):Void
+	private function addXCBuildConfigurationSection():Void
 	{
-		writeLn(fout, "/* Begin XCBuildConfiguration section */");
-		writeLn(fout, "\t\t" + _debugID + " /* Debug */ = {");
-		writeLn(fout, "\t\t\tisa = XCBuildConfiguration;");
-		writeLn(fout, "\t\t\tbuildSettings = {");
-		writeLn(fout, "\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;");
-		writeLn(fout, "\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";");
-		writeLn(fout, "\t\t\t\tCLANG_CXX_LIBRARY = \"libstdc++\";");
-		writeLn(fout, "\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;");
-		writeLn(fout, "\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;");
-		writeLn(fout, "\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;");
-		writeLn(fout, "\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";");
-		writeLn(fout, "\t\t\t\tCOPY_PHASE_STRIP = NO;");
-		writeLn(fout, "\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;");
-		writeLn(fout, "\t\t\t\tGCC_DYNAMIC_NO_PIC = NO;");
-		writeLn(fout, "\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;");
-		writeLn(fout, "\t\t\t\tGCC_PREPROCESSOR_DEFINITIONS = (");
-		writeLn(fout, "\t\t\t\t\t\"DEBUG=1\",");
-		writeLn(fout, "\t\t\t\t\t\"$(inherited)\",");
-		writeLn(fout, "\t\t\t\t);");
-		writeLn(fout, "\t\t\t\tGCC_SYMBOLS_PRIVATE_EXTERN = NO;");
-		writeLn(fout, "\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES;");
-		writeLn(fout, "\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES;");
-		writeLn(fout, "\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;");
-		writeLn(fout, "\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 6.0;");
-		writeLn(fout, "\t\t\t\tONLY_ACTIVE_ARCH = YES;");
-		writeLn(fout, "\t\t\t\tSDKROOT = iphoneos;");
-		writeLn(fout, "\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";");
-		writeLn(fout, "\t\t\t};");
-		writeLn(fout, "\t\t\tname = Debug;");
-		writeLn(fout, "\t\t};");
+		addLine("/* Begin XCBuildConfiguration section */");
+		addLine("\t\t" + _debugID + " /* Debug */ = {");
+		addLine("\t\t\tisa = XCBuildConfiguration;");
+		addLine("\t\t\tbuildSettings = {");
+		addLine("\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;");
+		addLine("\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";");
+		addLine("\t\t\t\tCLANG_CXX_LIBRARY = \"libstdc++\";");
+		addLine("\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;");
+		addLine("\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;");
+		addLine("\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;");
+		addLine("\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";");
+		addLine("\t\t\t\tCOPY_PHASE_STRIP = NO;");
+		addLine("\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;");
+		addLine("\t\t\t\tGCC_DYNAMIC_NO_PIC = NO;");
+		addLine("\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;");
+		addLine("\t\t\t\tGCC_PREPROCESSOR_DEFINITIONS = (");
+		addLine("\t\t\t\t\t\"DEBUG=1\",");
+		addLine("\t\t\t\t\t\"$(inherited)\",");
+		addLine("\t\t\t\t);");
+		addLine("\t\t\t\tGCC_SYMBOLS_PRIVATE_EXTERN = NO;");
+		addLine("\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES;");
+		addLine("\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES;");
+		addLine("\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;");
+		addLine("\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 6.0;");
+		addLine("\t\t\t\tONLY_ACTIVE_ARCH = YES;");
+		addLine("\t\t\t\tSDKROOT = iphoneos;");
+		addLine("\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";");
+		addLine("\t\t\t};");
+		addLine("\t\t\tname = Debug;");
+		addLine("\t\t};");
 		
-		writeLn(fout, "\t\t" + _releaseID + " /* Release */ = {");
-		writeLn(fout, "\t\t\tisa = XCBuildConfiguration;");
-		writeLn(fout, "\t\t\tbuildSettings = {");
-		writeLn(fout, "\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;");
-		writeLn(fout, "\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";");
-		writeLn(fout, "\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";");
-		writeLn(fout, "\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;");
-		writeLn(fout, "\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;");
-		writeLn(fout, "\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;");
-		writeLn(fout, "\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";");
-		writeLn(fout, "\t\t\t\tCOPY_PHASE_STRIP = YES;");
-		writeLn(fout, "\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;");
-		writeLn(fout, "\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES;");
-		writeLn(fout, "\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES;");
-		writeLn(fout, "\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;");
-		writeLn(fout, "\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 6.0;");
-		writeLn(fout, "\t\t\t\tOTHER_CFLAGS = \"-DNS_BLOCK_ASSERTIONS=1\";");
-		writeLn(fout, "\t\t\t\tSDKROOT = iphoneos;");
-		writeLn(fout, "\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";");
-		writeLn(fout, "\t\t\t\tVALIDATE_PRODUCT = YES;");
+		addLine("\t\t" + _releaseID + " /* Release */ = {");
+		addLine("\t\t\tisa = XCBuildConfiguration;");
+		addLine("\t\t\tbuildSettings = {");
+		addLine("\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;");
+		addLine("\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";");
+		addLine("\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";");
+		addLine("\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;");
+		addLine("\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;");
+		addLine("\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;");
+		addLine("\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";");
+		addLine("\t\t\t\tCOPY_PHASE_STRIP = YES;");
+		addLine("\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;");
+		addLine("\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES;");
+		addLine("\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES;");
+		addLine("\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;");
+		addLine("\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 6.0;");
+		addLine("\t\t\t\tOTHER_CFLAGS = \"-DNS_BLOCK_ASSERTIONS=1\";");
+		addLine("\t\t\t\tSDKROOT = iphoneos;");
+		addLine("\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";");
+		addLine("\t\t\t\tVALIDATE_PRODUCT = YES;");
 		
-		writeLn(fout, "\t\t\t};");
-		writeLn(fout, "\t\t\tname = Release;");
-		writeLn(fout, "\t\t};");
+		addLine("\t\t\t};");
+		addLine("\t\t\tname = Release;");
+		addLine("\t\t};");
 		
-		writeLn(fout, "\t\t" + _debug2ID + " /* Debug */ = {");
-		writeLn(fout, "\t\t\tisa = XCBuildConfiguration;");
-		writeLn(fout, "\t\t\tbuildSettings = {");
-		writeLn(fout, "\t\t\t\tGCC_PRECOMPILE_PREFIX_HEADER = YES;");
-		writeLn(fout, "\t\t\t\tGCC_PREFIX_HEADER = \"Files/prefix.pch\";");
-		writeLn(fout, "\t\t\t\tINFOPLIST_FILE = \"Files/" + name + "-Info.plist\";");
-		writeLn(fout, "\t\t\t\tLIBRARY_SEARCH_PATHS = (");
-		writeLn(fout, "\t\t\t\t\t\"$(inherited)\",");
-		writeLn(fout, "\t\t\t\t\t\"$(SRCROOT)/Files/**\",");
-		writeLn(fout, "\t\t\t\t\t);");
-		writeLn(fout, "\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";");
-		writeLn(fout, "\t\t\t\tWRAPPER_EXTENSION = app;");
-		writeLn(fout, "\t\t\t};");
-		writeLn(fout, "\t\t\tname = Debug;");
-		writeLn(fout, "\t\t};");
+		addLine("\t\t" + _debug2ID + " /* Debug */ = {");
+		addLine("\t\t\tisa = XCBuildConfiguration;");
+		addLine("\t\t\tbuildSettings = {");
+		addLine("\t\t\t\tGCC_PRECOMPILE_PREFIX_HEADER = YES;");
+		addLine("\t\t\t\tGCC_PREFIX_HEADER = \"Files/prefix.pch\";");
+		addLine("\t\t\t\tINFOPLIST_FILE = \"Files/" + name + "-Info.plist\";");
+		addLine("\t\t\t\tLIBRARY_SEARCH_PATHS = (");
+		addLine("\t\t\t\t\t\"$(inherited)\",");
+		addLine("\t\t\t\t\t\"$(SRCROOT)/Files/**\",");
+		addLine("\t\t\t\t\t);");
+		addLine("\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";");
+		addLine("\t\t\t\tWRAPPER_EXTENSION = app;");
+		addLine("\t\t\t};");
+		addLine("\t\t\tname = Debug;");
+		addLine("\t\t};");
 		
-		writeLn(fout, "\t\t" + _release2ID + " /* Release */ = {");
-		writeLn(fout, "\t\t\tisa = XCBuildConfiguration;");
-		writeLn(fout, "\t\t\tbuildSettings = {");
-		writeLn(fout, "\t\t\t\tGCC_PRECOMPILE_PREFIX_HEADER = YES;");
-		writeLn(fout, "\t\t\t\tGCC_PREFIX_HEADER = \"Files/prefix.pch\";");
-		writeLn(fout, "\t\t\t\tINFOPLIST_FILE = \"Files/" + name + "-Info.plist\";");
-		writeLn(fout, "\t\t\t\tLIBRARY_SEARCH_PATHS = (");
-		writeLn(fout, "\t\t\t\t\t\"$(inherited)\",");
-		writeLn(fout, "\t\t\t\t\t\"$(SRCROOT)/Files/**\",");
-		writeLn(fout, "\t\t\t\t\t);");
-		writeLn(fout, "\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";");
-		writeLn(fout, "\t\t\t\tWRAPPER_EXTENSION = app;");
-		writeLn(fout, "\t\t\t};");
-		writeLn(fout, "\t\t\tname = Release;");
-		writeLn(fout, "\t\t};");
+		addLine("\t\t" + _release2ID + " /* Release */ = {");
+		addLine("\t\t\tisa = XCBuildConfiguration;");
+		addLine("\t\t\tbuildSettings = {");
+		addLine("\t\t\t\tGCC_PRECOMPILE_PREFIX_HEADER = YES;");
+		addLine("\t\t\t\tGCC_PREFIX_HEADER = \"Files/prefix.pch\";");
+		addLine("\t\t\t\tINFOPLIST_FILE = \"Files/" + name + "-Info.plist\";");
+		addLine("\t\t\t\tLIBRARY_SEARCH_PATHS = (");
+		addLine("\t\t\t\t\t\"$(inherited)\",");
+		addLine("\t\t\t\t\t\"$(SRCROOT)/Files/**\",");
+		addLine("\t\t\t\t\t);");
+		addLine("\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";");
+		addLine("\t\t\t\tWRAPPER_EXTENSION = app;");
+		addLine("\t\t\t};");
+		addLine("\t\t\tname = Release;");
+		addLine("\t\t};");
 		
-		writeLn(fout, "/* End XCBuildConfiguration section */");
+		addLine("/* End XCBuildConfiguration section */");
 	}
 	
 	
-	private function writeXCConfigurationListSection(fout:FileOutput):Void
+	private function addXCConfigurationListSection():Void
 	{
 	
-		writeLn(fout, "/* Begin XCConfigurationList section */");
-		writeLn(fout, "\t\t" + _buildConfigurationListID + " /* Build configuration list for PBXProject \"" + name + "\" */ = {");
-		writeLn(fout, "\t\t\tisa = XCConfigurationList;");
-		writeLn(fout, "\t\t\tbuildConfigurations = (");
-		writeLn(fout, "\t\t\t\t" + _debugID + " /* Debug */,");
-		writeLn(fout, "\t\t\t\t" + _releaseID + " /* Release */,");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\tdefaultConfigurationIsVisible = 0;");
-		writeLn(fout, "\t\t\tdefaultConfigurationName = Release;");
-		writeLn(fout, "\t\t};");
+		addLine("/* Begin XCConfigurationList section */");
+		addLine("\t\t" + _buildConfigurationListID + " /* Build configuration list for PBXProject \"" + name + "\" */ = {");
+		addLine("\t\t\tisa = XCConfigurationList;");
+		addLine("\t\t\tbuildConfigurations = (");
+		addLine("\t\t\t\t" + _debugID + " /* Debug */,");
+		addLine("\t\t\t\t" + _releaseID + " /* Release */,");
+		addLine("\t\t\t);");
+		addLine("\t\t\tdefaultConfigurationIsVisible = 0;");
+		addLine("\t\t\tdefaultConfigurationName = Release;");
+		addLine("\t\t};");
 		
-		writeLn(fout, "\t\t" + _buildConfigurationList2ID + " /* Build configuration list for PBXNativeTarget \"" + name + "\" */ = {");
-		writeLn(fout, "\t\t\tisa = XCConfigurationList;");
-		writeLn(fout, "\t\t\tbuildConfigurations = (");
-		writeLn(fout, "\t\t\t\t" + _debug2ID + " /* Debug */,");
-		writeLn(fout, "\t\t\t\t" + _release2ID + " /* Release */,");
-		writeLn(fout, "\t\t\t);");
-		writeLn(fout, "\t\t\tdefaultConfigurationIsVisible = 0;");
-		writeLn(fout, "\t\t};");
-		writeLn(fout, "/* End XCConfigurationList section */");
+		addLine("\t\t" + _buildConfigurationList2ID + " /* Build configuration list for PBXNativeTarget \"" + name + "\" */ = {");
+		addLine("\t\t\tisa = XCConfigurationList;");
+		addLine("\t\t\tbuildConfigurations = (");
+		addLine("\t\t\t\t" + _debug2ID + " /* Debug */,");
+		addLine("\t\t\t\t" + _release2ID + " /* Release */,");
+		addLine("\t\t\t);");
+		addLine("\t\t\tdefaultConfigurationIsVisible = 0;");
+		addLine("\t\t};");
+		addLine("/* End XCConfigurationList section */");
 	}
 	
-	private function writeLn(fout:FileOutput, data:String):Void
+	private function addLine(line:String):Void
 	{
-		fout.writeString(data + "\n");
+		_data += line + "\n";
 	}
 	
 	private function createGUID():String
