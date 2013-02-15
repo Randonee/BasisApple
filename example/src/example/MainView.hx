@@ -1,6 +1,7 @@
 package example;
 
 import basis.ios.ViewBase;
+import basis.ios.IOSUtil;
 import apple.ui.UIView;
 import apple.ui.UILabel;
 import apple.ui.UITextField;
@@ -12,6 +13,7 @@ import apple.ui.UIWebView;
 import apple.ui.UINavigationBar;
 import apple.ui.UIBarButtonItem;
 import apple.ui.UIAlertView;
+import apple.ui.UIImageView;
 
 import basis.ios.EventTypes;
 
@@ -31,6 +33,7 @@ class MainView extends UIView
 	private var _barButtonItem1:UIBarButtonItem;
 	private var _barButtonItem2:UIBarButtonItem;
 	private var _alertView:UIAlertView;
+	private var _haxeImage:UIImageView;
 	
 	public function new()
 	{
@@ -107,10 +110,15 @@ class MainView extends UIView
 		
 		
 		_animateButton = new UIButton();
-		_animateButton.frame = [400.0,220,100,30];
+		_animateButton.frame = [400.0,70,100,30];
 		_animateButton.setTitleForState("Animate", UIControl.UIControlStateNormal);
 		_animateButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onAnimateButtonClick);
 		addSubview(_animateButton);
+		
+		_haxeImage = new UIImageView();
+		_haxeImage.image = IOSUtil.getAssetPath("haxe.png");
+		_haxeImage.frame = [400.0, 120, 100, 100];
+		addSubview(_haxeImage);
 		
 	}
 	
@@ -131,10 +139,10 @@ class MainView extends UIView
 	private function onAnimateButtonClick(view:ViewBase, type):Void
 	{
 		UIView.beginAnimations("buttonAnimate");
-		if(_animateButton.frame[1] < 220)
-			_animateButton.frame = [400.0,220,100,30];
+		if(_haxeImage.frame[0] < 600)
+			_haxeImage.frame = [600.0, 120, 100, 100];
 		else
-			_animateButton.frame = [400.0,80,100,30];
+			_haxeImage.frame = [230.0, 120, 100, 100];
 		UIView.commitAnimations();
 	}
 	

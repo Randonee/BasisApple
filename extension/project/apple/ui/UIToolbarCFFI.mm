@@ -48,4 +48,23 @@ namespace basis
 	DEFINE_PRIM (uitoolbar_setTintColor, 2);
 
 
+	void uitoolbar_setShadowImageForToolbarPosition(value tag, value arg1, value arg2)
+	{
+		UIToolbar *view = (UIToolbar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIToolbarPosition carg2 = val_int(arg2);
+		[view setShadowImage:carg1 forToolbarPosition:carg2 ];
+	}
+	DEFINE_PRIM (uitoolbar_setShadowImageForToolbarPosition, 3);
+
+	void uitoolbar_setBackgroundImageForToolbarPositionBarMetrics(value tag, value arg1, value arg2, value arg3)
+	{
+		UIToolbar *view = (UIToolbar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIToolbarPosition carg2 = val_int(arg2);
+		UIBarMetrics carg3 = val_int(arg3);
+		[view setBackgroundImage:carg1 forToolbarPosition:carg2 barMetrics:carg3 ];
+	}
+	DEFINE_PRIM (uitoolbar_setBackgroundImageForToolbarPositionBarMetrics, 4);
+
 }

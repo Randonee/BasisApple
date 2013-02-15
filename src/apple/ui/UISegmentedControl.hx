@@ -110,6 +110,16 @@ class UISegmentedControl extends UIControl
 		return uisegmentedcontrol_widthForSegmentAtIndex(_tag, segment);
 	}
 	private static var uisegmentedcontrol_widthForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_widthForSegmentAtIndex", 2);
+	public function insertSegmentWithImageAtIndexAnimated( image:String,  segment:Int,  animated:Bool):Void
+	{
+		uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated(_tag, image, segment, animated);
+	}
+	private static var uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated = Lib.load("basis", "uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated", 4);
+	public function setBackgroundImageForStateBarMetrics( backgroundImage:String,  state:Int,  barMetrics:Int):Void
+	{
+		uisegmentedcontrol_setBackgroundImageForStateBarMetrics(_tag, backgroundImage, state, barMetrics);
+	}
+	private static var uisegmentedcontrol_setBackgroundImageForStateBarMetrics = Lib.load("basis", "uisegmentedcontrol_setBackgroundImageForStateBarMetrics", 4);
 	public function contentPositionAdjustmentForSegmentTypeBarMetrics( leftCenterRightOrAlone:Int,  barMetrics:Int):Array<Int>
 	{
 		return uisegmentedcontrol_contentPositionAdjustmentForSegmentTypeBarMetrics(_tag, leftCenterRightOrAlone, barMetrics);
@@ -130,6 +140,11 @@ class UISegmentedControl extends UIControl
 		return uisegmentedcontrol_isEnabledForSegmentAtIndex(_tag, segment);
 	}
 	private static var uisegmentedcontrol_isEnabledForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_isEnabledForSegmentAtIndex", 2);
+	public function setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics( dividerImage:String,  leftState:Int,  rightState:Int,  barMetrics:Int):Void
+	{
+		uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics(_tag, dividerImage, leftState, rightState, barMetrics);
+	}
+	private static var uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics = Lib.load("basis", "uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics", 5);
 	public function setEnabledForSegmentAtIndex( enabled:Bool,  segment:Int):Void
 	{
 		uisegmentedcontrol_setEnabledForSegmentAtIndex(_tag, enabled, segment);
@@ -145,6 +160,11 @@ class UISegmentedControl extends UIControl
 		uisegmentedcontrol_removeSegmentAtIndexAnimated(_tag, segment, animated);
 	}
 	private static var uisegmentedcontrol_removeSegmentAtIndexAnimated = Lib.load("basis", "uisegmentedcontrol_removeSegmentAtIndexAnimated", 3);
+	public function setImageForSegmentAtIndex( image:String,  segment:Int):Void
+	{
+		uisegmentedcontrol_setImageForSegmentAtIndex(_tag, image, segment);
+	}
+	private static var uisegmentedcontrol_setImageForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_setImageForSegmentAtIndex", 3);
 	public function contentOffsetForSegmentAtIndex( segment:Int):Array<Float>
 	{
 		return uisegmentedcontrol_contentOffsetForSegmentAtIndex(_tag, segment);

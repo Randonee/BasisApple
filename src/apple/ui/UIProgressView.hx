@@ -77,6 +77,24 @@ class UIProgressView extends UIView
 	}
 	private static var uiprogressview_setTrackTintColor = Lib.load("basis", "uiprogressview_setTrackTintColor", 2);
 
+	public var progressImage(null, setProgressImage):String;
+
+	private function setProgressImage(value:String):String
+	{
+		uiprogressview_setProgressImage(_tag, value);
+		return null;
+	}
+	private static var uiprogressview_setProgressImage = Lib.load("basis", "uiprogressview_setProgressImage", 2);
+
+	public var trackImage(null, setTrackImage):String;
+
+	private function setTrackImage(value:String):String
+	{
+		uiprogressview_setTrackImage(_tag, value);
+		return null;
+	}
+	private static var uiprogressview_setTrackImage = Lib.load("basis", "uiprogressview_setTrackImage", 2);
+
 
 	//Methods
 	public function setProgressAnimated( progress:Float,  animated:Bool):Void

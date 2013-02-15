@@ -48,6 +48,22 @@ namespace basis
 	DEFINE_PRIM (uislider_setMaximumValue, 2);
 
 
+	void uislider_setMinimumValueImage(value tag, value arg1)
+	{
+		UISlider *view = (UISlider*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.minimumValueImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uislider_setMinimumValueImage, 2);
+
+
+	void uislider_setMaximumValueImage(value tag, value arg1)
+	{
+		UISlider *view = (UISlider*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.maximumValueImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uislider_setMaximumValueImage, 2);
+
+
 	value uislider_getContinuous(value tag)
 	{
 		UISlider *view = (UISlider*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -107,6 +123,33 @@ namespace basis
 	}
 	DEFINE_PRIM (uislider_setThumbTintColor, 2);
 
+
+	void uislider_setThumbImageForState(value tag, value arg1, value arg2)
+	{
+		UISlider *view = (UISlider*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setThumbImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uislider_setThumbImageForState, 3);
+
+	void uislider_setMinimumTrackImageForState(value tag, value arg1, value arg2)
+	{
+		UISlider *view = (UISlider*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setMinimumTrackImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uislider_setMinimumTrackImageForState, 3);
+
+	void uislider_setMaximumTrackImageForState(value tag, value arg1, value arg2)
+	{
+		UISlider *view = (UISlider*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setMaximumTrackImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uislider_setMaximumTrackImageForState, 3);
 
 	void uislider_setValueAnimated(value tag, value arg1, value arg2)
 	{

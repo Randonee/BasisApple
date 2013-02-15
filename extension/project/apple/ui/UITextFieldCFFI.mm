@@ -123,6 +123,22 @@ namespace basis
 	DEFINE_PRIM (uitextfield_setMinimumFontSize, 2);
 
 
+	void uitextfield_setBackground(value tag, value arg1)
+	{
+		UITextField *view = (UITextField*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.background = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uitextfield_setBackground, 2);
+
+
+	void uitextfield_setDisabledBackground(value tag, value arg1)
+	{
+		UITextField *view = (UITextField*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.disabledBackground = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uitextfield_setDisabledBackground, 2);
+
+
 	value uitextfield_getEditing(value tag)
 	{
 		UITextField *view = (UITextField*)[[BasisApplication getViewManager] getView:val_int(tag)];

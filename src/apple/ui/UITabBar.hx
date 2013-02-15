@@ -49,6 +49,33 @@ class UITabBar extends UIView
 	}
 	private static var uitabbar_setSelectedImageTintColor = Lib.load("basis", "uitabbar_setSelectedImageTintColor", 2);
 
+	public var backgroundImage(null, setBackgroundImage):String;
+
+	private function setBackgroundImage(value:String):String
+	{
+		uitabbar_setBackgroundImage(_tag, value);
+		return null;
+	}
+	private static var uitabbar_setBackgroundImage = Lib.load("basis", "uitabbar_setBackgroundImage", 2);
+
+	public var selectionIndicatorImage(null, setSelectionIndicatorImage):String;
+
+	private function setSelectionIndicatorImage(value:String):String
+	{
+		uitabbar_setSelectionIndicatorImage(_tag, value);
+		return null;
+	}
+	private static var uitabbar_setSelectionIndicatorImage = Lib.load("basis", "uitabbar_setSelectionIndicatorImage", 2);
+
+	public var shadowImage(null, setShadowImage):String;
+
+	private function setShadowImage(value:String):String
+	{
+		uitabbar_setShadowImage(_tag, value);
+		return null;
+	}
+	private static var uitabbar_setShadowImage = Lib.load("basis", "uitabbar_setShadowImage", 2);
+
 
 	//Methods
 	public function endCustomizingAnimated( animated:Bool):Bool

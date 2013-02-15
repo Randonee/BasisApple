@@ -33,6 +33,30 @@ namespace basis
 	DEFINE_PRIM (uitabbar_setSelectedImageTintColor, 2);
 
 
+	void uitabbar_setBackgroundImage(value tag, value arg1)
+	{
+		UITabBar *view = (UITabBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.backgroundImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uitabbar_setBackgroundImage, 2);
+
+
+	void uitabbar_setSelectionIndicatorImage(value tag, value arg1)
+	{
+		UITabBar *view = (UITabBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.selectionIndicatorImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uitabbar_setSelectionIndicatorImage, 2);
+
+
+	void uitabbar_setShadowImage(value tag, value arg1)
+	{
+		UITabBar *view = (UITabBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.shadowImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uitabbar_setShadowImage, 2);
+
+
 	value uitabbar_endCustomizingAnimated(value tag, value arg1)
 	{
 		UITabBar *view = (UITabBar*)[[BasisApplication getViewManager] getView:val_int(tag)];

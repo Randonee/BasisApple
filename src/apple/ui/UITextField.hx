@@ -40,8 +40,8 @@ class UITextField extends UIControl
 	}
 	private static var cpp_uitextfield_getFontSize = Lib.load("basis", "uitextfield_getFontSize", 1);
 	// ---------------------------------
-
-
+	
+	
 
 	 public function new(?type="UITextField")
 	{
@@ -162,6 +162,24 @@ class UITextField extends UIControl
 		return uitextfield_getMinimumFontSize(_tag);
 	}
 	private static var uitextfield_setMinimumFontSize = Lib.load("basis", "uitextfield_setMinimumFontSize", 2);
+
+	public var background(null, setBackground):String;
+
+	private function setBackground(value:String):String
+	{
+		uitextfield_setBackground(_tag, value);
+		return null;
+	}
+	private static var uitextfield_setBackground = Lib.load("basis", "uitextfield_setBackground", 2);
+
+	public var disabledBackground(null, setDisabledBackground):String;
+
+	private function setDisabledBackground(value:String):String
+	{
+		uitextfield_setDisabledBackground(_tag, value);
+		return null;
+	}
+	private static var uitextfield_setDisabledBackground = Lib.load("basis", "uitextfield_setDisabledBackground", 2);
 
 	public var editing(getEditing, null):Bool;
 	private function getEditing():Bool

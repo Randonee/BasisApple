@@ -63,6 +63,24 @@ class UISwitch extends UIControl
 	}
 	private static var uiswitch_setThumbTintColor = Lib.load("basis", "uiswitch_setThumbTintColor", 2);
 
+	public var onImage(null, setOnImage):String;
+
+	private function setOnImage(value:String):String
+	{
+		uiswitch_setOnImage(_tag, value);
+		return null;
+	}
+	private static var uiswitch_setOnImage = Lib.load("basis", "uiswitch_setOnImage", 2);
+
+	public var offImage(null, setOffImage):String;
+
+	private function setOffImage(value:String):String
+	{
+		uiswitch_setOffImage(_tag, value);
+		return null;
+	}
+	private static var uiswitch_setOffImage = Lib.load("basis", "uiswitch_setOffImage", 2);
+
 	public var on(getOn, setOn):Bool;
 	private function getOn():Bool
 	{

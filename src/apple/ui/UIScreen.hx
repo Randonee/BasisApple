@@ -1,6 +1,6 @@
 package apple.ui;
 
-import ios.DeviceEventManager;
+import basis.ios.DeviceEventManager;
 import cpp.Lib;
 
 class UIScreen

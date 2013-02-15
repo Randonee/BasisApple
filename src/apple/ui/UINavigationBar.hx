@@ -6,10 +6,11 @@ package apple.ui;
 import cpp.Lib;
 import basis.ios.ViewManager;
 import basis.ios.ViewBase;
+import basis.ios.UIBarItemManager;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
-import basis.ios.UIBarItemManager;
+
 
 class UINavigationBar extends UIView
 {
@@ -154,8 +155,8 @@ class UINavigationBar extends UIView
 	private static var uinavigationitem_createNavigationItem = Lib.load("basis", "uinavigationitem_createNavigationItem", 2);
 	
 	//----------------------------
-
-
+	
+	
 
 	 public function new(?type="UINavigationBar")
 	{
@@ -207,8 +208,22 @@ class UINavigationBar extends UIView
 	}
 	private static var uinavigationbar_setTintColor = Lib.load("basis", "uinavigationbar_setTintColor", 2);
 
+	public var shadowImage(null, setShadowImage):String;
+
+	private function setShadowImage(value:String):String
+	{
+		uinavigationbar_setShadowImage(_tag, value);
+		return null;
+	}
+	private static var uinavigationbar_setShadowImage = Lib.load("basis", "uinavigationbar_setShadowImage", 2);
+
 
 	//Methods
+	public function setBackgroundImageForBarMetrics( backgroundImage:String,  barMetrics:Int):Void
+	{
+		uinavigationbar_setBackgroundImageForBarMetrics(_tag, backgroundImage, barMetrics);
+	}
+	private static var uinavigationbar_setBackgroundImageForBarMetrics = Lib.load("basis", "uinavigationbar_setBackgroundImageForBarMetrics", 3);
 	public function setTitleVerticalPositionAdjustmentForBarMetrics( adjustment:Float,  barMetrics:Int):Void
 	{
 		uinavigationbar_setTitleVerticalPositionAdjustmentForBarMetrics(_tag, adjustment, barMetrics);

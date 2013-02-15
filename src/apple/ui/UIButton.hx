@@ -161,6 +161,10 @@ class UIButton extends UIControl
 	}
 	private static var uibutton_getCurrentTitleShadowColor = Lib.load("basis", "uibutton_getCurrentTitleShadowColor", 1);
 
+	public var currentImage(null, null):String;
+
+	public var currentBackgroundImage(null, null):String;
+
 	public var titleLabel(getTitleLabel, null):UILabel;
 	private function getTitleLabel():UILabel
 	{
@@ -194,6 +198,11 @@ class UIButton extends UIControl
 		return uibutton_contentRectForBounds(_tag, bounds);
 	}
 	private static var uibutton_contentRectForBounds = Lib.load("basis", "uibutton_contentRectForBounds", 2);
+	public function setBackgroundImageForState( image:String,  state:Int):Void
+	{
+		uibutton_setBackgroundImageForState(_tag, image, state);
+	}
+	private static var uibutton_setBackgroundImageForState = Lib.load("basis", "uibutton_setBackgroundImageForState", 3);
 	public function titleShadowColorForState( state:Int):Array<Float>
 	{
 		return uibutton_titleShadowColorForState(_tag, state);
@@ -204,6 +213,11 @@ class UIButton extends UIControl
 		uibutton_setTitleForState(_tag, title, state);
 	}
 	private static var uibutton_setTitleForState = Lib.load("basis", "uibutton_setTitleForState", 3);
+	public function setImageForState( image:String,  state:Int):Void
+	{
+		uibutton_setImageForState(_tag, image, state);
+	}
+	private static var uibutton_setImageForState = Lib.load("basis", "uibutton_setImageForState", 3);
 	public function titleColorForState( state:Int):Array<Float>
 	{
 		return uibutton_titleColorForState(_tag, state);

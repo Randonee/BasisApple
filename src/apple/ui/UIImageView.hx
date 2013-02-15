@@ -13,17 +13,6 @@ import apple.ui.UIkit;
 class UIImageView extends UIView
 {
 
-	//------ Added NOT GENERATED ------
-
-	public function setImageWithFilePath(path:String):Void
-	{
-		cpp_uiimageview_setImageWithFilePath(_tag, path);
-	}
-	private static var cpp_uiimageview_setImageWithFilePath = Lib.load("basis", "uiimageview_setImageWithFilePath", 2);
-	
-	// ---------------------------------
-
-
 	 public function new(?type="UIImageView")
 	{
 		super(type);
@@ -32,6 +21,24 @@ class UIImageView extends UIView
 	//Constants
 
 	//Properties
+	public var image(null, setImage):String;
+
+	private function setImage(value:String):String
+	{
+		uiimageview_setImage(_tag, value);
+		return null;
+	}
+	private static var uiimageview_setImage = Lib.load("basis", "uiimageview_setImage", 2);
+
+	public var highlightedImage(null, setHighlightedImage):String;
+
+	private function setHighlightedImage(value:String):String
+	{
+		uiimageview_setHighlightedImage(_tag, value);
+		return null;
+	}
+	private static var uiimageview_setHighlightedImage = Lib.load("basis", "uiimageview_setHighlightedImage", 2);
+
 	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{

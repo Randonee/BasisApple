@@ -243,6 +243,22 @@ namespace basis
 	DEFINE_PRIM (uisearchbar_setShowsScopeBar, 2);
 
 
+	void uisearchbar_setBackgroundImage(value tag, value arg1)
+	{
+		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.backgroundImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uisearchbar_setBackgroundImage, 2);
+
+
+	void uisearchbar_setScopeBarBackgroundImage(value tag, value arg1)
+	{
+		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.scopeBarBackgroundImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uisearchbar_setScopeBarBackgroundImage, 2);
+
+
 	value uisearchbar_getSearchFieldBackgroundPositionAdjustment(value tag)
 	{
 		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -273,6 +289,16 @@ namespace basis
 	DEFINE_PRIM (uisearchbar_setSearchTextPositionAdjustment, 2);
 
 
+	void uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState(value tag, value arg1, value arg2, value arg3)
+	{
+		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		UIControlState carg3 = val_int(arg3);
+		[view setScopeBarButtonDividerImage:carg1 forLeftSegmentState:carg2 rightSegmentState:carg3 ];
+	}
+	DEFINE_PRIM (uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState, 4);
+
 	void uisearchbar_setPositionAdjustmentForSearchBarIcon(value tag, value arg1, value arg2)
 	{
 		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -291,6 +317,25 @@ namespace basis
 	}
 	DEFINE_PRIM (uisearchbar_setShowsCancelButtonAnimated, 3);
 
+	void uisearchbar_setImageForSearchBarIconState(value tag, value arg1, value arg2, value arg3)
+	{
+		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UISearchBarIcon carg2 = val_int(arg2);
+		UIControlState carg3 = val_int(arg3);
+		[view setImage:carg1 forSearchBarIcon:carg2 state:carg3 ];
+	}
+	DEFINE_PRIM (uisearchbar_setImageForSearchBarIconState, 4);
+
+	void uisearchbar_setScopeBarButtonBackgroundImageForState(value tag, value arg1, value arg2)
+	{
+		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setScopeBarButtonBackgroundImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uisearchbar_setScopeBarButtonBackgroundImageForState, 3);
+
 	value uisearchbar_positionAdjustmentForSearchBarIcon(value tag, value arg1)
 	{
 		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -299,5 +344,14 @@ namespace basis
 		return uiOffsetToArray(returnVar);
 	}
 	DEFINE_PRIM (uisearchbar_positionAdjustmentForSearchBarIcon, 2);
+
+	void uisearchbar_setSearchFieldBackgroundImageForState(value tag, value arg1, value arg2)
+	{
+		UISearchBar *view = (UISearchBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setSearchFieldBackgroundImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uisearchbar_setSearchFieldBackgroundImageForState, 3);
 
 }

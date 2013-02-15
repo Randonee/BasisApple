@@ -63,6 +63,24 @@ class UISlider extends UIControl
 	}
 	private static var uislider_setMaximumValue = Lib.load("basis", "uislider_setMaximumValue", 2);
 
+	public var minimumValueImage(null, setMinimumValueImage):String;
+
+	private function setMinimumValueImage(value:String):String
+	{
+		uislider_setMinimumValueImage(_tag, value);
+		return null;
+	}
+	private static var uislider_setMinimumValueImage = Lib.load("basis", "uislider_setMinimumValueImage", 2);
+
+	public var maximumValueImage(null, setMaximumValueImage):String;
+
+	private function setMaximumValueImage(value:String):String
+	{
+		uislider_setMaximumValueImage(_tag, value);
+		return null;
+	}
+	private static var uislider_setMaximumValueImage = Lib.load("basis", "uislider_setMaximumValueImage", 2);
+
 	public var continuous(getContinuous, setContinuous):Bool;
 	private function getContinuous():Bool
 	{
@@ -119,8 +137,29 @@ class UISlider extends UIControl
 	}
 	private static var uislider_setThumbTintColor = Lib.load("basis", "uislider_setThumbTintColor", 2);
 
+	public var currentThumbImage(null, null):String;
+
+	public var currentMinimumTrackImage(null, null):String;
+
+	public var currentMaximumTrackImage(null, null):String;
+
 
 	//Methods
+	public function setThumbImageForState( image:String,  state:Int):Void
+	{
+		uislider_setThumbImageForState(_tag, image, state);
+	}
+	private static var uislider_setThumbImageForState = Lib.load("basis", "uislider_setThumbImageForState", 3);
+	public function setMinimumTrackImageForState( image:String,  state:Int):Void
+	{
+		uislider_setMinimumTrackImageForState(_tag, image, state);
+	}
+	private static var uislider_setMinimumTrackImageForState = Lib.load("basis", "uislider_setMinimumTrackImageForState", 3);
+	public function setMaximumTrackImageForState( image:String,  state:Int):Void
+	{
+		uislider_setMaximumTrackImageForState(_tag, image, state);
+	}
+	private static var uislider_setMaximumTrackImageForState = Lib.load("basis", "uislider_setMaximumTrackImageForState", 3);
 	public function setValueAnimated( value:Float,  animated:Bool):Void
 	{
 		uislider_setValueAnimated(_tag, value, animated);

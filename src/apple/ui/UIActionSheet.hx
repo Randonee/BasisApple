@@ -137,6 +137,10 @@ class UIActionSheet extends UIView
 	private static var uiactionsheet_showInView = Lib.load("basis", "uiactionsheet_showInView", 2);
 
 
+	public static inline var UIActionSheetStyleAutomatic:Int = 0;
+	public static inline var UIActionSheetStyleDefault:Int = 1;
+	public static inline var UIActionSheetStyleBlackTranslucent:Int = 2;
+	public static inline var UIActionSheetStyleBlackOpaque:Int = 3;
 
 
 }

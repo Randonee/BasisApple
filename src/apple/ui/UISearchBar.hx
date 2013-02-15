@@ -245,6 +245,24 @@ class UISearchBar extends UIView
 	}
 	private static var uisearchbar_setShowsScopeBar = Lib.load("basis", "uisearchbar_setShowsScopeBar", 2);
 
+	public var backgroundImage(null, setBackgroundImage):String;
+
+	private function setBackgroundImage(value:String):String
+	{
+		uisearchbar_setBackgroundImage(_tag, value);
+		return null;
+	}
+	private static var uisearchbar_setBackgroundImage = Lib.load("basis", "uisearchbar_setBackgroundImage", 2);
+
+	public var scopeBarBackgroundImage(null, setScopeBarBackgroundImage):String;
+
+	private function setScopeBarBackgroundImage(value:String):String
+	{
+		uisearchbar_setScopeBarBackgroundImage(_tag, value);
+		return null;
+	}
+	private static var uisearchbar_setScopeBarBackgroundImage = Lib.load("basis", "uisearchbar_setScopeBarBackgroundImage", 2);
+
 	public var searchFieldBackgroundPositionAdjustment(getSearchFieldBackgroundPositionAdjustment, setSearchFieldBackgroundPositionAdjustment):Array<Int>;
 	private function getSearchFieldBackgroundPositionAdjustment():Array<Int>
 	{
@@ -275,6 +293,11 @@ class UISearchBar extends UIView
 
 
 	//Methods
+	public function setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState( dividerImage:String,  leftState:Int,  rightState:Int):Void
+	{
+		uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState(_tag, dividerImage, leftState, rightState);
+	}
+	private static var uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState = Lib.load("basis", "uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState", 4);
 	public function setPositionAdjustmentForSearchBarIcon( adjustment:Array<Int>,  icon:Int):Void
 	{
 		uisearchbar_setPositionAdjustmentForSearchBarIcon(_tag, adjustment, icon);
@@ -285,11 +308,26 @@ class UISearchBar extends UIView
 		uisearchbar_setShowsCancelButtonAnimated(_tag, showsCancelButton, animated);
 	}
 	private static var uisearchbar_setShowsCancelButtonAnimated = Lib.load("basis", "uisearchbar_setShowsCancelButtonAnimated", 3);
+	public function setImageForSearchBarIconState( iconImage:String,  icon:Int,  state:Int):Void
+	{
+		uisearchbar_setImageForSearchBarIconState(_tag, iconImage, icon, state);
+	}
+	private static var uisearchbar_setImageForSearchBarIconState = Lib.load("basis", "uisearchbar_setImageForSearchBarIconState", 4);
+	public function setScopeBarButtonBackgroundImageForState( backgroundImage:String,  state:Int):Void
+	{
+		uisearchbar_setScopeBarButtonBackgroundImageForState(_tag, backgroundImage, state);
+	}
+	private static var uisearchbar_setScopeBarButtonBackgroundImageForState = Lib.load("basis", "uisearchbar_setScopeBarButtonBackgroundImageForState", 3);
 	public function positionAdjustmentForSearchBarIcon( icon:Int):Array<Int>
 	{
 		return uisearchbar_positionAdjustmentForSearchBarIcon(_tag, icon);
 	}
 	private static var uisearchbar_positionAdjustmentForSearchBarIcon = Lib.load("basis", "uisearchbar_positionAdjustmentForSearchBarIcon", 2);
+	public function setSearchFieldBackgroundImageForState( backgroundImage:String,  state:Int):Void
+	{
+		uisearchbar_setSearchFieldBackgroundImageForState(_tag, backgroundImage, state);
+	}
+	private static var uisearchbar_setSearchFieldBackgroundImageForState = Lib.load("basis", "uisearchbar_setSearchFieldBackgroundImageForState", 3);
 
 
 	public static inline var UISearchBarIconSearch:Int = 0;

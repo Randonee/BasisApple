@@ -135,6 +135,26 @@ class UIStepper extends UIControl
 
 
 	//Methods
+	public function setDividerImageForLeftSegmentStateRightSegmentState( image:String,  leftState:Int,  rightState:Int):Void
+	{
+		uistepper_setDividerImageForLeftSegmentStateRightSegmentState(_tag, image, leftState, rightState);
+	}
+	private static var uistepper_setDividerImageForLeftSegmentStateRightSegmentState = Lib.load("basis", "uistepper_setDividerImageForLeftSegmentStateRightSegmentState", 4);
+	public function setIncrementImageForState( image:String,  state:Int):Void
+	{
+		uistepper_setIncrementImageForState(_tag, image, state);
+	}
+	private static var uistepper_setIncrementImageForState = Lib.load("basis", "uistepper_setIncrementImageForState", 3);
+	public function setBackgroundImageForState( image:String,  state:Int):Void
+	{
+		uistepper_setBackgroundImageForState(_tag, image, state);
+	}
+	private static var uistepper_setBackgroundImageForState = Lib.load("basis", "uistepper_setBackgroundImageForState", 3);
+	public function setDecrementImageForState( image:String,  state:Int):Void
+	{
+		uistepper_setDecrementImageForState(_tag, image, state);
+	}
+	private static var uistepper_setDecrementImageForState = Lib.load("basis", "uistepper_setDecrementImageForState", 3);
 
 
 

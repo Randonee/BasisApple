@@ -46,6 +46,8 @@ class UITableView extends UIScrollView
 	private static var uitableview_dequeueReusableHeaderFooterViewWithIdentifier = Lib.load("basis", "uitableview_dequeueReusableHeaderFooterViewWithIdentifier", 2);
 	
 	// ---------------------------------
+	
+	
 
 	//Constants
 	//static public inline var UITableViewAutomaticDimension:Float;

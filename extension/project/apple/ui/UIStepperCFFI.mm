@@ -123,4 +123,41 @@ namespace basis
 	DEFINE_PRIM (uistepper_setTintColor, 2);
 
 
+	void uistepper_setDividerImageForLeftSegmentStateRightSegmentState(value tag, value arg1, value arg2, value arg3)
+	{
+		UIStepper *view = (UIStepper*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		UIControlState carg3 = val_int(arg3);
+		[view setDividerImage:carg1 forLeftSegmentState:carg2 rightSegmentState:carg3 ];
+	}
+	DEFINE_PRIM (uistepper_setDividerImageForLeftSegmentStateRightSegmentState, 4);
+
+	void uistepper_setIncrementImageForState(value tag, value arg1, value arg2)
+	{
+		UIStepper *view = (UIStepper*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setIncrementImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uistepper_setIncrementImageForState, 3);
+
+	void uistepper_setBackgroundImageForState(value tag, value arg1, value arg2)
+	{
+		UIStepper *view = (UIStepper*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setBackgroundImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uistepper_setBackgroundImageForState, 3);
+
+	void uistepper_setDecrementImageForState(value tag, value arg1, value arg2)
+	{
+		UIStepper *view = (UIStepper*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setDecrementImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uistepper_setDecrementImageForState, 3);
+
 }

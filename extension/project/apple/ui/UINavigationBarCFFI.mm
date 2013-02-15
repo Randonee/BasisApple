@@ -48,6 +48,23 @@ namespace basis
 	DEFINE_PRIM (uinavigationbar_setTintColor, 2);
 
 
+	void uinavigationbar_setShadowImage(value tag, value arg1)
+	{
+		UINavigationBar *view = (UINavigationBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.shadowImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uinavigationbar_setShadowImage, 2);
+
+
+	void uinavigationbar_setBackgroundImageForBarMetrics(value tag, value arg1, value arg2)
+	{
+		UINavigationBar *view = (UINavigationBar*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIBarMetrics carg2 = val_int(arg2);
+		[view setBackgroundImage:carg1 forBarMetrics:carg2 ];
+	}
+	DEFINE_PRIM (uinavigationbar_setBackgroundImageForBarMetrics, 3);
+
 	void uinavigationbar_setTitleVerticalPositionAdjustmentForBarMetrics(value tag, value arg1, value arg2)
 	{
 		UINavigationBar *view = (UINavigationBar*)[[BasisApplication getViewManager] getView:val_int(tag)];

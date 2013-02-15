@@ -1,6 +1,7 @@
 <target name="main">
 	<appName value="Example" />
 	<source path="src" />
+	<asset path="assets" />
 	<builddir path="build" />
 	<target name="apple" type="Apple">
 		<framework name="UIKit" />

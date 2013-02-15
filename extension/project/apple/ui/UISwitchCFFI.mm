@@ -48,6 +48,22 @@ namespace basis
 	DEFINE_PRIM (uiswitch_setThumbTintColor, 2);
 
 
+	void uiswitch_setOnImage(value tag, value arg1)
+	{
+		UISwitch *view = (UISwitch*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.onImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uiswitch_setOnImage, 2);
+
+
+	void uiswitch_setOffImage(value tag, value arg1)
+	{
+		UISwitch *view = (UISwitch*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.offImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uiswitch_setOffImage, 2);
+
+
 	value uiswitch_getOn(value tag)
 	{
 		UISwitch *view = (UISwitch*)[[BasisApplication getViewManager] getView:val_int(tag)];

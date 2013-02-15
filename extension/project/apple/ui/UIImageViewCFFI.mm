@@ -3,6 +3,22 @@
 
 namespace basis
 {
+	void uiimageview_setImage(value tag, value arg1)
+	{
+		UIImageView *view = (UIImageView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.image = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uiimageview_setImage, 2);
+
+
+	void uiimageview_setHighlightedImage(value tag, value arg1)
+	{
+		UIImageView *view = (UIImageView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.highlightedImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uiimageview_setHighlightedImage, 2);
+
+
 	value uiimageview_getHighlighted(value tag)
 	{
 		UIImageView *view = (UIImageView*)[[BasisApplication getViewManager] getView:val_int(tag)];

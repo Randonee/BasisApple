@@ -63,6 +63,22 @@ namespace basis
 	DEFINE_PRIM (uiprogressview_setTrackTintColor, 2);
 
 
+	void uiprogressview_setProgressImage(value tag, value arg1)
+	{
+		UIProgressView *view = (UIProgressView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.progressImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uiprogressview_setProgressImage, 2);
+
+
+	void uiprogressview_setTrackImage(value tag, value arg1)
+	{
+		UIProgressView *view = (UIProgressView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		view.trackImage = pathToUIImage(arg1);
+	}
+	DEFINE_PRIM (uiprogressview_setTrackImage, 2);
+
+
 	void uiprogressview_setProgressAnimated(value tag, value arg1, value arg2)
 	{
 		UIProgressView *view = (UIProgressView*)[[BasisApplication getViewManager] getView:val_int(tag)];

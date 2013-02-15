@@ -192,6 +192,15 @@ namespace basis
 	}
 	DEFINE_PRIM (uibutton_contentRectForBounds, 2);
 
+	void uibutton_setBackgroundImageForState(value tag, value arg1, value arg2)
+	{
+		UIButton *view = (UIButton*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setBackgroundImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uibutton_setBackgroundImageForState, 3);
+
 	value uibutton_titleShadowColorForState(value tag, value arg1)
 	{
 		UIButton *view = (UIButton*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -209,6 +218,15 @@ namespace basis
 		[view setTitle:carg1 forState:carg2 ];
 	}
 	DEFINE_PRIM (uibutton_setTitleForState, 3);
+
+	void uibutton_setImageForState(value tag, value arg1, value arg2)
+	{
+		UIButton *view = (UIButton*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		[view setImage:carg1 forState:carg2 ];
+	}
+	DEFINE_PRIM (uibutton_setImageForState, 3);
 
 	value uibutton_titleColorForState(value tag, value arg1)
 	{

@@ -226,6 +226,8 @@ UIOffset arrayToUIOffset(value arr)
 	return offset;
 }
 
-
-
-
+UIImage* pathToUIImage(value path)
+{
+	NSString *filePath = [NSString stringWithCString:val_string(path)encoding:NSUTF8StringEncoding];
+	return [UIImage imageWithContentsOfFile:filePath];
+}

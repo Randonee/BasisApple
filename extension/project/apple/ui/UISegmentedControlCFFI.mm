@@ -103,6 +103,26 @@ namespace basis
 	}
 	DEFINE_PRIM (uisegmentedcontrol_widthForSegmentAtIndex, 2);
 
+	void uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated(value tag, value arg1, value arg2, value arg3)
+	{
+		UISegmentedControl *view = (UISegmentedControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		NSUInteger carg2 = val_int(arg2);
+		BOOL carg3 = val_bool(arg3);
+		[view insertSegmentWithImage:carg1 atIndex:carg2 animated:carg3 ];
+	}
+	DEFINE_PRIM (uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated, 4);
+
+	void uisegmentedcontrol_setBackgroundImageForStateBarMetrics(value tag, value arg1, value arg2, value arg3)
+	{
+		UISegmentedControl *view = (UISegmentedControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		UIBarMetrics carg3 = val_int(arg3);
+		[view setBackgroundImage:carg1 forState:carg2 barMetrics:carg3 ];
+	}
+	DEFINE_PRIM (uisegmentedcontrol_setBackgroundImageForStateBarMetrics, 4);
+
 	value uisegmentedcontrol_contentPositionAdjustmentForSegmentTypeBarMetrics(value tag, value arg1, value arg2)
 	{
 		UISegmentedControl *view = (UISegmentedControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -140,6 +160,17 @@ namespace basis
 	}
 	DEFINE_PRIM (uisegmentedcontrol_isEnabledForSegmentAtIndex, 2);
 
+	void uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics(value tag, value arg1, value arg2, value arg3, value arg4)
+	{
+		UISegmentedControl *view = (UISegmentedControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		UIControlState carg2 = val_int(arg2);
+		UIControlState carg3 = val_int(arg3);
+		UIBarMetrics carg4 = val_int(arg4);
+		[view setDividerImage:carg1 forLeftSegmentState:carg2 rightSegmentState:carg3 barMetrics:carg4 ];
+	}
+	DEFINE_PRIM (uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics, 5);
+
 	void uisegmentedcontrol_setEnabledForSegmentAtIndex(value tag, value arg1, value arg2)
 	{
 		UISegmentedControl *view = (UISegmentedControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
@@ -167,6 +198,15 @@ namespace basis
 		[view removeSegmentAtIndex:carg1 animated:carg2 ];
 	}
 	DEFINE_PRIM (uisegmentedcontrol_removeSegmentAtIndexAnimated, 3);
+
+	void uisegmentedcontrol_setImageForSegmentAtIndex(value tag, value arg1, value arg2)
+	{
+		UISegmentedControl *view = (UISegmentedControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIImage* carg1 = pathToUIImage(arg1);
+		NSUInteger carg2 = val_int(arg2);
+		[view setImage:carg1 forSegmentAtIndex:carg2 ];
+	}
+	DEFINE_PRIM (uisegmentedcontrol_setImageForSegmentAtIndex, 3);
 
 	value uisegmentedcontrol_contentOffsetForSegmentAtIndex(value tag, value arg1)
 	{

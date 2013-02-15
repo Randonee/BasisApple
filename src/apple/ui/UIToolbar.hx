@@ -65,6 +65,16 @@ class UIToolbar extends UIView
 
 
 	//Methods
+	public function setShadowImageForToolbarPosition( shadowImage:String,  topOrBottom:Int):Void
+	{
+		uitoolbar_setShadowImageForToolbarPosition(_tag, shadowImage, topOrBottom);
+	}
+	private static var uitoolbar_setShadowImageForToolbarPosition = Lib.load("basis", "uitoolbar_setShadowImageForToolbarPosition", 3);
+	public function setBackgroundImageForToolbarPositionBarMetrics( backgroundImage:String,  topOrBottom:Int,  barMetrics:Int):Void
+	{
+		uitoolbar_setBackgroundImageForToolbarPositionBarMetrics(_tag, backgroundImage, topOrBottom, barMetrics);
+	}
+	private static var uitoolbar_setBackgroundImageForToolbarPositionBarMetrics = Lib.load("basis", "uitoolbar_setBackgroundImageForToolbarPositionBarMetrics", 4);
 
 
 	public static inline var UIToolbarPositionAny:Int = 0;

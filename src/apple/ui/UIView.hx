@@ -38,6 +38,7 @@ class UIView extends UIResponder
 	
 	// ---------------------------------
 	
+	
 
 	 public function new(?type="UIView")
 	{
