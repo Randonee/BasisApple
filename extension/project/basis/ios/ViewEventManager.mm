@@ -32,34 +32,30 @@ AutoGCRoot *viewHandler;
 }
 
 
-
 //Events
--(void) onUIControlEventTouchDown:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_DOWN"];}
--(void) onUIControlEventTouchDownRepeat:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_DOWN_REPEAT"];}
--(void) onUIControlEventTouchDragInside:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_DRAG_INSIDE"];}
--(void) onUIControlEventTouchDragOutside:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_DRAG_OUTSIDE"];}
--(void) onUIControlEventTouchDragEnter:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_DRAG_ENTER"];}
--(void) onUIControlEventTouchDragExit:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_DRAG_EXIT"];}
--(void) onUIControlEventTouchUpInside:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_UP_INSIDE"];}
--(void) onUIControlEventTouchUpOutside:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_UP_OUTSIDE"];}
--(void) onUIControlEventTouchCancel:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_TOUCH_CANCEL"];}
--(void) onUIControlEventValueChanged:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_VALUE_CHANGED"];}
--(void) onUIControlEventEditingDidBegin:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_EDITING_DID_BEGIN"];}
--(void) onUIControlEventEditingChanged:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_EDITING_CHANGED"];}
--(void) onUIControlEventEditingDidEnd:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_EDITING_DID_END"];}
--(void) onUIControlEventEditingDidEndOnExit:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_EDITING_DID_END_ON_EXIT"];}
--(void) onUIControlEventAllTouchEvents:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_ALL_TOUCH_EVENTS"];}
--(void) onUIControlEventAllEditingEvents:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_ALL_EDITING_EVENTS"];}
--(void) onUIControlEventApplicationReserved:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_APPLICATION_RESERVED"];}
--(void) onUIControlEventSystemReserved:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_SYSTEMR_ESERVED"];}
--(void) onUIControlEventAllEvents:(id) view :(id) event{[self callHanlders:[view tag] :"CONTROL_ALL_EVENTS"];}
-
-
-
+-(void) onUIControlEventTouchDown:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchDown"];}
+-(void) onUIControlEventTouchDownRepeat:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchDownRepeat"];}
+-(void) onUIControlEventTouchDragInside:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchDragInside"];}
+-(void) onUIControlEventTouchDragOutside:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchOutside"];}
+-(void) onUIControlEventTouchDragEnter:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchDragEnter"];}
+-(void) onUIControlEventTouchDragExit:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchDragExit"];}
+-(void) onUIControlEventTouchUpInside:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchUpInside"];}
+-(void) onUIControlEventTouchUpOutside:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchUpOutside"];}
+-(void) onUIControlEventTouchCancel:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlTouchCancel"];}
+-(void) onUIControlEventValueChanged:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlValueChanged"];}
+-(void) onUIControlEventEditingDidBegin:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlEditingDidBegin"];}
+-(void) onUIControlEventEditingChanged:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlEditingChanged"];}
+-(void) onUIControlEventEditingDidEnd:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlEditingDidEnd"];}
+-(void) onUIControlEventEditingDidEndOnExit:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlEditingDidEndOnExit"];}
+-(void) onUIControlEventAllTouchEvents:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlAllTouchEvents"];}
+-(void) onUIControlEventAllEditingEvents:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlAllEditingEvents"];}
+-(void) onUIControlEventApplicationReserved:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlApplicationReserved"];}
+-(void) onUIControlEventSystemReserved:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlSystemReserved"];}
+-(void) onUIControlEventAllEvents:(id) view :(id) event{[self callHanlders:[view tag] :"UIControlAllEvents"];}
 
 //Notifications
--(void) onUITextFieldTextDidBeginEditingNotification:(NSNotification *) notification{[self callHanlders:[[notification object] tag] :"TextFieldTextDidBeginEditing"];}
--(void) onUITextFieldTextDidChangeNotification:(NSNotification *) notification{[self callHanlders:[[notification object] tag] :"TextFieldTextDidChange"];}
--(void) onUITextFieldTextDidEndEditingNotification:(NSNotification *) notification {[self callHanlders:[[notification object] tag] :"TextFieldTextDidEndEditing"];}
+-(void) onUITextFieldTextDidBeginEditingNotification:(NSNotification *) notification{[self callHanlders:[[notification object] tag] :"UITextFieldTextDidBeginEditing"];}
+-(void) onUITextFieldTextDidChangeNotification:(NSNotification *) notification{[self callHanlders:[[notification object] tag] :"UITextFieldTextDidChange"];}
+-(void) onUITextFieldTextDidEndEditingNotification:(NSNotification *) notification {[self callHanlders:[[notification object] tag] :"UITextFieldTextDidEndEditing"];}
 
 @end

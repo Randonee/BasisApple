@@ -15,8 +15,6 @@ import apple.ui.UIBarButtonItem;
 import apple.ui.UIAlertView;
 import apple.ui.UIImageView;
 
-import basis.ios.EventTypes;
-
 class MainView extends UIView
 {
 	private var _inputLabel:UILabel;
@@ -68,7 +66,7 @@ class MainView extends UIView
 		_inputField= new UITextField();
 		addSubview(_inputField);
 		_inputField.frame = [5.0,90,200,30];
-		_inputField.addEventListener(EventTypes.TEXTFIELD_TEXT_DID_CHANGE, onInputChanged);
+		_inputField.addEventListener(UITextField.UITextFieldTextDidChange, onInputChanged);
 		
 		_outputLabel = new UILabel();
 		addSubview(_outputLabel);
@@ -82,7 +80,7 @@ class MainView extends UIView
 		_sampleButton = new UIButton();
 		_sampleButton.frame = [50.0,220,100,30];
 		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
-		_sampleButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onButtonClick);
+		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
 		
 		_tableCellLabels = [];
@@ -112,7 +110,7 @@ class MainView extends UIView
 		_animateButton = new UIButton();
 		_animateButton.frame = [400.0,70,100,30];
 		_animateButton.setTitleForState("Animate", UIControl.UIControlStateNormal);
-		_animateButton.addEventListener(EventTypes.CONTROL_TOUCH_UP_INSIDE, onAnimateButtonClick);
+		_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
 		addSubview(_animateButton);
 		
 		_haxeImage = new UIImageView();

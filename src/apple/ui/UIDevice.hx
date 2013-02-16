@@ -6,6 +6,10 @@ import cpp.Lib;
 
 class UIDevice
 {
+	//events
+	static public inline var UIDeviceOrientationDidChangeNotification:String = "UIDeviceOrientationDidChangeNotification";
+
+
 	//UIUserInterfaceIdiom
 	static public inline var UIUserInterfaceIdiomPhone:Int = 0;
 	static public inline var UIUserInterfaceIdiomPad:Int = 1;
