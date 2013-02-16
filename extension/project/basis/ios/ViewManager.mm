@@ -21,7 +21,7 @@ AutoGCRoot *_cffiDestroyViewHandler;
 	    
 		[eventManager installAddSubviewListener:(^(id _self, UIView *view)
 		{
-			[eventManager callHanlders:view.tag :"DID_MOVE_TO_SUPERVIEW"];
+			[eventManager callHanlders:view.tag :"UIViewDidMoveToSuperview"];
 		})];
 	}
 	return self;

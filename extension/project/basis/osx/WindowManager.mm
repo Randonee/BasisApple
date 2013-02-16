@@ -26,7 +26,7 @@ WindowEventManager *eventManager;
 	    
 		[eventManager installAddSubviewListener:(^(id _self, NSView *view)
 		{
-			[eventManager callHanlders:view.tag :"DID_MOVE_TO_SUPERVIEW"];
+			[eventManager callHanlders:view.tag :"UIViewDidMoveToSuperview"];
 		})];
 	}
 	return self;

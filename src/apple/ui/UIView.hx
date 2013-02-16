@@ -15,7 +15,7 @@ class UIView extends UIResponder
 
 	//------ Added - NOT GENERATED ------
 	
-	public static inline var DID_MOVE_TO_SUPERVIEW:String = "DID_MOVE_TO_SUPERVIEW";
+	public static inline var UIViewDidMoveToSuperview:String = "UIViewDidMoveToSuperview";
 	
 	static public function beginAnimations(animationID:String)
 	{
