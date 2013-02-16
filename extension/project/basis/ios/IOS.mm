@@ -1,5 +1,6 @@
 #include "../../apple/GeneratedIncludes.mm"
 
+#include "../../apple/ui/UIApplicationCFFI.mm"
 #include "../../apple/ui/UICollectionReusableViewCFFI.mm"
 #include "../../apple/ui/UIImageViewCFFI_additions.mm"
 #include "../../apple/ui/UITableViewCFFI_additions.mm"

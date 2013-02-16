@@ -7,6 +7,7 @@ import apple.ui.UILabel;
 import apple.ui.UITextField;
 import apple.ui.UIButton;
 import apple.ui.UIControl;
+import apple.ui.UIApplication;
 import apple.ui.UITableView;
 import apple.ui.UITableViewCell;
 import apple.ui.UIWebView;
@@ -36,7 +37,7 @@ class MainView extends UIView
 	public function new()
 	{
 		super();
-		this.frame = [0.0, 20, 768, 1024];
+		this.frame = [0.0, UIApplication.statusBarFrame[3], 768, 1024];
 		
 		_navigationBar = new UINavigationBar();
 		_navigationBar.createNavigationItem(false);
