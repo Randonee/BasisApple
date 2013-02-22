@@ -22,7 +22,7 @@ BasisApplication *instance;
 	return instance;
 }
 
-+(ObjectManagerObjc *) getObjectManager
++(ObjectManager *) getObjectManager
 {
 	return instance.objectManager;
 }
@@ -47,7 +47,7 @@ BasisApplication *instance;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
-	self.objectManager = [[ObjectManagerObjc alloc] init];
+	self.objectManager = [[ObjectManager alloc] init];
 	
 	[self.objectManager addObject:self.window];
 	

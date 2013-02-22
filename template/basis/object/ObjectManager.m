@@ -1,6 +1,6 @@
-#import "ObjectManagerObjc.h"
+#import "ObjectManager.h"
 
-@implementation ObjectManagerObjc
+@implementation ObjectManager
 
 NSMutableDictionary *_objects;
 NSMutableDictionary *_classTypes;

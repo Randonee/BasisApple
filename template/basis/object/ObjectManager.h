@@ -6,7 +6,8 @@
 -(void)objectBeingAdded:(id)object;
 @end
 
-@interface ObjectManagerObjc : NSObject
+@interface ObjectManager : NSObject
+
 
 -(NSString *) getObjCClassName:(NSString *)haxeName;
 -(id) callMethod:(id)object :(NSString *)selectorString :(NSArray *)args :(BOOL)isObject;
