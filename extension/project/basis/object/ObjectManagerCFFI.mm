@@ -27,6 +27,7 @@ namespace basis
 {
 	value getCallMethodReturnValue(id returnVar, int returnType);
 	BOOL isTypeObject(int type);
+	NSMutableArray* getMethodArgs(value args, value argTypes);
 
     value objectmanager_createObject(value type)
     {
@@ -49,11 +50,42 @@ namespace basis
     }
     DEFINE_PRIM (objectmanager_addClass, 2);
     
+    value objectmanager_callClassMethod(value haxeClassName, value selectorString, value args, value argTypes, value returnType)
+    {
+    	NSString *className = [[BasisApplication getObjectManager] getObjCClassName:[NSString stringWithCString:val_string(haxeClassName) encoding:NSUTF8StringEncoding]];
+    	
+    	id cls = NSClassFromString(className);
+    	NSMutableArray *objcArgs = getMethodArgs(args, argTypes);
+    	BOOL isObject = isTypeObject(val_int(returnType));
+    	id returnVar = [[BasisApplication getObjectManager] callMethod:cls :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
+    	if(returnVar == nil)
+    		return nil;
+    		
+    	if(val_int(returnType) == objectVal)
+    		[[BasisApplication getObjectManager] addObject: returnVar];
+
+    	return getCallMethodReturnValue(returnVar, val_int(returnType));
+    }
+    DEFINE_PRIM (objectmanager_callClassMethod, 5);
     
     value objectmanager_callInstanceMethod(value objectID, value selectorString, value args, value argTypes, value returnType)
     {
     	id object = [[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+    	NSMutableArray *objcArgs = getMethodArgs(args, argTypes);
+    	BOOL isObject = isTypeObject(val_int(returnType));
+    	id returnVar = [[BasisApplication getObjectManager] callMethod:object :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
+
+    	if(returnVar == nil)
+    		return nil;
     	
+    	return getCallMethodReturnValue(returnVar, val_int(returnType));
+    }
+    DEFINE_PRIM (objectmanager_callInstanceMethod, 5);
+    
+    
+    
+    NSMutableArray* getMethodArgs(value args, value argTypes)
+    {
     	int argc = val_array_size(args);
     	NSMutableArray *objcArgs = [[NSMutableArray alloc] init];
     	for(int a=0; a < argc; ++a)
@@ -155,18 +187,9 @@ namespace basis
     		}
     	}
     	
-    	BOOL isObject = isTypeObject(val_int(returnType));
-    	
-    	id returnVar = [[BasisApplication getObjectManager] callMethod:object :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
-    	[objcArgs release];
-
-    	if(returnVar == nil)
-    		return nil;
-    	
-    	return getCallMethodReturnValue(returnVar, val_int(returnType));
-    	
+    	return [objcArgs autorelease];
     }
-    DEFINE_PRIM (objectmanager_callInstanceMethod, 5);
+    
     
     value getCallMethodReturnValue(id returnVar, int returnType)
     {

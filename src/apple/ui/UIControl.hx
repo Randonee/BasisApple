@@ -24,6 +24,8 @@ class UIControl extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var enabled(getEnabled, setEnabled):Bool;
 	private function getEnabled():Bool

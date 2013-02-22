@@ -24,6 +24,8 @@ class UITableViewCell extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var imageView(getImageView, null):UIImageView;
 	private function getImageView():UIImageView

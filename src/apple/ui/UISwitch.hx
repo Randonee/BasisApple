@@ -24,6 +24,8 @@ class UISwitch extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var onTintColor(getOnTintColor, setOnTintColor):Array<Float>;
 	private function getOnTintColor():Array<Float>

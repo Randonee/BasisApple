@@ -24,6 +24,8 @@ class UIToolbar extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var barStyle(getBarStyle, setBarStyle):Int;
 	private function getBarStyle():Int

@@ -24,6 +24,8 @@ class UISegmentedControl extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var segmentedControlStyle(getSegmentedControlStyle, setSegmentedControlStyle):Int;
 	private function getSegmentedControlStyle():Int

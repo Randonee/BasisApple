@@ -24,6 +24,8 @@ class UIActivityIndicatorView extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var activityIndicatorViewStyle(getActivityIndicatorViewStyle, setActivityIndicatorViewStyle):Int;
 	private function getActivityIndicatorViewStyle():Int

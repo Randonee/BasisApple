@@ -64,6 +64,7 @@ class MainView extends UIView
 		_inputLabel.frame = [5.0, 60, 200, 30];
 	
 		_inputField= new UITextField();
+		_inputField.borderStyle = UITextField.UITextBorderStyleRoundedRect;
 		addSubview(_inputField);
 		_inputField.frame = [5.0,90,200,30];
 	//	_inputField.addEventListener(UITextField.UITextFieldTextDidChange, onInputChanged);
@@ -76,8 +77,9 @@ class MainView extends UIView
 		_outputField= new UITextField();
 		addSubview(_outputField);
 		_outputField.frame = [5.0,170,200,30];
-		
-		_sampleButton = new UIButton();
+		_outputField.borderStyle = UITextField.UITextBorderStyleRoundedRect;
+
+		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_sampleButton.frame = [50.0,220,100,30];
 		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
 	//	_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
@@ -106,13 +108,12 @@ class MainView extends UIView
 		_webView.loadRequest("http://haxe.org");
 		addSubview(_webView);
 		
-	/*	
-		_animateButton = new UIButton();
+		_animateButton = UIButton.buttonWithType(1);
 		_animateButton.frame = [400.0,70,100,30];
 		_animateButton.setTitleForState("Animate", UIControl.UIControlStateNormal);
-		_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
+	//	_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
 		addSubview(_animateButton);
-		*/
+		
 		_haxeImage = new UIImageView();
 		_haxeImage.image = IOSUtil.getAssetPath("haxe.png");
 		_haxeImage.frame = [400.0, 120, 100, 100];

@@ -26,6 +26,8 @@ class UIScrollView extends UIView
 	//static public inline var UIScrollViewDecelerationRateNormal:Float;
 	//static public inline var UIScrollViewDecelerationRateFast:Float;
 
+	//Static Methods
+
 	//Properties
 	public var contentOffset(getContentOffset, setContentOffset):Array<Float>;
 	private function getContentOffset():Array<Float>

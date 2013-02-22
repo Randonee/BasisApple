@@ -24,6 +24,24 @@ class UIPopoverBackgroundView extends UIView
 
 	//Constants
 
+	//Static Methods
+	static public function contentViewInsets():Array<Float>
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIPopoverBackgroundView", "contentViewInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
+	}
+	static public function wantsDefaultContentAppearance():Bool
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIPopoverBackgroundView", "wantsDefaultContentAppearance", [], [], ObjectManager.OBJECT_VAL);
+	}
+	static public function arrowHeight():Float
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIPopoverBackgroundView", "arrowHeight", [], [], ObjectManager.FLOAT_VAL);
+	}
+	static public function arrowBase():Float
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIPopoverBackgroundView", "arrowBase", [], [], ObjectManager.FLOAT_VAL);
+	}
+
 	//Properties
 	public var arrowOffset(getArrowOffset, setArrowOffset):Float;
 	private function getArrowOffset():Float

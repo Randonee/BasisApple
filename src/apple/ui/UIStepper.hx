@@ -24,6 +24,8 @@ class UIStepper extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var continuous(getContinuous, setContinuous):Bool;
 	private function getContinuous():Bool

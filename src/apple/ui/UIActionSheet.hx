@@ -24,6 +24,8 @@ class UIActionSheet extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var title(getTitle, setTitle):String;
 	private function getTitle():String

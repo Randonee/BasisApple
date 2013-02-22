@@ -24,6 +24,8 @@ class UISlider extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var value(getValue, setValue):Float;
 	private function getValue():Float

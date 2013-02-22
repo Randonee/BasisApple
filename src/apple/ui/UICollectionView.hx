@@ -24,6 +24,8 @@ class UICollectionView extends UIScrollView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var backgroundView(getBackgroundView, setBackgroundView):UIView;
 	private function getBackgroundView():UIView
@@ -71,6 +73,10 @@ class UICollectionView extends UIScrollView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "reloadData", [], [], -1);
 	}
+	public function dequeueReusableCellWithReuseIdentifierForIndexPath( identifier:String,  indexPath:Array<Int>):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dequeueReusableCellWithReuseIdentifier:forIndexPath:", [identifier, indexPath], [ObjectManager.STRING_VAL, ObjectManager.NSINDEXPATH_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function indexPathForItemAtPoint( point:Array<Float>):Array<Int>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "indexPathForItemAtPoint:", [point], [ObjectManager.CGPOINT_VAL], ObjectManager.NSINDEXPATH_VAL);
@@ -114,6 +120,10 @@ class UICollectionView extends UIScrollView
 	public function reloadSections( sections:Array<Int>):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "reloadSections:", [sections], [ObjectManager.NSINDEXSET_VAL], -1);
+	}
+	public function dequeueReusableSupplementaryViewOfKindWithReuseIdentifierForIndexPath( elementKind:String,  identifier:String,  indexPath:Array<Int>):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:", [elementKind, identifier, indexPath], [ObjectManager.STRING_VAL, ObjectManager.STRING_VAL, ObjectManager.NSINDEXPATH_VAL], ObjectManager.OBJECT_VAL);
 	}
 	public function indexPathForCell( cell:UICollectionViewCell):Array<Int>
 	{

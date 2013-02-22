@@ -24,6 +24,8 @@ class UIRefreshControl extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var refreshing(getRefreshing, null):Bool;
 	private function getRefreshing():Bool

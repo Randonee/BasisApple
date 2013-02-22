@@ -24,6 +24,8 @@ class UIProgressView extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var progressViewStyle(getProgressViewStyle, setProgressViewStyle):Int;
 	private function getProgressViewStyle():Int

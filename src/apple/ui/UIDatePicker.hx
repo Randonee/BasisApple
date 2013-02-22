@@ -24,6 +24,8 @@ class UIDatePicker extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var datePickerMode(getDatePickerMode, setDatePickerMode):Int;
 	private function getDatePickerMode():Int

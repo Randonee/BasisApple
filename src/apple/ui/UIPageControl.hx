@@ -24,6 +24,8 @@ class UIPageControl extends UIControl
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var numberOfPages(getNumberOfPages, setNumberOfPages):Int;
 	private function getNumberOfPages():Int

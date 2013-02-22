@@ -24,6 +24,8 @@ class UILabel extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var text(getText, setText):String;
 	private function getText():String

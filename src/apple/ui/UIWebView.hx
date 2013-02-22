@@ -24,6 +24,8 @@ class UIWebView extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var scrollView(getScrollView, null):UIScrollView;
 	private function getScrollView():UIScrollView

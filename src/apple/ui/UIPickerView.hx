@@ -24,6 +24,8 @@ class UIPickerView extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var showsSelectionIndicator(getShowsSelectionIndicator, setShowsSelectionIndicator):Bool;
 	private function getShowsSelectionIndicator():Bool

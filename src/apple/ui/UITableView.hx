@@ -25,6 +25,8 @@ class UITableView extends UIScrollView
 	//Constants
 	//static public inline var UITableViewAutomaticDimension:Float;
 
+	//Static Methods
+
 	//Properties
 	public var style(getStyle, null):Int;
 	private function getStyle():Int
@@ -270,6 +272,14 @@ class UITableView extends UIScrollView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rectForSection:", [section], [ObjectManager.INT_VAL], ObjectManager.CGRECT_VAL);
 	}
+	public function dequeueReusableCellWithIdentifier( identifier:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dequeueReusableCellWithIdentifier:", [identifier], [ObjectManager.STRING_VAL], ObjectManager.OBJECT_VAL);
+	}
+	public function dequeueReusableCellWithIdentifierForIndexPath( identifier:String,  indexPath:Array<Int>):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dequeueReusableCellWithIdentifier:forIndexPath:", [identifier, indexPath], [ObjectManager.STRING_VAL, ObjectManager.NSINDEXPATH_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function reloadData():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "reloadData", [], [], -1);
@@ -321,6 +331,10 @@ class UITableView extends UIScrollView
 	public function beginUpdates():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "beginUpdates", [], [], -1);
+	}
+	public function dequeueReusableHeaderFooterViewWithIdentifier( identifier:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dequeueReusableHeaderFooterViewWithIdentifier:", [identifier], [ObjectManager.STRING_VAL], ObjectManager.OBJECT_VAL);
 	}
 	public function scrollToRowAtIndexPathAtScrollPositionAnimated( indexPath:Array<Int>,  scrollPosition:Int,  animated:Bool):Void
 	{

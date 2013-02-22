@@ -69,6 +69,36 @@ class ObjectManager
 	}
 	private static var objectmanager_callInstanceMethod = Lib.load ("basis", "objectmanager_callInstanceMethod", 5);
 	
+	
+	public function callClassMethod(haxeClassName:String, selector:String, args:Array<Dynamic>, argTypes:Array<Int>, returnType:Int):Dynamic
+	{
+		for(a in 0...args.length)
+		{
+			if(Std.is(args[a], IObject))
+				args[a] = args[a].basisID;
+		}
+		
+		var returnVar:Dynamic = objectmanager_callClassMethod(haxeClassName, selector, args, argTypes, returnType);
+		if(returnVar == null)
+			return null;
+		
+		if(Std.is(returnVar, String))
+		{
+			var obj:IObject = getObject(returnVar);
+			
+			if(obj != null)
+				return obj;
+			else if(returnType == OBJECT_VAL)
+			{
+				cffi_addObject(returnVar, haxeClassName);
+				return getObject(returnVar);
+			}
+		}
+		
+		return returnVar;
+	}
+	private static var objectmanager_callClassMethod = Lib.load ("basis", "objectmanager_callClassMethod", 5);
+	
 	public function destroyObject(object:IObject):String
 	{
 		objectmanager_destroyObject();
@@ -89,15 +119,15 @@ class ObjectManager
 	
 	
 	//---- Called from cffi
-	public function cffi_addObject(id:Float, className:String):Void
+	public function cffi_addObject(id:String, className:String):Void
 	{
 		var object:IObject = Type.createInstance(_classTypes.get(className), []);
-		_objects.set(Std.string(id), object);
+		_objects.set(id, object);
 	}
 	
-	public function cffi_destroyObject(id:Float):Void
+	public function cffi_destroyObject(id:String):Void
 	{
-		_objects.remove(Std.string(id));
+		_objects.remove(id);
 	}
 	//-------------------------
 	

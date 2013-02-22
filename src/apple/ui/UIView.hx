@@ -27,6 +27,60 @@ class UIView extends UIResponder
 	//static public inline var UILayoutFittingCompressedSize:Array<Float>;
 	//static public inline var UILayoutFittingExpandedSize:Array<Float>;
 
+	//Static Methods
+	static public function setAnimationDuration( duration:Float):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationDuration:", [duration], [ObjectManager.FLOAT_VAL], -1);
+	}
+	static public function setAnimationBeginsFromCurrentState( fromCurrentState:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationBeginsFromCurrentState:", [fromCurrentState], [ObjectManager.OBJECT_VAL], -1);
+	}
+	static public function setAnimationDelegate( delegate:Dynamic):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationDelegate:", [delegate], [ObjectManager.OBJECT_VAL], -1);
+	}
+	static public function setAnimationDelay( delay:Float):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationDelay:", [delay], [ObjectManager.FLOAT_VAL], -1);
+	}
+	static public function beginAnimationsContext( animationID:String,  context:Dynamic):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "beginAnimations:context:", [animationID, context], [ObjectManager.STRING_VAL, ObjectManager.OBJECT_VAL], -1);
+	}
+	static public function commitAnimations():Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "commitAnimations", [], [], -1);
+	}
+	static public function setAnimationRepeatCount( repeatCount:Float):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationRepeatCount:", [repeatCount], [ObjectManager.FLOAT_VAL], -1);
+	}
+	static public function setAnimationsEnabled( enabled:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationsEnabled:", [enabled], [ObjectManager.OBJECT_VAL], -1);
+	}
+	static public function setAnimationRepeatAutoreverses( repeatAutoreverses:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationRepeatAutoreverses:", [repeatAutoreverses], [ObjectManager.OBJECT_VAL], -1);
+	}
+	static public function setAnimationTransitionForViewCache( transition:Int,  view:UIView,  cache:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationTransition:forView:cache:", [transition, view, cache], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+	}
+	static public function areAnimationsEnabled():Bool
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "areAnimationsEnabled", [], [], ObjectManager.OBJECT_VAL);
+	}
+	static public function requiresConstraintBasedLayout():Bool
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "requiresConstraintBasedLayout", [], [], ObjectManager.OBJECT_VAL);
+	}
+	static public function setAnimationCurve( curve:Int):Void
+	{
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationCurve:", [curve], [ObjectManager.INT_VAL], -1);
+	}
+
 	//Properties
 	public var userInteractionEnabled(getUserInteractionEnabled, setUserInteractionEnabled):Bool;
 	private function getUserInteractionEnabled():Bool

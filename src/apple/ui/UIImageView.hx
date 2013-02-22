@@ -24,6 +24,8 @@ class UIImageView extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var image(null, setImage):String;
 

@@ -27,6 +27,8 @@ class UIWindow extends UIView
 	//static public inline var UIWindowLevelAlert:Float;
 	//static public inline var UIWindowLevelStatusBar:Float;
 
+	//Static Methods
+
 	//Properties
 	public var windowLevel(getWindowLevel, setWindowLevel):Float;
 	private function getWindowLevel():Float

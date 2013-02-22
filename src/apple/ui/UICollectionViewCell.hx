@@ -24,6 +24,8 @@ class UICollectionViewCell extends UICollectionReusableView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var contentView(getContentView, null):UIView;
 	private function getContentView():UIView

@@ -24,6 +24,8 @@ class UITextView extends UIScrollView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var text(getText, setText):String;
 	private function getText():String

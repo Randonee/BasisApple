@@ -24,6 +24,8 @@ class UITabBar extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>

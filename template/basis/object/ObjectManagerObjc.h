@@ -9,6 +9,7 @@
 @interface ObjectManagerObjc : NSObject
 
 
+-(NSString *) getObjCClassName:(NSString *)haxeName;
 -(id) callMethod:(id)object :(NSString *)selectorString :(NSArray *)args :(BOOL)isObject;
 -(void) addClass:(NSString *) haxeName :(NSString *) objcName;
 -(id) getObject:(NSString *) objectID;

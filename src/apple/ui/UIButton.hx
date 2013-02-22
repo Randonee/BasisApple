@@ -24,6 +24,12 @@ class UIButton extends UIControl
 
 	//Constants
 
+	//Static Methods
+	static public function buttonWithType( buttonType:Int):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIButton", "buttonWithType:", [buttonType], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
+	}
+
 	//Properties
 	public var contentEdgeInsets(getContentEdgeInsets, setContentEdgeInsets):Array<Float>;
 	private function getContentEdgeInsets():Array<Float>

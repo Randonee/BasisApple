@@ -24,6 +24,8 @@ class UINavigationBar extends UIView
 
 	//Constants
 
+	//Static Methods
+
 	//Properties
 	public var barStyle(getBarStyle, setBarStyle):Int;
 	private function getBarStyle():Int
@@ -35,6 +37,18 @@ class UINavigationBar extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return barStyle;
+	}
+
+	public var delegate(getDelegate, setDelegate):Dynamic;
+	private function getDelegate():Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "delegate", [], [], ObjectManager.OBJECT_VAL);
+	}
+
+	private function setDelegate(value:Dynamic):Dynamic
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDelegate:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return delegate;
 	}
 
 	public var translucent(getTranslucent, setTranslucent):Bool;

@@ -26,6 +26,11 @@ NSObject<ObjectManagerDelegateProtocol> *delegate;
 	[_classTypes setObject:objcName forKey:haxeName];
 }
 
+-(NSString *) getObjCClassName:(NSString *)haxeName
+{
+	return [_classTypes objectForKey:haxeName];
+}
+
 -(id) getObject:(NSString *) objectID
 {
 	return [_objects objectForKey:objectID];
