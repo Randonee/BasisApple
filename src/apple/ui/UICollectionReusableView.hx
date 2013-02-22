@@ -1,7 +1,7 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ViewBase;
+import basis.object.AbstractObject;
 import basis.BasisApplication;
 import basis.object.IObject;
 

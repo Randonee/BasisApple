@@ -1,7 +1,7 @@
 package test.apple.ui;
 
 import basis.ios.ViewManager;
-import basis.ViewBase;
+import basis.object.AbstractObject;
 import apple.ui.UITableViewCell;
 
 class UITableViewCellTester extends haxe.unit.TestCase

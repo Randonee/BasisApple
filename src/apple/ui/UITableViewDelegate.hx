@@ -2,7 +2,7 @@ package apple.ui;
 
 import cpp.Lib;
 import basis.BasisApplication;
-import basis.ViewBase;
+import basis.object.AbstractObject;
 
 class UITableViewDelegate
 {

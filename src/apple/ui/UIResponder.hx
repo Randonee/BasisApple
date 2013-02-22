@@ -6,13 +6,13 @@ package apple.ui;
 import cpp.Lib;
 import basis.object.ObjectManager;
 import basis.object.IObject;
-import basis.ViewBase;
+import basis.object.AbstractObject;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
 import basis.BasisApplication;
 
-class UIResponder extends ViewBase
+class UIResponder extends AbstractObject
 {
 
 

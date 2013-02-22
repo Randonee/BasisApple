@@ -1,11 +1,10 @@
-package basis;
+package basis.object;
 
 import cpp.Lib;
 import basis.object.ObjectManager;
 
-class ViewBase implements basis.object.IObject
+class AbstractObject implements basis.object.IObject
 {
-
 	public var basisID(default, default):String;
 	
 	private var _type:Class<Dynamic>;
@@ -21,7 +20,7 @@ class ViewBase implements basis.object.IObject
 		basisID = BasisApplication.instance.objectManager.createObject(this, Type.getClassName(_type));
 	}
 	
-	public function setTagFromCFFI(newID:String):Void
+	public function setIDFromCFFI(newID:String):Void
 	{
 		basisID = newID;
 	}

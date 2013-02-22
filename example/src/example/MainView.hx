@@ -1,7 +1,7 @@
 package example;
 
-import basis.ViewBase;
 import basis.ios.IOSUtil;
+import basis.object.IObject;
 import apple.ui.UIView;
 import apple.ui.UILabel;
 import apple.ui.UITextField;
@@ -115,7 +115,7 @@ class MainView extends UIView
 		_animateButton.frame = [400.0,70,100,30];
 		_animateButton.setTitleForState("Animate", UIControl.UIControlStateNormal);
 		_animateButton.setTitleColorForState([0.0, 0, 0, 1], UIControl.UIControlStateNormal);
-	//	_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
+		//_animateButton.addEventListener(UIControl.UIControlEventTouchUpInside, onAnimateButtonClick);
 		addSubview(_animateButton);
 		
 		_haxeImage = new UIImageView();
@@ -134,12 +134,12 @@ class MainView extends UIView
 		_alertView.show();
 	}
 	
-	private function onButtonClick(view:ViewBase, type):Void
+	private function onButtonClick(object:IObject, type):Void
 	{
 		_inputField.text = "Button Clicked";
 	}
 	
-	private function onAnimateButtonClick(view:ViewBase, type):Void
+	private function onAnimateButtonClick(object:IObject, type):Void
 	{
 	/*	UIView.beginAnimations("buttonAnimate");
 		if(_haxeImage.frame[0] < 600)
@@ -149,7 +149,7 @@ class MainView extends UIView
 		UIView.commitAnimations();*/
 	}
 	
-	private function onInputChanged(view:ViewBase, type):Void
+	private function onInputChanged(object:IObject, type):Void
 	{
 		_outputField.text = _inputField.text;
 	}

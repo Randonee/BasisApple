@@ -1,7 +1,7 @@
 package basis;
 
 import basis.object.ObjectManager;
-
+import basis.object.IObject;
 import cpp.Lib;
 
 class BasisApplication
@@ -41,7 +41,7 @@ class BasisApplication
 	*
 	* @param view the view to be added
 	**/
-	public function addToRootView(view:ViewBase):Void
+	public function addToRootView(view:IObject):Void
 	{
 		basisapplication_addToRootView(view.basisID);
 	}
@@ -55,7 +55,7 @@ class BasisApplication
 	* @param view the view that will be dispatching the event
 	* @param handler the function that will be called when the event occurs
 	**/
-	public function addEventListener(type:String, view:ViewBase, handler:ViewBase->String->Void):Void
+	public function addEventListener(type:String, view:IObject, handler:IObject->String->Void):Void
 	{
 	//	_eventManager.addEventListener(type, view, handler);
 	}
@@ -67,7 +67,7 @@ class BasisApplication
 	* @param view the view that will be dispatching the event
 	* @param handler the function that will be called when the event occurs
 	**/
-	public function removeEventListener(type:String, view:ViewBase, handler:ViewBase->String->Void):Void
+	public function removeEventListener(type:String, view:IObject, handler:IObject->String->Void):Void
 	{
 	//	_eventManager.removeEventListener(type, view, handler);
 	}
