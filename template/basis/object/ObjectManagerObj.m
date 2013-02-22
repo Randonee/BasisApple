@@ -96,11 +96,12 @@ NSObject<ObjectManagerDelegateProtocol> *delegate;
 	}
 	else
 	{
-		//Memory needs to be freed
 		NSUInteger length = [[invocation methodSignature] methodReturnLength];
 		void *returnBuffer = (void *)malloc(length);
 		[invocation getReturnValue:returnBuffer];
-		return [NSValue valueWithBytes:returnBuffer objCType:[[invocation methodSignature] methodReturnType]];
+		NSValue *nsValue = [NSValue valueWithBytes:returnBuffer objCType:[[invocation methodSignature] methodReturnType]];
+		free(returnBuffer);
+		return nsValue;
 	}
     return nil;
 }

@@ -154,12 +154,15 @@ namespace basis
     			break;
     		}
     	}
-    	id returnVar = [[BasisApplication getObjectManager] callMethod:object :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isTypeObject(val_int(returnType))];
-    	//[objcArgs release];
+    	
+    	BOOL isObject = isTypeObject(val_int(returnType));
+    	
+    	id returnVar = [[BasisApplication getObjectManager] callMethod:object :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
+    	[objcArgs release];
 
     	if(returnVar == nil)
     		return nil;
-    		
+    	
     	return getCallMethodReturnValue(returnVar, val_int(returnType));
     	
     }
