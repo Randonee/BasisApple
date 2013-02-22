@@ -54,24 +54,24 @@ class UIProgressView extends UIView
 	public var progressTintColor(getProgressTintColor, setProgressTintColor):Array<Float>;
 	private function getProgressTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "progressTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "progressTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setProgressTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return progressTintColor;
 	}
 
 	public var trackTintColor(getTrackTintColor, setTrackTintColor):Array<Float>;
 	private function getTrackTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "trackTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "trackTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setTrackTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTrackTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTrackTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return trackTintColor;
 	}
 

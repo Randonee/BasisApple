@@ -19,7 +19,8 @@ enum ARG_TYPES
 	NSIndexSetVal,
 	NSRangeVal,
 	UIOffsetVal,
-	UIImageVal
+	UIImageVal,
+	UIColorVal
 };
 
 
@@ -142,6 +143,10 @@ namespace basis
 					CGColorRef val = arrayToCGColor(arg);
 					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGColorRef)]];
 				}
+				break;
+				
+				case UIColorVal:
+					[objcArgs addObject:arrayToUIColor(arg)];
 				break;
 				
 				case NSURLVal:
@@ -297,6 +302,10 @@ namespace basis
 			
 			case UIImageVal:
 				return nil;
+			break;
+			
+			case UIColorVal:
+				return uiColorToArray(returnVar);
 			break;
 			
 			default:

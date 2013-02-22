@@ -78,24 +78,24 @@ class UIPageControl extends UIControl
 	public var pageIndicatorTintColor(getPageIndicatorTintColor, setPageIndicatorTintColor):Array<Float>;
 	private function getPageIndicatorTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pageIndicatorTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pageIndicatorTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setPageIndicatorTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPageIndicatorTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPageIndicatorTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return pageIndicatorTintColor;
 	}
 
 	public var currentPageIndicatorTintColor(getCurrentPageIndicatorTintColor, setCurrentPageIndicatorTintColor):Array<Float>;
 	private function getCurrentPageIndicatorTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentPageIndicatorTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentPageIndicatorTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setCurrentPageIndicatorTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCurrentPageIndicatorTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCurrentPageIndicatorTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return currentPageIndicatorTintColor;
 	}
 

@@ -42,24 +42,24 @@ class UILabel extends UIView
 	public var textColor(getTextColor, setTextColor):Array<Float>;
 	private function getTextColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setTextColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return textColor;
 	}
 
 	public var shadowColor(getShadowColor, setShadowColor):Array<Float>;
 	private function getShadowColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setShadowColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return shadowColor;
 	}
 
@@ -102,12 +102,12 @@ class UILabel extends UIView
 	public var highlightedTextColor(getHighlightedTextColor, setHighlightedTextColor):Array<Float>;
 	private function getHighlightedTextColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlightedTextColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlightedTextColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setHighlightedTextColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedTextColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedTextColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return highlightedTextColor;
 	}
 

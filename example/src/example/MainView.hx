@@ -57,7 +57,7 @@ class MainView extends UIView
 		_alertView = new UIAlertView();
 		_alertView.addButtonWithTitle("OK");
 		_alertView.title = "Navigation Bar Button";
-	*/	
+		
 		_inputLabel = new UILabel();
 		addSubview(_inputLabel);
 		_inputLabel.text  = "Input";
@@ -82,8 +82,11 @@ class MainView extends UIView
 		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_sampleButton.frame = [50.0,220,100,30];
 		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
+		
 	//	_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
+		
+		trace("CURRENT   " + _sampleButton.frame);
 		
 /*		_tableCellLabels = [];
 		for(a in 1...101)
@@ -102,15 +105,16 @@ class MainView extends UIView
 		addSubview(_tableEventLabel);
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 270, 150, 30];
-		*/
+		
 		_webView = new UIWebView();
 		_webView.frame = [0.0, 520, 700, 500];
 		_webView.loadRequest("http://haxe.org");
 		addSubview(_webView);
-		
-		_animateButton = UIButton.buttonWithType(1);
+		*/
+		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_animateButton.frame = [400.0,70,100,30];
 		_animateButton.setTitleForState("Animate", UIControl.UIControlStateNormal);
+		_animateButton.setTitleColorForState([0.0, 0, 0, 1], UIControl.UIControlStateNormal);
 	//	_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
 		addSubview(_animateButton);
 		

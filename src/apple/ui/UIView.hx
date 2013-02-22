@@ -241,12 +241,12 @@ class UIView extends UIResponder
 	public var backgroundColor(getBackgroundColor, setBackgroundColor):Array<Float>;
 	private function getBackgroundColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setBackgroundColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return backgroundColor;
 	}
 

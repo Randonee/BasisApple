@@ -30,36 +30,36 @@ class UISwitch extends UIControl
 	public var onTintColor(getOnTintColor, setOnTintColor):Array<Float>;
 	private function getOnTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "onTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "onTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setOnTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOnTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOnTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return onTintColor;
 	}
 
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
 	}
 
 	public var thumbTintColor(getThumbTintColor, setThumbTintColor):Array<Float>;
 	private function getThumbTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setThumbTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return thumbTintColor;
 	}
 

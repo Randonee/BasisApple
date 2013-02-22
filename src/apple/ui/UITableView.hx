@@ -157,24 +157,24 @@ class UITableView extends UIScrollView
 	public var sectionIndexColor(getSectionIndexColor, setSectionIndexColor):Array<Float>;
 	private function getSectionIndexColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "sectionIndexColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "sectionIndexColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setSectionIndexColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSectionIndexColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSectionIndexColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return sectionIndexColor;
 	}
 
 	public var sectionIndexTrackingBackgroundColor(getSectionIndexTrackingBackgroundColor, setSectionIndexTrackingBackgroundColor):Array<Float>;
 	private function getSectionIndexTrackingBackgroundColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "sectionIndexTrackingBackgroundColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "sectionIndexTrackingBackgroundColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setSectionIndexTrackingBackgroundColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSectionIndexTrackingBackgroundColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSectionIndexTrackingBackgroundColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return sectionIndexTrackingBackgroundColor;
 	}
 
@@ -193,12 +193,12 @@ class UITableView extends UIScrollView
 	public var separatorColor(getSeparatorColor, setSeparatorColor):Array<Float>;
 	private function getSeparatorColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "separatorColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "separatorColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setSeparatorColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSeparatorColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSeparatorColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return separatorColor;
 	}
 

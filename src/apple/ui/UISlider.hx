@@ -94,36 +94,36 @@ class UISlider extends UIControl
 	public var minimumTrackTintColor(getMinimumTrackTintColor, setMinimumTrackTintColor):Array<Float>;
 	private function getMinimumTrackTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumTrackTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumTrackTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setMinimumTrackTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumTrackTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumTrackTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return minimumTrackTintColor;
 	}
 
 	public var maximumTrackTintColor(getMaximumTrackTintColor, setMaximumTrackTintColor):Array<Float>;
 	private function getMaximumTrackTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumTrackTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumTrackTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setMaximumTrackTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumTrackTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumTrackTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return maximumTrackTintColor;
 	}
 
 	public var thumbTintColor(getThumbTintColor, setThumbTintColor):Array<Float>;
 	private function getThumbTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setThumbTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return thumbTintColor;
 	}
 

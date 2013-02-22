@@ -118,12 +118,12 @@ class UIButton extends UIControl
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
 	}
 
@@ -142,13 +142,13 @@ class UIButton extends UIControl
 	public var currentTitleColor(getCurrentTitleColor, null):Array<Float>;
 	private function getCurrentTitleColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	public var currentTitleShadowColor(getCurrentTitleShadowColor, null):Array<Float>;
 	private function getCurrentTitleShadowColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleShadowColor", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleShadowColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	public var currentImage(null, null):String;
@@ -171,11 +171,11 @@ class UIButton extends UIControl
 	//Methods
 	public function setTitleColorForState( color:Array<Float>,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleColor:forState:", [color, state], [ObjectManager.CGCOLORREF_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleColor:forState:", [color, state], [ObjectManager.UICOLOR_VAL, ObjectManager.INT_VAL], -1);
 	}
 	public function setTitleShadowColorForState( color:Array<Float>,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleShadowColor:forState:", [color, state], [ObjectManager.CGCOLORREF_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleShadowColor:forState:", [color, state], [ObjectManager.UICOLOR_VAL, ObjectManager.INT_VAL], -1);
 	}
 	public function contentRectForBounds( bounds:Array<Float>):Array<Float>
 	{
@@ -187,7 +187,7 @@ class UIButton extends UIControl
 	}
 	public function titleShadowColorForState( state:Int):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleShadowColorForState:", [state], [ObjectManager.INT_VAL], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleShadowColorForState:", [state], [ObjectManager.INT_VAL], ObjectManager.UICOLOR_VAL);
 	}
 	public function setTitleForState( title:String,  state:Int):Void
 	{
@@ -199,7 +199,7 @@ class UIButton extends UIControl
 	}
 	public function titleColorForState( state:Int):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleColorForState:", [state], [ObjectManager.INT_VAL], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleColorForState:", [state], [ObjectManager.INT_VAL], ObjectManager.UICOLOR_VAL);
 	}
 	public function backgroundRectForBounds( bounds:Array<Float>):Array<Float>
 	{

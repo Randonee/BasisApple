@@ -54,12 +54,12 @@ class UIActivityIndicatorView extends UIView
 	public var color(getColor, setColor):Array<Float>;
 	private function getColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "color", [], [], ObjectManager.CGCOLORREF_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "color", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
 	private function setColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return color;
 	}
 

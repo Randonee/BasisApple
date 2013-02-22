@@ -143,6 +143,16 @@ CGColorRef arrayToCGColor(value arr)
 	return color;
 }
 
+UIColor* arrayToUIColor(value arr)
+{
+	return [UIColor colorWithCGColor:arrayToCGColor(arr)];
+}
+
+value uiColorToArray(UIColor* color)
+{
+	return cgColorToArray([color CGColor]);
+}
+
 value nsUrlToString(NSURL* url)
 {
 	return alloc_string([[url absoluteString] cStringUsingEncoding:NSUTF8StringEncoding]);
