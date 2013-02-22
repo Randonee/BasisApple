@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIProgressView extends UIView
 {
 
-	 public function new(?type="UIProgressView")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIProgressView;
 		super(type);
 	}
 
@@ -24,84 +28,73 @@ class UIProgressView extends UIView
 	public var progressViewStyle(getProgressViewStyle, setProgressViewStyle):Int;
 	private function getProgressViewStyle():Int
 	{
-		return uiprogressview_getProgressViewStyle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "progressViewStyle", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiprogressview_getProgressViewStyle = Lib.load("basis", "uiprogressview_getProgressViewStyle", 1);
 
 	private function setProgressViewStyle(value:Int):Int
 	{
-		uiprogressview_setProgressViewStyle(_tag, value);
-		return uiprogressview_getProgressViewStyle(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressViewStyle:", [value], [ObjectManager.INT_VAL], -1 );
+		return progressViewStyle;
 	}
-	private static var uiprogressview_setProgressViewStyle = Lib.load("basis", "uiprogressview_setProgressViewStyle", 2);
 
 	public var progress(getProgress, setProgress):Float;
 	private function getProgress():Float
 	{
-		return uiprogressview_getProgress(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "progress", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uiprogressview_getProgress = Lib.load("basis", "uiprogressview_getProgress", 1);
 
 	private function setProgress(value:Float):Float
 	{
-		uiprogressview_setProgress(_tag, value);
-		return uiprogressview_getProgress(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgress:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return progress;
 	}
-	private static var uiprogressview_setProgress = Lib.load("basis", "uiprogressview_setProgress", 2);
 
 	public var progressTintColor(getProgressTintColor, setProgressTintColor):Array<Float>;
 	private function getProgressTintColor():Array<Float>
 	{
-		return uiprogressview_getProgressTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "progressTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uiprogressview_getProgressTintColor = Lib.load("basis", "uiprogressview_getProgressTintColor", 1);
 
 	private function setProgressTintColor(value:Array<Float>):Array<Float>
 	{
-		uiprogressview_setProgressTintColor(_tag, value);
-		return uiprogressview_getProgressTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return progressTintColor;
 	}
-	private static var uiprogressview_setProgressTintColor = Lib.load("basis", "uiprogressview_setProgressTintColor", 2);
 
 	public var trackTintColor(getTrackTintColor, setTrackTintColor):Array<Float>;
 	private function getTrackTintColor():Array<Float>
 	{
-		return uiprogressview_getTrackTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "trackTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uiprogressview_getTrackTintColor = Lib.load("basis", "uiprogressview_getTrackTintColor", 1);
 
 	private function setTrackTintColor(value:Array<Float>):Array<Float>
 	{
-		uiprogressview_setTrackTintColor(_tag, value);
-		return uiprogressview_getTrackTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTrackTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return trackTintColor;
 	}
-	private static var uiprogressview_setTrackTintColor = Lib.load("basis", "uiprogressview_setTrackTintColor", 2);
 
 	public var progressImage(null, setProgressImage):String;
 
 	private function setProgressImage(value:String):String
 	{
-		uiprogressview_setProgressImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uiprogressview_setProgressImage = Lib.load("basis", "uiprogressview_setProgressImage", 2);
 
 	public var trackImage(null, setTrackImage):String;
 
 	private function setTrackImage(value:String):String
 	{
-		uiprogressview_setTrackImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTrackImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uiprogressview_setTrackImage = Lib.load("basis", "uiprogressview_setTrackImage", 2);
 
 
 	//Methods
 	public function setProgressAnimated( progress:Float,  animated:Bool):Void
 	{
-		uiprogressview_setProgressAnimated(_tag, progress, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgress:animated:", [progress, animated], [ObjectManager.FLOAT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiprogressview_setProgressAnimated = Lib.load("basis", "uiprogressview_setProgressAnimated", 3);
 
 
 	public static inline var UIProgressViewStyleDefault:Int = 0;

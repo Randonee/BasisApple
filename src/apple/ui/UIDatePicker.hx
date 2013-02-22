@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIDatePicker extends UIControl
 {
 
-	 public function new(?type="UIDatePicker")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIDatePicker;
 		super(type);
 	}
 
@@ -24,44 +28,38 @@ class UIDatePicker extends UIControl
 	public var datePickerMode(getDatePickerMode, setDatePickerMode):Int;
 	private function getDatePickerMode():Int
 	{
-		return uidatepicker_getDatePickerMode(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "datePickerMode", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uidatepicker_getDatePickerMode = Lib.load("basis", "uidatepicker_getDatePickerMode", 1);
 
 	private function setDatePickerMode(value:Int):Int
 	{
-		uidatepicker_setDatePickerMode(_tag, value);
-		return uidatepicker_getDatePickerMode(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDatePickerMode:", [value], [ObjectManager.INT_VAL], -1 );
+		return datePickerMode;
 	}
-	private static var uidatepicker_setDatePickerMode = Lib.load("basis", "uidatepicker_setDatePickerMode", 2);
 
 	public var countDownDuration(getCountDownDuration, setCountDownDuration):Float;
 	private function getCountDownDuration():Float
 	{
-		return uidatepicker_getCountDownDuration(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "countDownDuration", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uidatepicker_getCountDownDuration = Lib.load("basis", "uidatepicker_getCountDownDuration", 1);
 
 	private function setCountDownDuration(value:Float):Float
 	{
-		uidatepicker_setCountDownDuration(_tag, value);
-		return uidatepicker_getCountDownDuration(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCountDownDuration:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return countDownDuration;
 	}
-	private static var uidatepicker_setCountDownDuration = Lib.load("basis", "uidatepicker_setCountDownDuration", 2);
 
 	public var minuteInterval(getMinuteInterval, setMinuteInterval):Int;
 	private function getMinuteInterval():Int
 	{
-		return uidatepicker_getMinuteInterval(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minuteInterval", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uidatepicker_getMinuteInterval = Lib.load("basis", "uidatepicker_getMinuteInterval", 1);
 
 	private function setMinuteInterval(value:Int):Int
 	{
-		uidatepicker_setMinuteInterval(_tag, value);
-		return uidatepicker_getMinuteInterval(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinuteInterval:", [value], [ObjectManager.INT_VAL], -1 );
+		return minuteInterval;
 	}
-	private static var uidatepicker_setMinuteInterval = Lib.load("basis", "uidatepicker_setMinuteInterval", 2);
 
 
 	//Methods

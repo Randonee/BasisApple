@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIImageView extends UIView
 {
 
-	 public function new(?type="UIImageView")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIImageView;
 		super(type);
 	}
 
@@ -25,79 +29,68 @@ class UIImageView extends UIView
 
 	private function setImage(value:String):String
 	{
-		uiimageview_setImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uiimageview_setImage = Lib.load("basis", "uiimageview_setImage", 2);
 
 	public var highlightedImage(null, setHighlightedImage):String;
 
 	private function setHighlightedImage(value:String):String
 	{
-		uiimageview_setHighlightedImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uiimageview_setHighlightedImage = Lib.load("basis", "uiimageview_setHighlightedImage", 2);
 
 	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{
-		return uiimageview_getHighlighted(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiimageview_getHighlighted = Lib.load("basis", "uiimageview_getHighlighted", 1);
 
 	private function setHighlighted(value:Bool):Bool
 	{
-		uiimageview_setHighlighted(_tag, value);
-		return uiimageview_getHighlighted(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return highlighted;
 	}
-	private static var uiimageview_setHighlighted = Lib.load("basis", "uiimageview_setHighlighted", 2);
 
 	public var animationDuration(getAnimationDuration, setAnimationDuration):Float;
 	private function getAnimationDuration():Float
 	{
-		return uiimageview_getAnimationDuration(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationDuration", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uiimageview_getAnimationDuration = Lib.load("basis", "uiimageview_getAnimationDuration", 1);
 
 	private function setAnimationDuration(value:Float):Float
 	{
-		uiimageview_setAnimationDuration(_tag, value);
-		return uiimageview_getAnimationDuration(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationDuration:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return animationDuration;
 	}
-	private static var uiimageview_setAnimationDuration = Lib.load("basis", "uiimageview_setAnimationDuration", 2);
 
 	public var animationRepeatCount(getAnimationRepeatCount, setAnimationRepeatCount):Int;
 	private function getAnimationRepeatCount():Int
 	{
-		return uiimageview_getAnimationRepeatCount(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationRepeatCount", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiimageview_getAnimationRepeatCount = Lib.load("basis", "uiimageview_getAnimationRepeatCount", 1);
 
 	private function setAnimationRepeatCount(value:Int):Int
 	{
-		uiimageview_setAnimationRepeatCount(_tag, value);
-		return uiimageview_getAnimationRepeatCount(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationRepeatCount:", [value], [ObjectManager.INT_VAL], -1 );
+		return animationRepeatCount;
 	}
-	private static var uiimageview_setAnimationRepeatCount = Lib.load("basis", "uiimageview_setAnimationRepeatCount", 2);
 
 
 	//Methods
 	public function stopAnimating():Void
 	{
-		uiimageview_stopAnimating(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "stopAnimating", [], [], -1);
 	}
-	private static var uiimageview_stopAnimating = Lib.load("basis", "uiimageview_stopAnimating", 1);
 	public function startAnimating():Void
 	{
-		uiimageview_startAnimating(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "startAnimating", [], [], -1);
 	}
-	private static var uiimageview_startAnimating = Lib.load("basis", "uiimageview_startAnimating", 1);
 	public function isAnimating():Bool
 	{
-		return uiimageview_isAnimating(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isAnimating", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiimageview_isAnimating = Lib.load("basis", "uiimageview_isAnimating", 1);
 
 
 

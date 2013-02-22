@@ -219,12 +219,14 @@ class AppleBuildTool extends basis.BuildTool
 			File.copy(libPath + "template/Main.mm", xcodeFiles + "/Main.mm");
 			File.copy(libPath + "template/Info.plist" , xcodeFiles + appName + "-Info.plist");
 			File.copy(libPath + "template/prefix.pch" , xcodeFiles + "/prefix.pch");
+			FileUtil.copyInto(libPath + "template/basis/", xcodeFiles + "/basis/");
 			//------------------------------------
 			
 			
 			//-------- Create XCode Project -------
 			var xcode:XCodeProject = new XCodeProject(appName);
 			xcode.addSouce("Main.mm");
+			xcode.addSourceDirectory("basis", xcodeFiles + "/basis/");
 			
 			xcode.addSourceDirectory("bin", xcodeBin);
 			xcode.addSourceDirectory("assets", xcodeAssets, true);

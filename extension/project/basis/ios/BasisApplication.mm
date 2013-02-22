@@ -5,8 +5,7 @@
 
 @synthesize window;
 @synthesize controller;
-@synthesize viewManager;
-@synthesize barItemManager;
+@synthesize objectManager;
 @synthesize deviceEventManager;
 
 BasisApplication *instance;
@@ -23,19 +22,22 @@ BasisApplication *instance;
 	return instance;
 }
 
-+(ViewManager *) getViewManager
++(ObjectManagerObjc *) getObjectManager
 {
-	return instance.viewManager;
+	return instance.objectManager;
 }
 
-+(UIBarItemManager *) getBarItemManager
-{
-	return instance.barItemManager;
-}
 
 +(DeviceEventManager *) getDeviceEventManager
 {
 	return instance.deviceEventManager;
+}
+
+
+-(void) addToRootView:(NSString*) objectID
+{
+	UIView *childView = (UIView *)[self.objectManager getObject:objectID];
+	[self.window addSubview:childView];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -45,9 +47,9 @@ BasisApplication *instance;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
-	viewManager = [[ViewManager alloc] init];
-	barItemManager = [[UIBarItemManager alloc] init];
-	[viewManager setMainWindow:self.window];
+	self.objectManager = [[ObjectManagerObjc alloc] init];
+	
+	[self.objectManager addObject:self.window];
 	
 	deviceEventManager = [[DeviceEventManager alloc] init];
 	[[NSNotificationCenter defaultCenter] addObserver:deviceEventManager selector:@selector(onUIDeviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];

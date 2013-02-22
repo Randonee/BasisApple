@@ -4,44 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIView extends UIResponder
 {
 
-	//------ Added - NOT GENERATED ------
-	
-	public static inline var UIViewDidMoveToSuperview:String = "UIViewDidMoveToSuperview";
-	
-	static public function beginAnimations(animationID:String)
+	public function new(?type:Class<IObject>=null)
 	{
-		cpp_uiview_beginAmimations(animationID);
-	}
-	private static var cpp_uiview_beginAmimations = Lib.load("basis", "uiview_beginAmimations", 1);
-	
-	
-	static public function setAnimationDuration(duration:Float)
-	{
-		cpp_uiview_setAnimationDuration(duration);
-	}
-	private static var cpp_uiview_setAnimationDuration = Lib.load("basis", "uiview_setAnimationDuration", 1);
-	
-	static public function commitAnimations()
-	{
-		cpp_uiview_commitAnimations();
-	}
-	private static var cpp_uiview_commitAnimations = Lib.load("basis", "uiview_commitAnimations", 0);
-	
-	// ---------------------------------
-	
-	
-
-	 public function new(?type="UIView")
-	{
+		if(type == null)
+			type = UIView;
 		super(type);
 	}
 
@@ -54,508 +31,433 @@ class UIView extends UIResponder
 	public var userInteractionEnabled(getUserInteractionEnabled, setUserInteractionEnabled):Bool;
 	private function getUserInteractionEnabled():Bool
 	{
-		return uiview_getUserInteractionEnabled(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "userInteractionEnabled", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getUserInteractionEnabled = Lib.load("basis", "uiview_getUserInteractionEnabled", 1);
 
 	private function setUserInteractionEnabled(value:Bool):Bool
 	{
-		uiview_setUserInteractionEnabled(_tag, value);
-		return uiview_getUserInteractionEnabled(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setUserInteractionEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return userInteractionEnabled;
 	}
-	private static var uiview_setUserInteractionEnabled = Lib.load("basis", "uiview_setUserInteractionEnabled", 2);
+
+	public var tag(getTag, setTag):Int;
+	private function getTag():Int
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tag", [], [], ObjectManager.INT_VAL);
+	}
+
+	private function setTag(value:Int):Int
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTag:", [value], [ObjectManager.INT_VAL], -1 );
+		return tag;
+	}
 
 	public var frame(getFrame, setFrame):Array<Float>;
 	private function getFrame():Array<Float>
 	{
-		return uiview_getFrame(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "frame", [], [], ObjectManager.CGRECT_VAL);
 	}
-	private static var uiview_getFrame = Lib.load("basis", "uiview_getFrame", 1);
 
 	private function setFrame(value:Array<Float>):Array<Float>
 	{
-		uiview_setFrame(_tag, value);
-		return uiview_getFrame(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFrame:", [value], [ObjectManager.CGRECT_VAL], -1 );
+		return frame;
 	}
-	private static var uiview_setFrame = Lib.load("basis", "uiview_setFrame", 2);
 
 	public var bounds(getBounds, setBounds):Array<Float>;
 	private function getBounds():Array<Float>
 	{
-		return uiview_getBounds(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "bounds", [], [], ObjectManager.CGRECT_VAL);
 	}
-	private static var uiview_getBounds = Lib.load("basis", "uiview_getBounds", 1);
 
 	private function setBounds(value:Array<Float>):Array<Float>
 	{
-		uiview_setBounds(_tag, value);
-		return uiview_getBounds(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBounds:", [value], [ObjectManager.CGRECT_VAL], -1 );
+		return bounds;
 	}
-	private static var uiview_setBounds = Lib.load("basis", "uiview_setBounds", 2);
 
 	public var center(getCenter, setCenter):Array<Float>;
 	private function getCenter():Array<Float>
 	{
-		return uiview_getCenter(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "center", [], [], ObjectManager.CGPOINT_VAL);
 	}
-	private static var uiview_getCenter = Lib.load("basis", "uiview_getCenter", 1);
 
 	private function setCenter(value:Array<Float>):Array<Float>
 	{
-		uiview_setCenter(_tag, value);
-		return uiview_getCenter(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCenter:", [value], [ObjectManager.CGPOINT_VAL], -1 );
+		return center;
 	}
-	private static var uiview_setCenter = Lib.load("basis", "uiview_setCenter", 2);
 
 	public var transform(getTransform, setTransform):Array<Float>;
 	private function getTransform():Array<Float>
 	{
-		return uiview_getTransform(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "transform", [], [], ObjectManager.CGAFFINETRANSFORM_VAL);
 	}
-	private static var uiview_getTransform = Lib.load("basis", "uiview_getTransform", 1);
 
 	private function setTransform(value:Array<Float>):Array<Float>
 	{
-		uiview_setTransform(_tag, value);
-		return uiview_getTransform(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTransform:", [value], [ObjectManager.CGAFFINETRANSFORM_VAL], -1 );
+		return transform;
 	}
-	private static var uiview_setTransform = Lib.load("basis", "uiview_setTransform", 2);
 
 	public var contentScaleFactor(getContentScaleFactor, setContentScaleFactor):Float;
 	private function getContentScaleFactor():Float
 	{
-		return uiview_getContentScaleFactor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentScaleFactor", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uiview_getContentScaleFactor = Lib.load("basis", "uiview_getContentScaleFactor", 1);
 
 	private function setContentScaleFactor(value:Float):Float
 	{
-		uiview_setContentScaleFactor(_tag, value);
-		return uiview_getContentScaleFactor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentScaleFactor:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return contentScaleFactor;
 	}
-	private static var uiview_setContentScaleFactor = Lib.load("basis", "uiview_setContentScaleFactor", 2);
 
 	public var multipleTouchEnabled(getMultipleTouchEnabled, setMultipleTouchEnabled):Bool;
 	private function getMultipleTouchEnabled():Bool
 	{
-		return uiview_getMultipleTouchEnabled(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "multipleTouchEnabled", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getMultipleTouchEnabled = Lib.load("basis", "uiview_getMultipleTouchEnabled", 1);
 
 	private function setMultipleTouchEnabled(value:Bool):Bool
 	{
-		uiview_setMultipleTouchEnabled(_tag, value);
-		return uiview_getMultipleTouchEnabled(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMultipleTouchEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return multipleTouchEnabled;
 	}
-	private static var uiview_setMultipleTouchEnabled = Lib.load("basis", "uiview_setMultipleTouchEnabled", 2);
 
 	public var exclusiveTouch(getExclusiveTouch, setExclusiveTouch):Bool;
 	private function getExclusiveTouch():Bool
 	{
-		return uiview_getExclusiveTouch(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "exclusiveTouch", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getExclusiveTouch = Lib.load("basis", "uiview_getExclusiveTouch", 1);
 
 	private function setExclusiveTouch(value:Bool):Bool
 	{
-		uiview_setExclusiveTouch(_tag, value);
-		return uiview_getExclusiveTouch(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setExclusiveTouch:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return exclusiveTouch;
 	}
-	private static var uiview_setExclusiveTouch = Lib.load("basis", "uiview_setExclusiveTouch", 2);
 
 	public var autoresizesSubviews(getAutoresizesSubviews, setAutoresizesSubviews):Bool;
 	private function getAutoresizesSubviews():Bool
 	{
-		return uiview_getAutoresizesSubviews(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autoresizesSubviews", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getAutoresizesSubviews = Lib.load("basis", "uiview_getAutoresizesSubviews", 1);
 
 	private function setAutoresizesSubviews(value:Bool):Bool
 	{
-		uiview_setAutoresizesSubviews(_tag, value);
-		return uiview_getAutoresizesSubviews(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutoresizesSubviews:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return autoresizesSubviews;
 	}
-	private static var uiview_setAutoresizesSubviews = Lib.load("basis", "uiview_setAutoresizesSubviews", 2);
 
 	public var autoresizingMask(getAutoresizingMask, setAutoresizingMask):Int;
 	private function getAutoresizingMask():Int
 	{
-		return uiview_getAutoresizingMask(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autoresizingMask", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiview_getAutoresizingMask = Lib.load("basis", "uiview_getAutoresizingMask", 1);
 
 	private function setAutoresizingMask(value:Int):Int
 	{
-		uiview_setAutoresizingMask(_tag, value);
-		return uiview_getAutoresizingMask(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutoresizingMask:", [value], [ObjectManager.INT_VAL], -1 );
+		return autoresizingMask;
 	}
-	private static var uiview_setAutoresizingMask = Lib.load("basis", "uiview_setAutoresizingMask", 2);
 
 	public var superview(getSuperview, null):UIView;
 	private function getSuperview():UIView
 	{
-		var viewTag:Int = uiview_getSuperview(_tag);
-		return cast(ViewManager.getView(viewTag), UIView);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "superview", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getSuperview = Lib.load("basis", "uiview_getSuperview", 1);
 
 	public var window(getWindow, null):UIWindow;
 	private function getWindow():UIWindow
 	{
-		var viewTag:Int = uiview_getWindow(_tag);
-		return cast(ViewManager.getView(viewTag), UIWindow);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "window", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getWindow = Lib.load("basis", "uiview_getWindow", 1);
 
 	public var clipsToBounds(getClipsToBounds, setClipsToBounds):Bool;
 	private function getClipsToBounds():Bool
 	{
-		return uiview_getClipsToBounds(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clipsToBounds", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getClipsToBounds = Lib.load("basis", "uiview_getClipsToBounds", 1);
 
 	private function setClipsToBounds(value:Bool):Bool
 	{
-		uiview_setClipsToBounds(_tag, value);
-		return uiview_getClipsToBounds(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClipsToBounds:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return clipsToBounds;
 	}
-	private static var uiview_setClipsToBounds = Lib.load("basis", "uiview_setClipsToBounds", 2);
 
 	public var backgroundColor(getBackgroundColor, setBackgroundColor):Array<Float>;
 	private function getBackgroundColor():Array<Float>
 	{
-		return uiview_getBackgroundColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uiview_getBackgroundColor = Lib.load("basis", "uiview_getBackgroundColor", 1);
 
 	private function setBackgroundColor(value:Array<Float>):Array<Float>
 	{
-		uiview_setBackgroundColor(_tag, value);
-		return uiview_getBackgroundColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return backgroundColor;
 	}
-	private static var uiview_setBackgroundColor = Lib.load("basis", "uiview_setBackgroundColor", 2);
 
 	public var alpha(getAlpha, setAlpha):Float;
 	private function getAlpha():Float
 	{
-		return uiview_getAlpha(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alpha", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uiview_getAlpha = Lib.load("basis", "uiview_getAlpha", 1);
 
 	private function setAlpha(value:Float):Float
 	{
-		uiview_setAlpha(_tag, value);
-		return uiview_getAlpha(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAlpha:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return alpha;
 	}
-	private static var uiview_setAlpha = Lib.load("basis", "uiview_setAlpha", 2);
 
 	public var opaque(getOpaque, setOpaque):Bool;
 	private function getOpaque():Bool
 	{
-		return uiview_getOpaque(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "opaque", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getOpaque = Lib.load("basis", "uiview_getOpaque", 1);
 
 	private function setOpaque(value:Bool):Bool
 	{
-		uiview_setOpaque(_tag, value);
-		return uiview_getOpaque(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOpaque:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return opaque;
 	}
-	private static var uiview_setOpaque = Lib.load("basis", "uiview_setOpaque", 2);
 
 	public var clearsContextBeforeDrawing(getClearsContextBeforeDrawing, setClearsContextBeforeDrawing):Bool;
 	private function getClearsContextBeforeDrawing():Bool
 	{
-		return uiview_getClearsContextBeforeDrawing(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsContextBeforeDrawing", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getClearsContextBeforeDrawing = Lib.load("basis", "uiview_getClearsContextBeforeDrawing", 1);
 
 	private function setClearsContextBeforeDrawing(value:Bool):Bool
 	{
-		uiview_setClearsContextBeforeDrawing(_tag, value);
-		return uiview_getClearsContextBeforeDrawing(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsContextBeforeDrawing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return clearsContextBeforeDrawing;
 	}
-	private static var uiview_setClearsContextBeforeDrawing = Lib.load("basis", "uiview_setClearsContextBeforeDrawing", 2);
 
 	public var hidden(getHidden, setHidden):Bool;
 	private function getHidden():Bool
 	{
-		return uiview_getHidden(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidden", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_getHidden = Lib.load("basis", "uiview_getHidden", 1);
 
 	private function setHidden(value:Bool):Bool
 	{
-		uiview_setHidden(_tag, value);
-		return uiview_getHidden(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidden:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return hidden;
 	}
-	private static var uiview_setHidden = Lib.load("basis", "uiview_setHidden", 2);
 
 	public var contentMode(getContentMode, setContentMode):Int;
 	private function getContentMode():Int
 	{
-		return uiview_getContentMode(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentMode", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiview_getContentMode = Lib.load("basis", "uiview_getContentMode", 1);
 
 	private function setContentMode(value:Int):Int
 	{
-		uiview_setContentMode(_tag, value);
-		return uiview_getContentMode(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentMode:", [value], [ObjectManager.INT_VAL], -1 );
+		return contentMode;
 	}
-	private static var uiview_setContentMode = Lib.load("basis", "uiview_setContentMode", 2);
 
 	public var restorationIdentifier(getRestorationIdentifier, setRestorationIdentifier):String;
 	private function getRestorationIdentifier():String
 	{
-		return uiview_getRestorationIdentifier(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "restorationIdentifier", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uiview_getRestorationIdentifier = Lib.load("basis", "uiview_getRestorationIdentifier", 1);
 
 	private function setRestorationIdentifier(value:String):String
 	{
-		uiview_setRestorationIdentifier(_tag, value);
-		return uiview_getRestorationIdentifier(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRestorationIdentifier:", [value], [ObjectManager.STRING_VAL], -1 );
+		return restorationIdentifier;
 	}
-	private static var uiview_setRestorationIdentifier = Lib.load("basis", "uiview_setRestorationIdentifier", 2);
 
 
 	//Methods
 	public function sendSubviewToBack( view:UIView):Void
 	{
-		uiview_sendSubviewToBack(_tag, view.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "sendSubviewToBack:", [view], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_sendSubviewToBack = Lib.load("basis", "uiview_sendSubviewToBack", 2);
 	public function sizeToFit():Void
 	{
-		uiview_sizeToFit(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "sizeToFit", [], [], -1);
 	}
-	private static var uiview_sizeToFit = Lib.load("basis", "uiview_sizeToFit", 1);
 	public function bringSubviewToFront( view:UIView):Void
 	{
-		uiview_bringSubviewToFront(_tag, view.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "bringSubviewToFront:", [view], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_bringSubviewToFront = Lib.load("basis", "uiview_bringSubviewToFront", 2);
 	public function setNeedsDisplay():Void
 	{
-		uiview_setNeedsDisplay(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNeedsDisplay", [], [], -1);
 	}
-	private static var uiview_setNeedsDisplay = Lib.load("basis", "uiview_setNeedsDisplay", 1);
 	public function willRemoveSubview( subview:UIView):Void
 	{
-		uiview_willRemoveSubview(_tag, subview.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "willRemoveSubview:", [subview], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_willRemoveSubview = Lib.load("basis", "uiview_willRemoveSubview", 2);
 	public function systemLayoutSizeFittingSize( targetSize:Array<Float>):Array<Float>
 	{
-		return uiview_systemLayoutSizeFittingSize(_tag, targetSize);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "systemLayoutSizeFittingSize:", [targetSize], [ObjectManager.CGSIZE_VAL], ObjectManager.CGSIZE_VAL);
 	}
-	private static var uiview_systemLayoutSizeFittingSize = Lib.load("basis", "uiview_systemLayoutSizeFittingSize", 2);
 	public function didAddSubview( subview:UIView):Void
 	{
-		uiview_didAddSubview(_tag, subview.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "didAddSubview:", [subview], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_didAddSubview = Lib.load("basis", "uiview_didAddSubview", 2);
 	public function updateConstraints():Void
 	{
-		uiview_updateConstraints(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "updateConstraints", [], [], -1);
 	}
-	private static var uiview_updateConstraints = Lib.load("basis", "uiview_updateConstraints", 1);
 	public function alignmentRectInsets():Array<Float>
 	{
-		return uiview_alignmentRectInsets(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alignmentRectInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
-	private static var uiview_alignmentRectInsets = Lib.load("basis", "uiview_alignmentRectInsets", 1);
 	public function insertSubviewAtIndex( view:UIView,  index:Int):Void
 	{
-		uiview_insertSubviewAtIndex(_tag, view.tag, index);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSubview:atIndex:", [view, index], [ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uiview_insertSubviewAtIndex = Lib.load("basis", "uiview_insertSubviewAtIndex", 3);
 	public function insertSubviewBelowSubview( view:UIView,  siblingSubview:UIView):Void
 	{
-		uiview_insertSubviewBelowSubview(_tag, view.tag, siblingSubview.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSubview:belowSubview:", [view, siblingSubview], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_insertSubviewBelowSubview = Lib.load("basis", "uiview_insertSubviewBelowSubview", 3);
 	public function insertSubviewAboveSubview( view:UIView,  siblingSubview:UIView):Void
 	{
-		uiview_insertSubviewAboveSubview(_tag, view.tag, siblingSubview.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSubview:aboveSubview:", [view, siblingSubview], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_insertSubviewAboveSubview = Lib.load("basis", "uiview_insertSubviewAboveSubview", 3);
 	public function setContentCompressionResistancePriorityForAxis( priority:Int,  axis:Int):Void
 	{
-		uiview_setContentCompressionResistancePriorityForAxis(_tag, priority, axis);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentCompressionResistancePriority:forAxis:", [priority, axis], [ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uiview_setContentCompressionResistancePriorityForAxis = Lib.load("basis", "uiview_setContentCompressionResistancePriorityForAxis", 3);
 	public function exerciseAmbiguityInLayout():Void
 	{
-		uiview_exerciseAmbiguityInLayout(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "exerciseAmbiguityInLayout", [], [], -1);
 	}
-	private static var uiview_exerciseAmbiguityInLayout = Lib.load("basis", "uiview_exerciseAmbiguityInLayout", 1);
 	public function setNeedsUpdateConstraints():Void
 	{
-		uiview_setNeedsUpdateConstraints(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNeedsUpdateConstraints", [], [], -1);
 	}
-	private static var uiview_setNeedsUpdateConstraints = Lib.load("basis", "uiview_setNeedsUpdateConstraints", 1);
 	public function setTranslatesAutoresizingMaskIntoConstraints( flag:Bool):Void
 	{
-		uiview_setTranslatesAutoresizingMaskIntoConstraints(_tag, flag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslatesAutoresizingMaskIntoConstraints:", [flag], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_setTranslatesAutoresizingMaskIntoConstraints = Lib.load("basis", "uiview_setTranslatesAutoresizingMaskIntoConstraints", 2);
 	public function didMoveToSuperview():Void
 	{
-		uiview_didMoveToSuperview(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "didMoveToSuperview", [], [], -1);
 	}
-	private static var uiview_didMoveToSuperview = Lib.load("basis", "uiview_didMoveToSuperview", 1);
 	public function setNeedsLayout():Void
 	{
-		uiview_setNeedsLayout(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNeedsLayout", [], [], -1);
 	}
-	private static var uiview_setNeedsLayout = Lib.load("basis", "uiview_setNeedsLayout", 1);
 	public function sizeThatFits( size:Array<Float>):Array<Float>
 	{
-		return uiview_sizeThatFits(_tag, size);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "sizeThatFits:", [size], [ObjectManager.CGSIZE_VAL], ObjectManager.CGSIZE_VAL);
 	}
-	private static var uiview_sizeThatFits = Lib.load("basis", "uiview_sizeThatFits", 2);
 	public function willMoveToSuperview( newSuperview:UIView):Void
 	{
-		uiview_willMoveToSuperview(_tag, newSuperview.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "willMoveToSuperview:", [newSuperview], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_willMoveToSuperview = Lib.load("basis", "uiview_willMoveToSuperview", 2);
 	public function setNeedsDisplayInRect( rect:Array<Float>):Void
 	{
-		uiview_setNeedsDisplayInRect(_tag, rect);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNeedsDisplayInRect:", [rect], [ObjectManager.CGRECT_VAL], -1);
 	}
-	private static var uiview_setNeedsDisplayInRect = Lib.load("basis", "uiview_setNeedsDisplayInRect", 2);
 	public function needsUpdateConstraints():Bool
 	{
-		return uiview_needsUpdateConstraints(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "needsUpdateConstraints", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_needsUpdateConstraints = Lib.load("basis", "uiview_needsUpdateConstraints", 1);
 	public function setContentHuggingPriorityForAxis( priority:Int,  axis:Int):Void
 	{
-		uiview_setContentHuggingPriorityForAxis(_tag, priority, axis);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentHuggingPriority:forAxis:", [priority, axis], [ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uiview_setContentHuggingPriorityForAxis = Lib.load("basis", "uiview_setContentHuggingPriorityForAxis", 3);
 	public function drawRect( rect:Array<Float>):Void
 	{
-		uiview_drawRect(_tag, rect);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawRect:", [rect], [ObjectManager.CGRECT_VAL], -1);
 	}
-	private static var uiview_drawRect = Lib.load("basis", "uiview_drawRect", 2);
 	public function hasAmbiguousLayout():Bool
 	{
-		return uiview_hasAmbiguousLayout(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hasAmbiguousLayout", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_hasAmbiguousLayout = Lib.load("basis", "uiview_hasAmbiguousLayout", 1);
 	public function exchangeSubviewAtIndexWithSubviewAtIndex( index1:Int,  index2:Int):Void
 	{
-		uiview_exchangeSubviewAtIndexWithSubviewAtIndex(_tag, index1, index2);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "exchangeSubviewAtIndex:withSubviewAtIndex:", [index1, index2], [ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uiview_exchangeSubviewAtIndexWithSubviewAtIndex = Lib.load("basis", "uiview_exchangeSubviewAtIndexWithSubviewAtIndex", 3);
 	public function updateConstraintsIfNeeded():Void
 	{
-		uiview_updateConstraintsIfNeeded(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "updateConstraintsIfNeeded", [], [], -1);
 	}
-	private static var uiview_updateConstraintsIfNeeded = Lib.load("basis", "uiview_updateConstraintsIfNeeded", 1);
 	public function isDescendantOfView( view:UIView):Bool
 	{
-		return uiview_isDescendantOfView(_tag, view.tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isDescendantOfView:", [view], [ObjectManager.OBJECT_VAL], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_isDescendantOfView = Lib.load("basis", "uiview_isDescendantOfView", 2);
 	public function alignmentRectForFrame( frame:Array<Float>):Array<Float>
 	{
-		return uiview_alignmentRectForFrame(_tag, frame);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alignmentRectForFrame:", [frame], [ObjectManager.CGRECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uiview_alignmentRectForFrame = Lib.load("basis", "uiview_alignmentRectForFrame", 2);
 	public function addSubview( view:UIView):Void
 	{
-		uiview_addSubview(_tag, view.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "addSubview:", [view], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_addSubview = Lib.load("basis", "uiview_addSubview", 2);
 	public function convertRectToView( rect:Array<Float>,  view:UIView):Array<Float>
 	{
-		return uiview_convertRectToView(_tag, rect, view.tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "convertRect:toView:", [rect, view], [ObjectManager.CGRECT_VAL, ObjectManager.OBJECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uiview_convertRectToView = Lib.load("basis", "uiview_convertRectToView", 3);
 	public function convertRectFromView( rect:Array<Float>,  view:UIView):Array<Float>
 	{
-		return uiview_convertRectFromView(_tag, rect, view.tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "convertRect:fromView:", [rect, view], [ObjectManager.CGRECT_VAL, ObjectManager.OBJECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uiview_convertRectFromView = Lib.load("basis", "uiview_convertRectFromView", 3);
 	public function intrinsicContentSize():Array<Float>
 	{
-		return uiview_intrinsicContentSize(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "intrinsicContentSize", [], [], ObjectManager.CGSIZE_VAL);
 	}
-	private static var uiview_intrinsicContentSize = Lib.load("basis", "uiview_intrinsicContentSize", 1);
 	public function removeFromSuperview():Void
 	{
-		uiview_removeFromSuperview(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeFromSuperview", [], [], -1);
 	}
-	private static var uiview_removeFromSuperview = Lib.load("basis", "uiview_removeFromSuperview", 1);
 	public function convertPointToView( point:Array<Float>,  view:UIView):Array<Float>
 	{
-		return uiview_convertPointToView(_tag, point, view.tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "convertPoint:toView:", [point, view], [ObjectManager.CGPOINT_VAL, ObjectManager.OBJECT_VAL], ObjectManager.CGPOINT_VAL);
 	}
-	private static var uiview_convertPointToView = Lib.load("basis", "uiview_convertPointToView", 3);
 	public function convertPointFromView( point:Array<Float>,  view:UIView):Array<Float>
 	{
-		return uiview_convertPointFromView(_tag, point, view.tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "convertPoint:fromView:", [point, view], [ObjectManager.CGPOINT_VAL, ObjectManager.OBJECT_VAL], ObjectManager.CGPOINT_VAL);
 	}
-	private static var uiview_convertPointFromView = Lib.load("basis", "uiview_convertPointFromView", 3);
 	public function frameForAlignmentRect( alignmentRect:Array<Float>):Array<Float>
 	{
-		return uiview_frameForAlignmentRect(_tag, alignmentRect);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "frameForAlignmentRect:", [alignmentRect], [ObjectManager.CGRECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uiview_frameForAlignmentRect = Lib.load("basis", "uiview_frameForAlignmentRect", 2);
 	public function viewForBaselineLayout():UIView
 	{
-		return uiview_viewForBaselineLayout(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "viewForBaselineLayout", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_viewForBaselineLayout = Lib.load("basis", "uiview_viewForBaselineLayout", 1);
 	public function willMoveToWindow( newWindow:UIWindow):Void
 	{
-		uiview_willMoveToWindow(_tag, newWindow.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "willMoveToWindow:", [newWindow], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiview_willMoveToWindow = Lib.load("basis", "uiview_willMoveToWindow", 2);
 	public function layoutIfNeeded():Void
 	{
-		uiview_layoutIfNeeded(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "layoutIfNeeded", [], [], -1);
 	}
-	private static var uiview_layoutIfNeeded = Lib.load("basis", "uiview_layoutIfNeeded", 1);
 	public function contentCompressionResistancePriorityForAxis( axis:Int):Int
 	{
-		return uiview_contentCompressionResistancePriorityForAxis(_tag, axis);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentCompressionResistancePriorityForAxis:", [axis], [ObjectManager.INT_VAL], ObjectManager.INT_VAL);
 	}
-	private static var uiview_contentCompressionResistancePriorityForAxis = Lib.load("basis", "uiview_contentCompressionResistancePriorityForAxis", 2);
 	public function viewWithTag( tag:Int):UIView
 	{
-		return uiview_viewWithTag(_tag, tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "viewWithTag:", [tag], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_viewWithTag = Lib.load("basis", "uiview_viewWithTag", 2);
 	public function layoutSubviews():Void
 	{
-		uiview_layoutSubviews(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "layoutSubviews", [], [], -1);
 	}
-	private static var uiview_layoutSubviews = Lib.load("basis", "uiview_layoutSubviews", 1);
 	public function invalidateIntrinsicContentSize():Void
 	{
-		uiview_invalidateIntrinsicContentSize(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateIntrinsicContentSize", [], [], -1);
 	}
-	private static var uiview_invalidateIntrinsicContentSize = Lib.load("basis", "uiview_invalidateIntrinsicContentSize", 1);
 	public function didMoveToWindow():Void
 	{
-		uiview_didMoveToWindow(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "didMoveToWindow", [], [], -1);
 	}
-	private static var uiview_didMoveToWindow = Lib.load("basis", "uiview_didMoveToWindow", 1);
 	public function contentHuggingPriorityForAxis( axis:Int):Int
 	{
-		return uiview_contentHuggingPriorityForAxis(_tag, axis);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentHuggingPriorityForAxis:", [axis], [ObjectManager.INT_VAL], ObjectManager.INT_VAL);
 	}
-	private static var uiview_contentHuggingPriorityForAxis = Lib.load("basis", "uiview_contentHuggingPriorityForAxis", 2);
 	public function translatesAutoresizingMaskIntoConstraints():Bool
 	{
-		return uiview_translatesAutoresizingMaskIntoConstraints(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translatesAutoresizingMaskIntoConstraints", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiview_translatesAutoresizingMaskIntoConstraints = Lib.load("basis", "uiview_translatesAutoresizingMaskIntoConstraints", 1);
 
 
 	public static inline var UIViewAnimationCurveEaseInOut:Int = 0;

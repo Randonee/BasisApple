@@ -4,40 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIControl extends UIView
 {
 
-	//------ Added - NOT GENERATED ------
-	//Events
-	public static inline var UIControlTouchDown:String = "UIControlTouchDown";
-	public static inline var UIControlTouchDownRepeat:String = "UIControlTouchDownRepeat";
-	public static inline var UIControlTouchDragInside:String = "UIControlTouchDragInside";
-	public static inline var UIControlTouchOutside:String = "UIControlTouchOutside";
-	public static inline var UIControlTouchDragEnter:String = "UIControlTouchDragEnter";
-	public static inline var UIControlTouchDragExit:String = "UIControlTouchDragExit";
-	public static inline var UIControlTouchUpInside:String = "UIControlTouchUpInside";
-	public static inline var UIControlTouchUpOutside:String = "UIControlTouchUpOutside";
-	public static inline var UIControlTouchCancel:String = "UIControlTouchCancel";
-	public static inline var UIControlValueChanged:String = "UIControlValueChanged";
-	public static inline var UIControlEditingDidBegin:String = "UIControlEditingDidBegin";
-	public static inline var UIControlEditingChanged:String = "UIControlEditingChanged";
-	public static inline var UIControlEditingDidEnd:String = "UIControlEditingDidEnd";
-	public static inline var UIControlEditingDidEndOnExit:String = "UIControlEditingDidEndOnExit";
-	public static inline var UIControlAllTouchEvents:String = "UIControlAllTouchEvents";
-	public static inline var UIControlAllEditingEvents:String = "UIControlAllEditingEvents";
-	public static inline var UIControlApplicationReserved:String = "UIControlApplicationReserved";
-	public static inline var UIControlSystemReserved:String = "UIControlSystemReserved";
-	public static inline var UIControlAllEvents:String = "UIControlAllEvents";
-	// ---------------------------------
-
-	 public function new(?type="UIControl")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIControl;
 		super(type);
 	}
 
@@ -47,106 +28,91 @@ class UIControl extends UIView
 	public var enabled(getEnabled, setEnabled):Bool;
 	private function getEnabled():Bool
 	{
-		return uicontrol_getEnabled(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uicontrol_getEnabled = Lib.load("basis", "uicontrol_getEnabled", 1);
 
 	private function setEnabled(value:Bool):Bool
 	{
-		uicontrol_setEnabled(_tag, value);
-		return uicontrol_getEnabled(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return enabled;
 	}
-	private static var uicontrol_setEnabled = Lib.load("basis", "uicontrol_setEnabled", 2);
 
 	public var selected(getSelected, setSelected):Bool;
 	private function getSelected():Bool
 	{
-		return uicontrol_getSelected(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uicontrol_getSelected = Lib.load("basis", "uicontrol_getSelected", 1);
 
 	private function setSelected(value:Bool):Bool
 	{
-		uicontrol_setSelected(_tag, value);
-		return uicontrol_getSelected(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return selected;
 	}
-	private static var uicontrol_setSelected = Lib.load("basis", "uicontrol_setSelected", 2);
 
 	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{
-		return uicontrol_getHighlighted(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uicontrol_getHighlighted = Lib.load("basis", "uicontrol_getHighlighted", 1);
 
 	private function setHighlighted(value:Bool):Bool
 	{
-		uicontrol_setHighlighted(_tag, value);
-		return uicontrol_getHighlighted(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return highlighted;
 	}
-	private static var uicontrol_setHighlighted = Lib.load("basis", "uicontrol_setHighlighted", 2);
 
 	public var contentVerticalAlignment(getContentVerticalAlignment, setContentVerticalAlignment):Int;
 	private function getContentVerticalAlignment():Int
 	{
-		return uicontrol_getContentVerticalAlignment(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentVerticalAlignment", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uicontrol_getContentVerticalAlignment = Lib.load("basis", "uicontrol_getContentVerticalAlignment", 1);
 
 	private function setContentVerticalAlignment(value:Int):Int
 	{
-		uicontrol_setContentVerticalAlignment(_tag, value);
-		return uicontrol_getContentVerticalAlignment(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentVerticalAlignment:", [value], [ObjectManager.INT_VAL], -1 );
+		return contentVerticalAlignment;
 	}
-	private static var uicontrol_setContentVerticalAlignment = Lib.load("basis", "uicontrol_setContentVerticalAlignment", 2);
 
 	public var contentHorizontalAlignment(getContentHorizontalAlignment, setContentHorizontalAlignment):Int;
 	private function getContentHorizontalAlignment():Int
 	{
-		return uicontrol_getContentHorizontalAlignment(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentHorizontalAlignment", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uicontrol_getContentHorizontalAlignment = Lib.load("basis", "uicontrol_getContentHorizontalAlignment", 1);
 
 	private function setContentHorizontalAlignment(value:Int):Int
 	{
-		uicontrol_setContentHorizontalAlignment(_tag, value);
-		return uicontrol_getContentHorizontalAlignment(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentHorizontalAlignment:", [value], [ObjectManager.INT_VAL], -1 );
+		return contentHorizontalAlignment;
 	}
-	private static var uicontrol_setContentHorizontalAlignment = Lib.load("basis", "uicontrol_setContentHorizontalAlignment", 2);
 
 	public var state(getState, null):Int;
 	private function getState():Int
 	{
-		return uicontrol_getState(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "state", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uicontrol_getState = Lib.load("basis", "uicontrol_getState", 1);
 
 	public var tracking(getTracking, null):Bool;
 	private function getTracking():Bool
 	{
-		return uicontrol_getTracking(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uicontrol_getTracking = Lib.load("basis", "uicontrol_getTracking", 1);
 
 	public var touchInside(getTouchInside, null):Bool;
 	private function getTouchInside():Bool
 	{
-		return uicontrol_getTouchInside(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "touchInside", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uicontrol_getTouchInside = Lib.load("basis", "uicontrol_getTouchInside", 1);
 
 
 	//Methods
 	public function sendActionsForControlEvents( controlEvents:Int):Void
 	{
-		uicontrol_sendActionsForControlEvents(_tag, controlEvents);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "sendActionsForControlEvents:", [controlEvents], [ObjectManager.INT_VAL], -1);
 	}
-	private static var uicontrol_sendActionsForControlEvents = Lib.load("basis", "uicontrol_sendActionsForControlEvents", 2);
 	public function allControlEvents():Int
 	{
-		return uicontrol_allControlEvents(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allControlEvents", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uicontrol_allControlEvents = Lib.load("basis", "uicontrol_allControlEvents", 1);
 
 
 	public static inline var UIControlEventTouchDown:Int =  1 << 0;

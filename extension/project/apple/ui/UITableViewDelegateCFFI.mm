@@ -3,9 +3,9 @@
 namespace basis
 {
 
-void uitableviewdelegate_create(value tableViewTag, value handlers)
+void uitableviewdelegate_create(value tableViewID, value handlers)
 {
-	UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView: val_int(tableViewTag)];
+	UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject: [NSString stringWithCString:val_string(tableViewID) encoding:NSUTF8StringEncoding]];
 	
 	
 	UITableViewDelegateImp *delegate = [[UITableViewDelegateImp alloc] init];

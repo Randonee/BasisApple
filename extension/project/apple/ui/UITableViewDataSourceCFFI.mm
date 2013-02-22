@@ -2,8 +2,8 @@ namespace basis
 {
 	void uitableviewdatasource_create(value * arg, int nargs)
 	{
-		int tableViewTag = val_int(arg[0]);
-		UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView:tableViewTag];
+		NSString *tableViewID = [NSString stringWithCString:val_string(arg[0]) encoding:NSUTF8StringEncoding];
+		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:tableViewID];
 		UITableViewDataSourceImp *dataSource = [[UITableViewDataSourceImp alloc] init];
 		
 		[dataSource setHandlers	:new AutoGCRoot(arg[1]) :new AutoGCRoot(arg[2])
@@ -20,7 +20,7 @@ namespace basis
 	
 	void uitableviewdatasource_addSectionIndexTitle(value tag, value title)
 	{
-		UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 		UITableViewDataSourceImp *dataSource = (UITableViewDataSourceImp *) view.dataSource;
 		[dataSource addSectionIndexTitle:[NSString stringWithCString:val_string(title)encoding:NSUTF8StringEncoding]];
 	}
@@ -28,7 +28,7 @@ namespace basis
 	
 	void uitableviewdatasource_clearSectionIndexTitles(value tag)
 	{
-		UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 		UITableViewDataSourceImp *dataSource = (UITableViewDataSourceImp *) view.dataSource;
 		[dataSource clearSectionIndexTitles];
 	}

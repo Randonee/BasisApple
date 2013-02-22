@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIActionSheet extends UIView
 {
 
-	 public function new(?type="UIActionSheet")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIActionSheet;
 		super(type);
 	}
 
@@ -24,117 +28,99 @@ class UIActionSheet extends UIView
 	public var title(getTitle, setTitle):String;
 	private function getTitle():String
 	{
-		return uiactionsheet_getTitle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "title", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uiactionsheet_getTitle = Lib.load("basis", "uiactionsheet_getTitle", 1);
 
 	private function setTitle(value:String):String
 	{
-		uiactionsheet_setTitle(_tag, value);
-		return uiactionsheet_getTitle(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:", [value], [ObjectManager.STRING_VAL], -1 );
+		return title;
 	}
-	private static var uiactionsheet_setTitle = Lib.load("basis", "uiactionsheet_setTitle", 2);
 
 	public var actionSheetStyle(getActionSheetStyle, setActionSheetStyle):Int;
 	private function getActionSheetStyle():Int
 	{
-		return uiactionsheet_getActionSheetStyle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "actionSheetStyle", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiactionsheet_getActionSheetStyle = Lib.load("basis", "uiactionsheet_getActionSheetStyle", 1);
 
 	private function setActionSheetStyle(value:Int):Int
 	{
-		uiactionsheet_setActionSheetStyle(_tag, value);
-		return uiactionsheet_getActionSheetStyle(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActionSheetStyle:", [value], [ObjectManager.INT_VAL], -1 );
+		return actionSheetStyle;
 	}
-	private static var uiactionsheet_setActionSheetStyle = Lib.load("basis", "uiactionsheet_setActionSheetStyle", 2);
 
 	public var numberOfButtons(getNumberOfButtons, null):Int;
 	private function getNumberOfButtons():Int
 	{
-		return uiactionsheet_getNumberOfButtons(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfButtons", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiactionsheet_getNumberOfButtons = Lib.load("basis", "uiactionsheet_getNumberOfButtons", 1);
 
 	public var cancelButtonIndex(getCancelButtonIndex, setCancelButtonIndex):Int;
 	private function getCancelButtonIndex():Int
 	{
-		return uiactionsheet_getCancelButtonIndex(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "cancelButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiactionsheet_getCancelButtonIndex = Lib.load("basis", "uiactionsheet_getCancelButtonIndex", 1);
 
 	private function setCancelButtonIndex(value:Int):Int
 	{
-		uiactionsheet_setCancelButtonIndex(_tag, value);
-		return uiactionsheet_getCancelButtonIndex(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCancelButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
+		return cancelButtonIndex;
 	}
-	private static var uiactionsheet_setCancelButtonIndex = Lib.load("basis", "uiactionsheet_setCancelButtonIndex", 2);
 
 	public var destructiveButtonIndex(getDestructiveButtonIndex, setDestructiveButtonIndex):Int;
 	private function getDestructiveButtonIndex():Int
 	{
-		return uiactionsheet_getDestructiveButtonIndex(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "destructiveButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiactionsheet_getDestructiveButtonIndex = Lib.load("basis", "uiactionsheet_getDestructiveButtonIndex", 1);
 
 	private function setDestructiveButtonIndex(value:Int):Int
 	{
-		uiactionsheet_setDestructiveButtonIndex(_tag, value);
-		return uiactionsheet_getDestructiveButtonIndex(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDestructiveButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
+		return destructiveButtonIndex;
 	}
-	private static var uiactionsheet_setDestructiveButtonIndex = Lib.load("basis", "uiactionsheet_setDestructiveButtonIndex", 2);
 
 	public var firstOtherButtonIndex(getFirstOtherButtonIndex, null):Int;
 	private function getFirstOtherButtonIndex():Int
 	{
-		return uiactionsheet_getFirstOtherButtonIndex(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "firstOtherButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiactionsheet_getFirstOtherButtonIndex = Lib.load("basis", "uiactionsheet_getFirstOtherButtonIndex", 1);
 
 	public var visible(getVisible, null):Bool;
 	private function getVisible():Bool
 	{
-		return uiactionsheet_getVisible(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiactionsheet_getVisible = Lib.load("basis", "uiactionsheet_getVisible", 1);
 
 
 	//Methods
 	public function showFromTabBar( view:UITabBar):Void
 	{
-		uiactionsheet_showFromTabBar(_tag, view.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromTabBar:", [view], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiactionsheet_showFromTabBar = Lib.load("basis", "uiactionsheet_showFromTabBar", 2);
 	public function addButtonWithTitle( title:String):Int
 	{
-		return uiactionsheet_addButtonWithTitle(_tag, title);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "addButtonWithTitle:", [title], [ObjectManager.STRING_VAL], ObjectManager.INT_VAL);
 	}
-	private static var uiactionsheet_addButtonWithTitle = Lib.load("basis", "uiactionsheet_addButtonWithTitle", 2);
 	public function buttonTitleAtIndex( buttonIndex:Int):String
 	{
-		return uiactionsheet_buttonTitleAtIndex(_tag, buttonIndex);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "buttonTitleAtIndex:", [buttonIndex], [ObjectManager.INT_VAL], ObjectManager.STRING_VAL);
 	}
-	private static var uiactionsheet_buttonTitleAtIndex = Lib.load("basis", "uiactionsheet_buttonTitleAtIndex", 2);
 	public function showFromToolbar( view:UIToolbar):Void
 	{
-		uiactionsheet_showFromToolbar(_tag, view.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromToolbar:", [view], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiactionsheet_showFromToolbar = Lib.load("basis", "uiactionsheet_showFromToolbar", 2);
 	public function dismissWithClickedButtonIndexAnimated( buttonIndex:Int,  animated:Bool):Void
 	{
-		uiactionsheet_dismissWithClickedButtonIndexAnimated(_tag, buttonIndex, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissWithClickedButtonIndex:animated:", [buttonIndex, animated], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiactionsheet_dismissWithClickedButtonIndexAnimated = Lib.load("basis", "uiactionsheet_dismissWithClickedButtonIndexAnimated", 3);
 	public function showFromRectInViewAnimated( rect:Array<Float>,  view:UIView,  animated:Bool):Void
 	{
-		uiactionsheet_showFromRectInViewAnimated(_tag, rect, view.tag, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromRect:inView:animated:", [rect, view, animated], [ObjectManager.CGRECT_VAL, ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiactionsheet_showFromRectInViewAnimated = Lib.load("basis", "uiactionsheet_showFromRectInViewAnimated", 4);
 	public function showInView( view:UIView):Void
 	{
-		uiactionsheet_showInView(_tag, view.tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "showInView:", [view], [ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uiactionsheet_showInView = Lib.load("basis", "uiactionsheet_showInView", 2);
 
 
 	public static inline var UIActionSheetStyleAutomatic:Int = 0;

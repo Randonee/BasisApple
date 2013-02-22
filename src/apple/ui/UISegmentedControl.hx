@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UISegmentedControl extends UIControl
 {
 
-	 public function new(?type="UISegmentedControl")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UISegmentedControl;
 		super(type);
 	}
 
@@ -24,167 +28,139 @@ class UISegmentedControl extends UIControl
 	public var segmentedControlStyle(getSegmentedControlStyle, setSegmentedControlStyle):Int;
 	private function getSegmentedControlStyle():Int
 	{
-		return uisegmentedcontrol_getSegmentedControlStyle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "segmentedControlStyle", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisegmentedcontrol_getSegmentedControlStyle = Lib.load("basis", "uisegmentedcontrol_getSegmentedControlStyle", 1);
 
 	private function setSegmentedControlStyle(value:Int):Int
 	{
-		uisegmentedcontrol_setSegmentedControlStyle(_tag, value);
-		return uisegmentedcontrol_getSegmentedControlStyle(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSegmentedControlStyle:", [value], [ObjectManager.INT_VAL], -1 );
+		return segmentedControlStyle;
 	}
-	private static var uisegmentedcontrol_setSegmentedControlStyle = Lib.load("basis", "uisegmentedcontrol_setSegmentedControlStyle", 2);
 
 	public var momentary(getMomentary, setMomentary):Bool;
 	private function getMomentary():Bool
 	{
-		return uisegmentedcontrol_getMomentary(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "momentary", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisegmentedcontrol_getMomentary = Lib.load("basis", "uisegmentedcontrol_getMomentary", 1);
 
 	private function setMomentary(value:Bool):Bool
 	{
-		uisegmentedcontrol_setMomentary(_tag, value);
-		return uisegmentedcontrol_getMomentary(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMomentary:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return momentary;
 	}
-	private static var uisegmentedcontrol_setMomentary = Lib.load("basis", "uisegmentedcontrol_setMomentary", 2);
 
 	public var numberOfSegments(getNumberOfSegments, null):Int;
 	private function getNumberOfSegments():Int
 	{
-		return uisegmentedcontrol_getNumberOfSegments(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfSegments", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisegmentedcontrol_getNumberOfSegments = Lib.load("basis", "uisegmentedcontrol_getNumberOfSegments", 1);
 
 	public var apportionsSegmentWidthsByContent(getApportionsSegmentWidthsByContent, setApportionsSegmentWidthsByContent):Bool;
 	private function getApportionsSegmentWidthsByContent():Bool
 	{
-		return uisegmentedcontrol_getApportionsSegmentWidthsByContent(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "apportionsSegmentWidthsByContent", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisegmentedcontrol_getApportionsSegmentWidthsByContent = Lib.load("basis", "uisegmentedcontrol_getApportionsSegmentWidthsByContent", 1);
 
 	private function setApportionsSegmentWidthsByContent(value:Bool):Bool
 	{
-		uisegmentedcontrol_setApportionsSegmentWidthsByContent(_tag, value);
-		return uisegmentedcontrol_getApportionsSegmentWidthsByContent(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setApportionsSegmentWidthsByContent:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return apportionsSegmentWidthsByContent;
 	}
-	private static var uisegmentedcontrol_setApportionsSegmentWidthsByContent = Lib.load("basis", "uisegmentedcontrol_setApportionsSegmentWidthsByContent", 2);
 
 	public var selectedSegmentIndex(getSelectedSegmentIndex, setSelectedSegmentIndex):Int;
 	private function getSelectedSegmentIndex():Int
 	{
-		return uisegmentedcontrol_getSelectedSegmentIndex(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedSegmentIndex", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisegmentedcontrol_getSelectedSegmentIndex = Lib.load("basis", "uisegmentedcontrol_getSelectedSegmentIndex", 1);
 
 	private function setSelectedSegmentIndex(value:Int):Int
 	{
-		uisegmentedcontrol_setSelectedSegmentIndex(_tag, value);
-		return uisegmentedcontrol_getSelectedSegmentIndex(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedSegmentIndex:", [value], [ObjectManager.INT_VAL], -1 );
+		return selectedSegmentIndex;
 	}
-	private static var uisegmentedcontrol_setSelectedSegmentIndex = Lib.load("basis", "uisegmentedcontrol_setSelectedSegmentIndex", 2);
 
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return uisegmentedcontrol_getTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uisegmentedcontrol_getTintColor = Lib.load("basis", "uisegmentedcontrol_getTintColor", 1);
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		uisegmentedcontrol_setTintColor(_tag, value);
-		return uisegmentedcontrol_getTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return tintColor;
 	}
-	private static var uisegmentedcontrol_setTintColor = Lib.load("basis", "uisegmentedcontrol_setTintColor", 2);
 
 
 	//Methods
 	public function titleForSegmentAtIndex( segment:Int):String
 	{
-		return uisegmentedcontrol_titleForSegmentAtIndex(_tag, segment);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleForSegmentAtIndex:", [segment], [ObjectManager.INT_VAL], ObjectManager.STRING_VAL);
 	}
-	private static var uisegmentedcontrol_titleForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_titleForSegmentAtIndex", 2);
 	public function widthForSegmentAtIndex( segment:Int):Float
 	{
-		return uisegmentedcontrol_widthForSegmentAtIndex(_tag, segment);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "widthForSegmentAtIndex:", [segment], [ObjectManager.INT_VAL], ObjectManager.FLOAT_VAL);
 	}
-	private static var uisegmentedcontrol_widthForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_widthForSegmentAtIndex", 2);
 	public function insertSegmentWithImageAtIndexAnimated( image:String,  segment:Int,  animated:Bool):Void
 	{
-		uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated(_tag, image, segment, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithImage:atIndex:animated:", [image, segment, animated], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated = Lib.load("basis", "uisegmentedcontrol_insertSegmentWithImageAtIndexAnimated", 4);
 	public function setBackgroundImageForStateBarMetrics( backgroundImage:String,  state:Int,  barMetrics:Int):Void
 	{
-		uisegmentedcontrol_setBackgroundImageForStateBarMetrics(_tag, backgroundImage, state, barMetrics);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setBackgroundImageForStateBarMetrics = Lib.load("basis", "uisegmentedcontrol_setBackgroundImageForStateBarMetrics", 4);
 	public function contentPositionAdjustmentForSegmentTypeBarMetrics( leftCenterRightOrAlone:Int,  barMetrics:Int):Array<Int>
 	{
-		return uisegmentedcontrol_contentPositionAdjustmentForSegmentTypeBarMetrics(_tag, leftCenterRightOrAlone, barMetrics);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentPositionAdjustmentForSegmentType:barMetrics:", [leftCenterRightOrAlone, barMetrics], [ObjectManager.INT_VAL, ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisegmentedcontrol_contentPositionAdjustmentForSegmentTypeBarMetrics = Lib.load("basis", "uisegmentedcontrol_contentPositionAdjustmentForSegmentTypeBarMetrics", 3);
 	public function setTitleForSegmentAtIndex( title:String,  segment:Int):Void
 	{
-		uisegmentedcontrol_setTitleForSegmentAtIndex(_tag, title, segment);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:forSegmentAtIndex:", [title, segment], [ObjectManager.STRING_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setTitleForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_setTitleForSegmentAtIndex", 3);
 	public function setWidthForSegmentAtIndex( width:Float,  segment:Int):Void
 	{
-		uisegmentedcontrol_setWidthForSegmentAtIndex(_tag, width, segment);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWidth:forSegmentAtIndex:", [width, segment], [ObjectManager.FLOAT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setWidthForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_setWidthForSegmentAtIndex", 3);
 	public function isEnabledForSegmentAtIndex( segment:Int):Bool
 	{
-		return uisegmentedcontrol_isEnabledForSegmentAtIndex(_tag, segment);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabledForSegmentAtIndex:", [segment], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisegmentedcontrol_isEnabledForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_isEnabledForSegmentAtIndex", 2);
 	public function setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics( dividerImage:String,  leftState:Int,  rightState:Int,  barMetrics:Int):Void
 	{
-		uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics(_tag, dividerImage, leftState, rightState, barMetrics);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDividerImage:forLeftSegmentState:rightSegmentState:barMetrics:", [dividerImage, leftState, rightState, barMetrics], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics = Lib.load("basis", "uisegmentedcontrol_setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics", 5);
 	public function setEnabledForSegmentAtIndex( enabled:Bool,  segment:Int):Void
 	{
-		uisegmentedcontrol_setEnabledForSegmentAtIndex(_tag, enabled, segment);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:forSegmentAtIndex:", [enabled, segment], [ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setEnabledForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_setEnabledForSegmentAtIndex", 3);
 	public function insertSegmentWithTitleAtIndexAnimated( title:String,  segment:Int,  animated:Bool):Void
 	{
-		uisegmentedcontrol_insertSegmentWithTitleAtIndexAnimated(_tag, title, segment, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithTitle:atIndex:animated:", [title, segment, animated], [ObjectManager.STRING_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_insertSegmentWithTitleAtIndexAnimated = Lib.load("basis", "uisegmentedcontrol_insertSegmentWithTitleAtIndexAnimated", 4);
 	public function removeSegmentAtIndexAnimated( segment:Int,  animated:Bool):Void
 	{
-		uisegmentedcontrol_removeSegmentAtIndexAnimated(_tag, segment, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeSegmentAtIndex:animated:", [segment, animated], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_removeSegmentAtIndexAnimated = Lib.load("basis", "uisegmentedcontrol_removeSegmentAtIndexAnimated", 3);
 	public function setImageForSegmentAtIndex( image:String,  segment:Int):Void
 	{
-		uisegmentedcontrol_setImageForSegmentAtIndex(_tag, image, segment);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forSegmentAtIndex:", [image, segment], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setImageForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_setImageForSegmentAtIndex", 3);
 	public function contentOffsetForSegmentAtIndex( segment:Int):Array<Float>
 	{
-		return uisegmentedcontrol_contentOffsetForSegmentAtIndex(_tag, segment);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentOffsetForSegmentAtIndex:", [segment], [ObjectManager.INT_VAL], ObjectManager.CGSIZE_VAL);
 	}
-	private static var uisegmentedcontrol_contentOffsetForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_contentOffsetForSegmentAtIndex", 2);
 	public function removeAllSegments():Void
 	{
-		uisegmentedcontrol_removeAllSegments(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeAllSegments", [], [], -1);
 	}
-	private static var uisegmentedcontrol_removeAllSegments = Lib.load("basis", "uisegmentedcontrol_removeAllSegments", 1);
 	public function setContentPositionAdjustmentForSegmentTypeBarMetrics( adjustment:Array<Int>,  leftCenterRightOrAlone:Int,  barMetrics:Int):Void
 	{
-		uisegmentedcontrol_setContentPositionAdjustmentForSegmentTypeBarMetrics(_tag, adjustment, leftCenterRightOrAlone, barMetrics);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentPositionAdjustment:forSegmentType:barMetrics:", [adjustment, leftCenterRightOrAlone, barMetrics], [ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setContentPositionAdjustmentForSegmentTypeBarMetrics = Lib.load("basis", "uisegmentedcontrol_setContentPositionAdjustmentForSegmentTypeBarMetrics", 4);
 	public function setContentOffsetForSegmentAtIndex( offset:Array<Float>,  segment:Int):Void
 	{
-		uisegmentedcontrol_setContentOffsetForSegmentAtIndex(_tag, offset, segment);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentOffset:forSegmentAtIndex:", [offset, segment], [ObjectManager.CGSIZE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisegmentedcontrol_setContentOffsetForSegmentAtIndex = Lib.load("basis", "uisegmentedcontrol_setContentOffsetForSegmentAtIndex", 3);
 
 
 	public static inline var UISegmentedControlStylePlain:Int = 0;

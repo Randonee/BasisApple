@@ -1,17 +1,13 @@
 package basis;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.UIBarItemManager;
-import basis.ios.DeviceEventManager;
+import basis.ios.IOSApplication;
 
 class Basis
 {
 	static public function init():Void
 	{
-		ViewManager;
-		UIBarItemManager;
-		DeviceEventManager;
+		IOSApplication;
 		cpp_initBasis();
 	}
 	

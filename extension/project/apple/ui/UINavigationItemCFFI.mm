@@ -1,6 +1,6 @@
 namespace basis
 {
-	UINavigationItem* uinavigationitem_getNavigationItem(value navigationBarTag, value index);
+/*	UINavigationItem* uinavigationitem_getNavigationItem(value navigationBarTag, value index);
 	value createIntArrayFromBarItems(NSArray* items);
 	NSArray* createBarItemsFromArray(value items, value itemCount);
 	
@@ -53,10 +53,10 @@ namespace basis
 	}
 	DEFINE_PRIM (uinavigationitem_getTitle, 2);
 	
-	void uinavigationitem_setTitleView(value navigationBarTag, value index, value titleViewTag)
+	void uinavigationitem_setTitleView(value navigationBarTag, value index, value titleViewID)
 	{
 		UINavigationItem *item = uinavigationitem_getNavigationItem(navigationBarTag, index);
-		UIView *view = (UIView *)[[BasisApplication getViewManager] getView:val_int(titleViewTag)];
+		UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(navigationBarTag) encoding:NSUTF8StringEncoding]];
 		item.titleView = view;
 	}
 	DEFINE_PRIM (uinavigationitem_setTitleView, 3);
@@ -87,7 +87,7 @@ namespace basis
 	
 	void uinavigationitem_popNavigationItem(value navigationBarTag, value animated)
 	{
-		UINavigationBar *bar = (UINavigationBar*)[[BasisApplication getViewManager] getView:val_int(navigationBarTag)];
+		UINavigationBar *bar = (UINavigationBar*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(navigationBarTag) encoding:NSUTF8StringEncoding]];
 		[bar popNavigationItemAnimated:val_bool(animated)];
 	}
 	DEFINE_PRIM (uinavigationitem_popNavigationItem, 2);
@@ -95,7 +95,7 @@ namespace basis
 	void uinavigationitem_createNavigationItem(value navigationBarTag, value animated)
 	{
 		UINavigationItem *item = [[UINavigationItem alloc] init];
-		UINavigationBar *bar = (UINavigationBar*)[[BasisApplication getViewManager] getView:val_int(navigationBarTag)];
+		UINavigationBar *bar = (UINavigationBar*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(navigationBarTag) encoding:NSUTF8StringEncoding]];
 		[bar pushNavigationItem:item animated:val_bool(animated)];
 	}
 	DEFINE_PRIM (uinavigationitem_createNavigationItem, 2);
@@ -159,10 +159,10 @@ namespace basis
 	
 	UINavigationItem* uinavigationitem_getNavigationItem(value navigationBarTag, value index)
 	{
-		UINavigationBar *bar = (UINavigationBar*)[[BasisApplication getViewManager] getView:val_int(navigationBarTag)];
+		UINavigationBar *bar = (UINavigationBar*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(navigationBarTag) encoding:NSUTF8StringEncoding]];
 		return [bar.items objectAtIndex:val_int(index)];
 	}
 	
-	
+	*/
 
 }

@@ -1,11 +1,13 @@
 package example;
 
-import basis.ios.ViewManager;
+import basis.ios.IOSApplication;
+import basis.BasisApplication;
 
 class ApplicationMain
 {
 	static public function main():Void
 	{
-		ViewManager.addToRootView(new MainView());
+		BasisApplication.init(IOSApplication);
+		BasisApplication.instance.addToRootView(new MainView());
 	}
 }

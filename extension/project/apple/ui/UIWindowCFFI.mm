@@ -3,53 +3,53 @@
 
 namespace basis
 {
-	value uiwindow_getWindowLevel(value tag)
+	value uiwindow_getWindowLevel(value objectID)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIWindowLevel returnVar = (UIWindowLevel)view.windowLevel;
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIWindowLevel returnVar = (UIWindowLevel)object.windowLevel;
 		return alloc_float(returnVar);
 	}
 	DEFINE_PRIM (uiwindow_getWindowLevel, 1);
-	void uiwindow_setWindowLevel(value tag, value arg1)
+	void uiwindow_setWindowLevel(value objectID, value arg1)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.windowLevel = val_float(arg1);
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.windowLevel = val_float(arg1);
 	}
 	DEFINE_PRIM (uiwindow_setWindowLevel, 2);
 
 
-	value uiwindow_getKeyWindow(value tag)
+	value uiwindow_getKeyWindow(value objectID)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.keyWindow;
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.keyWindow;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uiwindow_getKeyWindow, 1);
-	void uiwindow_becomeKeyWindow(value tag)
+	void uiwindow_becomeKeyWindow(value objectID)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view becomeKeyWindow];
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object becomeKeyWindow];
 	}
 	DEFINE_PRIM (uiwindow_becomeKeyWindow, 1);
 
-	void uiwindow_makeKeyWindow(value tag)
+	void uiwindow_makeKeyWindow(value objectID)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view makeKeyWindow];
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object makeKeyWindow];
 	}
 	DEFINE_PRIM (uiwindow_makeKeyWindow, 1);
 
-	void uiwindow_makeKeyAndVisible(value tag)
+	void uiwindow_makeKeyAndVisible(value objectID)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view makeKeyAndVisible];
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object makeKeyAndVisible];
 	}
 	DEFINE_PRIM (uiwindow_makeKeyAndVisible, 1);
 
-	void uiwindow_resignKeyWindow(value tag)
+	void uiwindow_resignKeyWindow(value objectID)
 	{
-		UIWindow *view = (UIWindow*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view resignKeyWindow];
+		UIWindow *object = (UIWindow*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object resignKeyWindow];
 	}
 	DEFINE_PRIM (uiwindow_resignKeyWindow, 1);
 

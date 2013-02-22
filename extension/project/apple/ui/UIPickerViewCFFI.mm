@@ -3,87 +3,87 @@
 
 namespace basis
 {
-	value uipickerview_getShowsSelectionIndicator(value tag)
+	value uipickerview_getShowsSelectionIndicator(value objectID)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.showsSelectionIndicator;
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.showsSelectionIndicator;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uipickerview_getShowsSelectionIndicator, 1);
-	void uipickerview_setShowsSelectionIndicator(value tag, value arg1)
+	void uipickerview_setShowsSelectionIndicator(value objectID, value arg1)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.showsSelectionIndicator = val_bool(arg1);
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.showsSelectionIndicator = val_bool(arg1);
 	}
 	DEFINE_PRIM (uipickerview_setShowsSelectionIndicator, 2);
 
 
-	value uipickerview_getNumberOfComponents(value tag)
+	value uipickerview_getNumberOfComponents(value objectID)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSInteger returnVar = (NSInteger)view.numberOfComponents;
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSInteger returnVar = (NSInteger)object.numberOfComponents;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uipickerview_getNumberOfComponents, 1);
-	void uipickerview_reloadAllComponents(value tag)
+	void uipickerview_reloadAllComponents(value objectID)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view reloadAllComponents];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object reloadAllComponents];
 	}
 	DEFINE_PRIM (uipickerview_reloadAllComponents, 1);
 
-	value uipickerview_numberOfRowsInComponent(value tag, value arg1)
+	value uipickerview_numberOfRowsInComponent(value objectID, value arg1)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		NSInteger returnVar = [view numberOfRowsInComponent:carg1 ];
+		NSInteger returnVar = [object numberOfRowsInComponent:carg1 ];
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uipickerview_numberOfRowsInComponent, 2);
 
-	value uipickerview_rowSizeForComponent(value tag, value arg1)
+	value uipickerview_rowSizeForComponent(value objectID, value arg1)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		CGSize returnVar = [view rowSizeForComponent:carg1 ];
+		CGSize returnVar = [object rowSizeForComponent:carg1 ];
 		return cgSizeToArray(returnVar);
 	}
 	DEFINE_PRIM (uipickerview_rowSizeForComponent, 2);
 
-	void uipickerview_reloadComponent(value tag, value arg1)
+	void uipickerview_reloadComponent(value objectID, value arg1)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		[view reloadComponent:carg1 ];
+		[object reloadComponent:carg1 ];
 	}
 	DEFINE_PRIM (uipickerview_reloadComponent, 2);
 
-	value uipickerview_selectedRowInComponent(value tag, value arg1)
+	value uipickerview_selectedRowInComponent(value objectID, value arg1)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		NSInteger returnVar = [view selectedRowInComponent:carg1 ];
+		NSInteger returnVar = [object selectedRowInComponent:carg1 ];
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uipickerview_selectedRowInComponent, 2);
 
-	value uipickerview_viewForRowForComponent(value tag, value arg1, value arg2)
+	value uipickerview_viewForRowForComponent(value objectID, value arg1, value arg2)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
 		NSInteger carg2 = val_int(arg2);
-		UIView* returnVar = [view viewForRow:carg1 forComponent:carg2 ];
-		return alloc_int(returnVar.tag);
+		UIView* returnVar = [object viewForRow:carg1 forComponent:carg2 ];
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:returnVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uipickerview_viewForRowForComponent, 3);
 
-	void uipickerview_selectRowInComponentAnimated(value tag, value arg1, value arg2, value arg3)
+	void uipickerview_selectRowInComponentAnimated(value objectID, value arg1, value arg2, value arg3)
 	{
-		UIPickerView *view = (UIPickerView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIPickerView *object = (UIPickerView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
 		NSInteger carg2 = val_int(arg2);
 		BOOL carg3 = val_bool(arg3);
-		[view selectRow:carg1 inComponent:carg2 animated:carg3 ];
+		[object selectRow:carg1 inComponent:carg2 animated:carg3 ];
 	}
 	DEFINE_PRIM (uipickerview_selectRowInComponentAnimated, 4);
 

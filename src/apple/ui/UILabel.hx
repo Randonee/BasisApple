@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UILabel extends UIView
 {
 
-	 public function new(?type="UILabel")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UILabel;
 		super(type);
 	}
 
@@ -24,225 +28,193 @@ class UILabel extends UIView
 	public var text(getText, setText):String;
 	private function getText():String
 	{
-		return uilabel_getText(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "text", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uilabel_getText = Lib.load("basis", "uilabel_getText", 1);
 
 	private function setText(value:String):String
 	{
-		uilabel_setText(_tag, value);
-		return uilabel_getText(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setText:", [value], [ObjectManager.STRING_VAL], -1 );
+		return text;
 	}
-	private static var uilabel_setText = Lib.load("basis", "uilabel_setText", 2);
 
 	public var textColor(getTextColor, setTextColor):Array<Float>;
 	private function getTextColor():Array<Float>
 	{
-		return uilabel_getTextColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uilabel_getTextColor = Lib.load("basis", "uilabel_getTextColor", 1);
 
 	private function setTextColor(value:Array<Float>):Array<Float>
 	{
-		uilabel_setTextColor(_tag, value);
-		return uilabel_getTextColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return textColor;
 	}
-	private static var uilabel_setTextColor = Lib.load("basis", "uilabel_setTextColor", 2);
 
 	public var shadowColor(getShadowColor, setShadowColor):Array<Float>;
 	private function getShadowColor():Array<Float>
 	{
-		return uilabel_getShadowColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uilabel_getShadowColor = Lib.load("basis", "uilabel_getShadowColor", 1);
 
 	private function setShadowColor(value:Array<Float>):Array<Float>
 	{
-		uilabel_setShadowColor(_tag, value);
-		return uilabel_getShadowColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return shadowColor;
 	}
-	private static var uilabel_setShadowColor = Lib.load("basis", "uilabel_setShadowColor", 2);
 
 	public var shadowOffset(getShadowOffset, setShadowOffset):Array<Float>;
 	private function getShadowOffset():Array<Float>
 	{
-		return uilabel_getShadowOffset(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowOffset", [], [], ObjectManager.CGSIZE_VAL);
 	}
-	private static var uilabel_getShadowOffset = Lib.load("basis", "uilabel_getShadowOffset", 1);
 
 	private function setShadowOffset(value:Array<Float>):Array<Float>
 	{
-		uilabel_setShadowOffset(_tag, value);
-		return uilabel_getShadowOffset(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowOffset:", [value], [ObjectManager.CGSIZE_VAL], -1 );
+		return shadowOffset;
 	}
-	private static var uilabel_setShadowOffset = Lib.load("basis", "uilabel_setShadowOffset", 2);
 
 	public var textAlignment(getTextAlignment, setTextAlignment):Int;
 	private function getTextAlignment():Int
 	{
-		return uilabel_getTextAlignment(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textAlignment", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uilabel_getTextAlignment = Lib.load("basis", "uilabel_getTextAlignment", 1);
 
 	private function setTextAlignment(value:Int):Int
 	{
-		uilabel_setTextAlignment(_tag, value);
-		return uilabel_getTextAlignment(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextAlignment:", [value], [ObjectManager.INT_VAL], -1 );
+		return textAlignment;
 	}
-	private static var uilabel_setTextAlignment = Lib.load("basis", "uilabel_setTextAlignment", 2);
 
 	public var lineBreakMode(getLineBreakMode, setLineBreakMode):Int;
 	private function getLineBreakMode():Int
 	{
-		return uilabel_getLineBreakMode(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "lineBreakMode", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uilabel_getLineBreakMode = Lib.load("basis", "uilabel_getLineBreakMode", 1);
 
 	private function setLineBreakMode(value:Int):Int
 	{
-		uilabel_setLineBreakMode(_tag, value);
-		return uilabel_getLineBreakMode(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLineBreakMode:", [value], [ObjectManager.INT_VAL], -1 );
+		return lineBreakMode;
 	}
-	private static var uilabel_setLineBreakMode = Lib.load("basis", "uilabel_setLineBreakMode", 2);
 
 	public var highlightedTextColor(getHighlightedTextColor, setHighlightedTextColor):Array<Float>;
 	private function getHighlightedTextColor():Array<Float>
 	{
-		return uilabel_getHighlightedTextColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlightedTextColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uilabel_getHighlightedTextColor = Lib.load("basis", "uilabel_getHighlightedTextColor", 1);
 
 	private function setHighlightedTextColor(value:Array<Float>):Array<Float>
 	{
-		uilabel_setHighlightedTextColor(_tag, value);
-		return uilabel_getHighlightedTextColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedTextColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return highlightedTextColor;
 	}
-	private static var uilabel_setHighlightedTextColor = Lib.load("basis", "uilabel_setHighlightedTextColor", 2);
 
 	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{
-		return uilabel_getHighlighted(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uilabel_getHighlighted = Lib.load("basis", "uilabel_getHighlighted", 1);
 
 	private function setHighlighted(value:Bool):Bool
 	{
-		uilabel_setHighlighted(_tag, value);
-		return uilabel_getHighlighted(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return highlighted;
 	}
-	private static var uilabel_setHighlighted = Lib.load("basis", "uilabel_setHighlighted", 2);
 
 	public var enabled(getEnabled, setEnabled):Bool;
 	private function getEnabled():Bool
 	{
-		return uilabel_getEnabled(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uilabel_getEnabled = Lib.load("basis", "uilabel_getEnabled", 1);
 
 	private function setEnabled(value:Bool):Bool
 	{
-		uilabel_setEnabled(_tag, value);
-		return uilabel_getEnabled(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return enabled;
 	}
-	private static var uilabel_setEnabled = Lib.load("basis", "uilabel_setEnabled", 2);
 
 	public var numberOfLines(getNumberOfLines, setNumberOfLines):Int;
 	private function getNumberOfLines():Int
 	{
-		return uilabel_getNumberOfLines(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfLines", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uilabel_getNumberOfLines = Lib.load("basis", "uilabel_getNumberOfLines", 1);
 
 	private function setNumberOfLines(value:Int):Int
 	{
-		uilabel_setNumberOfLines(_tag, value);
-		return uilabel_getNumberOfLines(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNumberOfLines:", [value], [ObjectManager.INT_VAL], -1 );
+		return numberOfLines;
 	}
-	private static var uilabel_setNumberOfLines = Lib.load("basis", "uilabel_setNumberOfLines", 2);
 
 	public var adjustsFontSizeToFitWidth(getAdjustsFontSizeToFitWidth, setAdjustsFontSizeToFitWidth):Bool;
 	private function getAdjustsFontSizeToFitWidth():Bool
 	{
-		return uilabel_getAdjustsFontSizeToFitWidth(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsFontSizeToFitWidth", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uilabel_getAdjustsFontSizeToFitWidth = Lib.load("basis", "uilabel_getAdjustsFontSizeToFitWidth", 1);
 
 	private function setAdjustsFontSizeToFitWidth(value:Bool):Bool
 	{
-		uilabel_setAdjustsFontSizeToFitWidth(_tag, value);
-		return uilabel_getAdjustsFontSizeToFitWidth(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsFontSizeToFitWidth:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return adjustsFontSizeToFitWidth;
 	}
-	private static var uilabel_setAdjustsFontSizeToFitWidth = Lib.load("basis", "uilabel_setAdjustsFontSizeToFitWidth", 2);
 
 	public var adjustsLetterSpacingToFitWidth(getAdjustsLetterSpacingToFitWidth, setAdjustsLetterSpacingToFitWidth):Bool;
 	private function getAdjustsLetterSpacingToFitWidth():Bool
 	{
-		return uilabel_getAdjustsLetterSpacingToFitWidth(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsLetterSpacingToFitWidth", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uilabel_getAdjustsLetterSpacingToFitWidth = Lib.load("basis", "uilabel_getAdjustsLetterSpacingToFitWidth", 1);
 
 	private function setAdjustsLetterSpacingToFitWidth(value:Bool):Bool
 	{
-		uilabel_setAdjustsLetterSpacingToFitWidth(_tag, value);
-		return uilabel_getAdjustsLetterSpacingToFitWidth(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsLetterSpacingToFitWidth:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return adjustsLetterSpacingToFitWidth;
 	}
-	private static var uilabel_setAdjustsLetterSpacingToFitWidth = Lib.load("basis", "uilabel_setAdjustsLetterSpacingToFitWidth", 2);
 
 	public var baselineAdjustment(getBaselineAdjustment, setBaselineAdjustment):Int;
 	private function getBaselineAdjustment():Int
 	{
-		return uilabel_getBaselineAdjustment(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "baselineAdjustment", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uilabel_getBaselineAdjustment = Lib.load("basis", "uilabel_getBaselineAdjustment", 1);
 
 	private function setBaselineAdjustment(value:Int):Int
 	{
-		uilabel_setBaselineAdjustment(_tag, value);
-		return uilabel_getBaselineAdjustment(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBaselineAdjustment:", [value], [ObjectManager.INT_VAL], -1 );
+		return baselineAdjustment;
 	}
-	private static var uilabel_setBaselineAdjustment = Lib.load("basis", "uilabel_setBaselineAdjustment", 2);
 
 	public var minimumScaleFactor(getMinimumScaleFactor, setMinimumScaleFactor):Float;
 	private function getMinimumScaleFactor():Float
 	{
-		return uilabel_getMinimumScaleFactor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumScaleFactor", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uilabel_getMinimumScaleFactor = Lib.load("basis", "uilabel_getMinimumScaleFactor", 1);
 
 	private function setMinimumScaleFactor(value:Float):Float
 	{
-		uilabel_setMinimumScaleFactor(_tag, value);
-		return uilabel_getMinimumScaleFactor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumScaleFactor:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return minimumScaleFactor;
 	}
-	private static var uilabel_setMinimumScaleFactor = Lib.load("basis", "uilabel_setMinimumScaleFactor", 2);
 
 	public var preferredMaxLayoutWidth(getPreferredMaxLayoutWidth, setPreferredMaxLayoutWidth):Float;
 	private function getPreferredMaxLayoutWidth():Float
 	{
-		return uilabel_getPreferredMaxLayoutWidth(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "preferredMaxLayoutWidth", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uilabel_getPreferredMaxLayoutWidth = Lib.load("basis", "uilabel_getPreferredMaxLayoutWidth", 1);
 
 	private function setPreferredMaxLayoutWidth(value:Float):Float
 	{
-		uilabel_setPreferredMaxLayoutWidth(_tag, value);
-		return uilabel_getPreferredMaxLayoutWidth(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPreferredMaxLayoutWidth:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return preferredMaxLayoutWidth;
 	}
-	private static var uilabel_setPreferredMaxLayoutWidth = Lib.load("basis", "uilabel_setPreferredMaxLayoutWidth", 2);
 
 
 	//Methods
 	public function drawTextInRect( rect:Array<Float>):Void
 	{
-		uilabel_drawTextInRect(_tag, rect);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawTextInRect:", [rect], [ObjectManager.CGRECT_VAL], -1);
 	}
-	private static var uilabel_drawTextInRect = Lib.load("basis", "uilabel_drawTextInRect", 2);
 	public function textRectForBoundsLimitedToNumberOfLines( bounds:Array<Float>,  numberOfLines:Int):Array<Float>
 	{
-		return uilabel_textRectForBoundsLimitedToNumberOfLines(_tag, bounds, numberOfLines);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textRectForBounds:limitedToNumberOfLines:", [bounds, numberOfLines], [ObjectManager.CGRECT_VAL, ObjectManager.INT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uilabel_textRectForBoundsLimitedToNumberOfLines = Lib.load("basis", "uilabel_textRectForBoundsLimitedToNumberOfLines", 3);
 
 
 

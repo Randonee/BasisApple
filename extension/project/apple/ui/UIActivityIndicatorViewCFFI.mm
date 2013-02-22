@@ -3,69 +3,69 @@
 
 namespace basis
 {
-	value uiactivityindicatorview_getActivityIndicatorViewStyle(value tag)
+	value uiactivityindicatorview_getActivityIndicatorViewStyle(value objectID)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIActivityIndicatorViewStyle returnVar = (UIActivityIndicatorViewStyle)view.activityIndicatorViewStyle;
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIActivityIndicatorViewStyle returnVar = (UIActivityIndicatorViewStyle)object.activityIndicatorViewStyle;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uiactivityindicatorview_getActivityIndicatorViewStyle, 1);
-	void uiactivityindicatorview_setActivityIndicatorViewStyle(value tag, value arg1)
+	void uiactivityindicatorview_setActivityIndicatorViewStyle(value objectID, value arg1)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.activityIndicatorViewStyle = val_int(arg1);
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.activityIndicatorViewStyle = val_int(arg1);
 	}
 	DEFINE_PRIM (uiactivityindicatorview_setActivityIndicatorViewStyle, 2);
 
 
-	value uiactivityindicatorview_getHidesWhenStopped(value tag)
+	value uiactivityindicatorview_getHidesWhenStopped(value objectID)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.hidesWhenStopped;
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.hidesWhenStopped;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uiactivityindicatorview_getHidesWhenStopped, 1);
-	void uiactivityindicatorview_setHidesWhenStopped(value tag, value arg1)
+	void uiactivityindicatorview_setHidesWhenStopped(value objectID, value arg1)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.hidesWhenStopped = val_bool(arg1);
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.hidesWhenStopped = val_bool(arg1);
 	}
 	DEFINE_PRIM (uiactivityindicatorview_setHidesWhenStopped, 2);
 
 
-	value uiactivityindicatorview_getColor(value tag)
+	value uiactivityindicatorview_getColor(value objectID)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIColor* returnVar = (UIColor*)view.color;
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIColor* returnVar = (UIColor*)object.color;
 		return cgColorToArray([returnVar CGColor]);
 	}
 	DEFINE_PRIM (uiactivityindicatorview_getColor, 1);
-	void uiactivityindicatorview_setColor(value tag, value arg1)
+	void uiactivityindicatorview_setColor(value objectID, value arg1)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.color = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.color = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
 	}
 	DEFINE_PRIM (uiactivityindicatorview_setColor, 2);
 
 
-	void uiactivityindicatorview_stopAnimating(value tag)
+	void uiactivityindicatorview_stopAnimating(value objectID)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view stopAnimating];
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object stopAnimating];
 	}
 	DEFINE_PRIM (uiactivityindicatorview_stopAnimating, 1);
 
-	void uiactivityindicatorview_startAnimating(value tag)
+	void uiactivityindicatorview_startAnimating(value objectID)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view startAnimating];
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object startAnimating];
 	}
 	DEFINE_PRIM (uiactivityindicatorview_startAnimating, 1);
 
-	value uiactivityindicatorview_isAnimating(value tag)
+	value uiactivityindicatorview_isAnimating(value objectID)
 	{
-		UIActivityIndicatorView *view = (UIActivityIndicatorView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = [view isAnimating];
+		UIActivityIndicatorView *object = (UIActivityIndicatorView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = [object isAnimating];
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uiactivityindicatorview_isAnimating, 1);

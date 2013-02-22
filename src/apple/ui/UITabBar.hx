@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UITabBar extends UIView
 {
 
-	 public function new(?type="UITabBar")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UITabBar;
 		super(type);
 	}
 
@@ -24,70 +28,61 @@ class UITabBar extends UIView
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return uitabbar_getTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uitabbar_getTintColor = Lib.load("basis", "uitabbar_getTintColor", 1);
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		uitabbar_setTintColor(_tag, value);
-		return uitabbar_getTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return tintColor;
 	}
-	private static var uitabbar_setTintColor = Lib.load("basis", "uitabbar_setTintColor", 2);
 
 	public var selectedImageTintColor(getSelectedImageTintColor, setSelectedImageTintColor):Array<Float>;
 	private function getSelectedImageTintColor():Array<Float>
 	{
-		return uitabbar_getSelectedImageTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedImageTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uitabbar_getSelectedImageTintColor = Lib.load("basis", "uitabbar_getSelectedImageTintColor", 1);
 
 	private function setSelectedImageTintColor(value:Array<Float>):Array<Float>
 	{
-		uitabbar_setSelectedImageTintColor(_tag, value);
-		return uitabbar_getSelectedImageTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedImageTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return selectedImageTintColor;
 	}
-	private static var uitabbar_setSelectedImageTintColor = Lib.load("basis", "uitabbar_setSelectedImageTintColor", 2);
 
 	public var backgroundImage(null, setBackgroundImage):String;
 
 	private function setBackgroundImage(value:String):String
 	{
-		uitabbar_setBackgroundImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uitabbar_setBackgroundImage = Lib.load("basis", "uitabbar_setBackgroundImage", 2);
 
 	public var selectionIndicatorImage(null, setSelectionIndicatorImage):String;
 
 	private function setSelectionIndicatorImage(value:String):String
 	{
-		uitabbar_setSelectionIndicatorImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectionIndicatorImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uitabbar_setSelectionIndicatorImage = Lib.load("basis", "uitabbar_setSelectionIndicatorImage", 2);
 
 	public var shadowImage(null, setShadowImage):String;
 
 	private function setShadowImage(value:String):String
 	{
-		uitabbar_setShadowImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uitabbar_setShadowImage = Lib.load("basis", "uitabbar_setShadowImage", 2);
 
 
 	//Methods
 	public function endCustomizingAnimated( animated:Bool):Bool
 	{
-		return uitabbar_endCustomizingAnimated(_tag, animated);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "endCustomizingAnimated:", [animated], [ObjectManager.OBJECT_VAL], ObjectManager.OBJECT_VAL);
 	}
-	private static var uitabbar_endCustomizingAnimated = Lib.load("basis", "uitabbar_endCustomizingAnimated", 2);
 	public function isCustomizing():Bool
 	{
-		return uitabbar_isCustomizing(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isCustomizing", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uitabbar_isCustomizing = Lib.load("basis", "uitabbar_isCustomizing", 1);
 
 
 

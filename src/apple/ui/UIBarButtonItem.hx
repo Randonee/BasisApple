@@ -1,7 +1,7 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.UIBarItemManager;
+import basis.object.IObject;
 
 class UIBarButtonItem extends UIBarItem
 {
@@ -35,18 +35,20 @@ class UIBarButtonItem extends UIBarItem
 
 	public static function initWithBarButtonSystemItem(style:Int):UIBarButtonItem
 	{
-		return new UIBarButtonItem(INIT_WITH_BAR_BUTTON_SYSTEM_ITEM, style);
+		return null;//new UIBarButtonItem(INIT_WITH_BAR_BUTTON_SYSTEM_ITEM, style);
 	}
 	
 	
 	private var _didTapHandler:UIBarButtonItem->Void;
 	
 	
-	public function new(?type:String="UIBarButtonItem", ?style:Int=0)
+	public function new(?type:Class<IObject>=null, ?style:Int=0)
 	{
+		if(type == null)
+			type = UIBarButtonItem;
 		super(type, style);
 		
-		uibarbuttonitem_setHandler(tag, didTapButtonBarItemHandler);
+		uibarbuttonitem_setHandler(basisID, didTapButtonBarItemHandler);
 	}
 	
 	//public static function initWithCustomView
@@ -59,9 +61,9 @@ class UIBarButtonItem extends UIBarItem
 		_didTapHandler = handler;
 	}
 	
-	private function didTapButtonBarItemHandler(barTag:Int):Void
+	private function didTapButtonBarItemHandler(barID:String):Void
 	{
-		if(_didTapHandler != null && barTag == tag)
+		if(_didTapHandler != null && barID == basisID)
 		{
 			_didTapHandler(this);
 		}

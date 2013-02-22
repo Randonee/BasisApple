@@ -3,6 +3,9 @@
 #import "apple/ui/UITableViewDataSourceImp.h"
 #import "apple/ui/UITableViewDelegateImp.h"
 #import "apple/ui/UIBarButtonItemTarget.h"
+#include "Util.mm"
+
+#include "object/ObjectManagerCFFI.mm"
 
 
 #ifdef IPHONE
@@ -22,7 +25,7 @@ void doesNothing()
 {
 }
 
-#include "Util.mm"
+
 
 
 #ifdef IPHONE

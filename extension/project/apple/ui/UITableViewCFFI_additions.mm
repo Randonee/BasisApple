@@ -3,12 +3,12 @@ namespace basis
 {
 	value uitableview_dequeueReusableCellWithIdentifier(value tag, value arg1)
 	{
-		UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 		UITableViewCell *cell = (UITableViewCell*)[view dequeueReusableCellWithIdentifier:[NSString stringWithCString:val_string(arg1)encoding:NSUTF8StringEncoding] ];
 		if(cell != nil)
 		{
 			if(cell.tag != 0)
-				[[BasisApplication getViewManager] addView:cell type:@"UITableViewCell"];
+				[[BasisApplication getObjectManager] addObject:cell];
 			return alloc_int((int)[cell tag]);
 		}
 		return alloc_int(-1);
@@ -16,7 +16,7 @@ namespace basis
 	DEFINE_PRIM (uitableview_dequeueReusableCellWithIdentifier, 2);
 	value uitableview_dequeueReusableHeaderFooterViewWithIdentifier(value tag, value arg1)
 	{
-		UITableView *view = (UITableView *)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 		id returnVar = (id)[view dequeueReusableHeaderFooterViewWithIdentifier:[NSString stringWithCString:val_string(arg1)encoding:NSUTF8StringEncoding] ];
 		return alloc_int((int)[returnVar tag]);
 	}

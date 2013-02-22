@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIStepper extends UIControl
 {
 
-	 public function new(?type="UIStepper")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIStepper;
 		super(type);
 	}
 
@@ -24,137 +28,117 @@ class UIStepper extends UIControl
 	public var continuous(getContinuous, setContinuous):Bool;
 	private function getContinuous():Bool
 	{
-		return uistepper_getContinuous(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uistepper_getContinuous = Lib.load("basis", "uistepper_getContinuous", 1);
 
 	private function setContinuous(value:Bool):Bool
 	{
-		uistepper_setContinuous(_tag, value);
-		return uistepper_getContinuous(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return continuous;
 	}
-	private static var uistepper_setContinuous = Lib.load("basis", "uistepper_setContinuous", 2);
 
 	public var autorepeat(getAutorepeat, setAutorepeat):Bool;
 	private function getAutorepeat():Bool
 	{
-		return uistepper_getAutorepeat(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autorepeat", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uistepper_getAutorepeat = Lib.load("basis", "uistepper_getAutorepeat", 1);
 
 	private function setAutorepeat(value:Bool):Bool
 	{
-		uistepper_setAutorepeat(_tag, value);
-		return uistepper_getAutorepeat(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutorepeat:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return autorepeat;
 	}
-	private static var uistepper_setAutorepeat = Lib.load("basis", "uistepper_setAutorepeat", 2);
 
 	public var wraps(getWraps, setWraps):Bool;
 	private function getWraps():Bool
 	{
-		return uistepper_getWraps(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "wraps", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uistepper_getWraps = Lib.load("basis", "uistepper_getWraps", 1);
 
 	private function setWraps(value:Bool):Bool
 	{
-		uistepper_setWraps(_tag, value);
-		return uistepper_getWraps(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWraps:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return wraps;
 	}
-	private static var uistepper_setWraps = Lib.load("basis", "uistepper_setWraps", 2);
 
 	public var value(getValue, setValue):Float;
 	private function getValue():Float
 	{
-		return uistepper_getValue(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "value", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uistepper_getValue = Lib.load("basis", "uistepper_getValue", 1);
 
 	private function setValue(value:Float):Float
 	{
-		uistepper_setValue(_tag, value);
-		return uistepper_getValue(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return value;
 	}
-	private static var uistepper_setValue = Lib.load("basis", "uistepper_setValue", 2);
 
 	public var minimumValue(getMinimumValue, setMinimumValue):Float;
 	private function getMinimumValue():Float
 	{
-		return uistepper_getMinimumValue(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumValue", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uistepper_getMinimumValue = Lib.load("basis", "uistepper_getMinimumValue", 1);
 
 	private function setMinimumValue(value:Float):Float
 	{
-		uistepper_setMinimumValue(_tag, value);
-		return uistepper_getMinimumValue(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return minimumValue;
 	}
-	private static var uistepper_setMinimumValue = Lib.load("basis", "uistepper_setMinimumValue", 2);
 
 	public var maximumValue(getMaximumValue, setMaximumValue):Float;
 	private function getMaximumValue():Float
 	{
-		return uistepper_getMaximumValue(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumValue", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uistepper_getMaximumValue = Lib.load("basis", "uistepper_getMaximumValue", 1);
 
 	private function setMaximumValue(value:Float):Float
 	{
-		uistepper_setMaximumValue(_tag, value);
-		return uistepper_getMaximumValue(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return maximumValue;
 	}
-	private static var uistepper_setMaximumValue = Lib.load("basis", "uistepper_setMaximumValue", 2);
 
 	public var stepValue(getStepValue, setStepValue):Float;
 	private function getStepValue():Float
 	{
-		return uistepper_getStepValue(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "stepValue", [], [], ObjectManager.FLOAT_VAL);
 	}
-	private static var uistepper_getStepValue = Lib.load("basis", "uistepper_getStepValue", 1);
 
 	private function setStepValue(value:Float):Float
 	{
-		uistepper_setStepValue(_tag, value);
-		return uistepper_getStepValue(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setStepValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		return stepValue;
 	}
-	private static var uistepper_setStepValue = Lib.load("basis", "uistepper_setStepValue", 2);
 
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return uistepper_getTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uistepper_getTintColor = Lib.load("basis", "uistepper_getTintColor", 1);
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		uistepper_setTintColor(_tag, value);
-		return uistepper_getTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return tintColor;
 	}
-	private static var uistepper_setTintColor = Lib.load("basis", "uistepper_setTintColor", 2);
 
 
 	//Methods
 	public function setDividerImageForLeftSegmentStateRightSegmentState( image:String,  leftState:Int,  rightState:Int):Void
 	{
-		uistepper_setDividerImageForLeftSegmentStateRightSegmentState(_tag, image, leftState, rightState);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDividerImage:forLeftSegmentState:rightSegmentState:", [image, leftState, rightState], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uistepper_setDividerImageForLeftSegmentStateRightSegmentState = Lib.load("basis", "uistepper_setDividerImageForLeftSegmentStateRightSegmentState", 4);
 	public function setIncrementImageForState( image:String,  state:Int):Void
 	{
-		uistepper_setIncrementImageForState(_tag, image, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setIncrementImage:forState:", [image, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uistepper_setIncrementImageForState = Lib.load("basis", "uistepper_setIncrementImageForState", 3);
 	public function setBackgroundImageForState( image:String,  state:Int):Void
 	{
-		uistepper_setBackgroundImageForState(_tag, image, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:", [image, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uistepper_setBackgroundImageForState = Lib.load("basis", "uistepper_setBackgroundImageForState", 3);
 	public function setDecrementImageForState( image:String,  state:Int):Void
 	{
-		uistepper_setDecrementImageForState(_tag, image, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDecrementImage:forState:", [image, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uistepper_setDecrementImageForState = Lib.load("basis", "uistepper_setDecrementImageForState", 3);
 
 
 

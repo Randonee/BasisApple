@@ -3,478 +3,478 @@
 
 namespace basis
 {
-	value uitableview_getStyle(value tag)
+	value uitableview_getStyle(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UITableViewStyle returnVar = (UITableViewStyle)view.style;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UITableViewStyle returnVar = (UITableViewStyle)object.style;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getStyle, 1);
-	value uitableview_getRowHeight(value tag)
+	value uitableview_getRowHeight(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		CGFloat returnVar = (CGFloat)view.rowHeight;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		CGFloat returnVar = (CGFloat)object.rowHeight;
 		return alloc_float(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getRowHeight, 1);
-	void uitableview_setRowHeight(value tag, value arg1)
+	void uitableview_setRowHeight(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.rowHeight = val_float(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.rowHeight = val_float(arg1);
 	}
 	DEFINE_PRIM (uitableview_setRowHeight, 2);
 
 
-	value uitableview_getSectionHeaderHeight(value tag)
+	value uitableview_getSectionHeaderHeight(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		CGFloat returnVar = (CGFloat)view.sectionHeaderHeight;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		CGFloat returnVar = (CGFloat)object.sectionHeaderHeight;
 		return alloc_float(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getSectionHeaderHeight, 1);
-	void uitableview_setSectionHeaderHeight(value tag, value arg1)
+	void uitableview_setSectionHeaderHeight(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.sectionHeaderHeight = val_float(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.sectionHeaderHeight = val_float(arg1);
 	}
 	DEFINE_PRIM (uitableview_setSectionHeaderHeight, 2);
 
 
-	value uitableview_getSectionFooterHeight(value tag)
+	value uitableview_getSectionFooterHeight(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		CGFloat returnVar = (CGFloat)view.sectionFooterHeight;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		CGFloat returnVar = (CGFloat)object.sectionFooterHeight;
 		return alloc_float(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getSectionFooterHeight, 1);
-	void uitableview_setSectionFooterHeight(value tag, value arg1)
+	void uitableview_setSectionFooterHeight(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.sectionFooterHeight = val_float(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.sectionFooterHeight = val_float(arg1);
 	}
 	DEFINE_PRIM (uitableview_setSectionFooterHeight, 2);
 
 
-	value uitableview_getBackgroundView(value tag)
+	value uitableview_getBackgroundView(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)view.backgroundView;
-		return alloc_int(viewVar.tag);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)object.backgroundView;
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:objectVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_getBackgroundView, 1);
-	void uitableview_setBackgroundView(value tag, value arg1)
+	void uitableview_setBackgroundView(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)[[BasisApplication getViewManager] getView:val_int(arg1)];
-		view.backgroundView = viewVar;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding]];
+		object.backgroundView = objectVar;
 	}
 	DEFINE_PRIM (uitableview_setBackgroundView, 2);
 
 
-	value uitableview_getEditing(value tag)
+	value uitableview_getEditing(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.editing;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.editing;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getEditing, 1);
-	void uitableview_setEditing(value tag, value arg1)
+	void uitableview_setEditing(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.editing = val_bool(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.editing = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitableview_setEditing, 2);
 
 
-	value uitableview_getAllowsSelection(value tag)
+	value uitableview_getAllowsSelection(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.allowsSelection;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.allowsSelection;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getAllowsSelection, 1);
-	void uitableview_setAllowsSelection(value tag, value arg1)
+	void uitableview_setAllowsSelection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.allowsSelection = val_bool(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.allowsSelection = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitableview_setAllowsSelection, 2);
 
 
-	value uitableview_getAllowsSelectionDuringEditing(value tag)
+	value uitableview_getAllowsSelectionDuringEditing(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.allowsSelectionDuringEditing;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.allowsSelectionDuringEditing;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getAllowsSelectionDuringEditing, 1);
-	void uitableview_setAllowsSelectionDuringEditing(value tag, value arg1)
+	void uitableview_setAllowsSelectionDuringEditing(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.allowsSelectionDuringEditing = val_bool(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.allowsSelectionDuringEditing = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitableview_setAllowsSelectionDuringEditing, 2);
 
 
-	value uitableview_getAllowsMultipleSelection(value tag)
+	value uitableview_getAllowsMultipleSelection(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.allowsMultipleSelection;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.allowsMultipleSelection;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getAllowsMultipleSelection, 1);
-	void uitableview_setAllowsMultipleSelection(value tag, value arg1)
+	void uitableview_setAllowsMultipleSelection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.allowsMultipleSelection = val_bool(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.allowsMultipleSelection = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitableview_setAllowsMultipleSelection, 2);
 
 
-	value uitableview_getAllowsMultipleSelectionDuringEditing(value tag)
+	value uitableview_getAllowsMultipleSelectionDuringEditing(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.allowsMultipleSelectionDuringEditing;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.allowsMultipleSelectionDuringEditing;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getAllowsMultipleSelectionDuringEditing, 1);
-	void uitableview_setAllowsMultipleSelectionDuringEditing(value tag, value arg1)
+	void uitableview_setAllowsMultipleSelectionDuringEditing(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.allowsMultipleSelectionDuringEditing = val_bool(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.allowsMultipleSelectionDuringEditing = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitableview_setAllowsMultipleSelectionDuringEditing, 2);
 
 
-	value uitableview_getSectionIndexMinimumDisplayRowCount(value tag)
+	value uitableview_getSectionIndexMinimumDisplayRowCount(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSInteger returnVar = (NSInteger)view.sectionIndexMinimumDisplayRowCount;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSInteger returnVar = (NSInteger)object.sectionIndexMinimumDisplayRowCount;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getSectionIndexMinimumDisplayRowCount, 1);
-	void uitableview_setSectionIndexMinimumDisplayRowCount(value tag, value arg1)
+	void uitableview_setSectionIndexMinimumDisplayRowCount(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.sectionIndexMinimumDisplayRowCount = val_int(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.sectionIndexMinimumDisplayRowCount = val_int(arg1);
 	}
 	DEFINE_PRIM (uitableview_setSectionIndexMinimumDisplayRowCount, 2);
 
 
-	value uitableview_getSectionIndexColor(value tag)
+	value uitableview_getSectionIndexColor(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIColor* returnVar = (UIColor*)view.sectionIndexColor;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIColor* returnVar = (UIColor*)object.sectionIndexColor;
 		return cgColorToArray([returnVar CGColor]);
 	}
 	DEFINE_PRIM (uitableview_getSectionIndexColor, 1);
-	void uitableview_setSectionIndexColor(value tag, value arg1)
+	void uitableview_setSectionIndexColor(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.sectionIndexColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.sectionIndexColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
 	}
 	DEFINE_PRIM (uitableview_setSectionIndexColor, 2);
 
 
-	value uitableview_getSectionIndexTrackingBackgroundColor(value tag)
+	value uitableview_getSectionIndexTrackingBackgroundColor(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIColor* returnVar = (UIColor*)view.sectionIndexTrackingBackgroundColor;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIColor* returnVar = (UIColor*)object.sectionIndexTrackingBackgroundColor;
 		return cgColorToArray([returnVar CGColor]);
 	}
 	DEFINE_PRIM (uitableview_getSectionIndexTrackingBackgroundColor, 1);
-	void uitableview_setSectionIndexTrackingBackgroundColor(value tag, value arg1)
+	void uitableview_setSectionIndexTrackingBackgroundColor(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.sectionIndexTrackingBackgroundColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.sectionIndexTrackingBackgroundColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
 	}
 	DEFINE_PRIM (uitableview_setSectionIndexTrackingBackgroundColor, 2);
 
 
-	value uitableview_getSeparatorStyle(value tag)
+	value uitableview_getSeparatorStyle(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UITableViewCellSeparatorStyle returnVar = (UITableViewCellSeparatorStyle)view.separatorStyle;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UITableViewCellSeparatorStyle returnVar = (UITableViewCellSeparatorStyle)object.separatorStyle;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitableview_getSeparatorStyle, 1);
-	void uitableview_setSeparatorStyle(value tag, value arg1)
+	void uitableview_setSeparatorStyle(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.separatorStyle = val_int(arg1);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.separatorStyle = val_int(arg1);
 	}
 	DEFINE_PRIM (uitableview_setSeparatorStyle, 2);
 
 
-	value uitableview_getSeparatorColor(value tag)
+	value uitableview_getSeparatorColor(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIColor* returnVar = (UIColor*)view.separatorColor;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIColor* returnVar = (UIColor*)object.separatorColor;
 		return cgColorToArray([returnVar CGColor]);
 	}
 	DEFINE_PRIM (uitableview_getSeparatorColor, 1);
-	void uitableview_setSeparatorColor(value tag, value arg1)
+	void uitableview_setSeparatorColor(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.separatorColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.separatorColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
 	}
 	DEFINE_PRIM (uitableview_setSeparatorColor, 2);
 
 
-	value uitableview_getTableHeaderView(value tag)
+	value uitableview_getTableHeaderView(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)view.tableHeaderView;
-		return alloc_int(viewVar.tag);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)object.tableHeaderView;
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:objectVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_getTableHeaderView, 1);
-	void uitableview_setTableHeaderView(value tag, value arg1)
+	void uitableview_setTableHeaderView(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)[[BasisApplication getViewManager] getView:val_int(arg1)];
-		view.tableHeaderView = viewVar;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding]];
+		object.tableHeaderView = objectVar;
 	}
 	DEFINE_PRIM (uitableview_setTableHeaderView, 2);
 
 
-	value uitableview_getTableFooterView(value tag)
+	value uitableview_getTableFooterView(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)view.tableFooterView;
-		return alloc_int(viewVar.tag);
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)object.tableFooterView;
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:objectVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_getTableFooterView, 1);
-	void uitableview_setTableFooterView(value tag, value arg1)
+	void uitableview_setTableFooterView(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)[[BasisApplication getViewManager] getView:val_int(arg1)];
-		view.tableFooterView = viewVar;
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding]];
+		object.tableFooterView = objectVar;
 	}
 	DEFINE_PRIM (uitableview_setTableFooterView, 2);
 
 
-	value uitableview_indexPathForRowAtPoint(value tag, value arg1)
+	value uitableview_indexPathForRowAtPoint(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		CGPoint carg1 = arrayToCGPoint(arg1);
-		NSIndexPath* returnVar = [view indexPathForRowAtPoint:carg1 ];
+		NSIndexPath* returnVar = [object indexPathForRowAtPoint:carg1 ];
 		return nsIndexPathToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_indexPathForRowAtPoint, 2);
 
-	value uitableview_rectForHeaderInSection(value tag, value arg1)
+	value uitableview_rectForHeaderInSection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		CGRect returnVar = [view rectForHeaderInSection:carg1 ];
+		CGRect returnVar = [object rectForHeaderInSection:carg1 ];
 		return cgRectToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_rectForHeaderInSection, 2);
 
-	void uitableview_deselectRowAtIndexPathAnimated(value tag, value arg1, value arg2)
+	void uitableview_deselectRowAtIndexPathAnimated(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexPath* carg1 = arrayToNSIndexPath(arg1);
 		BOOL carg2 = val_bool(arg2);
-		[view deselectRowAtIndexPath:carg1 animated:carg2 ];
+		[object deselectRowAtIndexPath:carg1 animated:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_deselectRowAtIndexPathAnimated, 3);
 
-	value uitableview_footerViewForSection(value tag, value arg1)
+	value uitableview_footerViewForSection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		UITableViewHeaderFooterView* returnVar = [view footerViewForSection:carg1 ];
-		return alloc_int(returnVar.tag);
+		UITableViewHeaderFooterView* returnVar = [object footerViewForSection:carg1 ];
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:returnVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_footerViewForSection, 2);
 
-	void uitableview_endUpdates(value tag)
+	void uitableview_endUpdates(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view endUpdates];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object endUpdates];
 	}
 	DEFINE_PRIM (uitableview_endUpdates, 1);
 
-	value uitableview_rectForRowAtIndexPath(value tag, value arg1)
+	value uitableview_rectForRowAtIndexPath(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexPath* carg1 = arrayToNSIndexPath(arg1);
-		CGRect returnVar = [view rectForRowAtIndexPath:carg1 ];
+		CGRect returnVar = [object rectForRowAtIndexPath:carg1 ];
 		return cgRectToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_rectForRowAtIndexPath, 2);
 
-	void uitableview_deleteSectionsWithRowAnimation(value tag, value arg1, value arg2)
+	void uitableview_deleteSectionsWithRowAnimation(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexSet* carg1 = arrayToNSIndexSet(arg1);
 		UITableViewRowAnimation carg2 = val_int(arg2);
-		[view deleteSections:carg1 withRowAnimation:carg2 ];
+		[object deleteSections:carg1 withRowAnimation:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_deleteSectionsWithRowAnimation, 3);
 
-	void uitableview_setEditingAnimated(value tag, value arg1, value arg2)
+	void uitableview_setEditingAnimated(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		BOOL carg1 = val_bool(arg1);
 		BOOL carg2 = val_bool(arg2);
-		[view setEditing:carg1 animated:carg2 ];
+		[object setEditing:carg1 animated:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_setEditingAnimated, 3);
 
-	void uitableview_reloadSectionsWithRowAnimation(value tag, value arg1, value arg2)
+	void uitableview_reloadSectionsWithRowAnimation(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexSet* carg1 = arrayToNSIndexSet(arg1);
 		UITableViewRowAnimation carg2 = val_int(arg2);
-		[view reloadSections:carg1 withRowAnimation:carg2 ];
+		[object reloadSections:carg1 withRowAnimation:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_reloadSectionsWithRowAnimation, 3);
 
-	void uitableview_moveRowAtIndexPathToIndexPath(value tag, value arg1, value arg2)
+	void uitableview_moveRowAtIndexPathToIndexPath(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexPath* carg1 = arrayToNSIndexPath(arg1);
 		NSIndexPath* carg2 = arrayToNSIndexPath(arg2);
-		[view moveRowAtIndexPath:carg1 toIndexPath:carg2 ];
+		[object moveRowAtIndexPath:carg1 toIndexPath:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_moveRowAtIndexPathToIndexPath, 3);
 
-	value uitableview_rectForSection(value tag, value arg1)
+	value uitableview_rectForSection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		CGRect returnVar = [view rectForSection:carg1 ];
+		CGRect returnVar = [object rectForSection:carg1 ];
 		return cgRectToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_rectForSection, 2);
 
-	void uitableview_reloadData(value tag)
+	void uitableview_reloadData(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view reloadData];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object reloadData];
 	}
 	DEFINE_PRIM (uitableview_reloadData, 1);
 
-	value uitableview_cellForRowAtIndexPath(value tag, value arg1)
+	value uitableview_cellForRowAtIndexPath(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexPath* carg1 = arrayToNSIndexPath(arg1);
-		UITableViewCell* returnVar = [view cellForRowAtIndexPath:carg1 ];
-		return alloc_int(returnVar.tag);
+		UITableViewCell* returnVar = [object cellForRowAtIndexPath:carg1 ];
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:returnVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_cellForRowAtIndexPath, 2);
 
-	value uitableview_rectForFooterInSection(value tag, value arg1)
+	value uitableview_rectForFooterInSection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		CGRect returnVar = [view rectForFooterInSection:carg1 ];
+		CGRect returnVar = [object rectForFooterInSection:carg1 ];
 		return cgRectToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_rectForFooterInSection, 2);
 
-	void uitableview_moveSectionToSection(value tag, value arg1, value arg2)
+	void uitableview_moveSectionToSection(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
 		NSInteger carg2 = val_int(arg2);
-		[view moveSection:carg1 toSection:carg2 ];
+		[object moveSection:carg1 toSection:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_moveSectionToSection, 3);
 
-	value uitableview_numberOfRowsInSection(value tag, value arg1)
+	value uitableview_numberOfRowsInSection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		NSInteger returnVar = [view numberOfRowsInSection:carg1 ];
+		NSInteger returnVar = [object numberOfRowsInSection:carg1 ];
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitableview_numberOfRowsInSection, 2);
 
-	void uitableview_scrollToNearestSelectedRowAtScrollPositionAnimated(value tag, value arg1, value arg2)
+	void uitableview_scrollToNearestSelectedRowAtScrollPositionAnimated(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		UITableViewScrollPosition carg1 = val_int(arg1);
 		BOOL carg2 = val_bool(arg2);
-		[view scrollToNearestSelectedRowAtScrollPosition:carg1 animated:carg2 ];
+		[object scrollToNearestSelectedRowAtScrollPosition:carg1 animated:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_scrollToNearestSelectedRowAtScrollPositionAnimated, 3);
 
-	void uitableview_selectRowAtIndexPathAnimatedScrollPosition(value tag, value arg1, value arg2, value arg3)
+	void uitableview_selectRowAtIndexPathAnimatedScrollPosition(value objectID, value arg1, value arg2, value arg3)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexPath* carg1 = arrayToNSIndexPath(arg1);
 		BOOL carg2 = val_bool(arg2);
 		UITableViewScrollPosition carg3 = val_int(arg3);
-		[view selectRowAtIndexPath:carg1 animated:carg2 scrollPosition:carg3 ];
+		[object selectRowAtIndexPath:carg1 animated:carg2 scrollPosition:carg3 ];
 	}
 	DEFINE_PRIM (uitableview_selectRowAtIndexPathAnimatedScrollPosition, 4);
 
-	value uitableview_indexPathForSelectedRow(value tag)
+	value uitableview_indexPathForSelectedRow(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSIndexPath* returnVar = [view indexPathForSelectedRow];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSIndexPath* returnVar = [object indexPathForSelectedRow];
 		return nsIndexPathToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_indexPathForSelectedRow, 1);
 
-	void uitableview_reloadSectionIndexTitles(value tag)
+	void uitableview_reloadSectionIndexTitles(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view reloadSectionIndexTitles];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object reloadSectionIndexTitles];
 	}
 	DEFINE_PRIM (uitableview_reloadSectionIndexTitles, 1);
 
-	value uitableview_numberOfSections(value tag)
+	value uitableview_numberOfSections(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSInteger returnVar = [view numberOfSections];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSInteger returnVar = [object numberOfSections];
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitableview_numberOfSections, 1);
 
-	value uitableview_headerViewForSection(value tag, value arg1)
+	value uitableview_headerViewForSection(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSInteger carg1 = val_int(arg1);
-		UITableViewHeaderFooterView* returnVar = [view headerViewForSection:carg1 ];
-		return alloc_int(returnVar.tag);
+		UITableViewHeaderFooterView* returnVar = [object headerViewForSection:carg1 ];
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:returnVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_headerViewForSection, 2);
 
-	void uitableview_insertSectionsWithRowAnimation(value tag, value arg1, value arg2)
+	void uitableview_insertSectionsWithRowAnimation(value objectID, value arg1, value arg2)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexSet* carg1 = arrayToNSIndexSet(arg1);
 		UITableViewRowAnimation carg2 = val_int(arg2);
-		[view insertSections:carg1 withRowAnimation:carg2 ];
+		[object insertSections:carg1 withRowAnimation:carg2 ];
 	}
 	DEFINE_PRIM (uitableview_insertSectionsWithRowAnimation, 3);
 
-	void uitableview_beginUpdates(value tag)
+	void uitableview_beginUpdates(value objectID)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view beginUpdates];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object beginUpdates];
 	}
 	DEFINE_PRIM (uitableview_beginUpdates, 1);
 
-	void uitableview_scrollToRowAtIndexPathAtScrollPositionAnimated(value tag, value arg1, value arg2, value arg3)
+	void uitableview_scrollToRowAtIndexPathAtScrollPositionAnimated(value objectID, value arg1, value arg2, value arg3)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSIndexPath* carg1 = arrayToNSIndexPath(arg1);
 		UITableViewScrollPosition carg2 = val_int(arg2);
 		BOOL carg3 = val_bool(arg3);
-		[view scrollToRowAtIndexPath:carg1 atScrollPosition:carg2 animated:carg3 ];
+		[object scrollToRowAtIndexPath:carg1 atScrollPosition:carg2 animated:carg3 ];
 	}
 	DEFINE_PRIM (uitableview_scrollToRowAtIndexPathAtScrollPositionAnimated, 4);
 
-	value uitableview_indexPathForCell(value tag, value arg1)
+	value uitableview_indexPathForCell(value objectID, value arg1)
 	{
-		UITableView *view = (UITableView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UITableViewCell* carg1 = (UITableViewCell*)[[BasisApplication getViewManager] getView:val_int(arg1)];
-		NSIndexPath* returnVar = [view indexPathForCell:carg1 ];
+		UITableView *object = (UITableView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UITableViewCell* carg1 = (UITableViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding]];
+		NSIndexPath* returnVar = [object indexPathForCell:carg1 ];
 		return nsIndexPathToArray(returnVar);
 	}
 	DEFINE_PRIM (uitableview_indexPathForCell, 2);

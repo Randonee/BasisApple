@@ -3,71 +3,71 @@
 
 namespace basis
 {
-	value uicollectionviewcell_getContentView(value tag)
+	value uicollectionviewcell_getContentView(value objectID)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)view.contentView;
-		return alloc_int(viewVar.tag);
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)object.contentView;
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:objectVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uicollectionviewcell_getContentView, 1);
-	value uicollectionviewcell_getSelected(value tag)
+	value uicollectionviewcell_getSelected(value objectID)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.selected;
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.selected;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicollectionviewcell_getSelected, 1);
-	void uicollectionviewcell_setSelected(value tag, value arg1)
+	void uicollectionviewcell_setSelected(value objectID, value arg1)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.selected = val_bool(arg1);
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.selected = val_bool(arg1);
 	}
 	DEFINE_PRIM (uicollectionviewcell_setSelected, 2);
 
 
-	value uicollectionviewcell_getHighlighted(value tag)
+	value uicollectionviewcell_getHighlighted(value objectID)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.highlighted;
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.highlighted;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicollectionviewcell_getHighlighted, 1);
-	void uicollectionviewcell_setHighlighted(value tag, value arg1)
+	void uicollectionviewcell_setHighlighted(value objectID, value arg1)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.highlighted = val_bool(arg1);
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.highlighted = val_bool(arg1);
 	}
 	DEFINE_PRIM (uicollectionviewcell_setHighlighted, 2);
 
 
-	value uicollectionviewcell_getBackgroundView(value tag)
+	value uicollectionviewcell_getBackgroundView(value objectID)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)view.backgroundView;
-		return alloc_int(viewVar.tag);
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)object.backgroundView;
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:objectVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uicollectionviewcell_getBackgroundView, 1);
-	void uicollectionviewcell_setBackgroundView(value tag, value arg1)
+	void uicollectionviewcell_setBackgroundView(value objectID, value arg1)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)[[BasisApplication getViewManager] getView:val_int(arg1)];
-		view.backgroundView = viewVar;
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding]];
+		object.backgroundView = objectVar;
 	}
 	DEFINE_PRIM (uicollectionviewcell_setBackgroundView, 2);
 
 
-	value uicollectionviewcell_getSelectedBackgroundView(value tag)
+	value uicollectionviewcell_getSelectedBackgroundView(value objectID)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)view.selectedBackgroundView;
-		return alloc_int(viewVar.tag);
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)object.selectedBackgroundView;
+		return alloc_string([[[BasisApplication getObjectManager] getObjectID:objectVar] cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uicollectionviewcell_getSelectedBackgroundView, 1);
-	void uicollectionviewcell_setSelectedBackgroundView(value tag, value arg1)
+	void uicollectionviewcell_setSelectedBackgroundView(value objectID, value arg1)
 	{
-		UICollectionViewCell *view = (UICollectionViewCell*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIView* viewVar = (UIView*)[[BasisApplication getViewManager] getView:val_int(arg1)];
-		view.selectedBackgroundView = viewVar;
+		UICollectionViewCell *object = (UICollectionViewCell*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIView* objectVar = (UIView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding]];
+		object.selectedBackgroundView = objectVar;
 	}
 	DEFINE_PRIM (uicollectionviewcell_setSelectedBackgroundView, 2);
 

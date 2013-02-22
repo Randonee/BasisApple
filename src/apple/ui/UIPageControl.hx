@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIPageControl extends UIControl
 {
 
-	 public function new(?type="UIPageControl")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIPageControl;
 		super(type);
 	}
 
@@ -24,99 +28,85 @@ class UIPageControl extends UIControl
 	public var numberOfPages(getNumberOfPages, setNumberOfPages):Int;
 	private function getNumberOfPages():Int
 	{
-		return uipagecontrol_getNumberOfPages(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfPages", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uipagecontrol_getNumberOfPages = Lib.load("basis", "uipagecontrol_getNumberOfPages", 1);
 
 	private function setNumberOfPages(value:Int):Int
 	{
-		uipagecontrol_setNumberOfPages(_tag, value);
-		return uipagecontrol_getNumberOfPages(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNumberOfPages:", [value], [ObjectManager.INT_VAL], -1 );
+		return numberOfPages;
 	}
-	private static var uipagecontrol_setNumberOfPages = Lib.load("basis", "uipagecontrol_setNumberOfPages", 2);
 
 	public var currentPage(getCurrentPage, setCurrentPage):Int;
 	private function getCurrentPage():Int
 	{
-		return uipagecontrol_getCurrentPage(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentPage", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uipagecontrol_getCurrentPage = Lib.load("basis", "uipagecontrol_getCurrentPage", 1);
 
 	private function setCurrentPage(value:Int):Int
 	{
-		uipagecontrol_setCurrentPage(_tag, value);
-		return uipagecontrol_getCurrentPage(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCurrentPage:", [value], [ObjectManager.INT_VAL], -1 );
+		return currentPage;
 	}
-	private static var uipagecontrol_setCurrentPage = Lib.load("basis", "uipagecontrol_setCurrentPage", 2);
 
 	public var hidesForSinglePage(getHidesForSinglePage, setHidesForSinglePage):Bool;
 	private function getHidesForSinglePage():Bool
 	{
-		return uipagecontrol_getHidesForSinglePage(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesForSinglePage", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uipagecontrol_getHidesForSinglePage = Lib.load("basis", "uipagecontrol_getHidesForSinglePage", 1);
 
 	private function setHidesForSinglePage(value:Bool):Bool
 	{
-		uipagecontrol_setHidesForSinglePage(_tag, value);
-		return uipagecontrol_getHidesForSinglePage(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesForSinglePage:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return hidesForSinglePage;
 	}
-	private static var uipagecontrol_setHidesForSinglePage = Lib.load("basis", "uipagecontrol_setHidesForSinglePage", 2);
 
 	public var defersCurrentPageDisplay(getDefersCurrentPageDisplay, setDefersCurrentPageDisplay):Bool;
 	private function getDefersCurrentPageDisplay():Bool
 	{
-		return uipagecontrol_getDefersCurrentPageDisplay(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "defersCurrentPageDisplay", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uipagecontrol_getDefersCurrentPageDisplay = Lib.load("basis", "uipagecontrol_getDefersCurrentPageDisplay", 1);
 
 	private function setDefersCurrentPageDisplay(value:Bool):Bool
 	{
-		uipagecontrol_setDefersCurrentPageDisplay(_tag, value);
-		return uipagecontrol_getDefersCurrentPageDisplay(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDefersCurrentPageDisplay:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return defersCurrentPageDisplay;
 	}
-	private static var uipagecontrol_setDefersCurrentPageDisplay = Lib.load("basis", "uipagecontrol_setDefersCurrentPageDisplay", 2);
 
 	public var pageIndicatorTintColor(getPageIndicatorTintColor, setPageIndicatorTintColor):Array<Float>;
 	private function getPageIndicatorTintColor():Array<Float>
 	{
-		return uipagecontrol_getPageIndicatorTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pageIndicatorTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uipagecontrol_getPageIndicatorTintColor = Lib.load("basis", "uipagecontrol_getPageIndicatorTintColor", 1);
 
 	private function setPageIndicatorTintColor(value:Array<Float>):Array<Float>
 	{
-		uipagecontrol_setPageIndicatorTintColor(_tag, value);
-		return uipagecontrol_getPageIndicatorTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPageIndicatorTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return pageIndicatorTintColor;
 	}
-	private static var uipagecontrol_setPageIndicatorTintColor = Lib.load("basis", "uipagecontrol_setPageIndicatorTintColor", 2);
 
 	public var currentPageIndicatorTintColor(getCurrentPageIndicatorTintColor, setCurrentPageIndicatorTintColor):Array<Float>;
 	private function getCurrentPageIndicatorTintColor():Array<Float>
 	{
-		return uipagecontrol_getCurrentPageIndicatorTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentPageIndicatorTintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uipagecontrol_getCurrentPageIndicatorTintColor = Lib.load("basis", "uipagecontrol_getCurrentPageIndicatorTintColor", 1);
 
 	private function setCurrentPageIndicatorTintColor(value:Array<Float>):Array<Float>
 	{
-		uipagecontrol_setCurrentPageIndicatorTintColor(_tag, value);
-		return uipagecontrol_getCurrentPageIndicatorTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCurrentPageIndicatorTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return currentPageIndicatorTintColor;
 	}
-	private static var uipagecontrol_setCurrentPageIndicatorTintColor = Lib.load("basis", "uipagecontrol_setCurrentPageIndicatorTintColor", 2);
 
 
 	//Methods
 	public function sizeForNumberOfPages( pageCount:Int):Array<Float>
 	{
-		return uipagecontrol_sizeForNumberOfPages(_tag, pageCount);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "sizeForNumberOfPages:", [pageCount], [ObjectManager.INT_VAL], ObjectManager.CGSIZE_VAL);
 	}
-	private static var uipagecontrol_sizeForNumberOfPages = Lib.load("basis", "uipagecontrol_sizeForNumberOfPages", 2);
 	public function updateCurrentPageDisplay():Void
 	{
-		uipagecontrol_updateCurrentPageDisplay(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "updateCurrentPageDisplay", [], [], -1);
 	}
-	private static var uipagecontrol_updateCurrentPageDisplay = Lib.load("basis", "uipagecontrol_updateCurrentPageDisplay", 1);
 
 
 

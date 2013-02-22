@@ -198,14 +198,14 @@ _willDisplayHeaderViewHandler = willDisplayHeaderViewHandler;
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
 	value tag = val_call2(_viewForFooterInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
-	UIView *view = (UIView *)[[BasisApplication getViewManager] getView:val_int(tag)];
+	UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 	return view;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
 	value tag = val_call2(_viewForHeaderInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
-	UIView *view = (UIView *)[[BasisApplication getViewManager] getView:val_int(tag)];
+	UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 	return view;
 }
 

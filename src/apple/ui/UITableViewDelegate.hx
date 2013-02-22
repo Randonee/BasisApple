@@ -1,8 +1,8 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.BasisApplication;
+import basis.ViewBase;
 
 class UITableViewDelegate
 {
@@ -38,7 +38,7 @@ class UITableViewDelegate
 	
 	public function addTableView(talbeView:UITableView):Void
 	{
-		cpp_uitableviewdelegate_create(talbeView.tag, [accessoryButtonTappedForRowWithIndexPath,
+		cpp_uitableviewdelegate_create(talbeView.basisID, [accessoryButtonTappedForRowWithIndexPath,
 														didDeselectRowAtIndexPath,
 														didEndDisplayingCell,
 														didEndDisplayingFooterView,
@@ -66,138 +66,138 @@ class UITableViewDelegate
 	private static var cpp_uitableviewdelegate_create = Lib.load("basis", "uitableviewdelegate_create", 2);
 	
 	
-	private function accessoryButtonTappedForRowWithIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function accessoryButtonTappedForRowWithIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(accessoryButtonTappedForRowWithIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			accessoryButtonTappedForRowWithIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
 	//private function canPerformAction(SEL)action forRowAtIndexPath indexPath:Array<Int> withSender:(id)sender
 	
-	private function didDeselectRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function didDeselectRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(didDeselectRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			didDeselectRowAtIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
-	private function didEndDisplayingCell(tableViewTag:Int, cellTag:Int, indexPath:Array<Int>):Void
+	private function didEndDisplayingCell(tableViewID:String, cellID:String, indexPath:Array<Int>):Void
 	{
-		var cell:UITableViewCell = cast(ViewManager.getView(cellTag), UITableViewCell);
+		var cell:UITableViewCell = cast(BasisApplication.instance.objectManager.getObject(cellID), UITableViewCell);
 		if(didEndDisplayingCellHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			didEndDisplayingCellHandler(tableView, cell, indexPath);
 		}
 		cell.destroy();
 	}
 	
-	private function didEndDisplayingFooterView(tableViewTag:Int, viewTag:Int, section:Int):Void
+	private function didEndDisplayingFooterView(tableViewID:String, viewID:String, section:Int):Void
 	{
 		if(didEndDisplayingFooterViewHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
-			var view:UIView = cast(ViewManager.getView(viewTag), UIView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
+			var view:UIView = cast(BasisApplication.instance.objectManager.getObject(viewID), UIView);
 			didEndDisplayingFooterViewHandler(tableView, view, section);
 		}
 	}
 	
-	private function didEndDisplayingHeaderView(tableViewTag:Int, viewTag:Int, section:Int):Void
+	private function didEndDisplayingHeaderView(tableViewID:String, viewID:String, section:Int):Void
 	{
 		if(didEndDisplayingHeaderViewHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
-			var view:UIView = cast(ViewManager.getView(viewTag), UIView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
+			var view:UIView = cast(BasisApplication.instance.objectManager.getObject(viewID), UIView);
 			didEndDisplayingHeaderViewHandler(tableView, view, section);
 		}
 	}
 	
-	private function didEndEditingRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function didEndEditingRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(didEndEditingRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			didEndEditingRowAtIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
-	private function didHighlightRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function didHighlightRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(didHighlightRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			didHighlightRowAtIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
-	private function didSelectRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function didSelectRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(didSelectRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			didSelectRowAtIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
-	private function didUnhighlightRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function didUnhighlightRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(didUnhighlightRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			didUnhighlightRowAtIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
-	private function editingStyleForRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Int
+	private function editingStyleForRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Int
 	{
 		if(editingStyleForRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return editingStyleForRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return UITableViewCell.UITableViewCellStyleDefault;
 	}
 	
-	private function heightForFooterInSection(tableViewTag:Int, section:Int):Float
+	private function heightForFooterInSection(tableViewID:String, section:Int):Float
 	{
 		if(heightForFooterInSectionHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return heightForFooterInSectionHandler(tableView, section);
 		}
 		return -1.0;
 	}
 	
-	private function heightForHeaderInSection(tableViewTag:Int, section:Int):Float
+	private function heightForHeaderInSection(tableViewID:String, section:Int):Float
 	{
 		if(heightForHeaderInSectionHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return heightForHeaderInSectionHandler(tableView, section);
 		}
 		return -1.0;
 	}
 	
-	private function heightForRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Float
+	private function heightForRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Float
 	{
 		if(heightForRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return heightForRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return -1.0;
 	}
 	
-	private function indentationLevelForRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Int
+	private function indentationLevelForRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Int
 	{
 		if(indentationLevelForRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return indentationLevelForRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return 0;
@@ -207,111 +207,111 @@ class UITableViewDelegate
 	//{
 	//}
 	
-	private function shouldHighlightRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Bool
+	private function shouldHighlightRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Bool
 	{
 		if(shouldHighlightRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return shouldHighlightRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return true;
 	}
 	
-	private function shouldIndentWhileEditingRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Bool
+	private function shouldIndentWhileEditingRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Bool
 	{
 		if(shouldIndentWhileEditingRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return shouldIndentWhileEditingRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return true;
 	}
 	
-	private function shouldShowMenuForRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Bool
+	private function shouldShowMenuForRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Bool
 	{
 		if(shouldShowMenuForRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return shouldShowMenuForRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return true;
 	}
 	
-//	private function targetIndexPathForMoveFromRowAtIndexPath(tableViewTag:Int, sourceIndexPath:Array<Int>, proposedDestinationIndexPath:Array<Int>):Array<Int>
+//	private function targetIndexPathForMoveFromRowAtIndexPath(tableViewID:String, sourceIndexPath:Array<Int>, proposedDestinationIndexPath:Array<Int>):Array<Int>
 //	{
 //	}
 	
-	private function titleForDeleteConfirmationButtonForRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):String
+	private function titleForDeleteConfirmationButtonForRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):String
 	{
 		if(titleForDeleteConfirmationButtonForRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return titleForDeleteConfirmationButtonForRowAtIndexPathHandler(tableView, indexPath);
 		}
 		return "Delete";
 	}
 	
-	private function viewForFooterInSection(tableViewTag:Int, section:Int):Int
+	private function viewForFooterInSection(tableViewID:String, section:Int):String
 	{
 		if(viewForFooterInSectionHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			var view:UIView = viewForFooterInSectionHandler(tableView, section);
-			return view.tag;
+			return view.basisID;
 		}
-		return -1;
+		return null;
 	}
 	
-	private function viewForHeaderInSection(tableViewTag:Int, section:Int):Int
+	private function viewForHeaderInSection(tableViewID:String, section:Int):String
 	{
 		if(viewForHeaderInSectionHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			var view:UIView = viewForHeaderInSectionHandler(tableView, section);
-			return view.tag;
+			return view.basisID;
 		}
-		return -1;
+		return null;
 	}
 	
-	private function willBeginEditingRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):Void
+	private function willBeginEditingRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(willBeginEditingRowAtIndexPathHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			willBeginEditingRowAtIndexPathHandler(tableView, indexPath);
 		}
 	}
 	
-//	private function willDeselectRowAtIndexPath(tableViewTag:Int, indexPath:Array<Int>):indexPath:Array<Int>
+//	private function willDeselectRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):indexPath:Array<Int>
 //	{
 //	}
 	
-	private function willDisplayCell(tableViewTag:Int, cellTag:Int, indexPath:Array<Int>):Void
+	private function willDisplayCell(tableViewID:String, cellID:String, indexPath:Array<Int>):Void
 	{
 		if(willDisplayCellHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
-			var cell:UITableViewCell = cast(ViewManager.getView(cellTag), UITableViewCell);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
+			var cell:UITableViewCell = cast(BasisApplication.instance.objectManager.getObject(cellID), UITableViewCell);
 			willDisplayCellHandler(tableView, cell, indexPath);
 		}
 	}
 	
-	private function willDisplayFooterView(tableViewTag:Int, viewTag:Int, section:Int):Void
+	private function willDisplayFooterView(tableViewID:String, viewID:String, section:Int):Void
 	{
 		if(willDisplayFooterViewHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
-			var view:UIView = cast(ViewManager.getView(viewTag), UIView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
+			var view:UIView = cast(BasisApplication.instance.objectManager.getObject(viewID), UIView);
 			willDisplayFooterViewHandler(tableView, view, section);
 		}
 	}
 	
-	private function willDisplayHeaderView(tableViewTag:Int, viewTag:Int, section:Int):Void
+	private function willDisplayHeaderView(tableViewID:String, viewID:String, section:Int):Void
 	{
 		if(willDisplayHeaderViewHandler != null)
 		{
-			var tableView:UITableView = cast(ViewManager.getView(tableViewTag), UITableView);
-			var view:UIView = cast(ViewManager.getView(viewTag), UIView);
+			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
+			var view:UIView = cast(BasisApplication.instance.objectManager.getObject(viewID), UIView);
 			willDisplayHeaderViewHandler(tableView, view, section);
 		}
 	}

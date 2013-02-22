@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UISearchBar extends UIView
 {
 
-	 public function new(?type="UISearchBar")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UISearchBar;
 		super(type);
 	}
 
@@ -24,310 +28,265 @@ class UISearchBar extends UIView
 	public var barStyle(getBarStyle, setBarStyle):Int;
 	private function getBarStyle():Int
 	{
-		return uisearchbar_getBarStyle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "barStyle", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisearchbar_getBarStyle = Lib.load("basis", "uisearchbar_getBarStyle", 1);
 
 	private function setBarStyle(value:Int):Int
 	{
-		uisearchbar_setBarStyle(_tag, value);
-		return uisearchbar_getBarStyle(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [ObjectManager.INT_VAL], -1 );
+		return barStyle;
 	}
-	private static var uisearchbar_setBarStyle = Lib.load("basis", "uisearchbar_setBarStyle", 2);
 
 	public var text(getText, setText):String;
 	private function getText():String
 	{
-		return uisearchbar_getText(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "text", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uisearchbar_getText = Lib.load("basis", "uisearchbar_getText", 1);
 
 	private function setText(value:String):String
 	{
-		uisearchbar_setText(_tag, value);
-		return uisearchbar_getText(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setText:", [value], [ObjectManager.STRING_VAL], -1 );
+		return text;
 	}
-	private static var uisearchbar_setText = Lib.load("basis", "uisearchbar_setText", 2);
 
 	public var prompt(getPrompt, setPrompt):String;
 	private function getPrompt():String
 	{
-		return uisearchbar_getPrompt(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "prompt", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uisearchbar_getPrompt = Lib.load("basis", "uisearchbar_getPrompt", 1);
 
 	private function setPrompt(value:String):String
 	{
-		uisearchbar_setPrompt(_tag, value);
-		return uisearchbar_getPrompt(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPrompt:", [value], [ObjectManager.STRING_VAL], -1 );
+		return prompt;
 	}
-	private static var uisearchbar_setPrompt = Lib.load("basis", "uisearchbar_setPrompt", 2);
 
 	public var placeholder(getPlaceholder, setPlaceholder):String;
 	private function getPlaceholder():String
 	{
-		return uisearchbar_getPlaceholder(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "placeholder", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uisearchbar_getPlaceholder = Lib.load("basis", "uisearchbar_getPlaceholder", 1);
 
 	private function setPlaceholder(value:String):String
 	{
-		uisearchbar_setPlaceholder(_tag, value);
-		return uisearchbar_getPlaceholder(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPlaceholder:", [value], [ObjectManager.STRING_VAL], -1 );
+		return placeholder;
 	}
-	private static var uisearchbar_setPlaceholder = Lib.load("basis", "uisearchbar_setPlaceholder", 2);
 
 	public var showsBookmarkButton(getShowsBookmarkButton, setShowsBookmarkButton):Bool;
 	private function getShowsBookmarkButton():Bool
 	{
-		return uisearchbar_getShowsBookmarkButton(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsBookmarkButton", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getShowsBookmarkButton = Lib.load("basis", "uisearchbar_getShowsBookmarkButton", 1);
 
 	private function setShowsBookmarkButton(value:Bool):Bool
 	{
-		uisearchbar_setShowsBookmarkButton(_tag, value);
-		return uisearchbar_getShowsBookmarkButton(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsBookmarkButton:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return showsBookmarkButton;
 	}
-	private static var uisearchbar_setShowsBookmarkButton = Lib.load("basis", "uisearchbar_setShowsBookmarkButton", 2);
 
 	public var showsCancelButton(getShowsCancelButton, setShowsCancelButton):Bool;
 	private function getShowsCancelButton():Bool
 	{
-		return uisearchbar_getShowsCancelButton(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsCancelButton", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getShowsCancelButton = Lib.load("basis", "uisearchbar_getShowsCancelButton", 1);
 
 	private function setShowsCancelButton(value:Bool):Bool
 	{
-		uisearchbar_setShowsCancelButton(_tag, value);
-		return uisearchbar_getShowsCancelButton(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return showsCancelButton;
 	}
-	private static var uisearchbar_setShowsCancelButton = Lib.load("basis", "uisearchbar_setShowsCancelButton", 2);
 
 	public var showsSearchResultsButton(getShowsSearchResultsButton, setShowsSearchResultsButton):Bool;
 	private function getShowsSearchResultsButton():Bool
 	{
-		return uisearchbar_getShowsSearchResultsButton(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSearchResultsButton", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getShowsSearchResultsButton = Lib.load("basis", "uisearchbar_getShowsSearchResultsButton", 1);
 
 	private function setShowsSearchResultsButton(value:Bool):Bool
 	{
-		uisearchbar_setShowsSearchResultsButton(_tag, value);
-		return uisearchbar_getShowsSearchResultsButton(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSearchResultsButton:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return showsSearchResultsButton;
 	}
-	private static var uisearchbar_setShowsSearchResultsButton = Lib.load("basis", "uisearchbar_setShowsSearchResultsButton", 2);
 
 	public var searchResultsButtonSelected(getSearchResultsButtonSelected, setSearchResultsButtonSelected):Bool;
 	private function getSearchResultsButtonSelected():Bool
 	{
-		return uisearchbar_getSearchResultsButtonSelected(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsButtonSelected", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getSearchResultsButtonSelected = Lib.load("basis", "uisearchbar_getSearchResultsButtonSelected", 1);
 
 	private function setSearchResultsButtonSelected(value:Bool):Bool
 	{
-		uisearchbar_setSearchResultsButtonSelected(_tag, value);
-		return uisearchbar_getSearchResultsButtonSelected(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchResultsButtonSelected:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return searchResultsButtonSelected;
 	}
-	private static var uisearchbar_setSearchResultsButtonSelected = Lib.load("basis", "uisearchbar_setSearchResultsButtonSelected", 2);
 
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return uisearchbar_getTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uisearchbar_getTintColor = Lib.load("basis", "uisearchbar_getTintColor", 1);
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		uisearchbar_setTintColor(_tag, value);
-		return uisearchbar_getTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return tintColor;
 	}
-	private static var uisearchbar_setTintColor = Lib.load("basis", "uisearchbar_setTintColor", 2);
 
 	public var translucent(getTranslucent, setTranslucent):Bool;
 	private function getTranslucent():Bool
 	{
-		return uisearchbar_getTranslucent(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getTranslucent = Lib.load("basis", "uisearchbar_getTranslucent", 1);
 
 	private function setTranslucent(value:Bool):Bool
 	{
-		uisearchbar_setTranslucent(_tag, value);
-		return uisearchbar_getTranslucent(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return translucent;
 	}
-	private static var uisearchbar_setTranslucent = Lib.load("basis", "uisearchbar_setTranslucent", 2);
 
 	public var autocapitalizationType(getAutocapitalizationType, setAutocapitalizationType):Int;
 	private function getAutocapitalizationType():Int
 	{
-		return uisearchbar_getAutocapitalizationType(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autocapitalizationType", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisearchbar_getAutocapitalizationType = Lib.load("basis", "uisearchbar_getAutocapitalizationType", 1);
 
 	private function setAutocapitalizationType(value:Int):Int
 	{
-		uisearchbar_setAutocapitalizationType(_tag, value);
-		return uisearchbar_getAutocapitalizationType(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutocapitalizationType:", [value], [ObjectManager.INT_VAL], -1 );
+		return autocapitalizationType;
 	}
-	private static var uisearchbar_setAutocapitalizationType = Lib.load("basis", "uisearchbar_setAutocapitalizationType", 2);
 
 	public var autocorrectionType(getAutocorrectionType, setAutocorrectionType):Int;
 	private function getAutocorrectionType():Int
 	{
-		return uisearchbar_getAutocorrectionType(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autocorrectionType", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisearchbar_getAutocorrectionType = Lib.load("basis", "uisearchbar_getAutocorrectionType", 1);
 
 	private function setAutocorrectionType(value:Int):Int
 	{
-		uisearchbar_setAutocorrectionType(_tag, value);
-		return uisearchbar_getAutocorrectionType(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutocorrectionType:", [value], [ObjectManager.INT_VAL], -1 );
+		return autocorrectionType;
 	}
-	private static var uisearchbar_setAutocorrectionType = Lib.load("basis", "uisearchbar_setAutocorrectionType", 2);
 
 	public var spellCheckingType(getSpellCheckingType, setSpellCheckingType):Int;
 	private function getSpellCheckingType():Int
 	{
-		return uisearchbar_getSpellCheckingType(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "spellCheckingType", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisearchbar_getSpellCheckingType = Lib.load("basis", "uisearchbar_getSpellCheckingType", 1);
 
 	private function setSpellCheckingType(value:Int):Int
 	{
-		uisearchbar_setSpellCheckingType(_tag, value);
-		return uisearchbar_getSpellCheckingType(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSpellCheckingType:", [value], [ObjectManager.INT_VAL], -1 );
+		return spellCheckingType;
 	}
-	private static var uisearchbar_setSpellCheckingType = Lib.load("basis", "uisearchbar_setSpellCheckingType", 2);
 
 	public var keyboardType(getKeyboardType, setKeyboardType):Int;
 	private function getKeyboardType():Int
 	{
-		return uisearchbar_getKeyboardType(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyboardType", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisearchbar_getKeyboardType = Lib.load("basis", "uisearchbar_getKeyboardType", 1);
 
 	private function setKeyboardType(value:Int):Int
 	{
-		uisearchbar_setKeyboardType(_tag, value);
-		return uisearchbar_getKeyboardType(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyboardType:", [value], [ObjectManager.INT_VAL], -1 );
+		return keyboardType;
 	}
-	private static var uisearchbar_setKeyboardType = Lib.load("basis", "uisearchbar_setKeyboardType", 2);
 
 	public var selectedScopeButtonIndex(getSelectedScopeButtonIndex, setSelectedScopeButtonIndex):Int;
 	private function getSelectedScopeButtonIndex():Int
 	{
-		return uisearchbar_getSelectedScopeButtonIndex(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedScopeButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uisearchbar_getSelectedScopeButtonIndex = Lib.load("basis", "uisearchbar_getSelectedScopeButtonIndex", 1);
 
 	private function setSelectedScopeButtonIndex(value:Int):Int
 	{
-		uisearchbar_setSelectedScopeButtonIndex(_tag, value);
-		return uisearchbar_getSelectedScopeButtonIndex(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedScopeButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
+		return selectedScopeButtonIndex;
 	}
-	private static var uisearchbar_setSelectedScopeButtonIndex = Lib.load("basis", "uisearchbar_setSelectedScopeButtonIndex", 2);
 
 	public var showsScopeBar(getShowsScopeBar, setShowsScopeBar):Bool;
 	private function getShowsScopeBar():Bool
 	{
-		return uisearchbar_getShowsScopeBar(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsScopeBar", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getShowsScopeBar = Lib.load("basis", "uisearchbar_getShowsScopeBar", 1);
 
 	private function setShowsScopeBar(value:Bool):Bool
 	{
-		uisearchbar_setShowsScopeBar(_tag, value);
-		return uisearchbar_getShowsScopeBar(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsScopeBar:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return showsScopeBar;
 	}
-	private static var uisearchbar_setShowsScopeBar = Lib.load("basis", "uisearchbar_setShowsScopeBar", 2);
 
 	public var backgroundImage(null, setBackgroundImage):String;
 
 	private function setBackgroundImage(value:String):String
 	{
-		uisearchbar_setBackgroundImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uisearchbar_setBackgroundImage = Lib.load("basis", "uisearchbar_setBackgroundImage", 2);
 
 	public var scopeBarBackgroundImage(null, setScopeBarBackgroundImage):String;
 
 	private function setScopeBarBackgroundImage(value:String):String
 	{
-		uisearchbar_setScopeBarBackgroundImage(_tag, value);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
-	private static var uisearchbar_setScopeBarBackgroundImage = Lib.load("basis", "uisearchbar_setScopeBarBackgroundImage", 2);
 
 	public var searchFieldBackgroundPositionAdjustment(getSearchFieldBackgroundPositionAdjustment, setSearchFieldBackgroundPositionAdjustment):Array<Int>;
 	private function getSearchFieldBackgroundPositionAdjustment():Array<Int>
 	{
-		return uisearchbar_getSearchFieldBackgroundPositionAdjustment(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchFieldBackgroundPositionAdjustment", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getSearchFieldBackgroundPositionAdjustment = Lib.load("basis", "uisearchbar_getSearchFieldBackgroundPositionAdjustment", 1);
 
 	private function setSearchFieldBackgroundPositionAdjustment(value:Array<Int>):Array<Int>
 	{
-		uisearchbar_setSearchFieldBackgroundPositionAdjustment(_tag, value);
-		return uisearchbar_getSearchFieldBackgroundPositionAdjustment(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchFieldBackgroundPositionAdjustment:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return searchFieldBackgroundPositionAdjustment;
 	}
-	private static var uisearchbar_setSearchFieldBackgroundPositionAdjustment = Lib.load("basis", "uisearchbar_setSearchFieldBackgroundPositionAdjustment", 2);
 
 	public var searchTextPositionAdjustment(getSearchTextPositionAdjustment, setSearchTextPositionAdjustment):Array<Int>;
 	private function getSearchTextPositionAdjustment():Array<Int>
 	{
-		return uisearchbar_getSearchTextPositionAdjustment(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchTextPositionAdjustment", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_getSearchTextPositionAdjustment = Lib.load("basis", "uisearchbar_getSearchTextPositionAdjustment", 1);
 
 	private function setSearchTextPositionAdjustment(value:Array<Int>):Array<Int>
 	{
-		uisearchbar_setSearchTextPositionAdjustment(_tag, value);
-		return uisearchbar_getSearchTextPositionAdjustment(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchTextPositionAdjustment:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return searchTextPositionAdjustment;
 	}
-	private static var uisearchbar_setSearchTextPositionAdjustment = Lib.load("basis", "uisearchbar_setSearchTextPositionAdjustment", 2);
 
 
 	//Methods
 	public function setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState( dividerImage:String,  leftState:Int,  rightState:Int):Void
 	{
-		uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState(_tag, dividerImage, leftState, rightState);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:", [dividerImage, leftState, rightState], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState = Lib.load("basis", "uisearchbar_setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState", 4);
 	public function setPositionAdjustmentForSearchBarIcon( adjustment:Array<Int>,  icon:Int):Void
 	{
-		uisearchbar_setPositionAdjustmentForSearchBarIcon(_tag, adjustment, icon);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPositionAdjustment:forSearchBarIcon:", [adjustment, icon], [ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisearchbar_setPositionAdjustmentForSearchBarIcon = Lib.load("basis", "uisearchbar_setPositionAdjustmentForSearchBarIcon", 3);
 	public function setShowsCancelButtonAnimated( showsCancelButton:Bool,  animated:Bool):Void
 	{
-		uisearchbar_setShowsCancelButtonAnimated(_tag, showsCancelButton, animated);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:animated:", [showsCancelButton, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
 	}
-	private static var uisearchbar_setShowsCancelButtonAnimated = Lib.load("basis", "uisearchbar_setShowsCancelButtonAnimated", 3);
 	public function setImageForSearchBarIconState( iconImage:String,  icon:Int,  state:Int):Void
 	{
-		uisearchbar_setImageForSearchBarIconState(_tag, iconImage, icon, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forSearchBarIcon:state:", [iconImage, icon, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisearchbar_setImageForSearchBarIconState = Lib.load("basis", "uisearchbar_setImageForSearchBarIconState", 4);
 	public function setScopeBarButtonBackgroundImageForState( backgroundImage:String,  state:Int):Void
 	{
-		uisearchbar_setScopeBarButtonBackgroundImageForState(_tag, backgroundImage, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarButtonBackgroundImage:forState:", [backgroundImage, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisearchbar_setScopeBarButtonBackgroundImageForState = Lib.load("basis", "uisearchbar_setScopeBarButtonBackgroundImageForState", 3);
 	public function positionAdjustmentForSearchBarIcon( icon:Int):Array<Int>
 	{
-		return uisearchbar_positionAdjustmentForSearchBarIcon(_tag, icon);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "positionAdjustmentForSearchBarIcon:", [icon], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
 	}
-	private static var uisearchbar_positionAdjustmentForSearchBarIcon = Lib.load("basis", "uisearchbar_positionAdjustmentForSearchBarIcon", 2);
 	public function setSearchFieldBackgroundImageForState( backgroundImage:String,  state:Int):Void
 	{
-		uisearchbar_setSearchFieldBackgroundImageForState(_tag, backgroundImage, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchFieldBackgroundImage:forState:", [backgroundImage, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uisearchbar_setSearchFieldBackgroundImageForState = Lib.load("basis", "uisearchbar_setSearchFieldBackgroundImageForState", 3);
 
 
 	public static inline var UISearchBarIconSearch:Int = 0;

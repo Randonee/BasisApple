@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIRefreshControl extends UIControl
 {
 
-	 public function new(?type="UIRefreshControl")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIRefreshControl;
 		super(type);
 	}
 
@@ -24,36 +28,31 @@ class UIRefreshControl extends UIControl
 	public var refreshing(getRefreshing, null):Bool;
 	private function getRefreshing():Bool
 	{
-		return uirefreshcontrol_getRefreshing(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "refreshing", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uirefreshcontrol_getRefreshing = Lib.load("basis", "uirefreshcontrol_getRefreshing", 1);
 
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return uirefreshcontrol_getTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uirefreshcontrol_getTintColor = Lib.load("basis", "uirefreshcontrol_getTintColor", 1);
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		uirefreshcontrol_setTintColor(_tag, value);
-		return uirefreshcontrol_getTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return tintColor;
 	}
-	private static var uirefreshcontrol_setTintColor = Lib.load("basis", "uirefreshcontrol_setTintColor", 2);
 
 
 	//Methods
 	public function beginRefreshing():Void
 	{
-		uirefreshcontrol_beginRefreshing(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "beginRefreshing", [], [], -1);
 	}
-	private static var uirefreshcontrol_beginRefreshing = Lib.load("basis", "uirefreshcontrol_beginRefreshing", 1);
 	public function endRefreshing():Void
 	{
-		uirefreshcontrol_endRefreshing(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "endRefreshing", [], [], -1);
 	}
-	private static var uirefreshcontrol_endRefreshing = Lib.load("basis", "uirefreshcontrol_endRefreshing", 1);
 
 
 

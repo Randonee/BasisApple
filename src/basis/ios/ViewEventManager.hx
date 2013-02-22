@@ -1,6 +1,6 @@
 package basis.ios;
 
-import basis.ios.ViewBase;
+import basis.ViewBase;
 
 typedef BasisEventListener =
 {

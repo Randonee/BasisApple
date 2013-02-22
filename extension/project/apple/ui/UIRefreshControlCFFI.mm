@@ -3,39 +3,39 @@
 
 namespace basis
 {
-	value uirefreshcontrol_getRefreshing(value tag)
+	value uirefreshcontrol_getRefreshing(value objectID)
 	{
-		UIRefreshControl *view = (UIRefreshControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.refreshing;
+		UIRefreshControl *object = (UIRefreshControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.refreshing;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uirefreshcontrol_getRefreshing, 1);
-	value uirefreshcontrol_getTintColor(value tag)
+	value uirefreshcontrol_getTintColor(value objectID)
 	{
-		UIRefreshControl *view = (UIRefreshControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIColor* returnVar = (UIColor*)view.tintColor;
+		UIRefreshControl *object = (UIRefreshControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIColor* returnVar = (UIColor*)object.tintColor;
 		return cgColorToArray([returnVar CGColor]);
 	}
 	DEFINE_PRIM (uirefreshcontrol_getTintColor, 1);
-	void uirefreshcontrol_setTintColor(value tag, value arg1)
+	void uirefreshcontrol_setTintColor(value objectID, value arg1)
 	{
-		UIRefreshControl *view = (UIRefreshControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.tintColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
+		UIRefreshControl *object = (UIRefreshControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.tintColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
 	}
 	DEFINE_PRIM (uirefreshcontrol_setTintColor, 2);
 
 
-	void uirefreshcontrol_beginRefreshing(value tag)
+	void uirefreshcontrol_beginRefreshing(value objectID)
 	{
-		UIRefreshControl *view = (UIRefreshControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view beginRefreshing];
+		UIRefreshControl *object = (UIRefreshControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object beginRefreshing];
 	}
 	DEFINE_PRIM (uirefreshcontrol_beginRefreshing, 1);
 
-	void uirefreshcontrol_endRefreshing(value tag)
+	void uirefreshcontrol_endRefreshing(value objectID)
 	{
-		UIRefreshControl *view = (UIRefreshControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		[view endRefreshing];
+		UIRefreshControl *object = (UIRefreshControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		[object endRefreshing];
 	}
 	DEFINE_PRIM (uirefreshcontrol_endRefreshing, 1);
 

@@ -3,138 +3,138 @@
 
 namespace basis
 {
-	value uitextview_getText(value tag)
+	value uitextview_getText(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSString* returnVar = (NSString*)view.text;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSString* returnVar = (NSString*)object.text;
 		return alloc_string([returnVar cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitextview_getText, 1);
-	void uitextview_setText(value tag, value arg1)
+	void uitextview_setText(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.text = [NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding];
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.text = [NSString stringWithCString:val_string(arg1) encoding:NSUTF8StringEncoding];
 	}
 	DEFINE_PRIM (uitextview_setText, 2);
 
 
-	value uitextview_getTextColor(value tag)
+	value uitextview_getTextColor(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIColor* returnVar = (UIColor*)view.textColor;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIColor* returnVar = (UIColor*)object.textColor;
 		return cgColorToArray([returnVar CGColor]);
 	}
 	DEFINE_PRIM (uitextview_getTextColor, 1);
-	void uitextview_setTextColor(value tag, value arg1)
+	void uitextview_setTextColor(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.textColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.textColor = [UIColor colorWithCGColor:arrayToCGColor(arg1)];
 	}
 	DEFINE_PRIM (uitextview_setTextColor, 2);
 
 
-	value uitextview_getTextAlignment(value tag)
+	value uitextview_getTextAlignment(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSTextAlignment returnVar = (NSTextAlignment)view.textAlignment;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSTextAlignment returnVar = (NSTextAlignment)object.textAlignment;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitextview_getTextAlignment, 1);
-	void uitextview_setTextAlignment(value tag, value arg1)
+	void uitextview_setTextAlignment(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.textAlignment = val_int(arg1);
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.textAlignment = val_int(arg1);
 	}
 	DEFINE_PRIM (uitextview_setTextAlignment, 2);
 
 
-	value uitextview_getSelectedRange(value tag)
+	value uitextview_getSelectedRange(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		NSRange returnVar = (NSRange)view.selectedRange;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		NSRange returnVar = (NSRange)object.selectedRange;
 		return nsRangeToArray(returnVar);
 	}
 	DEFINE_PRIM (uitextview_getSelectedRange, 1);
-	void uitextview_setSelectedRange(value tag, value arg1)
+	void uitextview_setSelectedRange(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.selectedRange = arrayToNSRange(arg1);
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.selectedRange = arrayToNSRange(arg1);
 	}
 	DEFINE_PRIM (uitextview_setSelectedRange, 2);
 
 
-	value uitextview_getEditable(value tag)
+	value uitextview_getEditable(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.editable;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.editable;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitextview_getEditable, 1);
-	void uitextview_setEditable(value tag, value arg1)
+	void uitextview_setEditable(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.editable = val_bool(arg1);
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.editable = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitextview_setEditable, 2);
 
 
-	value uitextview_getDataDetectorTypes(value tag)
+	value uitextview_getDataDetectorTypes(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIDataDetectorTypes returnVar = (UIDataDetectorTypes)view.dataDetectorTypes;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIDataDetectorTypes returnVar = (UIDataDetectorTypes)object.dataDetectorTypes;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uitextview_getDataDetectorTypes, 1);
-	void uitextview_setDataDetectorTypes(value tag, value arg1)
+	void uitextview_setDataDetectorTypes(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.dataDetectorTypes = val_int(arg1);
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.dataDetectorTypes = val_int(arg1);
 	}
 	DEFINE_PRIM (uitextview_setDataDetectorTypes, 2);
 
 
-	value uitextview_getAllowsEditingTextAttributes(value tag)
+	value uitextview_getAllowsEditingTextAttributes(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.allowsEditingTextAttributes;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.allowsEditingTextAttributes;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitextview_getAllowsEditingTextAttributes, 1);
-	void uitextview_setAllowsEditingTextAttributes(value tag, value arg1)
+	void uitextview_setAllowsEditingTextAttributes(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.allowsEditingTextAttributes = val_bool(arg1);
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.allowsEditingTextAttributes = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitextview_setAllowsEditingTextAttributes, 2);
 
 
-	value uitextview_getClearsOnInsertion(value tag)
+	value uitextview_getClearsOnInsertion(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.clearsOnInsertion;
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.clearsOnInsertion;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitextview_getClearsOnInsertion, 1);
-	void uitextview_setClearsOnInsertion(value tag, value arg1)
+	void uitextview_setClearsOnInsertion(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.clearsOnInsertion = val_bool(arg1);
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.clearsOnInsertion = val_bool(arg1);
 	}
 	DEFINE_PRIM (uitextview_setClearsOnInsertion, 2);
 
 
-	void uitextview_scrollRangeToVisible(value tag, value arg1)
+	void uitextview_scrollRangeToVisible(value objectID, value arg1)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		NSRange carg1 = arrayToNSRange(arg1);
-		[view scrollRangeToVisible:carg1 ];
+		[object scrollRangeToVisible:carg1 ];
 	}
 	DEFINE_PRIM (uitextview_scrollRangeToVisible, 2);
 
-	value uitextview_hasText(value tag)
+	value uitextview_hasText(value objectID)
 	{
-		UITextView *view = (UITextView*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = [view hasText];
+		UITextView *object = (UITextView*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = [object hasText];
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uitextview_hasText, 1);

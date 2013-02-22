@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIButton extends UIControl
 {
 
-	 public function new(?type="UIButton")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIButton;
 		super(type);
 	}
 
@@ -24,142 +28,122 @@ class UIButton extends UIControl
 	public var contentEdgeInsets(getContentEdgeInsets, setContentEdgeInsets):Array<Float>;
 	private function getContentEdgeInsets():Array<Float>
 	{
-		return uibutton_getContentEdgeInsets(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentEdgeInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
-	private static var uibutton_getContentEdgeInsets = Lib.load("basis", "uibutton_getContentEdgeInsets", 1);
 
 	private function setContentEdgeInsets(value:Array<Float>):Array<Float>
 	{
-		uibutton_setContentEdgeInsets(_tag, value);
-		return uibutton_getContentEdgeInsets(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentEdgeInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
+		return contentEdgeInsets;
 	}
-	private static var uibutton_setContentEdgeInsets = Lib.load("basis", "uibutton_setContentEdgeInsets", 2);
 
 	public var titleEdgeInsets(getTitleEdgeInsets, setTitleEdgeInsets):Array<Float>;
 	private function getTitleEdgeInsets():Array<Float>
 	{
-		return uibutton_getTitleEdgeInsets(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleEdgeInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
-	private static var uibutton_getTitleEdgeInsets = Lib.load("basis", "uibutton_getTitleEdgeInsets", 1);
 
 	private function setTitleEdgeInsets(value:Array<Float>):Array<Float>
 	{
-		uibutton_setTitleEdgeInsets(_tag, value);
-		return uibutton_getTitleEdgeInsets(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleEdgeInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
+		return titleEdgeInsets;
 	}
-	private static var uibutton_setTitleEdgeInsets = Lib.load("basis", "uibutton_setTitleEdgeInsets", 2);
 
 	public var reversesTitleShadowWhenHighlighted(getReversesTitleShadowWhenHighlighted, setReversesTitleShadowWhenHighlighted):Bool;
 	private function getReversesTitleShadowWhenHighlighted():Bool
 	{
-		return uibutton_getReversesTitleShadowWhenHighlighted(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reversesTitleShadowWhenHighlighted", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uibutton_getReversesTitleShadowWhenHighlighted = Lib.load("basis", "uibutton_getReversesTitleShadowWhenHighlighted", 1);
 
 	private function setReversesTitleShadowWhenHighlighted(value:Bool):Bool
 	{
-		uibutton_setReversesTitleShadowWhenHighlighted(_tag, value);
-		return uibutton_getReversesTitleShadowWhenHighlighted(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setReversesTitleShadowWhenHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return reversesTitleShadowWhenHighlighted;
 	}
-	private static var uibutton_setReversesTitleShadowWhenHighlighted = Lib.load("basis", "uibutton_setReversesTitleShadowWhenHighlighted", 2);
 
 	public var imageEdgeInsets(getImageEdgeInsets, setImageEdgeInsets):Array<Float>;
 	private function getImageEdgeInsets():Array<Float>
 	{
-		return uibutton_getImageEdgeInsets(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageEdgeInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
-	private static var uibutton_getImageEdgeInsets = Lib.load("basis", "uibutton_getImageEdgeInsets", 1);
 
 	private function setImageEdgeInsets(value:Array<Float>):Array<Float>
 	{
-		uibutton_setImageEdgeInsets(_tag, value);
-		return uibutton_getImageEdgeInsets(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImageEdgeInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
+		return imageEdgeInsets;
 	}
-	private static var uibutton_setImageEdgeInsets = Lib.load("basis", "uibutton_setImageEdgeInsets", 2);
 
 	public var adjustsImageWhenHighlighted(getAdjustsImageWhenHighlighted, setAdjustsImageWhenHighlighted):Bool;
 	private function getAdjustsImageWhenHighlighted():Bool
 	{
-		return uibutton_getAdjustsImageWhenHighlighted(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenHighlighted", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uibutton_getAdjustsImageWhenHighlighted = Lib.load("basis", "uibutton_getAdjustsImageWhenHighlighted", 1);
 
 	private function setAdjustsImageWhenHighlighted(value:Bool):Bool
 	{
-		uibutton_setAdjustsImageWhenHighlighted(_tag, value);
-		return uibutton_getAdjustsImageWhenHighlighted(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return adjustsImageWhenHighlighted;
 	}
-	private static var uibutton_setAdjustsImageWhenHighlighted = Lib.load("basis", "uibutton_setAdjustsImageWhenHighlighted", 2);
 
 	public var adjustsImageWhenDisabled(getAdjustsImageWhenDisabled, setAdjustsImageWhenDisabled):Bool;
 	private function getAdjustsImageWhenDisabled():Bool
 	{
-		return uibutton_getAdjustsImageWhenDisabled(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenDisabled", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uibutton_getAdjustsImageWhenDisabled = Lib.load("basis", "uibutton_getAdjustsImageWhenDisabled", 1);
 
 	private function setAdjustsImageWhenDisabled(value:Bool):Bool
 	{
-		uibutton_setAdjustsImageWhenDisabled(_tag, value);
-		return uibutton_getAdjustsImageWhenDisabled(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenDisabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return adjustsImageWhenDisabled;
 	}
-	private static var uibutton_setAdjustsImageWhenDisabled = Lib.load("basis", "uibutton_setAdjustsImageWhenDisabled", 2);
 
 	public var showsTouchWhenHighlighted(getShowsTouchWhenHighlighted, setShowsTouchWhenHighlighted):Bool;
 	private function getShowsTouchWhenHighlighted():Bool
 	{
-		return uibutton_getShowsTouchWhenHighlighted(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsTouchWhenHighlighted", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uibutton_getShowsTouchWhenHighlighted = Lib.load("basis", "uibutton_getShowsTouchWhenHighlighted", 1);
 
 	private function setShowsTouchWhenHighlighted(value:Bool):Bool
 	{
-		uibutton_setShowsTouchWhenHighlighted(_tag, value);
-		return uibutton_getShowsTouchWhenHighlighted(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsTouchWhenHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return showsTouchWhenHighlighted;
 	}
-	private static var uibutton_setShowsTouchWhenHighlighted = Lib.load("basis", "uibutton_setShowsTouchWhenHighlighted", 2);
 
 	public var tintColor(getTintColor, setTintColor):Array<Float>;
 	private function getTintColor():Array<Float>
 	{
-		return uibutton_getTintColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uibutton_getTintColor = Lib.load("basis", "uibutton_getTintColor", 1);
 
 	private function setTintColor(value:Array<Float>):Array<Float>
 	{
-		uibutton_setTintColor(_tag, value);
-		return uibutton_getTintColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return tintColor;
 	}
-	private static var uibutton_setTintColor = Lib.load("basis", "uibutton_setTintColor", 2);
 
 	public var buttonType(getButtonType, null):Int;
 	private function getButtonType():Int
 	{
-		return uibutton_getButtonType(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "buttonType", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uibutton_getButtonType = Lib.load("basis", "uibutton_getButtonType", 1);
 
 	public var currentTitle(getCurrentTitle, null):String;
 	private function getCurrentTitle():String
 	{
-		return uibutton_getCurrentTitle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitle", [], [], ObjectManager.STRING_VAL);
 	}
-	private static var uibutton_getCurrentTitle = Lib.load("basis", "uibutton_getCurrentTitle", 1);
 
 	public var currentTitleColor(getCurrentTitleColor, null):Array<Float>;
 	private function getCurrentTitleColor():Array<Float>
 	{
-		return uibutton_getCurrentTitleColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uibutton_getCurrentTitleColor = Lib.load("basis", "uibutton_getCurrentTitleColor", 1);
 
 	public var currentTitleShadowColor(getCurrentTitleShadowColor, null):Array<Float>;
 	private function getCurrentTitleShadowColor():Array<Float>
 	{
-		return uibutton_getCurrentTitleShadowColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleShadowColor", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uibutton_getCurrentTitleShadowColor = Lib.load("basis", "uibutton_getCurrentTitleShadowColor", 1);
 
 	public var currentImage(null, null):String;
 
@@ -168,81 +152,65 @@ class UIButton extends UIControl
 	public var titleLabel(getTitleLabel, null):UILabel;
 	private function getTitleLabel():UILabel
 	{
-		var viewTag:Int = uibutton_getTitleLabel(_tag);
-		return cast(ViewManager.getView(viewTag), UILabel);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleLabel", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uibutton_getTitleLabel = Lib.load("basis", "uibutton_getTitleLabel", 1);
 
 	public var imageView(getImageView, null):UIImageView;
 	private function getImageView():UIImageView
 	{
-		var viewTag:Int = uibutton_getImageView(_tag);
-		return cast(ViewManager.getView(viewTag), UIImageView);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageView", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uibutton_getImageView = Lib.load("basis", "uibutton_getImageView", 1);
 
 
 	//Methods
 	public function setTitleColorForState( color:Array<Float>,  state:Int):Void
 	{
-		uibutton_setTitleColorForState(_tag, color, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleColor:forState:", [color, state], [ObjectManager.CGCOLORREF_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uibutton_setTitleColorForState = Lib.load("basis", "uibutton_setTitleColorForState", 3);
 	public function setTitleShadowColorForState( color:Array<Float>,  state:Int):Void
 	{
-		uibutton_setTitleShadowColorForState(_tag, color, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleShadowColor:forState:", [color, state], [ObjectManager.CGCOLORREF_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uibutton_setTitleShadowColorForState = Lib.load("basis", "uibutton_setTitleShadowColorForState", 3);
 	public function contentRectForBounds( bounds:Array<Float>):Array<Float>
 	{
-		return uibutton_contentRectForBounds(_tag, bounds);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentRectForBounds:", [bounds], [ObjectManager.CGRECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uibutton_contentRectForBounds = Lib.load("basis", "uibutton_contentRectForBounds", 2);
 	public function setBackgroundImageForState( image:String,  state:Int):Void
 	{
-		uibutton_setBackgroundImageForState(_tag, image, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:", [image, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uibutton_setBackgroundImageForState = Lib.load("basis", "uibutton_setBackgroundImageForState", 3);
 	public function titleShadowColorForState( state:Int):Array<Float>
 	{
-		return uibutton_titleShadowColorForState(_tag, state);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleShadowColorForState:", [state], [ObjectManager.INT_VAL], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uibutton_titleShadowColorForState = Lib.load("basis", "uibutton_titleShadowColorForState", 2);
 	public function setTitleForState( title:String,  state:Int):Void
 	{
-		uibutton_setTitleForState(_tag, title, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:forState:", [title, state], [ObjectManager.STRING_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uibutton_setTitleForState = Lib.load("basis", "uibutton_setTitleForState", 3);
 	public function setImageForState( image:String,  state:Int):Void
 	{
-		uibutton_setImageForState(_tag, image, state);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forState:", [image, state], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
 	}
-	private static var uibutton_setImageForState = Lib.load("basis", "uibutton_setImageForState", 3);
 	public function titleColorForState( state:Int):Array<Float>
 	{
-		return uibutton_titleColorForState(_tag, state);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleColorForState:", [state], [ObjectManager.INT_VAL], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uibutton_titleColorForState = Lib.load("basis", "uibutton_titleColorForState", 2);
 	public function backgroundRectForBounds( bounds:Array<Float>):Array<Float>
 	{
-		return uibutton_backgroundRectForBounds(_tag, bounds);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundRectForBounds:", [bounds], [ObjectManager.CGRECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uibutton_backgroundRectForBounds = Lib.load("basis", "uibutton_backgroundRectForBounds", 2);
 	public function imageRectForContentRect( contentRect:Array<Float>):Array<Float>
 	{
-		return uibutton_imageRectForContentRect(_tag, contentRect);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageRectForContentRect:", [contentRect], [ObjectManager.CGRECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uibutton_imageRectForContentRect = Lib.load("basis", "uibutton_imageRectForContentRect", 2);
 	public function titleForState( state:Int):String
 	{
-		return uibutton_titleForState(_tag, state);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleForState:", [state], [ObjectManager.INT_VAL], ObjectManager.STRING_VAL);
 	}
-	private static var uibutton_titleForState = Lib.load("basis", "uibutton_titleForState", 2);
 	public function titleRectForContentRect( contentRect:Array<Float>):Array<Float>
 	{
-		return uibutton_titleRectForContentRect(_tag, contentRect);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleRectForContentRect:", [contentRect], [ObjectManager.CGRECT_VAL], ObjectManager.CGRECT_VAL);
 	}
-	private static var uibutton_titleRectForContentRect = Lib.load("basis", "uibutton_titleRectForContentRect", 2);
 
 
 	public static inline var UIButtonTypeCustom:Int = 0;

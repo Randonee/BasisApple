@@ -4,17 +4,21 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.ios.ViewManager;
-import basis.ios.ViewBase;
+import basis.object.ObjectManager;
+import basis.object.IObject;
+import basis.ViewBase;
 import apple.appkit.NSText;
 import apple.appkit.NSParagraphStyle;
 import apple.ui.UIkit;
+import basis.BasisApplication;
 
 class UIActivityIndicatorView extends UIView
 {
 
-	 public function new(?type="UIActivityIndicatorView")
+	public function new(?type:Class<IObject>=null)
 	{
+		if(type == null)
+			type = UIActivityIndicatorView;
 		super(type);
 	}
 
@@ -24,62 +28,53 @@ class UIActivityIndicatorView extends UIView
 	public var activityIndicatorViewStyle(getActivityIndicatorViewStyle, setActivityIndicatorViewStyle):Int;
 	private function getActivityIndicatorViewStyle():Int
 	{
-		return uiactivityindicatorview_getActivityIndicatorViewStyle(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "activityIndicatorViewStyle", [], [], ObjectManager.INT_VAL);
 	}
-	private static var uiactivityindicatorview_getActivityIndicatorViewStyle = Lib.load("basis", "uiactivityindicatorview_getActivityIndicatorViewStyle", 1);
 
 	private function setActivityIndicatorViewStyle(value:Int):Int
 	{
-		uiactivityindicatorview_setActivityIndicatorViewStyle(_tag, value);
-		return uiactivityindicatorview_getActivityIndicatorViewStyle(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActivityIndicatorViewStyle:", [value], [ObjectManager.INT_VAL], -1 );
+		return activityIndicatorViewStyle;
 	}
-	private static var uiactivityindicatorview_setActivityIndicatorViewStyle = Lib.load("basis", "uiactivityindicatorview_setActivityIndicatorViewStyle", 2);
 
 	public var hidesWhenStopped(getHidesWhenStopped, setHidesWhenStopped):Bool;
 	private function getHidesWhenStopped():Bool
 	{
-		return uiactivityindicatorview_getHidesWhenStopped(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesWhenStopped", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiactivityindicatorview_getHidesWhenStopped = Lib.load("basis", "uiactivityindicatorview_getHidesWhenStopped", 1);
 
 	private function setHidesWhenStopped(value:Bool):Bool
 	{
-		uiactivityindicatorview_setHidesWhenStopped(_tag, value);
-		return uiactivityindicatorview_getHidesWhenStopped(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesWhenStopped:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		return hidesWhenStopped;
 	}
-	private static var uiactivityindicatorview_setHidesWhenStopped = Lib.load("basis", "uiactivityindicatorview_setHidesWhenStopped", 2);
 
 	public var color(getColor, setColor):Array<Float>;
 	private function getColor():Array<Float>
 	{
-		return uiactivityindicatorview_getColor(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "color", [], [], ObjectManager.CGCOLORREF_VAL);
 	}
-	private static var uiactivityindicatorview_getColor = Lib.load("basis", "uiactivityindicatorview_getColor", 1);
 
 	private function setColor(value:Array<Float>):Array<Float>
 	{
-		uiactivityindicatorview_setColor(_tag, value);
-		return uiactivityindicatorview_getColor(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setColor:", [value], [ObjectManager.CGCOLORREF_VAL], -1 );
+		return color;
 	}
-	private static var uiactivityindicatorview_setColor = Lib.load("basis", "uiactivityindicatorview_setColor", 2);
 
 
 	//Methods
 	public function stopAnimating():Void
 	{
-		uiactivityindicatorview_stopAnimating(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "stopAnimating", [], [], -1);
 	}
-	private static var uiactivityindicatorview_stopAnimating = Lib.load("basis", "uiactivityindicatorview_stopAnimating", 1);
 	public function startAnimating():Void
 	{
-		uiactivityindicatorview_startAnimating(_tag);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "startAnimating", [], [], -1);
 	}
-	private static var uiactivityindicatorview_startAnimating = Lib.load("basis", "uiactivityindicatorview_startAnimating", 1);
 	public function isAnimating():Bool
 	{
-		return uiactivityindicatorview_isAnimating(_tag);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isAnimating", [], [], ObjectManager.OBJECT_VAL);
 	}
-	private static var uiactivityindicatorview_isAnimating = Lib.load("basis", "uiactivityindicatorview_isAnimating", 1);
 
 
 	public static inline var UIActivityIndicatorViewStyleWhiteLarge:Int = 0;

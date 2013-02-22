@@ -3,114 +3,114 @@
 
 namespace basis
 {
-	value uicontrol_getEnabled(value tag)
+	value uicontrol_getEnabled(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.enabled;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.enabled;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getEnabled, 1);
-	void uicontrol_setEnabled(value tag, value arg1)
+	void uicontrol_setEnabled(value objectID, value arg1)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.enabled = val_bool(arg1);
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.enabled = val_bool(arg1);
 	}
 	DEFINE_PRIM (uicontrol_setEnabled, 2);
 
 
-	value uicontrol_getSelected(value tag)
+	value uicontrol_getSelected(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.selected;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.selected;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getSelected, 1);
-	void uicontrol_setSelected(value tag, value arg1)
+	void uicontrol_setSelected(value objectID, value arg1)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.selected = val_bool(arg1);
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.selected = val_bool(arg1);
 	}
 	DEFINE_PRIM (uicontrol_setSelected, 2);
 
 
-	value uicontrol_getHighlighted(value tag)
+	value uicontrol_getHighlighted(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.highlighted;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.highlighted;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getHighlighted, 1);
-	void uicontrol_setHighlighted(value tag, value arg1)
+	void uicontrol_setHighlighted(value objectID, value arg1)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.highlighted = val_bool(arg1);
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.highlighted = val_bool(arg1);
 	}
 	DEFINE_PRIM (uicontrol_setHighlighted, 2);
 
 
-	value uicontrol_getContentVerticalAlignment(value tag)
+	value uicontrol_getContentVerticalAlignment(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIControlContentVerticalAlignment returnVar = (UIControlContentVerticalAlignment)view.contentVerticalAlignment;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIControlContentVerticalAlignment returnVar = (UIControlContentVerticalAlignment)object.contentVerticalAlignment;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getContentVerticalAlignment, 1);
-	void uicontrol_setContentVerticalAlignment(value tag, value arg1)
+	void uicontrol_setContentVerticalAlignment(value objectID, value arg1)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.contentVerticalAlignment = val_int(arg1);
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.contentVerticalAlignment = val_int(arg1);
 	}
 	DEFINE_PRIM (uicontrol_setContentVerticalAlignment, 2);
 
 
-	value uicontrol_getContentHorizontalAlignment(value tag)
+	value uicontrol_getContentHorizontalAlignment(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIControlContentHorizontalAlignment returnVar = (UIControlContentHorizontalAlignment)view.contentHorizontalAlignment;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIControlContentHorizontalAlignment returnVar = (UIControlContentHorizontalAlignment)object.contentHorizontalAlignment;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getContentHorizontalAlignment, 1);
-	void uicontrol_setContentHorizontalAlignment(value tag, value arg1)
+	void uicontrol_setContentHorizontalAlignment(value objectID, value arg1)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		view.contentHorizontalAlignment = val_int(arg1);
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		object.contentHorizontalAlignment = val_int(arg1);
 	}
 	DEFINE_PRIM (uicontrol_setContentHorizontalAlignment, 2);
 
 
-	value uicontrol_getState(value tag)
+	value uicontrol_getState(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIControlState returnVar = (UIControlState)view.state;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIControlState returnVar = (UIControlState)object.state;
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getState, 1);
-	value uicontrol_getTracking(value tag)
+	value uicontrol_getTracking(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.tracking;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.tracking;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getTracking, 1);
-	value uicontrol_getTouchInside(value tag)
+	value uicontrol_getTouchInside(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		BOOL returnVar = (BOOL)view.touchInside;
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		BOOL returnVar = (BOOL)object.touchInside;
 		return alloc_bool(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_getTouchInside, 1);
-	void uicontrol_sendActionsForControlEvents(value tag, value arg1)
+	void uicontrol_sendActionsForControlEvents(value objectID, value arg1)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 		UIControlEvents carg1 = val_int(arg1);
-		[view sendActionsForControlEvents:carg1 ];
+		[object sendActionsForControlEvents:carg1 ];
 	}
 	DEFINE_PRIM (uicontrol_sendActionsForControlEvents, 2);
 
-	value uicontrol_allControlEvents(value tag)
+	value uicontrol_allControlEvents(value objectID)
 	{
-		UIControl *view = (UIControl*)[[BasisApplication getViewManager] getView:val_int(tag)];
-		UIControlEvents returnVar = [view allControlEvents];
+		UIControl *object = (UIControl*)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+		UIControlEvents returnVar = [object allControlEvents];
 		return alloc_int(returnVar);
 	}
 	DEFINE_PRIM (uicontrol_allControlEvents, 1);

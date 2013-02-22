@@ -88,7 +88,7 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	value tag = val_call2(_cellForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
-	UITableViewCell *cell = (UITableViewCell *)[[BasisApplication getViewManager] getView:val_int(tag)];
+	UITableViewCell *cell = (UITableViewCell *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
 	return cell;
 }
 
