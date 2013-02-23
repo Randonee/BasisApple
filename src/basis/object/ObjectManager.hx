@@ -109,8 +109,8 @@ class ObjectManager
 	
 	public function destroyObject(object:IObject):String
 	{
-		objectmanager_destroyObject();
-		_objects.set(Std.string(object.basisID), object);
+		objectmanager_destroyObject(object.basisID);
+		_objects.remove(object.basisID);
 		return object.basisID;
 	}
 	private static var objectmanager_destroyObject = Lib.load ("basis", "objectmanager_destroyObject", 1);

@@ -111,7 +111,7 @@ class MainView extends UIView
 		addSubview(_webView);
 		
 		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
-		_animateButton.frame = [400.0,70,100,30];
+		_animateButton.frame = [380.0,70,150,30];
 		_animateButton.setTitleForState("Animate Button", UIControl.UIControlStateNormal);
 		_animateButton.setTitleColorForState([0.0, 0, 0, 1], UIControl.UIControlStateNormal);
 		_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
@@ -176,6 +176,7 @@ class MainView extends UIView
 	        cell = new UITableViewCell();
 	    }
 	    cell.textLabel.textColor = [0.0, 0, 0, 1];
+	    cell.backgroundColor = [0.0, 0, 0, 1];
 		cell.textLabel.text = _tableCellLabels[indexPath[1]];
 		return cell;
 	}
