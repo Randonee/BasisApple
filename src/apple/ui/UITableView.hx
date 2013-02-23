@@ -15,12 +15,26 @@ import basis.BasisApplication;
 class UITableView extends UIScrollView
 {
 
+	//------ Added NOT GENERATED ------
+
+	public var dataSource(default, null):UITableViewDataSource;
+	public var delegate(default, null):UITableViewDelegate;
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = UITableView;
+			
 		super(type);
+		
+		dataSource = new UITableViewDataSource();
+		dataSource.addTableView(this);
+
+		delegate = new UITableViewDelegate();
+		delegate.addTableView(this);
 	}
+
+	// ---------------------------------
 
 	//Constants
 	//static public inline var UITableViewAutomaticDimension:Float;

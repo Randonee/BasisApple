@@ -88,6 +88,7 @@ class UITableViewDataSource
 	{
 		if(cellForRowAtIndexPathHandler != null)
 		{
+			var obj:Dynamic = BasisApplication.instance.objectManager.getObject(tableViewID);
 			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			var cell:UITableViewCell = cellForRowAtIndexPathHandler(tableView, indexPath);
 			return cell.basisID;

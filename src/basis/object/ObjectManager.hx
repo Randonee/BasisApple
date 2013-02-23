@@ -31,7 +31,13 @@ class ObjectManager
 	{
 		_classTypes = new Hash<Class<Dynamic>>();
 		_objects = new Hash<IObject>();
+		
+		objectmanager_setHaxeCreateObjectHandler(cffi_addObject);
+		objectmanager_setDestroyObjectHandler(cffi_destroyObject);
 	}
+	
+	private static var objectmanager_setHaxeCreateObjectHandler = Lib.load ("basis", "objectmanager_setHaxeCreateObjectHandler", 1);
+	private static var objectmanager_setDestroyObjectHandler = Lib.load ("basis", "objectmanager_setDestroyObjectHandler", 1);
 	
 	
 	public function getObject(objectID:String):IObject

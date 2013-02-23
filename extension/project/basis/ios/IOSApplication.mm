@@ -92,6 +92,12 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self.eventManager selector:@selector(onUITextFieldTextDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:view];
 		[[NSNotificationCenter defaultCenter] addObserver:self.eventManager selector:@selector(onUITextFieldTextDidEndEditingNotification:) name:UITextFieldTextDidEndEditingNotification object:view];
 	}
+	
+	if([object isKindOfClass:[UITableViewCell class]])
+	{
+		[self.objectManager addObject:((UITableViewCell *)object).textLabel];
+		[self.objectManager createHaxeObject:((UITableViewCell *)object).textLabel];
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

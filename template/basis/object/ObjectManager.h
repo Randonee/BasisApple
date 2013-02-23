@@ -13,14 +13,18 @@
 
 +(NSString*) getObjectID:(id)object;
 
+-(void)setHaxeCreateObjectHandler:(void (*)(id)) handler;
+-(void)setHaxeDestroyObjectHandler:(void (*)(id)) handler;
 -(void)setDelegate:(NSObject <ObjectManagerDelegateProtocol>*)delegate;
 -(NSString *) getObjCClassName:(NSString *)haxeName;
+-(NSString *) getHaxeClassName:(NSString *)objcClassName;
 -(id) callMethod:(id)object :(NSString *)selectorString :(NSArray *)args :(BOOL)isObject;
 -(void) addClass:(NSString *) haxeName :(NSString *) objcName;
 -(id) getObject:(NSString *) objectID;
 -(NSString *) addObject:(NSObject*)object;
 -(NSString *) createObjectWithClassName:(NSString*)haxeClassName;
 -(void) destroyObject:(NSString *) objectID;
--(void) destroyCFFIObject:(id) object;
+-(void) destroyHaxeObject:(id) object;
+-(void) createHaxeObject:(id) object;
 	
 @end

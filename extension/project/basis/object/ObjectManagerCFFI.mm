@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "basis/BasisApplication.h"
+#import <objc/runtime.h>
 
 enum ARG_TYPES
 {
@@ -29,6 +30,11 @@ namespace basis
 	value getCallMethodReturnValue(id returnVar, int returnType);
 	BOOL isTypeObject(int type);
 	NSMutableArray* getMethodArgs(value args, value argTypes);
+	void objectManagerCreateHaxeObjectHandler(id object);
+    void objectManagerDestroyHaxeObjectHandler(id object);
+	
+	AutoGCRoot *_haxeCreateObjectHandler;
+	AutoGCRoot *_haxeDestroyObjectHandler;
 
     value objectmanager_createObject(value type)
     {
@@ -348,18 +354,31 @@ namespace basis
     	return isObject;
     }
     
-    /*
-    void objectmanager_setCFFICreateViewHandler(value handler)
+    void objectmanager_setHaxeCreateObjectHandler(value handler)
     {
-    	[[BasisApplication getObjectManager] setCFFICreateViewHandler: new AutoGCRoot(handler)];
+    	_haxeCreateObjectHandler = new AutoGCRoot(handler);
+    	[[BasisApplication getObjectManager] setHaxeCreateObjectHandler:&objectManagerCreateHaxeObjectHandler ];
     }
-    DEFINE_PRIM (objectmanager_setCFFICreateViewHandler, 1);
+    DEFINE_PRIM (objectmanager_setHaxeCreateObjectHandler, 1);
     
     
-    void objectmanager_setCFFIDestroyViewHandler(value handler)
+    void objectmanager_setDestroyObjectHandler(value handler)
     {
-    	[[BasisApplication getObjectManager] setCFFIDestroyViewHandler: new AutoGCRoot(handler)];
+    	_haxeDestroyObjectHandler = new AutoGCRoot(handler);
+    	[[BasisApplication getObjectManager] setHaxeDestroyObjectHandler: &objectManagerDestroyHaxeObjectHandler];
     }
-    DEFINE_PRIM (objectmanager_setCFFIDestroyViewHandler, 1);
-    */
+    DEFINE_PRIM (objectmanager_setDestroyObjectHandler, 1);
+    
+    
+    void objectManagerCreateHaxeObjectHandler(id object)
+    {
+    	NSString *haxeClassName = [[BasisApplication getObjectManager] getHaxeClassName: [NSString stringWithCString:class_getName([object class]) encoding:NSUTF8StringEncoding]];
+    	val_call2(_haxeCreateObjectHandler->get(), alloc_string([[ObjectManager getObjectID:object] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([haxeClassName cStringUsingEncoding:NSUTF8StringEncoding]));
+    }
+    
+    void objectManagerDestroyHaxeObjectHandler(id object)
+    {
+    	val_call1(_haxeDestroyObjectHandler->get(), alloc_string([[ObjectManager getObjectID:object] cStringUsingEncoding:NSUTF8StringEncoding]) );
+    }
+    
 }

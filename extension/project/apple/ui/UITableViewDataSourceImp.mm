@@ -16,8 +16,6 @@ AutoGCRoot *_titleForFooterInSectionHandler;
 AutoGCRoot *_titleForHeaderInSectionHandler;
 
 
-
-
 - (id) init
 {
 	self = [super init];
@@ -65,7 +63,8 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *) tableView
 {
-	value num = val_call1(_numberOfSectionsInTableViewHandler->get(), alloc_int(tableView.tag));
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value num = val_call1(_numberOfSectionsInTableViewHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
 	return val_int(num);
 }
 
@@ -76,7 +75,8 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value val = val_call2(_canEditRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value val = val_call2(_canEditRowAtIndexPathHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_bool(val);
 }
 
@@ -87,8 +87,9 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value tag = val_call2(_cellForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
-	UITableViewCell *cell = (UITableViewCell *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value cellID = val_call2(_cellForRowAtIndexPathHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
+	UITableViewCell *cell = (UITableViewCell *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(cellID) encoding:NSUTF8StringEncoding]];
 	return cell;
 }
 
@@ -102,7 +103,8 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	value num = val_call1(_numberOfRowsInSectionHandler->get(), alloc_int(tableView.tag));
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value num = val_call1(_numberOfRowsInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
 	return val_int(num);
 }
 
@@ -113,13 +115,15 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-	value str = val_call2(_titleForFooterInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value str = val_call2(_titleForFooterInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 	return [NSString stringWithCString:val_string(str)encoding:NSUTF8StringEncoding];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	value str = val_call1(_numberOfRowsInSectionHandler->get(), alloc_int(tableView.tag));
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value str = val_call1(_numberOfRowsInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
 	return [NSString stringWithCString:val_string(str)encoding:NSUTF8StringEncoding];
 }
 

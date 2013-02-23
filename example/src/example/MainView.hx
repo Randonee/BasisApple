@@ -87,7 +87,7 @@ class MainView extends UIView
 		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
 		
-/*		_tableCellLabels = [];
+		_tableCellLabels = [];
 		for(a in 1...101)
 			_tableCellLabels.push("Cell Label " + Std.string(a));
 		
@@ -104,7 +104,7 @@ class MainView extends UIView
 		addSubview(_tableEventLabel);
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 270, 150, 30];
-		*/
+		
 		_webView = new UIWebView();
 		_webView.frame = [0.0, 520, 700, 500];
 		_webView.loadRequest("http://haxe.org");
@@ -121,7 +121,6 @@ class MainView extends UIView
 		_haxeImage.image = IOSUtil.getAssetPath("haxe.png");
 		_haxeImage.frame = [400.0, 120, 100, 100];
 		addSubview(_haxeImage);
-		
 	}
 	
 	private function onBarItemClick(item:UIBarButtonItem):Void
@@ -171,14 +170,14 @@ class MainView extends UIView
 	
 	private function cellForRowAtIndexPath(tableView:UITableView, indexPath:Array<Int>):UITableViewCell
 	{
-	/*	var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableCell");
+		var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableCell");
 	    if (cell == null)
 	    {
 	        cell = new UITableViewCell();
 	    }
-	    
-	   cell.textLabel.text = _tableCellLabels[indexPath[1]];*/
-		return null;
+	    cell.textLabel.textColor = [0.0, 0, 0, 1];
+		cell.textLabel.text = _tableCellLabels[indexPath[1]];
+		return cell;
 	}
 	
 	

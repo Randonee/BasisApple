@@ -5,6 +5,9 @@
 NSMutableDictionary *_objects;
 NSMutableDictionary *_classTypes;
 
+void (*_createHaxeObjectFunction)(id);
+void (*_destroyHaxeObjectFunction)(id);
+
 - (id) init
 {
 	self = [super init];
@@ -23,6 +26,16 @@ NSMutableDictionary *_classTypes;
     return [NSString stringWithFormat:@"%zx", (size_t)object];
 }
 
+-(void)setHaxeCreateObjectHandler:(void (*)(id)) handler
+{
+	_createHaxeObjectFunction = handler;
+}
+
+-(void)setHaxeDestroyObjectHandler:(void (*)(id)) handler
+{
+    _destroyHaxeObjectFunction = handler;
+}
+
 -(void)setDelegate:(NSObject <ObjectManagerDelegateProtocol>*)delegate;
 {
 	_delegate = delegate;
@@ -37,6 +50,11 @@ NSMutableDictionary *_classTypes;
 -(NSString *) getObjCClassName:(NSString *)haxeName
 {
 	return [_classTypes objectForKey:haxeName];
+}
+
+-(NSString *) getHaxeClassName:(NSString *)objcClassName
+{
+	return [_classTypes objectForKey:objcClassName];
 }
 
 -(id) getObject:(NSString *) objectID
@@ -127,13 +145,18 @@ NSMutableDictionary *_classTypes;
 	if(_delegate != nil)
 		[_delegate objectBeingDestroyed:object];
 	
-	[self destroyCFFIObject:object];
 }
 
--(void) destroyCFFIObject:(id) object
+-(void) destroyHaxeObject:(id) object
 {
+    if(_destroyHaxeObjectFunction != nil)
+        _destroyHaxeObjectFunction(object);
 }
 
-
+-(void) createHaxeObject:(id) object
+{
+    if(_createHaxeObjectFunction != nil)
+        _createHaxeObjectFunction(object);
+}
 
 @end
