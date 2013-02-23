@@ -3,7 +3,7 @@
 
 @implementation BasisApplication
 
-@synthesize objectManager;
+@synthesize objectManager, eventManager;
 
 BasisApplication *instance;
 

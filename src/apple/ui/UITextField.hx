@@ -15,6 +15,14 @@ import basis.BasisApplication;
 class UITextField extends UIControl
 {
 
+	//------ Added - NOT GENERATED ------
+	//Events
+	public static inline var UITextFieldTextDidBeginEditing:String = "UITextFieldTextDidBeginEditing";
+	public static inline var UITextFieldTextDidChange:String = "UITextFieldTextDidChange";
+	public static inline var UITextFieldTextDidEndEditing:String = "UITextFieldTextDidEndEditing";
+	// ---------------------------------
+	
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)

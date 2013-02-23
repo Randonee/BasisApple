@@ -10,15 +10,12 @@ AutoGCRoot *eventHandler;
 	eventHandler = handler;
 }
 
--(void) callHanlders:(int) viewTag :(const char*) type
+-(void) callHandlers:(NSString *) objectID :(const char*) type
 {
 	if(eventHandler != NULL)
-		val_call2(eventHandler->get(), alloc_string(type), alloc_int(viewTag));
+	{
+		val_call2(eventHandler->get(), alloc_string(type), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
+	}
 }
-
--(void) listenToObjectEvents:(NSObject *) object
-{
-}
-
 
 @end

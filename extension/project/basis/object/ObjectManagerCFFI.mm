@@ -92,104 +92,110 @@ namespace basis
     	for(int a=0; a < argc; ++a)
     	{
 			value arg = val_array_i(args, a);
-    		switch(val_int(val_array_i(argTypes, a)))
-    		{
-				case intVal:
-					[objcArgs addObject:[NSNumber numberWithInt:val_int(arg)]];
-				break;
-				
-				case floatVal:
-					[objcArgs addObject:[NSNumber numberWithFloat:val_float(arg)]];
-				break;
-				
-				case stringVal:
-					[objcArgs addObject:[NSString stringWithCString:val_string(arg) encoding:NSUTF8StringEncoding]];
-				break;
-				
-				case CGRectVal:
-					[objcArgs addObject:[NSValue valueWithCGRect:arrayToCGRect(arg)]];
-				break;
-				
-				case UIEdgeInsetsVal:
-				{
-					UIEdgeInsets val = arrayToUIEdgeInsets(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIEdgeInsets)]];
-				}
-				break;
-				
-				case CGAffineTransformVal:
-				{
-					CGAffineTransform val = arrayToCGAffineTransform(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGAffineTransform)]];
-				}
-				break;
-				
-				case CGPointVal:
-				{
-					CGPoint val = arrayToCGPoint(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGPoint)]];
-				}
-				break;
-				
-				case CGSizeVal:
-				{
-					CGSize val = arrayToCGSize(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGSize)]];
-				}
-				break;
-				
-				case CGColorRefVal:
-				{
-					CGColorRef val = arrayToCGColor(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGColorRef)]];
-				}
-				break;
-				
-				case UIColorVal:
-					[objcArgs addObject:arrayToUIColor(arg)];
-				break;
-				
-				case NSURLVal:
-					[objcArgs addObject:stringToNSURL(arg)];
-				break;
-				
-				case NSURLRequestVal:
-					[objcArgs addObject:stringToNSURLRequest(arg)];
-				break;
-				
-				case NSIndexPathVal:
-					[objcArgs addObject:arrayToNSIndexPath(arg)];
-				break;
-				
-				case NSIndexSetVal:
-					[objcArgs addObject:arrayToNSIndexSet(arg)];
-				break;
-				
-				case NSRangeVal:
-				{
-					NSRange val = arrayToNSRange(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(NSRange)]];
-				}
-				break;
-				
-				case UIOffsetVal:
-				{
-					UIOffset val = arrayToUIOffset(arg);
-					[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIOffset)]];
-				}
-				break;
-				
-				case UIImageVal:
-					[objcArgs addObject:pathToUIImage(arg)];
-				break;
-				
-				default:
-    			{
-    				id argObject = [[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg) encoding:NSUTF8StringEncoding]];
-    				[objcArgs addObject:argObject];
-    			}
-    			break;
-    		}
+			
+			if(arg == nil)
+				[objcArgs addObject:[NSNull null]];
+			else
+			{
+	    		switch(val_int(val_array_i(argTypes, a)))
+	    		{
+					case intVal:
+						[objcArgs addObject:[NSNumber numberWithInt:val_int(arg)]];
+					break;
+					
+					case floatVal:
+						[objcArgs addObject:[NSNumber numberWithFloat:val_float(arg)]];
+					break;
+					
+					case stringVal:
+						[objcArgs addObject:[NSString stringWithCString:val_string(arg) encoding:NSUTF8StringEncoding]];
+					break;
+					
+					case CGRectVal:
+						[objcArgs addObject:[NSValue valueWithCGRect:arrayToCGRect(arg)]];
+					break;
+					
+					case UIEdgeInsetsVal:
+					{
+						UIEdgeInsets val = arrayToUIEdgeInsets(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIEdgeInsets)]];
+					}
+					break;
+					
+					case CGAffineTransformVal:
+					{
+						CGAffineTransform val = arrayToCGAffineTransform(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGAffineTransform)]];
+					}
+					break;
+					
+					case CGPointVal:
+					{
+						CGPoint val = arrayToCGPoint(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGPoint)]];
+					}
+					break;
+					
+					case CGSizeVal:
+					{
+						CGSize val = arrayToCGSize(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGSize)]];
+					}
+					break;
+					
+					case CGColorRefVal:
+					{
+						CGColorRef val = arrayToCGColor(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGColorRef)]];
+					}
+					break;
+					
+					case UIColorVal:
+						[objcArgs addObject:arrayToUIColor(arg)];
+					break;
+					
+					case NSURLVal:
+						[objcArgs addObject:stringToNSURL(arg)];
+					break;
+					
+					case NSURLRequestVal:
+						[objcArgs addObject:stringToNSURLRequest(arg)];
+					break;
+					
+					case NSIndexPathVal:
+						[objcArgs addObject:arrayToNSIndexPath(arg)];
+					break;
+					
+					case NSIndexSetVal:
+						[objcArgs addObject:arrayToNSIndexSet(arg)];
+					break;
+					
+					case NSRangeVal:
+					{
+						NSRange val = arrayToNSRange(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(NSRange)]];
+					}
+					break;
+					
+					case UIOffsetVal:
+					{
+						UIOffset val = arrayToUIOffset(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIOffset)]];
+					}
+					break;
+					
+					case UIImageVal:
+						[objcArgs addObject:pathToUIImage(arg)];
+					break;
+					
+					default:
+	    			{
+	    				id argObject = [[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg) encoding:NSUTF8StringEncoding]];
+	    				[objcArgs addObject:argObject];
+	    			}
+	    			break;
+	    		}	
+	    	}
     	}
     	
     	return [objcArgs autorelease];
@@ -310,7 +316,7 @@ namespace basis
 			
 			default:
 			{
-				NSString *objectID = [[BasisApplication getObjectManager] getObjectID:returnVar];
+				NSString *objectID = [ObjectManager getObjectID:returnVar];
 				return alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]);
 			}
 			break;

@@ -17,6 +17,7 @@ class BasisApplication
 	}
 	
 	public var objectManager(default, null):ObjectManager;
+	public var eventManager(default, null):EventManager;
 	
 	
 	static public function init(applicationType:Class<BasisApplication>):Void
@@ -31,6 +32,7 @@ class BasisApplication
 	private function new()
 	{
 		objectManager = new ObjectManager();
+		eventManager = new EventManager();
 	}
 	
 	/**

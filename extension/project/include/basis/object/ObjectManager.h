@@ -7,12 +7,18 @@
 @end
 
 @interface ObjectManager : NSObject
+{
+	NSObject <ObjectManagerDelegateProtocol> *_delegate;
+}
+
++(NSString*) getObjectID:(id)object;
+
+@property (assign) NSObject<ObjectManagerDelegateProtocol> *delegate;
 
 -(NSString *) getObjCClassName:(NSString *)haxeName;
 -(id) callMethod:(id)object :(NSString *)selectorString :(NSArray *)args :(BOOL)isObject;
 -(void) addClass:(NSString *) haxeName :(NSString *) objcName;
 -(id) getObject:(NSString *) objectID;
--(NSString*) getObjectID:(id)object;
 -(NSString *) addObject:(NSObject*)object;
 -(NSString *) createObjectWithClassName:(NSString*)haxeClassName;
 -(void) destroyObject:(NSString *) objectID;

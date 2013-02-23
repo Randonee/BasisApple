@@ -3,6 +3,6 @@
 #include <hx/CFFI.h>
 
 @interface EventManager : NSObject
--(void) callHanlders:(int) viewTag :(const char*) type;
+-(void) callHandlers:(NSString *) objectID :(const char*) type;
 -(void) setEventHandler:(AutoGCRoot *) handler;
 @end

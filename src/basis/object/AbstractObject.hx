@@ -24,12 +24,11 @@ class AbstractObject implements basis.object.IObject
 	{
 		basisID = newID;
 	}
-/*	
-	public function addEventListener(type:String, handler:ViewBase->String->Void):Void
+	
+	public function addEventListener(type:String, handler:IObject->String->Void):Void
 	{
-		ViewManager.addEventListener(type, this, handler);
+		BasisApplication.instance.eventManager.addEventListener(type, this, handler);
 	}
-	*/
 	
 	public function destroy():Void
 	{

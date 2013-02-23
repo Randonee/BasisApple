@@ -1,35 +1,39 @@
-package basis.ios;
+package basis;
 
 import basis.object.AbstractObject;
+import basis.object.IObject;
+import cpp.Lib;
 
 typedef BasisEventListener =
 {
-	view : ViewBase, 
-	handler : ViewBase->String->Void 
+	object : IObject, 
+	handler : IObject->String->Void 
 }
 
-
-class ViewEventManager
+class EventManager
 {	
 	private var _eventListeners:Hash<Hash<Array<BasisEventListener>>>;
 	
 	public function new()
 	{
 		_eventListeners = new Hash<Hash<Array<BasisEventListener>>>();
+		eventManager_setEventHandler(handleEvent);
 	}
+	
+	private static var eventManager_setEventHandler = Lib.load ("basis", "eventManager_setEventHandler", 1);
 	
 	/**
 	* Adds an event listener
 	*
 	* @param type event type
-	* @param view the view that will be dispatching the event
+	* @param object the object that will be dispatching the event
 	* @param handler the function that will be called when the event occurs
 	**/
-	public function addEventListener(type:String, view:ViewBase, handler:ViewBase->String->Void):Void
+	public function addEventListener(type:String, object:IObject, handler:IObject->String->Void):Void
 	{
-		removeEventListener(type, view, handler);
+		removeEventListener(type, object, handler);
 		
-		var key:String = Std.string(view.tag);
+		var key:String = Std.string(object.basisID);
 		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(key);
 		
 		if(objectListeners == null)
@@ -45,19 +49,19 @@ class ViewEventManager
 			typeListeners = [];
 			objectListeners.set(type, typeListeners);
 		}
-		typeListeners.push({view:view, handler:handler});
+		typeListeners.push({object:object, handler:handler});
 	}
 	
 	/**
 	* Removes an event listener
 	*
 	* @param type event type
-	* @param view the view that will be dispatching the event
+	* @param object the object that will be dispatching the event
 	* @param handler the function that will be called when the event occurs
 	**/
-	public function removeEventListener(type:String, view:ViewBase, handler:ViewBase->String->Void):Void
+	public function removeEventListener(type:String, object:IObject, handler:IObject->String->Void):Void
 	{
-		var key:String = Std.string(view.tag);
+		var key:String = Std.string(object.basisID);
 		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(key);
 		
 		if(objectListeners == null)
@@ -82,11 +86,11 @@ class ViewEventManager
 	* Handles events from objective c
 	*
 	* @param type event type
-	* @param tag the the id of the view
+	* @param basisID the the id of the object
 	**/
-	public function handleEvent(type:String, tag:Int):Void
+	public function handleEvent(type:String, basisID:String):Void
 	{
-		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(Std.string(tag));
+		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(Std.string(basisID));
 		
 		if(objectListeners != null)
 		{
@@ -95,10 +99,9 @@ class ViewEventManager
 			if(typeListeners != null)
 			{
 				for(a in 0...typeListeners.length)
-					typeListeners[a].handler(typeListeners[a].view, type);
+					typeListeners[a].handler(typeListeners[a].object, type);
 			}
 		}
-		
 	}
 	
 }

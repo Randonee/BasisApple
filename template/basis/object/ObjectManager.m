@@ -5,8 +5,6 @@
 NSMutableDictionary *_objects;
 NSMutableDictionary *_classTypes;
 
-NSObject<ObjectManagerDelegateProtocol> *delegate;
-
 - (id) init
 {
 	self = [super init];
@@ -14,11 +12,21 @@ NSObject<ObjectManagerDelegateProtocol> *delegate;
 	{
 	    _objects = [[NSMutableDictionary alloc] init];
 	    _classTypes = [[NSMutableDictionary alloc] init];
-	    delegate = nil;
+	    _delegate = nil;
 	}
 	return self;
 }
 
+
++(NSString*) getObjectID:(id)object
+{
+    return [NSString stringWithFormat:@"%zx", (size_t)object];
+}
+
+-(void)setDelegate:(NSObject <ObjectManagerDelegateProtocol>*)delegate;
+{
+	_delegate = delegate;
+}
 
 -(void) addClass:(NSString *) haxeName :(NSString *) objcName
 {
@@ -38,10 +46,10 @@ NSObject<ObjectManagerDelegateProtocol> *delegate;
 
 -(NSString *) addObject:(NSObject*)object
 {
-	NSString* objectID = [self getObjectID:object];
+	NSString* objectID = [ObjectManager getObjectID:object];
 	[_objects setObject:object forKey:objectID];
-	if(delegate != nil)
-		[delegate objectBeingAdded:object];
+	if(_delegate != nil)
+		[_delegate objectBeingAdded:object];
 	return objectID;
 }
 
@@ -95,7 +103,7 @@ NSObject<ObjectManagerDelegateProtocol> *delegate;
 	    [invocation getReturnValue:&result];
 	    if (result)
 	    {
-	        id object = (__bridge_transfer id)result;
+	        id object = (__bridge id)result;
 	        return object;
 	    }
 	}
@@ -111,18 +119,13 @@ NSObject<ObjectManagerDelegateProtocol> *delegate;
     return nil;
 }
 
--(NSString*) getObjectID:(id)object
-{
-    return [NSString stringWithFormat:@"%zx", (size_t)object];
-}
-
 -(void) destroyObject:(NSString *) objectID
 {
 	id object = [self getObject:objectID];
 	[_objects removeObjectForKey:objectID];
 	
-	if(delegate != nil)
-		[delegate objectBeingDestroyed:object];
+	if(_delegate != nil)
+		[_delegate objectBeingDestroyed:object];
 	
 	[self destroyCFFIObject:object];
 }

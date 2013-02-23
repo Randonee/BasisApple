@@ -1,12 +1,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "basis/EventManager.h"
 #include <hx/CFFI.h>
 
-@interface ViewEventManager : NSObject
+@interface IOSEventManager : EventManager
 
--(void) callHanlders:(int) viewTag :(const char*) type;
-
--(void) setEventHandler:(AutoGCRoot *) handler;
+-(void) installAddSubviewListener:(void (^)(id _self, UIView* subview))listener;
 
 -(void) onUIControlEventTouchDown:(id) view :(id) event;
 -(void) onUIControlEventTouchDownRepeat:(id) view :(id) event;
@@ -27,7 +26,5 @@
 -(void) onUIControlEventApplicationReserved:(id) view :(id) event;
 -(void) onUIControlEventSystemReserved:(id) view :(id) event;
 -(void) onUIControlEventAllEvents:(id) view :(id) event;
-
--(void) installAddSubviewListener:(void (^)(id _self, UIView* subview))listener;
 
 @end

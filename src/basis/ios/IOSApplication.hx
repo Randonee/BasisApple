@@ -9,8 +9,6 @@ class IOSApplication extends BasisApplication
 	public function new()
 	{
 		super();
-		DeviceEventManager.init();
-		//ViewEventManager.init();
 		addClasses();
 	}
 	
