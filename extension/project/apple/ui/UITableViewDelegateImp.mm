@@ -84,7 +84,7 @@ _willDisplayHeaderViewHandler = willDisplayHeaderViewHandler;
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_accessoryButtonTappedForRowWithIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_accessoryButtonTappedForRowWithIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
@@ -94,71 +94,71 @@ _willDisplayHeaderViewHandler = willDisplayHeaderViewHandler;
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_didDeselectRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_didDeselectRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call3(_didEndDisplayingCellHandler->get(), alloc_int(tableView.tag), alloc_int(cell.tag), [self indexPathToArray:indexPath]);
+	val_call3(_didEndDisplayingCellHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[ObjectManager getObjectID:cell] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section
 {
-	val_call3(_didEndDisplayingFooterViewHandler->get(), alloc_int(tableView.tag), alloc_int(view.tag), alloc_int(section));
+	val_call3(_didEndDisplayingFooterViewHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[ObjectManager getObjectID:view] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
-	val_call3(_didEndDisplayingHeaderViewHandler->get(), alloc_int(tableView.tag), alloc_int(view.tag), alloc_int(section));
+	val_call3(_didEndDisplayingHeaderViewHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[ObjectManager getObjectID:view] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_didEndEditingRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_didEndEditingRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_didHighlightRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_didHighlightRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_didSelectRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_didSelectRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_didUnhighlightRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_didUnhighlightRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value num = val_call2(_editingStyleForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value num = val_call2(_editingStyleForRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_int(num);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-	value num = val_call2(_heightForFooterInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
+	value num = val_call2(_heightForFooterInSectionHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 	return val_float(num);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	value num = val_call2(_heightForHeaderInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
+	value num = val_call2(_heightForHeaderInSectionHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 	return val_float(num);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value num = val_call2(_heightForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value num = val_call2(_heightForRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_float(num);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value num = val_call2(_indentationLevelForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value num = val_call2(_indentationLevelForRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_float(num);
 }
 
@@ -168,19 +168,19 @@ _willDisplayHeaderViewHandler = willDisplayHeaderViewHandler;
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value num = val_call2(_shouldHighlightRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value num = val_call2(_shouldHighlightRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_bool(num);
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value num = val_call2(_shouldIndentWhileEditingRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value num = val_call2(_shouldIndentWhileEditingRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_bool(num);
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value num = val_call2(_shouldShowMenuForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value num = val_call2(_shouldShowMenuForRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return val_bool(num);
 }
 
@@ -191,27 +191,27 @@ _willDisplayHeaderViewHandler = willDisplayHeaderViewHandler;
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	value str = val_call2(_titleForDeleteConfirmationButtonForRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	value str = val_call2(_titleForDeleteConfirmationButtonForRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 	return [NSString stringWithCString:val_string(str)encoding:NSUTF8StringEncoding];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-	value tag = val_call2(_viewForFooterInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
-	UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
+	value objectID = val_call2(_viewForFooterInSectionHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
+	UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 	return view;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	value tag = val_call2(_viewForHeaderInSectionHandler->get(), alloc_int(tableView.tag), alloc_int(section));
-	UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
+	value objectID = val_call2(_viewForHeaderInSectionHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
+	UIView *view = (UIView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
 	return view;
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call2(_willBeginEditingRowAtIndexPathHandler->get(), alloc_int(tableView.tag), [self indexPathToArray:indexPath]);
+	val_call2(_willBeginEditingRowAtIndexPathHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -221,17 +221,17 @@ _willDisplayHeaderViewHandler = willDisplayHeaderViewHandler;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	val_call3(_willDisplayCellHandler->get(), alloc_int(tableView.tag), alloc_int(cell.tag), [self indexPathToArray:indexPath]);
+	val_call3(_willDisplayCellHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[ObjectManager getObjectID:cell] cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
-	val_call3(_willDisplayFooterViewHandler->get(), alloc_int(tableView.tag), alloc_int(view.tag), alloc_int(section));
+	val_call3(_willDisplayFooterViewHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[ObjectManager getObjectID:view] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
-	val_call3(_willDisplayHeaderViewHandler->get(), alloc_int(tableView.tag), alloc_int(view.tag), alloc_int(section));
+	val_call3(_willDisplayHeaderViewHandler->get(), alloc_string([[ObjectManager getObjectID:tableView] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[ObjectManager getObjectID:view] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
