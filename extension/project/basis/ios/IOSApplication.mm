@@ -1,38 +1,20 @@
-#import "basis/ios/BasisApplication.h"
+#import "basis/ios/IOSApplication.h"
 #include <BasisStart.h>
+#import "basis/BasisApplication.h"
 
-@implementation BasisApplication
+@implementation IOSApplication
 
 @synthesize window;
 @synthesize controller;
-@synthesize objectManager;
 @synthesize deviceEventManager;
 
-BasisApplication *instance;
 
 +(void) start
 {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	UIApplicationMain(0, nil, nil,  NSStringFromClass([BasisApplication class]));
+	UIApplicationMain(0, nil, nil,  NSStringFromClass([IOSApplication class]));
 	[pool release];
 }
-
-+(BasisApplication *) getInstance
-{
-	return instance;
-}
-
-+(ObjectManager *) getObjectManager
-{
-	return instance.objectManager;
-}
-
-
-+(DeviceEventManager *) getDeviceEventManager
-{
-	return instance.deviceEventManager;
-}
-
 
 -(void) addToRootView:(NSString*) objectID
 {
@@ -42,7 +24,7 @@ BasisApplication *instance;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	instance = self;
+	[BasisApplication setInstance:self];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window.backgroundColor = [UIColor whiteColor];

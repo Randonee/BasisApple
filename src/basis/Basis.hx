@@ -1,13 +1,11 @@
 package basis;
 
 import cpp.Lib;
-import basis.ios.IOSApplication;
 
 class Basis
 {
 	static public function init():Void
 	{
-		IOSApplication;
 		cpp_initBasis();
 	}
 	

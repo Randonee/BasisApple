@@ -21,7 +21,8 @@
 		<file name="apple/ui/UITableViewDelegateImp.mm"/>
 		<file name="apple/ui/UIScrollViewDelegateImp.mm"/>
 		<file name="apple/ui/UIBarButtonItemTarget.mm"/>
-		<file name="basis/ios/BasisApplication.mm"/>
+		<file name="basis/BasisApplication.mm"/>
+		<file name="basis/ios/IOSApplication.mm"/>
 		<file name="basis/ios/DeviceEventManager.mm"/>
 		<file name="basis/ios/ViewEventManager.mm"/>
 		<file name="basis/Basis.mm"/>

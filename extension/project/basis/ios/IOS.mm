@@ -1,5 +1,3 @@
-//#include "../../apple/GeneratedIncludes.mm"
-
 #include "../../apple/ui/UIApplicationCFFI.mm"
 #include "../../apple/ui/UICollectionReusableViewCFFI.mm"
 #include "../../apple/ui/UIImageViewCFFI_additions.mm"
@@ -15,7 +13,6 @@
 
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 
-#include "BasisApplicationCFFI.mm"
 #include "DeviceManagerCFFI.mm"
 #include "../../apple/ui/UITableViewDataSourceCFFI.mm"
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"

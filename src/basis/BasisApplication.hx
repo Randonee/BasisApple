@@ -33,9 +33,6 @@ class BasisApplication
 		objectManager = new ObjectManager();
 	}
 	
-	
-	
-	
 	/**
 	* Adds a view to the base window of the aplication
 	*
