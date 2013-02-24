@@ -1,8 +1,7 @@
 package test;
 
 import basis.ios.IOSUtil;
-import test.basis.ios.ViewManagerTester;
-import test.apple.ui.UITableViewCellTester;
+import test.basis.object.ObjectManagerTester;
 
 class TestMain
 {
@@ -11,8 +10,7 @@ class TestMain
    	 	trace("START_TESTS");
         var r = new haxe.unit.TestRunner();
         
-		r.add(new ViewManagerTester());
-		r.add(new UITableViewCellTester());
+		r.add(new ObjectManagerTester());
         
         if(r.run())
         	IOSUtil.outputTestSuccess();
