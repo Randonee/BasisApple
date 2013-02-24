@@ -58,6 +58,11 @@
 
 -(void)objectBeingDestroyed:(id)object
 {
+	if([object isKindOfClass:[UITableViewCell class]])
+	{
+		[self.objectManager destroyObject:((UITableViewCell *)object).textLabel];
+		[self.objectManager destroyHaxeObject:((UITableViewCell *)object).textLabel];
+	}
 }
 
 -(void)objectBeingAdded:(id)object
