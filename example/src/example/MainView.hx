@@ -38,7 +38,7 @@ class MainView extends UIView
 	{
 		super();
 		this.frame = [0.0, UIApplication.statusBarFrame[3], 768, 1024];
-	/*	_navigationBar = new UINavigationBar();
+		_navigationBar = new UINavigationBar();
 		_navigationBar.createNavigationItem(false);
 		_navigationBar.setItemTitle(0, "Bar Title");
 		_navigationBar.frame = [0.0, 0, 768, 50];
@@ -53,7 +53,7 @@ class MainView extends UIView
 		_barButtonItem2.title = "Right";
 		_barButtonItem2.setHandler(onBarItemClick);
 		_navigationBar.setRightBarItems(0, [_barButtonItem2]);
-		*/
+		
 		_alertView = new UIAlertView();
 		_alertView.addButtonWithTitle("OK");
 		_alertView.title = "Navigation Bar Button";

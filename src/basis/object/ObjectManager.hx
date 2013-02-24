@@ -60,7 +60,7 @@ class ObjectManager
 			if(Std.is(args[a], IObject))
 				args[a] = args[a].basisID;
 		}
-		
+
 		var returnVar:Dynamic = objectmanager_callInstanceMethod(object.basisID, selector, args, argTypes, returnType);
 		if(returnVar == null)
 			return null;

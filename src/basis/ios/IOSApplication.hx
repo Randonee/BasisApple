@@ -14,6 +14,9 @@ class IOSApplication extends BasisApplication
 	
 	private function addClasses():Void
 	{
+		objectManager.addClass(apple.ui.UIBarItem);
+		objectManager.addClass(apple.ui.UIBarButtonItem);
+	
 		objectManager.addClass(apple.ui.UIView);
 		objectManager.addClass(apple.ui.UILabel);
 		objectManager.addClass(apple.ui.UIControl);

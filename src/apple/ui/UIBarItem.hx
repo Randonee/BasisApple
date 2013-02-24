@@ -3,10 +3,8 @@ package apple.ui;
 import cpp.Lib;
 import basis.object.IObject;
 
-class UIBarItem implements basis.object.IObject
+class UIBarItem extends basis.object.AbstractObject
 {
-	public var basisID(default, default):String;
-	
 //	public var enabled(get_enabled, set_enabled) : Bool;
 	public var title(get_title, set_title) : String;
 	private function get_title():String
@@ -29,16 +27,8 @@ class UIBarItem implements basis.object.IObject
 	{
 		if(type == null)
 			type = UIBarItem;
-		init(type, style);
+		
+		super(type);
 	}
 
-	private function init(type:Class<IObject>, style:Int):Void
-	{
-		//basisID = UIBarItemManager.createBarItem(this, type, style);
-	}
-	
-	public function destroy():Void
-	{
-	//	UIBarItemManager.destroyBarItem(this.basisID);
-	}
 }

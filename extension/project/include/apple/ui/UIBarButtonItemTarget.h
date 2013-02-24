@@ -2,15 +2,13 @@
 #import <UIKit/UIKit.h>
 #include <hx/CFFI.h>
 
-
-
 @interface UIBarButtonItemTarget : NSObject 
 {
 	AutoGCRoot* _handler;
-	int _barButtonItemTag;
+	NSString *_barButtonItemID;
 }
 
-- (id)initWithHandler:(AutoGCRoot*)handler tag:(int)barButtonItemTag;
+- (id)initWithHandler:(AutoGCRoot*)handler objectID:(NSString *)objectID;
 
 - (void)didTapButtonBarItem:(id)sender;
 
