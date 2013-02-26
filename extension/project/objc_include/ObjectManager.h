@@ -23,7 +23,8 @@
 -(id) getObject:(NSString *) objectID;
 -(NSString *) addObject:(NSObject*)object;
 -(NSString *) createObjectWithClassName:(NSString*)haxeClassName;
--(void) destroyObject:(NSString *) objectID;
+-(void) destroyObject:(id) object;
+-(void) destroyObjectWithID:(NSString *) objectID;
 -(void) destroyHaxeObject:(id) object;
 -(void) createHaxeObject:(id) object;
 	

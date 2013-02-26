@@ -35,6 +35,7 @@ class UITableView extends UIScrollView
 	}
 
 	// ---------------------------------
+	
 
 	//Constants
 	//static public inline var UITableViewAutomaticDimension:Float;

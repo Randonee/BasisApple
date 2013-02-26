@@ -103,6 +103,10 @@ class UIActionSheet extends UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "addButtonWithTitle:", [title], [ObjectManager.STRING_VAL], ObjectManager.INT_VAL);
 	}
+	public function initWithTitleDelegateCancelButtonTitleDestructiveButtonTitleOtherButtonTitles( title:String,  delegate:UIActionSheetDelegate,  cancelButtonTitle:String,  destructiveButtonTitle:String,  otherButtonTitles:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:", [title, delegate, cancelButtonTitle, destructiveButtonTitle, otherButtonTitles], [ObjectManager.STRING_VAL, ObjectManager.OBJECT_VAL, ObjectManager.STRING_VAL, ObjectManager.STRING_VAL, ObjectManager.STRING_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function buttonTitleAtIndex( buttonIndex:Int):String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "buttonTitleAtIndex:", [buttonIndex], [ObjectManager.INT_VAL], ObjectManager.STRING_VAL);

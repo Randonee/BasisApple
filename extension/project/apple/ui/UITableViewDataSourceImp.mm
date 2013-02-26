@@ -1,5 +1,5 @@
 #import "apple/ui/UITableViewDataSourceImp.h"
-#import "basis/BasisApplication.h"
+#import "BasisApplication.h"
 
 @implementation UITableViewDataSourceImp
 

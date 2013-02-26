@@ -14,6 +14,7 @@
         <depend name="${HXCPP}/include/hx/Macros.h"/>
         <depend name="${HXCPP}/include/hx/CFFI.h"/>
         <compilerflag value="-Iinclude"/>
+        <compilerflag value="-Iobjc_include"/>
 		<file name="src/BasisStart.cpp"/>
     </files>
     

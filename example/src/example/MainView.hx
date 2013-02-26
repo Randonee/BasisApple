@@ -16,6 +16,8 @@ import apple.ui.UIBarButtonItem;
 import apple.ui.UIAlertView;
 import apple.ui.UIImageView;
 
+import basis.BasisApplication;
+
 class MainView extends UIView
 {
 	private var _inputLabel:UILabel;
@@ -81,7 +83,6 @@ class MainView extends UIView
 
 		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_sampleButton.frame = [50.0,220,100,30];
-		_sampleButton.setTitleColorForState([0.0, 0, 0, 1], UIControl.UIControlStateNormal);
 		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
 		
 		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
@@ -113,7 +114,6 @@ class MainView extends UIView
 		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_animateButton.frame = [380.0,70,150,30];
 		_animateButton.setTitleForState("Animate Button", UIControl.UIControlStateNormal);
-		_animateButton.setTitleColorForState([0.0, 0, 0, 1], UIControl.UIControlStateNormal);
 		_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
 		addSubview(_animateButton);
 		
@@ -173,10 +173,8 @@ class MainView extends UIView
 		var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableCell");
 	    if (cell == null)
 	    {
-	        cell = new UITableViewCell();
+	        cell = UITableViewCell.initWithStyleReuseIdentifier(UITableViewCell.UITableViewCellStyleDefault, "TableCell");
 	    }
-	    cell.textLabel.textColor = [0.0, 0, 0, 1];
-	    cell.backgroundColor = [0.0, 0, 0, 1];
 		cell.textLabel.text = _tableCellLabels[indexPath[1]];
 		return cell;
 	}

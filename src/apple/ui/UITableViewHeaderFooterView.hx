@@ -77,6 +77,10 @@ class UITableViewHeaderFooterView extends UIView
 
 
 	//Methods
+	public function initWithReuseIdentifier( reuseIdentifier:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithReuseIdentifier:", [reuseIdentifier], [ObjectManager.STRING_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function prepareForReuse():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "prepareForReuse", [], [], -1);

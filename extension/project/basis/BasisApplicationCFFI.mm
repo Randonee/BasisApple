@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "basis/BasisApplication.h"
+#import "BasisApplication.h"
 
 namespace basis
 {

@@ -15,6 +15,22 @@ import basis.BasisApplication;
 class UITableViewCell extends UIView
 {
 
+
+	//------ added NOT GENERATED ------
+	static public function initWithStyleReuseIdentifier( style:Int,  reuseIdentifier:String):Dynamic
+	{
+	
+		var objectID:String = uitableviewcell_initWithStyleReuseIdentifier(style, reuseIdentifier);
+		var object:IObject = BasisApplication.instance.objectManager.getObject(objectID);
+		if(object != null)
+			return cast(object, UITableViewCell);
+		
+		return null;
+	}
+	private static var uitableviewcell_initWithStyleReuseIdentifier = Lib.load ("basis", "uitableviewcell_initWithStyleReuseIdentifier", 2);
+	//---------------------------------
+	
+	
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -267,6 +283,7 @@ class UITableViewCell extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "prepareForReuse", [], [], -1);
 	}
+	
 	public function setHighlightedAnimated( highlighted:Bool,  animated:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:animated:", [highlighted, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);

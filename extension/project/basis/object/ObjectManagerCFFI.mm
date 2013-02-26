@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "basis/BasisApplication.h"
+#import "BasisApplication.h"
 #import <objc/runtime.h>
 
 enum ARG_TYPES
@@ -46,7 +46,7 @@ namespace basis
     
     void objectmanager_destroyObject(value objectID)
     {
-    	[[BasisApplication getObjectManager] destroyObject:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
+    	[[BasisApplication getObjectManager] destroyObjectWithID:[NSString stringWithCString:val_string(objectID) encoding:NSUTF8StringEncoding]];
     }
     DEFINE_PRIM (objectmanager_destroyObject, 1);
     
@@ -81,7 +81,7 @@ namespace basis
     	NSMutableArray *objcArgs = getMethodArgs(args, argTypes);
     	BOOL isObject = isTypeObject(val_int(returnType));
     	id returnVar = [[BasisApplication getObjectManager] callMethod:object :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
-
+		
     	if(returnVar == nil)
     		return nil;
     	
@@ -106,11 +106,17 @@ namespace basis
 	    		switch(val_int(val_array_i(argTypes, a)))
 	    		{
 					case intVal:
-						[objcArgs addObject:[NSNumber numberWithInt:val_int(arg)]];
+					{
+						int val = val_int(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(int)]];
+					}
 					break;
 					
 					case floatVal:
-						[objcArgs addObject:[NSNumber numberWithFloat:val_float(arg)]];
+					{
+						float val = val_int(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(float)]];
+					}
 					break;
 					
 					case stringVal:
@@ -206,7 +212,6 @@ namespace basis
     	
     	return [objcArgs autorelease];
     }
-    
     
     value getCallMethodReturnValue(id returnVar, int returnType)
     {

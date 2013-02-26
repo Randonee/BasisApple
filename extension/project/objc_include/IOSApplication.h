@@ -1,8 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "basis/BasisApplication.h"
-#import "basis/object/ObjectManager.h"
-#include <hx/CFFI.h>
+#import "BasisApplication.h"
+#import "ObjectManager.h"
 
 
 @interface IOSApplication : BasisApplication <ObjectManagerDelegateProtocol>

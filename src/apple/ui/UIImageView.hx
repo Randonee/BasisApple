@@ -81,6 +81,14 @@ class UIImageView extends UIView
 
 
 	//Methods
+	public function initWithImage( image:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:", [image], [ObjectManager.UIIMAGE_VAL], ObjectManager.OBJECT_VAL);
+	}
+	public function initWithImageHighlightedImage( image:String,  highlightedImage:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:highlightedImage:", [image, highlightedImage], [ObjectManager.UIIMAGE_VAL, ObjectManager.UIIMAGE_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function stopAnimating():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "stopAnimating", [], [], -1);

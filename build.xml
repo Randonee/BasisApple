@@ -36,6 +36,13 @@
 		
 		<antcall target="copyTests" />
 		
+		<copy todir="build/BasisApple/0,0,2/template/basis">
+			<fileset dir="extension/project/objc/basis/"/>
+		</copy>
+		<copy todir="build/BasisApple/0,0,2/template/objc_include">
+			<fileset dir="extension/project/objc_include/"/>
+		</copy>
+		
 		<copy todir="build/BasisApple/0,0,2">
 			<fileset dir="src"/>
 		</copy>

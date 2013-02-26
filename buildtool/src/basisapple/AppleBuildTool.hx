@@ -51,12 +51,16 @@ class AppleBuildTool extends basis.BuildTool
 			var assetPaths:Array<String> = deviceTarget.getCollection(Target.ASSET_PATHS, true);
 			var haxeLibs:Array<String> = deviceTarget.getCollection(Target.HAXE_LIBS, true);
 			
-			
 			var deviceType:String = deviceTarget.getSetting(AppleTarget.DEVICE_TYPE);
 			var mainClass:String = deviceTarget.getSetting(Target.MAIN);
 			if(mainClass == "" || mainClass == null)
 				throw("No main class for: " + deviceType);
+				
+				
+			var settingsContenxt:Dynamic = deviceTarget.getSettingsContext();
 			
+			settingsContenxt.MAIN_INCLUDE = StringTools.replace(mainClass, ".", "/");
+			settingsContenxt.MAIN_CLASS = StringTools.replace(mainClass, ".", "::");
 			
 			var appName:String = deviceTarget.getSetting(Target.APP_NAME);
 		
@@ -214,12 +218,14 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			//------------------------------------
 			
+			
 			//---- Copy xcode project files ------
 			FileUtil.createDirectory(xcodeFiles);
 			File.copy(libPath + "template/Main.mm", xcodeFiles + "/Main.mm");
 			File.copy(libPath + "template/Info.plist" , xcodeFiles + appName + "-Info.plist");
 			File.copy(libPath + "template/prefix.pch" , xcodeFiles + "/prefix.pch");
-			FileUtil.copyInto(libPath + "template/basis/", xcodeFiles + "/basis/");
+			FileUtil.copyInto(libPath + "template/basis/", xcodeFiles + "/basis/", settingsContenxt);
+			FileUtil.copyInto(libPath + "template/objc_include/", xcodeFiles + "/objc_include/");
 			//------------------------------------
 			
 			
@@ -227,6 +233,7 @@ class AppleBuildTool extends basis.BuildTool
 			var xcode:XCodeProject = new XCodeProject(appName);
 			xcode.addSouce("Main.mm");
 			xcode.addSourceDirectory("basis", xcodeFiles + "/basis/");
+			xcode.addSourceDirectory("objc_include", xcodeFiles + "/objc_include/");
 			
 			xcode.addSourceDirectory("bin", xcodeBin);
 			xcode.addSourceDirectory("assets", xcodeAssets, true);

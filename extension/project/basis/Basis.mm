@@ -1,5 +1,5 @@
 #include <hx/CFFI.h>
-#import "basis/BasisApplication.h"
+#import "BasisApplication.h"
 #import <Foundation/Foundation.h>
 #import "apple/ui/UITableViewDataSourceImp.h"
 #import "apple/ui/UITableViewDelegateImp.h"
@@ -8,19 +8,28 @@
 #include "object/ObjectManagerCFFI.mm"
 #include "EventManagerCFFI.mm"
 #include "BasisApplicationCFFI.mm"
+#import "BasisStart.h"
 
 
 #ifdef IPHONE
-#import "basis/ios/IOSApplication.h"
+#import "IOSApplication.h"
 #endif
 
 #ifdef OSX
-#import "basis/osx/BasisOSXApplication.h"
+#import "BasisOSXApplication.h"
 #endif
 
 
 namespace basis
 {
+	void startBasisHandler();
+	
+	void startBasisHandler()
+	{
+		//this method is created for each project
+		startBasis();
+	}
+
 	void doesNothing()
 	{}
 	
@@ -33,6 +42,7 @@ namespace basis
 	
 	void initBasis()
 	{
+		[BasisApplication setStartHandler:&startBasisHandler];
 		#ifdef IPHONE
 			[IOSApplication start];
 		#endif

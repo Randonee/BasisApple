@@ -15,7 +15,6 @@ import basis.BasisApplication;
 class UINavigationBar extends UIView
 {
 
-
 	//------ added NOT GENERATED ------
 	
 	public function getHidesBackButton(index:Int):Bool
@@ -156,9 +155,8 @@ class UINavigationBar extends UIView
 	private static var uinavigationitem_createNavigationItem = Lib.load("basis", "uinavigationitem_createNavigationItem", 2);
 	
 	//----------------------------
-
-
-
+	
+	
 
 	public function new(?type:Class<IObject>=null)
 	{

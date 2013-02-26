@@ -9,13 +9,13 @@ class AbstractObject implements basis.object.IObject
 	
 	private var _type:Class<Dynamic>;
 	
-	public function new(type:Class<Dynamic>)
+	private function new(type:Class<Dynamic>)
 	{
 		_type = type;
-		init();
+		create();
 	}
 
-	private function init():Void
+	private function create():Void
 	{
 		basisID = BasisApplication.instance.objectManager.createObject(this, Type.getClassName(_type));
 	}

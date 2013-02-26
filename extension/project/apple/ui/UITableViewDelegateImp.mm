@@ -1,5 +1,5 @@
 #import "apple/ui/UITableViewDelegateImp.h"
-#import "basis/BasisApplication.h"
+#import "BasisApplication.h"
 
 @implementation UITableViewDelegateImp
 

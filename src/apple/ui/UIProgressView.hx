@@ -93,6 +93,10 @@ class UIProgressView extends UIView
 
 
 	//Methods
+	public function initWithProgressViewStyle( style:Int):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithProgressViewStyle:", [style], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function setProgressAnimated( progress:Float,  animated:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgress:animated:", [progress, animated], [ObjectManager.FLOAT_VAL, ObjectManager.OBJECT_VAL], -1);

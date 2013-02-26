@@ -137,14 +137,17 @@ void (*_destroyHaxeObjectFunction)(id);
     return nil;
 }
 
--(void) destroyObject:(NSString *) objectID
+-(void) destroyObjectWithID:(NSString *) objectID
 {
 	id object = [self getObject:objectID];
-	[_objects removeObjectForKey:objectID];
-	
+	[self destroyObject:object];
+}
+
+-(void) destroyObject:(id) object
+{
+	[_objects removeObjectForKey:object];
 	if(_delegate != nil)
 		[_delegate objectBeingDestroyed:object];
-	
 }
 
 -(void) destroyHaxeObject:(id) object

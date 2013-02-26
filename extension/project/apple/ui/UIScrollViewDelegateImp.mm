@@ -1,5 +1,5 @@
 #import "apple/ui/UIScrollViewDelegateImp.h"
-#import "basis/BasisApplication.h"
+#import "BasisApplication.h"
 
 @implementation UIScrollViewDelegateImp
 

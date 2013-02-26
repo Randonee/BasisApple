@@ -39,7 +39,6 @@ class ObjectManager
 	private static var objectmanager_setHaxeCreateObjectHandler = Lib.load ("basis", "objectmanager_setHaxeCreateObjectHandler", 1);
 	private static var objectmanager_setDestroyObjectHandler = Lib.load ("basis", "objectmanager_setDestroyObjectHandler", 1);
 	
-	
 	public function getObject(objectID:String):IObject
 	{
 		return _objects.get(objectID);
@@ -116,12 +115,14 @@ class ObjectManager
 	private static var objectmanager_destroyObject = Lib.load ("basis", "objectmanager_destroyObject", 1);
 	
 	
-	public function addClass(clazz:Class<IObject>):Void
+	public function addClass(clazz:Class<IObject>, ?objcClassName:String = null):Void
 	{
 		var classPath = Type.getClassName(clazz);
-		var name:String = getClassNameWithoutPath(classPath);
+		if(objcClassName == null)
+			objcClassName = getClassNameWithoutPath(classPath);
+			
 		_classTypes.set(classPath, clazz);
-		objectmanager_addClass(classPath, name);
+		objectmanager_addClass(classPath, objcClassName);
 	}
 	private static var objectmanager_addClass = Lib.load ("basis", "objectmanager_addClass", 2);
 	
@@ -130,6 +131,7 @@ class ObjectManager
 	public function cffi_addObject(id:String, className:String):Void
 	{
 		var object:IObject = Type.createInstance(_classTypes.get(className), []);
+		object.basisID = id;
 		_objects.set(id, object);
 	}
 	

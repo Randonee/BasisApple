@@ -1,6 +1,7 @@
-#import "basis/ios/IOSEventManager.h"
+#import "IOSEventManager.h"
+#import "ObjectManager.h"
 #import <objc/runtime.h>
-#import <basis/object/ObjectManager.h>
+
 
 @implementation IOSEventManager
 

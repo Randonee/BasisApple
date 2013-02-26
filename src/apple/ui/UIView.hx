@@ -424,6 +424,10 @@ class UIView extends UIResponder
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hasAmbiguousLayout", [], [], ObjectManager.OBJECT_VAL);
 	}
+	public function initWithFrame( frame:Array<Float>):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithFrame:", [frame], [ObjectManager.CGRECT_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function exchangeSubviewAtIndexWithSubviewAtIndex( index1:Int,  index2:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "exchangeSubviewAtIndex:withSubviewAtIndex:", [index1, index2], [ObjectManager.INT_VAL, ObjectManager.INT_VAL], -1);

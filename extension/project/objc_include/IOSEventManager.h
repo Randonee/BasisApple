@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "basis/EventManager.h"
-#include <hx/CFFI.h>
+#import "EventManager.h"
 
 @interface IOSEventManager : EventManager
 

@@ -65,6 +65,10 @@ class UIActivityIndicatorView extends UIView
 
 
 	//Methods
+	public function initWithActivityIndicatorStyle( style:Int):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithActivityIndicatorStyle:", [style], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
+	}
 	public function stopAnimating():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "stopAnimating", [], [], -1);

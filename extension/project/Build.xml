@@ -16,15 +16,12 @@
 
     <files id="iphone">
         <compilerflag value="-Iinclude"/>
+		<compilerflag value="-Iobjc_include"/>
 		<file name="common/ExternalInterface.cpp"/>
 		<file name="apple/ui/UITableViewDataSourceImp.mm"/>
 		<file name="apple/ui/UITableViewDelegateImp.mm"/>
 		<file name="apple/ui/UIScrollViewDelegateImp.mm"/>
 		<file name="apple/ui/UIBarButtonItemTarget.mm"/>
-		<file name="basis/BasisApplication.mm"/>
-		<file name="basis/ios/IOSApplication.mm"/>
-		<file name="basis/EventManager.mm"/>
-		<file name="basis/ios/IOSEventManager.mm"/>
 		<file name="basis/Basis.mm"/>
     </files>
 

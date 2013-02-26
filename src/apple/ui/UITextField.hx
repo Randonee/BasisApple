@@ -22,6 +22,7 @@ class UITextField extends UIControl
 	public static inline var UITextFieldTextDidEndEditing:String = "UITextFieldTextDidEndEditing";
 	// ---------------------------------
 	
+	
 
 	public function new(?type:Class<IObject>=null)
 	{

@@ -15,6 +15,20 @@ import basis.BasisApplication;
 class UIButton extends UIControl
 {
 
+	//------ added NOT GENERATED ------
+	static public function buttonWithType( buttonType:Int):UIButton
+	{
+		var objectID:String = uibutton_buttonWithType(buttonType);
+		var object:IObject = BasisApplication.instance.objectManager.getObject(objectID);
+		
+		if(object != null)
+			return cast(object, UIButton);
+		
+		return null;
+	}
+	private static var uibutton_buttonWithType = Lib.load ("basis", "uibutton_buttonWithType", 1);
+	//---------------------------------
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -24,11 +38,6 @@ class UIButton extends UIControl
 
 	//Constants
 
-	//Static Methods
-	static public function buttonWithType( buttonType:Int):Dynamic
-	{
-		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIButton", "buttonWithType:", [buttonType], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
-	}
 
 	//Properties
 	public var contentEdgeInsets(getContentEdgeInsets, setContentEdgeInsets):Array<Float>;

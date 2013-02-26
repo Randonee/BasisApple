@@ -1,7 +1,7 @@
-#import "basis/ios/IOSApplication.h"
-#include <BasisStart.h>
-#import "basis/BasisApplication.h"
-#import "basis/ios/IOSEventManager.h"
+#import "IOSApplication.h"
+#include "BasisStart.h"
+#import "BasisApplication.h"
+#import "IOSEventManager.h"
 
 @implementation IOSApplication
 
@@ -10,9 +10,10 @@
 
 +(void) start
 {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	UIApplicationMain(0, nil, nil,  NSStringFromClass([IOSApplication class]));
-	[pool release];
+	@autoreleasepool
+	{
+		UIApplicationMain(0, nil, nil,  NSStringFromClass([IOSApplication class]));
+	}
 }
 
 -(void) addToRootView:(NSString*) objectID
@@ -51,7 +52,7 @@
 	self.window = [[UIApplication sharedApplication] keyWindow];
     self.window.tag = 1;
    
-	startBasis();
+   [BasisApplication callStartHandler];
 	return YES;
 }
 
