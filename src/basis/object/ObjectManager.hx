@@ -25,6 +25,7 @@ class ObjectManager
 	public static inline var UIOFFSET_VAL:Int = 15;
 	public static inline var UIIMAGE_VAL:Int = 16;
 	public static inline var UICOLOR_VAL:Int = 17;
+	public static inline var BOOL_VAL:Int = 18;
 	
 
 	public function new():Void

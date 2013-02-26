@@ -30,12 +30,12 @@ class UIPickerView extends UIView
 	public var showsSelectionIndicator(getShowsSelectionIndicator, setShowsSelectionIndicator):Bool;
 	private function getShowsSelectionIndicator():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSelectionIndicator", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSelectionIndicator", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsSelectionIndicator(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSelectionIndicator:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSelectionIndicator:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsSelectionIndicator;
 	}
 
@@ -73,7 +73,7 @@ class UIPickerView extends UIView
 	}
 	public function selectRowInComponentAnimated( row:Int,  component:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectRow:inComponent:animated:", [row, component, animated], [ObjectManager.INT_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectRow:inComponent:animated:", [row, component, animated], [ObjectManager.INT_VAL, ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 
 

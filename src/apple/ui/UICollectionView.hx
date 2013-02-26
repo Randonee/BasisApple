@@ -42,24 +42,24 @@ class UICollectionView extends UIScrollView
 	public var allowsSelection(getAllowsSelection, setAllowsSelection):Bool;
 	private function getAllowsSelection():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelection", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelection", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsSelection(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelection:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelection:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsSelection;
 	}
 
 	public var allowsMultipleSelection(getAllowsMultipleSelection, setAllowsMultipleSelection):Bool;
 	private function getAllowsMultipleSelection():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelection", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelection", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsMultipleSelection(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelection:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelection:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsMultipleSelection;
 	}
 
@@ -67,7 +67,7 @@ class UICollectionView extends UIScrollView
 	//Methods
 	public function selectItemAtIndexPathAnimatedScrollPosition( indexPath:Array<Int>,  animated:Bool,  scrollPosition:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectItemAtIndexPath:animated:scrollPosition:", [indexPath, animated, scrollPosition], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectItemAtIndexPath:animated:scrollPosition:", [indexPath, animated, scrollPosition], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.BOOL_VAL, ObjectManager.INT_VAL], -1);
 	}
 	public function reloadData():Void
 	{
@@ -87,7 +87,7 @@ class UICollectionView extends UIScrollView
 	}
 	public function scrollToItemAtIndexPathAtScrollPositionAnimated( indexPath:Array<Int>,  scrollPosition:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollToItemAtIndexPath:atScrollPosition:animated:", [indexPath, scrollPosition, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollToItemAtIndexPath:atScrollPosition:animated:", [indexPath, scrollPosition, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function numberOfSections():Int
 	{
@@ -111,7 +111,7 @@ class UICollectionView extends UIScrollView
 	}
 	public function deselectItemAtIndexPathAnimated( indexPath:Array<Int>,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "deselectItemAtIndexPath:animated:", [indexPath, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "deselectItemAtIndexPath:animated:", [indexPath, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function numberOfItemsInSection( section:Int):Int
 	{

@@ -30,36 +30,36 @@ class UIStepper extends UIControl
 	public var continuous(getContinuous, setContinuous):Bool;
 	private function getContinuous():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setContinuous(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return continuous;
 	}
 
 	public var autorepeat(getAutorepeat, setAutorepeat):Bool;
 	private function getAutorepeat():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autorepeat", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autorepeat", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAutorepeat(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutorepeat:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutorepeat:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return autorepeat;
 	}
 
 	public var wraps(getWraps, setWraps):Bool;
 	private function getWraps():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "wraps", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "wraps", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setWraps(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWraps:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWraps:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return wraps;
 	}
 

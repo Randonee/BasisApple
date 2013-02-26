@@ -55,36 +55,36 @@ class UIControl extends UIView
 	public var enabled(getEnabled, setEnabled):Bool;
 	private function getEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setEnabled(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return enabled;
 	}
 
 	public var selected(getSelected, setSelected):Bool;
 	private function getSelected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setSelected(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return selected;
 	}
 
 	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setHighlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return highlighted;
 	}
 
@@ -121,13 +121,13 @@ class UIControl extends UIView
 	public var tracking(getTracking, null):Bool;
 	private function getTracking():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	public var touchInside(getTouchInside, null):Bool;
 	private function getTouchInside():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "touchInside", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "touchInside", [], [], ObjectManager.BOOL_VAL);
 	}
 
 

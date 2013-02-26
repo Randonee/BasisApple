@@ -31,7 +31,7 @@ class UIPopoverBackgroundView extends UIView
 	}
 	static public function wantsDefaultContentAppearance():Bool
 	{
-		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIPopoverBackgroundView", "wantsDefaultContentAppearance", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIPopoverBackgroundView", "wantsDefaultContentAppearance", [], [], ObjectManager.BOOL_VAL);
 	}
 	static public function arrowHeight():Float
 	{

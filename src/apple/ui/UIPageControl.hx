@@ -54,24 +54,24 @@ class UIPageControl extends UIControl
 	public var hidesForSinglePage(getHidesForSinglePage, setHidesForSinglePage):Bool;
 	private function getHidesForSinglePage():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesForSinglePage", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesForSinglePage", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setHidesForSinglePage(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesForSinglePage:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesForSinglePage:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return hidesForSinglePage;
 	}
 
 	public var defersCurrentPageDisplay(getDefersCurrentPageDisplay, setDefersCurrentPageDisplay):Bool;
 	private function getDefersCurrentPageDisplay():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "defersCurrentPageDisplay", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "defersCurrentPageDisplay", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setDefersCurrentPageDisplay(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDefersCurrentPageDisplay:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDefersCurrentPageDisplay:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return defersCurrentPageDisplay;
 	}
 

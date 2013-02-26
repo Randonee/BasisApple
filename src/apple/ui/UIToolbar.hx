@@ -42,12 +42,12 @@ class UIToolbar extends UIView
 	public var translucent(getTranslucent, setTranslucent):Bool;
 	private function getTranslucent():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setTranslucent(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return translucent;
 	}
 

@@ -79,11 +79,11 @@ class UITabBar extends UIView
 	//Methods
 	public function endCustomizingAnimated( animated:Bool):Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "endCustomizingAnimated:", [animated], [ObjectManager.OBJECT_VAL], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "endCustomizingAnimated:", [animated], [ObjectManager.BOOL_VAL], ObjectManager.BOOL_VAL);
 	}
 	public function isCustomizing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isCustomizing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isCustomizing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 

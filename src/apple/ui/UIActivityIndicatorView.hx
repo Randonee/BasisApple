@@ -42,12 +42,12 @@ class UIActivityIndicatorView extends UIView
 	public var hidesWhenStopped(getHidesWhenStopped, setHidesWhenStopped):Bool;
 	private function getHidesWhenStopped():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesWhenStopped", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesWhenStopped", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setHidesWhenStopped(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesWhenStopped:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesWhenStopped:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return hidesWhenStopped;
 	}
 
@@ -79,7 +79,7 @@ class UIActivityIndicatorView extends UIView
 	}
 	public function isAnimating():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isAnimating", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isAnimating", [], [], ObjectManager.BOOL_VAL);
 	}
 
 

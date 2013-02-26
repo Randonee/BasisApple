@@ -20,6 +20,32 @@ class UITextField extends UIControl
 	public static inline var UITextFieldTextDidBeginEditing:String = "UITextFieldTextDidBeginEditing";
 	public static inline var UITextFieldTextDidChange:String = "UITextFieldTextDidChange";
 	public static inline var UITextFieldTextDidEndEditing:String = "UITextFieldTextDidEndEditing";
+	
+	public var secureTextEntry(getSecureTextEntry, setSecureTextEntry) : Bool;
+	private function setSecureTextEntry(value:Bool):Bool
+	{
+		cpp_uitextfield_setSecureTextEntry(basisID, value);
+		return cpp_uitextfield_getSecureTextEntry(basisID);
+	}
+	private static var cpp_uitextfield_setSecureTextEntry = Lib.load("basis", "uitextfield_setSecureTextEntry", 2);
+	private function getSecureTextEntry():Bool
+	{
+		return cpp_uitextfield_getSecureTextEntry(basisID);
+	}
+	private static var cpp_uitextfield_getSecureTextEntry = Lib.load("basis", "uitextfield_getSecureTextEntry", 1);
+
+	public var fontSize(getFontSize, setFontSize) : Float;
+	private function setFontSize(value:Float):Float
+	{
+		cpp_uitextfield_setFontSize(basisID, value);
+		return cpp_uitextfield_getFontSize(basisID);
+	}
+	private static var cpp_uitextfield_setFontSize = Lib.load("basis", "uitextfield_setFontSize", 2);
+	private function getFontSize():Float
+	{
+		return cpp_uitextfield_getFontSize(basisID);
+	}
+	private static var cpp_uitextfield_getFontSize = Lib.load("basis", "uitextfield_getFontSize", 1);
 	// ---------------------------------
 	
 	
@@ -99,24 +125,24 @@ class UITextField extends UIControl
 	public var clearsOnBeginEditing(getClearsOnBeginEditing, setClearsOnBeginEditing):Bool;
 	private function getClearsOnBeginEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnBeginEditing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnBeginEditing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setClearsOnBeginEditing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnBeginEditing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnBeginEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsOnBeginEditing;
 	}
 
 	public var adjustsFontSizeToFitWidth(getAdjustsFontSizeToFitWidth, setAdjustsFontSizeToFitWidth):Bool;
 	private function getAdjustsFontSizeToFitWidth():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsFontSizeToFitWidth", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsFontSizeToFitWidth", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAdjustsFontSizeToFitWidth(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsFontSizeToFitWidth:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsFontSizeToFitWidth:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsFontSizeToFitWidth;
 	}
 
@@ -151,18 +177,18 @@ class UITextField extends UIControl
 	public var editing(getEditing, null):Bool;
 	private function getEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	public var allowsEditingTextAttributes(getAllowsEditingTextAttributes, setAllowsEditingTextAttributes):Bool;
 	private function getAllowsEditingTextAttributes():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsEditingTextAttributes", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsEditingTextAttributes", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsEditingTextAttributes(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsEditingTextAttributes:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsEditingTextAttributes:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsEditingTextAttributes;
 	}
 
@@ -229,12 +255,12 @@ class UITextField extends UIControl
 	public var clearsOnInsertion(getClearsOnInsertion, setClearsOnInsertion):Bool;
 	private function getClearsOnInsertion():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnInsertion", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnInsertion", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setClearsOnInsertion(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnInsertion:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnInsertion:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsOnInsertion;
 	}
 

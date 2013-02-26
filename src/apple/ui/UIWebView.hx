@@ -42,30 +42,30 @@ class UIWebView extends UIView
 	public var canGoBack(getCanGoBack, null):Bool;
 	private function getCanGoBack():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canGoBack", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canGoBack", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	public var canGoForward(getCanGoForward, null):Bool;
 	private function getCanGoForward():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canGoForward", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canGoForward", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	public var loading(getLoading, null):Bool;
 	private function getLoading():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "loading", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "loading", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	public var scalesPageToFit(getScalesPageToFit, setScalesPageToFit):Bool;
 	private function getScalesPageToFit():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scalesPageToFit", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scalesPageToFit", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setScalesPageToFit(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScalesPageToFit:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScalesPageToFit:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return scalesPageToFit;
 	}
 
@@ -84,60 +84,60 @@ class UIWebView extends UIView
 	public var allowsInlineMediaPlayback(getAllowsInlineMediaPlayback, setAllowsInlineMediaPlayback):Bool;
 	private function getAllowsInlineMediaPlayback():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsInlineMediaPlayback", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsInlineMediaPlayback", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsInlineMediaPlayback(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsInlineMediaPlayback:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsInlineMediaPlayback:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsInlineMediaPlayback;
 	}
 
 	public var mediaPlaybackRequiresUserAction(getMediaPlaybackRequiresUserAction, setMediaPlaybackRequiresUserAction):Bool;
 	private function getMediaPlaybackRequiresUserAction():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "mediaPlaybackRequiresUserAction", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "mediaPlaybackRequiresUserAction", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setMediaPlaybackRequiresUserAction(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMediaPlaybackRequiresUserAction:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMediaPlaybackRequiresUserAction:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return mediaPlaybackRequiresUserAction;
 	}
 
 	public var mediaPlaybackAllowsAirPlay(getMediaPlaybackAllowsAirPlay, setMediaPlaybackAllowsAirPlay):Bool;
 	private function getMediaPlaybackAllowsAirPlay():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "mediaPlaybackAllowsAirPlay", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "mediaPlaybackAllowsAirPlay", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setMediaPlaybackAllowsAirPlay(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMediaPlaybackAllowsAirPlay:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMediaPlaybackAllowsAirPlay:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return mediaPlaybackAllowsAirPlay;
 	}
 
 	public var suppressesIncrementalRendering(getSuppressesIncrementalRendering, setSuppressesIncrementalRendering):Bool;
 	private function getSuppressesIncrementalRendering():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "suppressesIncrementalRendering", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "suppressesIncrementalRendering", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setSuppressesIncrementalRendering(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSuppressesIncrementalRendering:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSuppressesIncrementalRendering:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return suppressesIncrementalRendering;
 	}
 
 	public var keyboardDisplayRequiresUserAction(getKeyboardDisplayRequiresUserAction, setKeyboardDisplayRequiresUserAction):Bool;
 	private function getKeyboardDisplayRequiresUserAction():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyboardDisplayRequiresUserAction", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyboardDisplayRequiresUserAction", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setKeyboardDisplayRequiresUserAction(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyboardDisplayRequiresUserAction:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyboardDisplayRequiresUserAction:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return keyboardDisplayRequiresUserAction;
 	}
 

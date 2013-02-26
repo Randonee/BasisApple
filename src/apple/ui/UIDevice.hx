@@ -1,7 +1,5 @@
 package apple.ui;
 
-import basis.ios.DeviceEventManager;
-
 import cpp.Lib;
 
 class UIDevice

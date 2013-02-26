@@ -90,7 +90,7 @@ class UIActionSheet extends UIView
 	public var visible(getVisible, null):Bool;
 	private function getVisible():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.BOOL_VAL);
 	}
 
 
@@ -117,11 +117,11 @@ class UIActionSheet extends UIView
 	}
 	public function dismissWithClickedButtonIndexAnimated( buttonIndex:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissWithClickedButtonIndex:animated:", [buttonIndex, animated], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissWithClickedButtonIndex:animated:", [buttonIndex, animated], [ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function showFromRectInViewAnimated( rect:Array<Float>,  view:UIView,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromRect:inView:animated:", [rect, view, animated], [ObjectManager.CGRECT_VAL, ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromRect:inView:animated:", [rect, view, animated], [ObjectManager.CGRECT_VAL, ObjectManager.OBJECT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function showInView( view:UIView):Void
 	{

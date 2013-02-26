@@ -36,6 +36,7 @@ class UITableView extends UIScrollView
 
 	// ---------------------------------
 	
+	
 
 	//Constants
 	//static public inline var UITableViewAutomaticDimension:Float;
@@ -100,60 +101,60 @@ class UITableView extends UIScrollView
 	public var editing(getEditing, setEditing):Bool;
 	private function getEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setEditing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return editing;
 	}
 
 	public var allowsSelection(getAllowsSelection, setAllowsSelection):Bool;
 	private function getAllowsSelection():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelection", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelection", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsSelection(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelection:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelection:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsSelection;
 	}
 
 	public var allowsSelectionDuringEditing(getAllowsSelectionDuringEditing, setAllowsSelectionDuringEditing):Bool;
 	private function getAllowsSelectionDuringEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelectionDuringEditing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelectionDuringEditing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsSelectionDuringEditing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelectionDuringEditing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelectionDuringEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsSelectionDuringEditing;
 	}
 
 	public var allowsMultipleSelection(getAllowsMultipleSelection, setAllowsMultipleSelection):Bool;
 	private function getAllowsMultipleSelection():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelection", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelection", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsMultipleSelection(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelection:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelection:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsMultipleSelection;
 	}
 
 	public var allowsMultipleSelectionDuringEditing(getAllowsMultipleSelectionDuringEditing, setAllowsMultipleSelectionDuringEditing):Bool;
 	private function getAllowsMultipleSelectionDuringEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelectionDuringEditing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelectionDuringEditing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsMultipleSelectionDuringEditing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelectionDuringEditing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelectionDuringEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsMultipleSelectionDuringEditing;
 	}
 
@@ -253,7 +254,7 @@ class UITableView extends UIScrollView
 	}
 	public function deselectRowAtIndexPathAnimated( indexPath:Array<Int>,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "deselectRowAtIndexPath:animated:", [indexPath, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "deselectRowAtIndexPath:animated:", [indexPath, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function footerViewForSection( section:Int):UITableViewHeaderFooterView
 	{
@@ -273,7 +274,7 @@ class UITableView extends UIScrollView
 	}
 	public function setEditingAnimated( editing:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:animated:", [editing, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:animated:", [editing, animated], [ObjectManager.BOOL_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function reloadSectionsWithRowAnimation( sections:Array<Int>,  animation:Int):Void
 	{
@@ -317,11 +318,11 @@ class UITableView extends UIScrollView
 	}
 	public function scrollToNearestSelectedRowAtScrollPositionAnimated( scrollPosition:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollToNearestSelectedRowAtScrollPosition:animated:", [scrollPosition, animated], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollToNearestSelectedRowAtScrollPosition:animated:", [scrollPosition, animated], [ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function selectRowAtIndexPathAnimatedScrollPosition( indexPath:Array<Int>,  animated:Bool,  scrollPosition:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectRowAtIndexPath:animated:scrollPosition:", [indexPath, animated, scrollPosition], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectRowAtIndexPath:animated:scrollPosition:", [indexPath, animated, scrollPosition], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.BOOL_VAL, ObjectManager.INT_VAL], -1);
 	}
 	public function indexPathForSelectedRow():Array<Int>
 	{
@@ -353,7 +354,7 @@ class UITableView extends UIScrollView
 	}
 	public function scrollToRowAtIndexPathAtScrollPositionAnimated( indexPath:Array<Int>,  scrollPosition:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollToRowAtIndexPath:atScrollPosition:animated:", [indexPath, scrollPosition, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollToRowAtIndexPath:atScrollPosition:animated:", [indexPath, scrollPosition, animated], [ObjectManager.NSINDEXPATH_VAL, ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function indexPathForCell( cell:UITableViewCell):Array<Int>
 	{

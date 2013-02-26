@@ -78,12 +78,12 @@ class UITextView extends UIScrollView
 	public var editable(getEditable, setEditable):Bool;
 	private function getEditable():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editable", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editable", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setEditable(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditable:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditable:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return editable;
 	}
 
@@ -102,24 +102,24 @@ class UITextView extends UIScrollView
 	public var allowsEditingTextAttributes(getAllowsEditingTextAttributes, setAllowsEditingTextAttributes):Bool;
 	private function getAllowsEditingTextAttributes():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsEditingTextAttributes", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsEditingTextAttributes", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAllowsEditingTextAttributes(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsEditingTextAttributes:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsEditingTextAttributes:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsEditingTextAttributes;
 	}
 
 	public var clearsOnInsertion(getClearsOnInsertion, setClearsOnInsertion):Bool;
 	private function getClearsOnInsertion():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnInsertion", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnInsertion", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setClearsOnInsertion(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnInsertion:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnInsertion:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsOnInsertion;
 	}
 
@@ -131,7 +131,7 @@ class UITextView extends UIScrollView
 	}
 	public function hasText():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hasText", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hasText", [], [], ObjectManager.BOOL_VAL);
 	}
 
 

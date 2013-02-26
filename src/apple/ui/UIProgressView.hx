@@ -99,7 +99,7 @@ class UIProgressView extends UIView
 	}
 	public function setProgressAnimated( progress:Float,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgress:animated:", [progress, animated], [ObjectManager.FLOAT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgress:animated:", [progress, animated], [ObjectManager.FLOAT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 
 

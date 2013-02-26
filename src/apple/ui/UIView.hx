@@ -15,6 +15,14 @@ import basis.BasisApplication;
 class UIView extends UIResponder
 {
 
+	//------ Added - NOT GENERATED ------
+
+	public static inline var UIViewDidMoveToSuperview:String = "UIViewDidMoveToSuperview";
+	
+	// ---------------------------------
+	
+	
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -34,7 +42,7 @@ class UIView extends UIResponder
 	}
 	static public function setAnimationBeginsFromCurrentState( fromCurrentState:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationBeginsFromCurrentState:", [fromCurrentState], [ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationBeginsFromCurrentState:", [fromCurrentState], [ObjectManager.BOOL_VAL], -1);
 	}
 	static public function setAnimationDelegate( delegate:Dynamic):Void
 	{
@@ -58,23 +66,23 @@ class UIView extends UIResponder
 	}
 	static public function setAnimationsEnabled( enabled:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationsEnabled:", [enabled], [ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationsEnabled:", [enabled], [ObjectManager.BOOL_VAL], -1);
 	}
 	static public function setAnimationRepeatAutoreverses( repeatAutoreverses:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationRepeatAutoreverses:", [repeatAutoreverses], [ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationRepeatAutoreverses:", [repeatAutoreverses], [ObjectManager.BOOL_VAL], -1);
 	}
 	static public function setAnimationTransitionForViewCache( transition:Int,  view:UIView,  cache:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationTransition:forView:cache:", [transition, view, cache], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "setAnimationTransition:forView:cache:", [transition, view, cache], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	static public function areAnimationsEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "areAnimationsEnabled", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "areAnimationsEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 	static public function requiresConstraintBasedLayout():Bool
 	{
-		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "requiresConstraintBasedLayout", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIView", "requiresConstraintBasedLayout", [], [], ObjectManager.BOOL_VAL);
 	}
 	static public function setAnimationCurve( curve:Int):Void
 	{
@@ -85,12 +93,12 @@ class UIView extends UIResponder
 	public var userInteractionEnabled(getUserInteractionEnabled, setUserInteractionEnabled):Bool;
 	private function getUserInteractionEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "userInteractionEnabled", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "userInteractionEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setUserInteractionEnabled(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setUserInteractionEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setUserInteractionEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return userInteractionEnabled;
 	}
 
@@ -169,36 +177,36 @@ class UIView extends UIResponder
 	public var multipleTouchEnabled(getMultipleTouchEnabled, setMultipleTouchEnabled):Bool;
 	private function getMultipleTouchEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "multipleTouchEnabled", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "multipleTouchEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setMultipleTouchEnabled(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMultipleTouchEnabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMultipleTouchEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return multipleTouchEnabled;
 	}
 
 	public var exclusiveTouch(getExclusiveTouch, setExclusiveTouch):Bool;
 	private function getExclusiveTouch():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "exclusiveTouch", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "exclusiveTouch", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setExclusiveTouch(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setExclusiveTouch:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setExclusiveTouch:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return exclusiveTouch;
 	}
 
 	public var autoresizesSubviews(getAutoresizesSubviews, setAutoresizesSubviews):Bool;
 	private function getAutoresizesSubviews():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autoresizesSubviews", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autoresizesSubviews", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAutoresizesSubviews(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutoresizesSubviews:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutoresizesSubviews:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return autoresizesSubviews;
 	}
 
@@ -229,12 +237,12 @@ class UIView extends UIResponder
 	public var clipsToBounds(getClipsToBounds, setClipsToBounds):Bool;
 	private function getClipsToBounds():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clipsToBounds", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clipsToBounds", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setClipsToBounds(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClipsToBounds:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClipsToBounds:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clipsToBounds;
 	}
 
@@ -265,36 +273,36 @@ class UIView extends UIResponder
 	public var opaque(getOpaque, setOpaque):Bool;
 	private function getOpaque():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "opaque", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "opaque", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setOpaque(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOpaque:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOpaque:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return opaque;
 	}
 
 	public var clearsContextBeforeDrawing(getClearsContextBeforeDrawing, setClearsContextBeforeDrawing):Bool;
 	private function getClearsContextBeforeDrawing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsContextBeforeDrawing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsContextBeforeDrawing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setClearsContextBeforeDrawing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsContextBeforeDrawing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsContextBeforeDrawing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsContextBeforeDrawing;
 	}
 
 	public var hidden(getHidden, setHidden):Bool;
 	private function getHidden():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidden", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidden", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setHidden(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidden:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidden:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return hidden;
 	}
 
@@ -386,7 +394,7 @@ class UIView extends UIResponder
 	}
 	public function setTranslatesAutoresizingMaskIntoConstraints( flag:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslatesAutoresizingMaskIntoConstraints:", [flag], [ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslatesAutoresizingMaskIntoConstraints:", [flag], [ObjectManager.BOOL_VAL], -1);
 	}
 	public function didMoveToSuperview():Void
 	{
@@ -410,7 +418,7 @@ class UIView extends UIResponder
 	}
 	public function needsUpdateConstraints():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "needsUpdateConstraints", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "needsUpdateConstraints", [], [], ObjectManager.BOOL_VAL);
 	}
 	public function setContentHuggingPriorityForAxis( priority:Int,  axis:Int):Void
 	{
@@ -422,7 +430,7 @@ class UIView extends UIResponder
 	}
 	public function hasAmbiguousLayout():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hasAmbiguousLayout", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hasAmbiguousLayout", [], [], ObjectManager.BOOL_VAL);
 	}
 	public function initWithFrame( frame:Array<Float>):Dynamic
 	{
@@ -438,7 +446,7 @@ class UIView extends UIResponder
 	}
 	public function isDescendantOfView( view:UIView):Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isDescendantOfView:", [view], [ObjectManager.OBJECT_VAL], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isDescendantOfView:", [view], [ObjectManager.OBJECT_VAL], ObjectManager.BOOL_VAL);
 	}
 	public function alignmentRectForFrame( frame:Array<Float>):Array<Float>
 	{
@@ -514,7 +522,7 @@ class UIView extends UIResponder
 	}
 	public function translatesAutoresizingMaskIntoConstraints():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translatesAutoresizingMaskIntoConstraints", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translatesAutoresizingMaskIntoConstraints", [], [], ObjectManager.BOOL_VAL);
 	}
 
 

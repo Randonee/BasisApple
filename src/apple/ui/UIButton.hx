@@ -28,6 +28,8 @@ class UIButton extends UIControl
 	}
 	private static var uibutton_buttonWithType = Lib.load ("basis", "uibutton_buttonWithType", 1);
 	//---------------------------------
+	
+	
 
 	public function new(?type:Class<IObject>=null)
 	{
@@ -38,6 +40,7 @@ class UIButton extends UIControl
 
 	//Constants
 
+	//Static Methods
 
 	//Properties
 	public var contentEdgeInsets(getContentEdgeInsets, setContentEdgeInsets):Array<Float>;
@@ -67,12 +70,12 @@ class UIButton extends UIControl
 	public var reversesTitleShadowWhenHighlighted(getReversesTitleShadowWhenHighlighted, setReversesTitleShadowWhenHighlighted):Bool;
 	private function getReversesTitleShadowWhenHighlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reversesTitleShadowWhenHighlighted", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reversesTitleShadowWhenHighlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setReversesTitleShadowWhenHighlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setReversesTitleShadowWhenHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setReversesTitleShadowWhenHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return reversesTitleShadowWhenHighlighted;
 	}
 
@@ -91,36 +94,36 @@ class UIButton extends UIControl
 	public var adjustsImageWhenHighlighted(getAdjustsImageWhenHighlighted, setAdjustsImageWhenHighlighted):Bool;
 	private function getAdjustsImageWhenHighlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenHighlighted", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenHighlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAdjustsImageWhenHighlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsImageWhenHighlighted;
 	}
 
 	public var adjustsImageWhenDisabled(getAdjustsImageWhenDisabled, setAdjustsImageWhenDisabled):Bool;
 	private function getAdjustsImageWhenDisabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenDisabled", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenDisabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setAdjustsImageWhenDisabled(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenDisabled:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenDisabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsImageWhenDisabled;
 	}
 
 	public var showsTouchWhenHighlighted(getShowsTouchWhenHighlighted, setShowsTouchWhenHighlighted):Bool;
 	private function getShowsTouchWhenHighlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsTouchWhenHighlighted", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsTouchWhenHighlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsTouchWhenHighlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsTouchWhenHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsTouchWhenHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsTouchWhenHighlighted;
 	}
 

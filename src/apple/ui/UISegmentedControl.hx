@@ -42,12 +42,12 @@ class UISegmentedControl extends UIControl
 	public var momentary(getMomentary, setMomentary):Bool;
 	private function getMomentary():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "momentary", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "momentary", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setMomentary(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMomentary:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMomentary:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return momentary;
 	}
 
@@ -60,12 +60,12 @@ class UISegmentedControl extends UIControl
 	public var apportionsSegmentWidthsByContent(getApportionsSegmentWidthsByContent, setApportionsSegmentWidthsByContent):Bool;
 	private function getApportionsSegmentWidthsByContent():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "apportionsSegmentWidthsByContent", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "apportionsSegmentWidthsByContent", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setApportionsSegmentWidthsByContent(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setApportionsSegmentWidthsByContent:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setApportionsSegmentWidthsByContent:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return apportionsSegmentWidthsByContent;
 	}
 
@@ -105,7 +105,7 @@ class UISegmentedControl extends UIControl
 	}
 	public function insertSegmentWithImageAtIndexAnimated( image:String,  segment:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithImage:atIndex:animated:", [image, segment, animated], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithImage:atIndex:animated:", [image, segment, animated], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function setBackgroundImageForStateBarMetrics( backgroundImage:String,  state:Int,  barMetrics:Int):Void
 	{
@@ -125,7 +125,7 @@ class UISegmentedControl extends UIControl
 	}
 	public function isEnabledForSegmentAtIndex( segment:Int):Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabledForSegmentAtIndex:", [segment], [ObjectManager.INT_VAL], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabledForSegmentAtIndex:", [segment], [ObjectManager.INT_VAL], ObjectManager.BOOL_VAL);
 	}
 	public function setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics( dividerImage:String,  leftState:Int,  rightState:Int,  barMetrics:Int):Void
 	{
@@ -133,15 +133,15 @@ class UISegmentedControl extends UIControl
 	}
 	public function setEnabledForSegmentAtIndex( enabled:Bool,  segment:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:forSegmentAtIndex:", [enabled, segment], [ObjectManager.OBJECT_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:forSegmentAtIndex:", [enabled, segment], [ObjectManager.BOOL_VAL, ObjectManager.INT_VAL], -1);
 	}
 	public function insertSegmentWithTitleAtIndexAnimated( title:String,  segment:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithTitle:atIndex:animated:", [title, segment, animated], [ObjectManager.STRING_VAL, ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithTitle:atIndex:animated:", [title, segment, animated], [ObjectManager.STRING_VAL, ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function removeSegmentAtIndexAnimated( segment:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeSegmentAtIndex:animated:", [segment, animated], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeSegmentAtIndex:animated:", [segment, animated], [ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function setImageForSegmentAtIndex( image:String,  segment:Int):Void
 	{

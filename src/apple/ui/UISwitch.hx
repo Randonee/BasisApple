@@ -82,12 +82,12 @@ class UISwitch extends UIControl
 	public var on(getOn, setOn):Bool;
 	private function getOn():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "on", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "on", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setOn(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOn:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOn:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return on;
 	}
 
@@ -95,7 +95,7 @@ class UISwitch extends UIControl
 	//Methods
 	public function setOnAnimated( on:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOn:animated:", [on, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOn:animated:", [on, animated], [ObjectManager.BOOL_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 
 

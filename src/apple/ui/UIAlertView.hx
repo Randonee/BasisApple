@@ -78,7 +78,7 @@ class UIAlertView extends UIView
 	public var visible(getVisible, null):Bool;
 	private function getVisible():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	public var alertViewStyle(getAlertViewStyle, setAlertViewStyle):Int;
@@ -109,7 +109,7 @@ class UIAlertView extends UIView
 	}
 	public function dismissWithClickedButtonIndexAnimated( buttonIndex:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissWithClickedButtonIndex:animated:", [buttonIndex, animated], [ObjectManager.INT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissWithClickedButtonIndex:animated:", [buttonIndex, animated], [ObjectManager.INT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 
 

@@ -21,7 +21,8 @@ enum ARG_TYPES
 	NSRangeVal,
 	UIOffsetVal,
 	UIImageVal,
-	UIColorVal
+	UIColorVal,
+	boolVal,
 };
 
 
@@ -200,6 +201,13 @@ namespace basis
 						[objcArgs addObject:pathToUIImage(arg)];
 					break;
 					
+					case boolVal:
+					{
+						int val = val_bool(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(BOOL)]];
+					}
+					break;
+					
 					default:
 	    			{
 	    				id argObject = [[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(arg) encoding:NSUTF8StringEncoding]];
@@ -325,6 +333,14 @@ namespace basis
 				return uiColorToArray(returnVar);
 			break;
 			
+			case boolVal:
+			{
+				int var;
+				[returnVar getValue:&var];
+				return alloc_bool(var);
+			}
+			break;
+			
 			default:
 			{
 				NSString *objectID = [ObjectManager getObjectID:returnVar];
@@ -352,6 +368,7 @@ namespace basis
 			case CGSizeVal:
 			case NSRangeVal:
 			case UIOffsetVal:
+			case boolVal:
 				isObject = false;
 			break;
 			

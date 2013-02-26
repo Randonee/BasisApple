@@ -82,12 +82,12 @@ class UISlider extends UIControl
 	public var continuous(getContinuous, setContinuous):Bool;
 	private function getContinuous():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setContinuous(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return continuous;
 	}
 
@@ -149,7 +149,7 @@ class UISlider extends UIControl
 	}
 	public function setValueAnimated( value:Float,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setValue:animated:", [value, animated], [ObjectManager.FLOAT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setValue:animated:", [value, animated], [ObjectManager.FLOAT_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function trackRectForBounds( bounds:Array<Float>):Array<Float>
 	{

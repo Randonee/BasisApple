@@ -15,7 +15,6 @@ import basis.BasisApplication;
 class UITableViewCell extends UIView
 {
 
-
 	//------ added NOT GENERATED ------
 	static public function initWithStyleReuseIdentifier( style:Int,  reuseIdentifier:String):Dynamic
 	{
@@ -31,6 +30,7 @@ class UITableViewCell extends UIView
 	//---------------------------------
 	
 	
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -124,24 +124,24 @@ class UITableViewCell extends UIView
 	public var selected(getSelected, setSelected):Bool;
 	private function getSelected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setSelected(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return selected;
 	}
 
 	public var highlighted(getHighlighted, setHighlighted):Bool;
 	private function getHighlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setHighlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return highlighted;
 	}
 
@@ -154,24 +154,24 @@ class UITableViewCell extends UIView
 	public var showsReorderControl(getShowsReorderControl, setShowsReorderControl):Bool;
 	private function getShowsReorderControl():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsReorderControl", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsReorderControl", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsReorderControl(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsReorderControl:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsReorderControl:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsReorderControl;
 	}
 
 	public var shouldIndentWhileEditing(getShouldIndentWhileEditing, setShouldIndentWhileEditing):Bool;
 	private function getShouldIndentWhileEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shouldIndentWhileEditing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shouldIndentWhileEditing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShouldIndentWhileEditing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShouldIndentWhileEditing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShouldIndentWhileEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return shouldIndentWhileEditing;
 	}
 
@@ -250,19 +250,19 @@ class UITableViewCell extends UIView
 	public var editing(getEditing, setEditing):Bool;
 	private function getEditing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setEditing(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return editing;
 	}
 
 	public var showingDeleteConfirmation(getShowingDeleteConfirmation, null):Bool;
 	private function getShowingDeleteConfirmation():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showingDeleteConfirmation", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showingDeleteConfirmation", [], [], ObjectManager.BOOL_VAL);
 	}
 
 
@@ -273,20 +273,19 @@ class UITableViewCell extends UIView
 	}
 	public function setSelectedAnimated( selected:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:animated:", [selected, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:animated:", [selected, animated], [ObjectManager.BOOL_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function setEditingAnimated( editing:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:animated:", [editing, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEditing:animated:", [editing, animated], [ObjectManager.BOOL_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function prepareForReuse():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "prepareForReuse", [], [], -1);
 	}
-	
 	public function setHighlightedAnimated( highlighted:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:animated:", [highlighted, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:animated:", [highlighted, animated], [ObjectManager.BOOL_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function willTransitionToState( state:Int):Void
 	{

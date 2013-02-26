@@ -78,48 +78,48 @@ class UISearchBar extends UIView
 	public var showsBookmarkButton(getShowsBookmarkButton, setShowsBookmarkButton):Bool;
 	private function getShowsBookmarkButton():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsBookmarkButton", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsBookmarkButton", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsBookmarkButton(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsBookmarkButton:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsBookmarkButton:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsBookmarkButton;
 	}
 
 	public var showsCancelButton(getShowsCancelButton, setShowsCancelButton):Bool;
 	private function getShowsCancelButton():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsCancelButton", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsCancelButton", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsCancelButton(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsCancelButton;
 	}
 
 	public var showsSearchResultsButton(getShowsSearchResultsButton, setShowsSearchResultsButton):Bool;
 	private function getShowsSearchResultsButton():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSearchResultsButton", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSearchResultsButton", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsSearchResultsButton(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSearchResultsButton:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSearchResultsButton:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsSearchResultsButton;
 	}
 
 	public var searchResultsButtonSelected(getSearchResultsButtonSelected, setSearchResultsButtonSelected):Bool;
 	private function getSearchResultsButtonSelected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsButtonSelected", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsButtonSelected", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setSearchResultsButtonSelected(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchResultsButtonSelected:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchResultsButtonSelected:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return searchResultsButtonSelected;
 	}
 
@@ -138,12 +138,12 @@ class UISearchBar extends UIView
 	public var translucent(getTranslucent, setTranslucent):Bool;
 	private function getTranslucent():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setTranslucent(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return translucent;
 	}
 
@@ -210,12 +210,12 @@ class UISearchBar extends UIView
 	public var showsScopeBar(getShowsScopeBar, setShowsScopeBar):Bool;
 	private function getShowsScopeBar():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsScopeBar", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsScopeBar", [], [], ObjectManager.BOOL_VAL);
 	}
 
 	private function setShowsScopeBar(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsScopeBar:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsScopeBar:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsScopeBar;
 	}
 
@@ -271,7 +271,7 @@ class UISearchBar extends UIView
 	}
 	public function setShowsCancelButtonAnimated( showsCancelButton:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:animated:", [showsCancelButton, animated], [ObjectManager.OBJECT_VAL, ObjectManager.OBJECT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:animated:", [showsCancelButton, animated], [ObjectManager.BOOL_VAL, ObjectManager.BOOL_VAL], -1);
 	}
 	public function setImageForSearchBarIconState( iconImage:String,  icon:Int,  state:Int):Void
 	{
