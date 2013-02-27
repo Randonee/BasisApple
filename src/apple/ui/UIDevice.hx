@@ -5,7 +5,7 @@ import cpp.Lib;
 class UIDevice
 {
 	//events
-	static public inline function UIDeviceOrientationDidChangeNotification:String = "UIDeviceOrientationDidChangeNotification";
+	static public inline function UIDeviceOrientationDidChangeNotification():String{return "UIDeviceOrientationDidChangeNotification";};
 
 
 	//UIUserInterfaceIdiom
