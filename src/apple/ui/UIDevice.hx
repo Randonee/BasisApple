@@ -28,13 +28,13 @@ class UIDevice
 	static public inline function UIDeviceOrientationFaceDown():Int{ return  6;}
 
 	static public var name(get_name,  null):String;
-	static public var model(getModel,  null):String;
+	static public var model(get_model,  null):String;
 	static public var orientation(get_orientation,  null):Int;
 
 	static private function get_name():String{return uidevice_getName();}
 	private static var uidevice_getName = Lib.load("basis", "uidevice_getName", 0);
 	
-	static private function getModel():String{return uidevice_getModel();}
+	static private function get_model():String{return uidevice_getModel();}
 	private static var uidevice_getModel = Lib.load("basis", "uidevice_getModel", 0);
 	
 	static private function get_orientation():Int{return uidevice_getOrientation();}
