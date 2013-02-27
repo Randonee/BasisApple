@@ -27,101 +27,101 @@ class UISlider extends UIControl
 	//Static Methods
 
 	//Properties
-	public var value(getValue, setValue):Float;
-	private function getValue():Float
+	public var value(get_value, set_value):Float;
+	private function get_value():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "value", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setValue(value:Float):Float
+	private function set_value(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return value;
 	}
 
-	public var minimumValue(getMinimumValue, setMinimumValue):Float;
-	private function getMinimumValue():Float
+	public var minimumValue(get_minimumValue, set_minimumValue):Float;
+	private function get_minimumValue():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumValue", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMinimumValue(value:Float):Float
+	private function set_minimumValue(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return minimumValue;
 	}
 
-	public var maximumValue(getMaximumValue, setMaximumValue):Float;
-	private function getMaximumValue():Float
+	public var maximumValue(get_maximumValue, set_maximumValue):Float;
+	private function get_maximumValue():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumValue", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMaximumValue(value:Float):Float
+	private function set_maximumValue(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return maximumValue;
 	}
 
-	public var minimumValueImage(null, setMinimumValueImage):String;
+	public var minimumValueImage(null, set_minimumValueImage):String;
 
-	private function setMinimumValueImage(value:String):String
+	private function set_minimumValueImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumValueImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var maximumValueImage(null, setMaximumValueImage):String;
+	public var maximumValueImage(null, set_maximumValueImage):String;
 
-	private function setMaximumValueImage(value:String):String
+	private function set_maximumValueImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumValueImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var continuous(getContinuous, setContinuous):Bool;
-	private function getContinuous():Bool
+	public var continuous(get_continuous, set_continuous):Bool;
+	private function get_continuous():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setContinuous(value:Bool):Bool
+	private function set_continuous(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return continuous;
 	}
 
-	public var minimumTrackTintColor(getMinimumTrackTintColor, setMinimumTrackTintColor):Array<Float>;
-	private function getMinimumTrackTintColor():Array<Float>
+	public var minimumTrackTintColor(get_minimumTrackTintColor, set_minimumTrackTintColor):Array<Float>;
+	private function get_minimumTrackTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumTrackTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setMinimumTrackTintColor(value:Array<Float>):Array<Float>
+	private function set_minimumTrackTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumTrackTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return minimumTrackTintColor;
 	}
 
-	public var maximumTrackTintColor(getMaximumTrackTintColor, setMaximumTrackTintColor):Array<Float>;
-	private function getMaximumTrackTintColor():Array<Float>
+	public var maximumTrackTintColor(get_maximumTrackTintColor, set_maximumTrackTintColor):Array<Float>;
+	private function get_maximumTrackTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumTrackTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setMaximumTrackTintColor(value:Array<Float>):Array<Float>
+	private function set_maximumTrackTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumTrackTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return maximumTrackTintColor;
 	}
 
-	public var thumbTintColor(getThumbTintColor, setThumbTintColor):Array<Float>;
-	private function getThumbTintColor():Array<Float>
+	public var thumbTintColor(get_thumbTintColor, set_thumbTintColor):Array<Float>;
+	private function get_thumbTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setThumbTintColor(value:Array<Float>):Array<Float>
+	private function set_thumbTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return thumbTintColor;

@@ -23,27 +23,27 @@ class UIWindow extends UIView
 	}
 
 	//Constants
-	//static public inline var UIWindowLevelNormal:Float;
-	//static public inline var UIWindowLevelAlert:Float;
-	//static public inline var UIWindowLevelStatusBar:Float;
+	//static public inline function UIWindowLevelNormal():Float{}
+	//static public inline function UIWindowLevelAlert():Float{}
+	//static public inline function UIWindowLevelStatusBar():Float{}
 
 	//Static Methods
 
 	//Properties
-	public var windowLevel(getWindowLevel, setWindowLevel):Float;
-	private function getWindowLevel():Float
+	public var windowLevel(get_windowLevel, set_windowLevel):Float;
+	private function get_windowLevel():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "windowLevel", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setWindowLevel(value:Float):Float
+	private function set_windowLevel(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWindowLevel:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return windowLevel;
 	}
 
-	public var keyWindow(getKeyWindow, null):Bool;
-	private function getKeyWindow():Bool
+	public var keyWindow(get_keyWindow, null):Bool;
+	private function get_keyWindow():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyWindow", [], [], ObjectManager.BOOL_VAL);
 	}

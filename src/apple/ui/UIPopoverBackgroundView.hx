@@ -43,25 +43,25 @@ class UIPopoverBackgroundView extends UIView
 	}
 
 	//Properties
-	public var arrowOffset(getArrowOffset, setArrowOffset):Float;
-	private function getArrowOffset():Float
+	public var arrowOffset(get_arrowOffset, set_arrowOffset):Float;
+	private function get_arrowOffset():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "arrowOffset", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setArrowOffset(value:Float):Float
+	private function set_arrowOffset(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setArrowOffset:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return arrowOffset;
 	}
 
-	public var arrowDirection(getArrowDirection, setArrowDirection):Int;
-	private function getArrowDirection():Int
+	public var arrowDirection(get_arrowDirection, set_arrowDirection):Int;
+	private function get_arrowDirection():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "arrowDirection", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setArrowDirection(value:Int):Int
+	private function set_arrowDirection(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setArrowDirection:", [value], [ObjectManager.INT_VAL], -1 );
 		return arrowDirection;

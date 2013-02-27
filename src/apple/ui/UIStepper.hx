@@ -27,97 +27,97 @@ class UIStepper extends UIControl
 	//Static Methods
 
 	//Properties
-	public var continuous(getContinuous, setContinuous):Bool;
-	private function getContinuous():Bool
+	public var continuous(get_continuous, set_continuous):Bool;
+	private function get_continuous():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setContinuous(value:Bool):Bool
+	private function set_continuous(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return continuous;
 	}
 
-	public var autorepeat(getAutorepeat, setAutorepeat):Bool;
-	private function getAutorepeat():Bool
+	public var autorepeat(get_autorepeat, set_autorepeat):Bool;
+	private function get_autorepeat():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autorepeat", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAutorepeat(value:Bool):Bool
+	private function set_autorepeat(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutorepeat:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return autorepeat;
 	}
 
-	public var wraps(getWraps, setWraps):Bool;
-	private function getWraps():Bool
+	public var wraps(get_wraps, set_wraps):Bool;
+	private function get_wraps():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "wraps", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setWraps(value:Bool):Bool
+	private function set_wraps(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWraps:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return wraps;
 	}
 
-	public var value(getValue, setValue):Float;
-	private function getValue():Float
+	public var value(get_value, set_value):Float;
+	private function get_value():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "value", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setValue(value:Float):Float
+	private function set_value(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return value;
 	}
 
-	public var minimumValue(getMinimumValue, setMinimumValue):Float;
-	private function getMinimumValue():Float
+	public var minimumValue(get_minimumValue, set_minimumValue):Float;
+	private function get_minimumValue():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumValue", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMinimumValue(value:Float):Float
+	private function set_minimumValue(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return minimumValue;
 	}
 
-	public var maximumValue(getMaximumValue, setMaximumValue):Float;
-	private function getMaximumValue():Float
+	public var maximumValue(get_maximumValue, set_maximumValue):Float;
+	private function get_maximumValue():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumValue", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMaximumValue(value:Float):Float
+	private function set_maximumValue(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return maximumValue;
 	}
 
-	public var stepValue(getStepValue, setStepValue):Float;
-	private function getStepValue():Float
+	public var stepValue(get_stepValue, set_stepValue):Float;
+	private function get_stepValue():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "stepValue", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setStepValue(value:Float):Float
+	private function set_stepValue(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setStepValue:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return stepValue;
 	}
 
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;

@@ -23,289 +23,289 @@ class UIScrollView extends UIView
 	}
 
 	//Constants
-	//static public inline var UIScrollViewDecelerationRateNormal:Float;
-	//static public inline var UIScrollViewDecelerationRateFast:Float;
+	//static public inline function UIScrollViewDecelerationRateNormal():Float{}
+	//static public inline function UIScrollViewDecelerationRateFast():Float{}
 
 	//Static Methods
 
 	//Properties
-	public var contentOffset(getContentOffset, setContentOffset):Array<Float>;
-	private function getContentOffset():Array<Float>
+	public var contentOffset(get_contentOffset, set_contentOffset):Array<Float>;
+	private function get_contentOffset():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentOffset", [], [], ObjectManager.CGPOINT_VAL);
 	}
 
-	private function setContentOffset(value:Array<Float>):Array<Float>
+	private function set_contentOffset(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentOffset:", [value], [ObjectManager.CGPOINT_VAL], -1 );
 		return contentOffset;
 	}
 
-	public var contentSize(getContentSize, setContentSize):Array<Float>;
-	private function getContentSize():Array<Float>
+	public var contentSize(get_contentSize, set_contentSize):Array<Float>;
+	private function get_contentSize():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentSize", [], [], ObjectManager.CGSIZE_VAL);
 	}
 
-	private function setContentSize(value:Array<Float>):Array<Float>
+	private function set_contentSize(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentSize:", [value], [ObjectManager.CGSIZE_VAL], -1 );
 		return contentSize;
 	}
 
-	public var contentInset(getContentInset, setContentInset):Array<Float>;
-	private function getContentInset():Array<Float>
+	public var contentInset(get_contentInset, set_contentInset):Array<Float>;
+	private function get_contentInset():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentInset", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
 
-	private function setContentInset(value:Array<Float>):Array<Float>
+	private function set_contentInset(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentInset:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
 		return contentInset;
 	}
 
-	public var directionalLockEnabled(getDirectionalLockEnabled, setDirectionalLockEnabled):Bool;
-	private function getDirectionalLockEnabled():Bool
+	public var directionalLockEnabled(get_directionalLockEnabled, set_directionalLockEnabled):Bool;
+	private function get_directionalLockEnabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "directionalLockEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setDirectionalLockEnabled(value:Bool):Bool
+	private function set_directionalLockEnabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDirectionalLockEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return directionalLockEnabled;
 	}
 
-	public var bounces(getBounces, setBounces):Bool;
-	private function getBounces():Bool
+	public var bounces(get_bounces, set_bounces):Bool;
+	private function get_bounces():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "bounces", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setBounces(value:Bool):Bool
+	private function set_bounces(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBounces:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return bounces;
 	}
 
-	public var alwaysBounceVertical(getAlwaysBounceVertical, setAlwaysBounceVertical):Bool;
-	private function getAlwaysBounceVertical():Bool
+	public var alwaysBounceVertical(get_alwaysBounceVertical, set_alwaysBounceVertical):Bool;
+	private function get_alwaysBounceVertical():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alwaysBounceVertical", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAlwaysBounceVertical(value:Bool):Bool
+	private function set_alwaysBounceVertical(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAlwaysBounceVertical:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return alwaysBounceVertical;
 	}
 
-	public var alwaysBounceHorizontal(getAlwaysBounceHorizontal, setAlwaysBounceHorizontal):Bool;
-	private function getAlwaysBounceHorizontal():Bool
+	public var alwaysBounceHorizontal(get_alwaysBounceHorizontal, set_alwaysBounceHorizontal):Bool;
+	private function get_alwaysBounceHorizontal():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alwaysBounceHorizontal", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAlwaysBounceHorizontal(value:Bool):Bool
+	private function set_alwaysBounceHorizontal(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAlwaysBounceHorizontal:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return alwaysBounceHorizontal;
 	}
 
-	public var pagingEnabled(getPagingEnabled, setPagingEnabled):Bool;
-	private function getPagingEnabled():Bool
+	public var pagingEnabled(get_pagingEnabled, set_pagingEnabled):Bool;
+	private function get_pagingEnabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pagingEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setPagingEnabled(value:Bool):Bool
+	private function set_pagingEnabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPagingEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return pagingEnabled;
 	}
 
-	public var scrollEnabled(getScrollEnabled, setScrollEnabled):Bool;
-	private function getScrollEnabled():Bool
+	public var scrollEnabled(get_scrollEnabled, set_scrollEnabled):Bool;
+	private function get_scrollEnabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setScrollEnabled(value:Bool):Bool
+	private function set_scrollEnabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScrollEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return scrollEnabled;
 	}
 
-	public var showsHorizontalScrollIndicator(getShowsHorizontalScrollIndicator, setShowsHorizontalScrollIndicator):Bool;
-	private function getShowsHorizontalScrollIndicator():Bool
+	public var showsHorizontalScrollIndicator(get_showsHorizontalScrollIndicator, set_showsHorizontalScrollIndicator):Bool;
+	private function get_showsHorizontalScrollIndicator():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsHorizontalScrollIndicator", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsHorizontalScrollIndicator(value:Bool):Bool
+	private function set_showsHorizontalScrollIndicator(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsHorizontalScrollIndicator:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsHorizontalScrollIndicator;
 	}
 
-	public var showsVerticalScrollIndicator(getShowsVerticalScrollIndicator, setShowsVerticalScrollIndicator):Bool;
-	private function getShowsVerticalScrollIndicator():Bool
+	public var showsVerticalScrollIndicator(get_showsVerticalScrollIndicator, set_showsVerticalScrollIndicator):Bool;
+	private function get_showsVerticalScrollIndicator():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsVerticalScrollIndicator", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsVerticalScrollIndicator(value:Bool):Bool
+	private function set_showsVerticalScrollIndicator(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsVerticalScrollIndicator:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsVerticalScrollIndicator;
 	}
 
-	public var scrollIndicatorInsets(getScrollIndicatorInsets, setScrollIndicatorInsets):Array<Float>;
-	private function getScrollIndicatorInsets():Array<Float>
+	public var scrollIndicatorInsets(get_scrollIndicatorInsets, set_scrollIndicatorInsets):Array<Float>;
+	private function get_scrollIndicatorInsets():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollIndicatorInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
 
-	private function setScrollIndicatorInsets(value:Array<Float>):Array<Float>
+	private function set_scrollIndicatorInsets(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScrollIndicatorInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
 		return scrollIndicatorInsets;
 	}
 
-	public var indicatorStyle(getIndicatorStyle, setIndicatorStyle):Int;
-	private function getIndicatorStyle():Int
+	public var indicatorStyle(get_indicatorStyle, set_indicatorStyle):Int;
+	private function get_indicatorStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "indicatorStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setIndicatorStyle(value:Int):Int
+	private function set_indicatorStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setIndicatorStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return indicatorStyle;
 	}
 
-	public var decelerationRate(getDecelerationRate, setDecelerationRate):Float;
-	private function getDecelerationRate():Float
+	public var decelerationRate(get_decelerationRate, set_decelerationRate):Float;
+	private function get_decelerationRate():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "decelerationRate", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setDecelerationRate(value:Float):Float
+	private function set_decelerationRate(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDecelerationRate:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return decelerationRate;
 	}
 
-	public var tracking(getTracking, null):Bool;
-	private function getTracking():Bool
+	public var tracking(get_tracking, null):Bool;
+	private function get_tracking():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var dragging(getDragging, null):Bool;
-	private function getDragging():Bool
+	public var dragging(get_dragging, null):Bool;
+	private function get_dragging():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dragging", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var decelerating(getDecelerating, null):Bool;
-	private function getDecelerating():Bool
+	public var decelerating(get_decelerating, null):Bool;
+	private function get_decelerating():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "decelerating", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var delaysContentTouches(getDelaysContentTouches, setDelaysContentTouches):Bool;
-	private function getDelaysContentTouches():Bool
+	public var delaysContentTouches(get_delaysContentTouches, set_delaysContentTouches):Bool;
+	private function get_delaysContentTouches():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "delaysContentTouches", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setDelaysContentTouches(value:Bool):Bool
+	private function set_delaysContentTouches(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDelaysContentTouches:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return delaysContentTouches;
 	}
 
-	public var canCancelContentTouches(getCanCancelContentTouches, setCanCancelContentTouches):Bool;
-	private function getCanCancelContentTouches():Bool
+	public var canCancelContentTouches(get_canCancelContentTouches, set_canCancelContentTouches):Bool;
+	private function get_canCancelContentTouches():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canCancelContentTouches", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setCanCancelContentTouches(value:Bool):Bool
+	private function set_canCancelContentTouches(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCanCancelContentTouches:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return canCancelContentTouches;
 	}
 
-	public var minimumZoomScale(getMinimumZoomScale, setMinimumZoomScale):Float;
-	private function getMinimumZoomScale():Float
+	public var minimumZoomScale(get_minimumZoomScale, set_minimumZoomScale):Float;
+	private function get_minimumZoomScale():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumZoomScale", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMinimumZoomScale(value:Float):Float
+	private function set_minimumZoomScale(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumZoomScale:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return minimumZoomScale;
 	}
 
-	public var maximumZoomScale(getMaximumZoomScale, setMaximumZoomScale):Float;
-	private function getMaximumZoomScale():Float
+	public var maximumZoomScale(get_maximumZoomScale, set_maximumZoomScale):Float;
+	private function get_maximumZoomScale():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumZoomScale", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMaximumZoomScale(value:Float):Float
+	private function set_maximumZoomScale(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumZoomScale:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return maximumZoomScale;
 	}
 
-	public var zoomScale(getZoomScale, setZoomScale):Float;
-	private function getZoomScale():Float
+	public var zoomScale(get_zoomScale, set_zoomScale):Float;
+	private function get_zoomScale():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "zoomScale", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setZoomScale(value:Float):Float
+	private function set_zoomScale(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setZoomScale:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return zoomScale;
 	}
 
-	public var bouncesZoom(getBouncesZoom, setBouncesZoom):Bool;
-	private function getBouncesZoom():Bool
+	public var bouncesZoom(get_bouncesZoom, set_bouncesZoom):Bool;
+	private function get_bouncesZoom():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "bouncesZoom", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setBouncesZoom(value:Bool):Bool
+	private function set_bouncesZoom(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBouncesZoom:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return bouncesZoom;
 	}
 
-	public var zooming(getZooming, null):Bool;
-	private function getZooming():Bool
+	public var zooming(get_zooming, null):Bool;
+	private function get_zooming():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "zooming", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var zoomBouncing(getZoomBouncing, null):Bool;
-	private function getZoomBouncing():Bool
+	public var zoomBouncing(get_zoomBouncing, null):Bool;
+	private function get_zoomBouncing():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "zoomBouncing", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var scrollsToTop(getScrollsToTop, setScrollsToTop):Bool;
-	private function getScrollsToTop():Bool
+	public var scrollsToTop(get_scrollsToTop, set_scrollsToTop):Bool;
+	private function get_scrollsToTop():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollsToTop", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setScrollsToTop(value:Bool):Bool
+	private function set_scrollsToTop(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScrollsToTop:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return scrollsToTop;
@@ -339,9 +339,9 @@ class UIScrollView extends UIView
 	}
 
 
-	public static inline var UIScrollViewIndicatorStyleDefault:Int = 0;
-	public static inline var UIScrollViewIndicatorStyleBlack:Int = 1;
-	public static inline var UIScrollViewIndicatorStyleWhite:Int = 2;
+	public static inline function UIScrollViewIndicatorStyleDefault():Int{return 0;}
+	public static inline function UIScrollViewIndicatorStyleBlack():Int{return 1;}
+	public static inline function UIScrollViewIndicatorStyleWhite():Int{return 2;}
 
 
 }

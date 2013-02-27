@@ -161,7 +161,7 @@ class AppleBuildTool extends basis.BuildTool
 			//-------- Main haxe class -----------
 			var realMainContent:String = File.getContent(libPath + "template/RealMain.hx");
 			realMainContent = StringTools.replace(realMainContent, "MAIN_INCLUDE", mainClass);
-			var fout = neko.io.File.write(targetPath + "/haxe/RealMain.hx");
+			var fout = sys.io.File.write(targetPath + "/haxe/RealMain.hx");
 			fout.writeString(realMainContent);
 			fout.close();
 			//------------------------------------
@@ -176,7 +176,7 @@ class AppleBuildTool extends basis.BuildTool
 			var basisStartContent:String = File.getContent(libPath + "template/BasisStart.cpp");
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", StringTools.replace(mainClass, ".", "/") );
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", StringTools.replace(mainClass, ".", "::"));
-			fout = neko.io.File.write(targetPath + "/haxe/cpp/src/BasisStart.cpp");
+			fout = sys.io.File.write(targetPath + "/haxe/cpp/src/BasisStart.cpp");
 			fout.writeString(basisStartContent);
 			fout.close();
 			

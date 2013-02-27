@@ -43,122 +43,122 @@ class UIButton extends UIControl
 	//Static Methods
 
 	//Properties
-	public var contentEdgeInsets(getContentEdgeInsets, setContentEdgeInsets):Array<Float>;
-	private function getContentEdgeInsets():Array<Float>
+	public var contentEdgeInsets(get_contentEdgeInsets, set_contentEdgeInsets):Array<Float>;
+	private function get_contentEdgeInsets():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentEdgeInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
 
-	private function setContentEdgeInsets(value:Array<Float>):Array<Float>
+	private function set_contentEdgeInsets(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentEdgeInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
 		return contentEdgeInsets;
 	}
 
-	public var titleEdgeInsets(getTitleEdgeInsets, setTitleEdgeInsets):Array<Float>;
-	private function getTitleEdgeInsets():Array<Float>
+	public var titleEdgeInsets(get_titleEdgeInsets, set_titleEdgeInsets):Array<Float>;
+	private function get_titleEdgeInsets():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleEdgeInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
 
-	private function setTitleEdgeInsets(value:Array<Float>):Array<Float>
+	private function set_titleEdgeInsets(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleEdgeInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
 		return titleEdgeInsets;
 	}
 
-	public var reversesTitleShadowWhenHighlighted(getReversesTitleShadowWhenHighlighted, setReversesTitleShadowWhenHighlighted):Bool;
-	private function getReversesTitleShadowWhenHighlighted():Bool
+	public var reversesTitleShadowWhenHighlighted(get_reversesTitleShadowWhenHighlighted, set_reversesTitleShadowWhenHighlighted):Bool;
+	private function get_reversesTitleShadowWhenHighlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reversesTitleShadowWhenHighlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setReversesTitleShadowWhenHighlighted(value:Bool):Bool
+	private function set_reversesTitleShadowWhenHighlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setReversesTitleShadowWhenHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return reversesTitleShadowWhenHighlighted;
 	}
 
-	public var imageEdgeInsets(getImageEdgeInsets, setImageEdgeInsets):Array<Float>;
-	private function getImageEdgeInsets():Array<Float>
+	public var imageEdgeInsets(get_imageEdgeInsets, set_imageEdgeInsets):Array<Float>;
+	private function get_imageEdgeInsets():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageEdgeInsets", [], [], ObjectManager.UIEDGEINSETS_VAL);
 	}
 
-	private function setImageEdgeInsets(value:Array<Float>):Array<Float>
+	private function set_imageEdgeInsets(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImageEdgeInsets:", [value], [ObjectManager.UIEDGEINSETS_VAL], -1 );
 		return imageEdgeInsets;
 	}
 
-	public var adjustsImageWhenHighlighted(getAdjustsImageWhenHighlighted, setAdjustsImageWhenHighlighted):Bool;
-	private function getAdjustsImageWhenHighlighted():Bool
+	public var adjustsImageWhenHighlighted(get_adjustsImageWhenHighlighted, set_adjustsImageWhenHighlighted):Bool;
+	private function get_adjustsImageWhenHighlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenHighlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAdjustsImageWhenHighlighted(value:Bool):Bool
+	private function set_adjustsImageWhenHighlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsImageWhenHighlighted;
 	}
 
-	public var adjustsImageWhenDisabled(getAdjustsImageWhenDisabled, setAdjustsImageWhenDisabled):Bool;
-	private function getAdjustsImageWhenDisabled():Bool
+	public var adjustsImageWhenDisabled(get_adjustsImageWhenDisabled, set_adjustsImageWhenDisabled):Bool;
+	private function get_adjustsImageWhenDisabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsImageWhenDisabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAdjustsImageWhenDisabled(value:Bool):Bool
+	private function set_adjustsImageWhenDisabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsImageWhenDisabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsImageWhenDisabled;
 	}
 
-	public var showsTouchWhenHighlighted(getShowsTouchWhenHighlighted, setShowsTouchWhenHighlighted):Bool;
-	private function getShowsTouchWhenHighlighted():Bool
+	public var showsTouchWhenHighlighted(get_showsTouchWhenHighlighted, set_showsTouchWhenHighlighted):Bool;
+	private function get_showsTouchWhenHighlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsTouchWhenHighlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsTouchWhenHighlighted(value:Bool):Bool
+	private function set_showsTouchWhenHighlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsTouchWhenHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsTouchWhenHighlighted;
 	}
 
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
 	}
 
-	public var buttonType(getButtonType, null):Int;
-	private function getButtonType():Int
+	public var buttonType(get_buttonType, null):Int;
+	private function get_buttonType():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "buttonType", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var currentTitle(getCurrentTitle, null):String;
-	private function getCurrentTitle():String
+	public var currentTitle(get_currentTitle, null):String;
+	private function get_currentTitle():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitle", [], [], ObjectManager.STRING_VAL);
 	}
 
-	public var currentTitleColor(getCurrentTitleColor, null):Array<Float>;
-	private function getCurrentTitleColor():Array<Float>
+	public var currentTitleColor(get_currentTitleColor, null):Array<Float>;
+	private function get_currentTitleColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	public var currentTitleShadowColor(getCurrentTitleShadowColor, null):Array<Float>;
-	private function getCurrentTitleShadowColor():Array<Float>
+	public var currentTitleShadowColor(get_currentTitleShadowColor, null):Array<Float>;
+	private function get_currentTitleShadowColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleShadowColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
@@ -167,14 +167,14 @@ class UIButton extends UIControl
 
 	public var currentBackgroundImage(null, null):String;
 
-	public var titleLabel(getTitleLabel, null):UILabel;
-	private function getTitleLabel():UILabel
+	public var titleLabel(get_titleLabel, null):UILabel;
+	private function get_titleLabel():UILabel
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleLabel", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var imageView(getImageView, null):UIImageView;
-	private function getImageView():UIImageView
+	public var imageView(get_imageView, null):UIImageView;
+	private function get_imageView():UIImageView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageView", [], [], ObjectManager.OBJECT_VAL);
 	}
@@ -231,12 +231,12 @@ class UIButton extends UIControl
 	}
 
 
-	public static inline var UIButtonTypeCustom:Int = 0;
-	public static inline var UIButtonTypeRoundedRect:Int = 1;
-	public static inline var UIButtonTypeDetailDisclosure:Int = 2;
-	public static inline var UIButtonTypeInfoLight:Int = 3;
-	public static inline var UIButtonTypeInfoDark:Int = 4;
-	public static inline var UIButtonTypeContactAdd:Int = 5;
+	public static inline function UIButtonTypeCustom():Int{return 0;}
+	public static inline function UIButtonTypeRoundedRect():Int{return 1;}
+	public static inline function UIButtonTypeDetailDisclosure():Int{return 2;}
+	public static inline function UIButtonTypeInfoLight():Int{return 3;}
+	public static inline function UIButtonTypeInfoDark():Int{return 4;}
+	public static inline function UIButtonTypeContactAdd():Int{return 5;}
 
 
 }

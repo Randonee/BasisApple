@@ -12,11 +12,11 @@ typedef BasisEventListener =
 
 class EventManager
 {	
-	private var _eventListeners:Hash<Hash<Array<BasisEventListener>>>;
+	private var _eventListeners:Map<String,Map<String,Array<BasisEventListener>>>;
 	
 	public function new()
 	{
-		_eventListeners = new Hash<Hash<Array<BasisEventListener>>>();
+		_eventListeners = new Map<String,Map<String,Array<BasisEventListener>>>();
 		eventManager_setEventHandler(handleEvent);
 	}
 	
@@ -34,11 +34,11 @@ class EventManager
 		removeEventListener(type, object, handler);
 		
 		var key:String = Std.string(object.basisID);
-		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(key);
+		var objectListeners:Map<String,Array<BasisEventListener>> = _eventListeners.get(key);
 		
 		if(objectListeners == null)
 		{
-			objectListeners = new Hash<Array<BasisEventListener>>();
+			objectListeners = new Map<String,Array<BasisEventListener>>();
 			_eventListeners.set(key, objectListeners);
 		}
 		
@@ -62,7 +62,7 @@ class EventManager
 	public function removeEventListener(type:String, object:IObject, handler:IObject->String->Void):Void
 	{
 		var key:String = Std.string(object.basisID);
-		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(key);
+		var objectListeners:Map<String,Array<BasisEventListener>> = _eventListeners.get(key);
 		
 		if(objectListeners == null)
 			return;
@@ -90,7 +90,7 @@ class EventManager
 	**/
 	public function handleEvent(type:String, basisID:String):Void
 	{
-		var objectListeners:Hash<Array<BasisEventListener>> = _eventListeners.get(Std.string(basisID));
+		var objectListeners:Map<String,Array<BasisEventListener>> = _eventListeners.get(Std.string(basisID));
 		
 		if(objectListeners != null)
 		{

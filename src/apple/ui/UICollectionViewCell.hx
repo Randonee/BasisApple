@@ -27,55 +27,55 @@ class UICollectionViewCell extends UICollectionReusableView
 	//Static Methods
 
 	//Properties
-	public var contentView(getContentView, null):UIView;
-	private function getContentView():UIView
+	public var contentView(get_contentView, null):UIView;
+	private function get_contentView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var selected(getSelected, setSelected):Bool;
-	private function getSelected():Bool
+	public var selected(get_selected, set_selected):Bool;
+	private function get_selected():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setSelected(value:Bool):Bool
+	private function set_selected(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return selected;
 	}
 
-	public var highlighted(getHighlighted, setHighlighted):Bool;
-	private function getHighlighted():Bool
+	public var highlighted(get_highlighted, set_highlighted):Bool;
+	private function get_highlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHighlighted(value:Bool):Bool
+	private function set_highlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return highlighted;
 	}
 
-	public var backgroundView(getBackgroundView, setBackgroundView):UIView;
-	private function getBackgroundView():UIView
+	public var backgroundView(get_backgroundView, set_backgroundView):UIView;
+	private function get_backgroundView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setBackgroundView(value:UIView):UIView
+	private function set_backgroundView(value:UIView):UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundView:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return backgroundView;
 	}
 
-	public var selectedBackgroundView(getSelectedBackgroundView, setSelectedBackgroundView):UIView;
-	private function getSelectedBackgroundView():UIView
+	public var selectedBackgroundView(get_selectedBackgroundView, set_selectedBackgroundView):UIView;
+	private function get_selectedBackgroundView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedBackgroundView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setSelectedBackgroundView(value:UIView):UIView
+	private function set_selectedBackgroundView(value:UIView):UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedBackgroundView:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return selectedBackgroundView;

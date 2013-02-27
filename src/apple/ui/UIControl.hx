@@ -17,25 +17,25 @@ class UIControl extends UIView
 
 	//------ Added - NOT GENERATED ------
 	//Events
-	public static inline var UIControlTouchDown:String = "UIControlTouchDown";
-	public static inline var UIControlTouchDownRepeat:String = "UIControlTouchDownRepeat";
-	public static inline var UIControlTouchDragInside:String = "UIControlTouchDragInside";
-	public static inline var UIControlTouchOutside:String = "UIControlTouchOutside";
-	public static inline var UIControlTouchDragEnter:String = "UIControlTouchDragEnter";
-	public static inline var UIControlTouchDragExit:String = "UIControlTouchDragExit";
-	public static inline var UIControlTouchUpInside:String = "UIControlTouchUpInside";
-	public static inline var UIControlTouchUpOutside:String = "UIControlTouchUpOutside";
-	public static inline var UIControlTouchCancel:String = "UIControlTouchCancel";
-	public static inline var UIControlValueChanged:String = "UIControlValueChanged";
-	public static inline var UIControlEditingDidBegin:String = "UIControlEditingDidBegin";
-	public static inline var UIControlEditingChanged:String = "UIControlEditingChanged";
-	public static inline var UIControlEditingDidEnd:String = "UIControlEditingDidEnd";
-	public static inline var UIControlEditingDidEndOnExit:String = "UIControlEditingDidEndOnExit";
-	public static inline var UIControlAllTouchEvents:String = "UIControlAllTouchEvents";
-	public static inline var UIControlAllEditingEvents:String = "UIControlAllEditingEvents";
-	public static inline var UIControlApplicationReserved:String = "UIControlApplicationReserved";
-	public static inline var UIControlSystemReserved:String = "UIControlSystemReserved";
-	public static inline var UIControlAllEvents:String = "UIControlAllEvents";
+	public static inline function UIControlTouchDown():String{ return "UIControlTouchDown";}
+	public static inline function UIControlTouchDownRepeat():String{ return "UIControlTouchDownRepeat";}
+	public static inline function UIControlTouchDragInside():String{ return "UIControlTouchDragInside";}
+	public static inline function UIControlTouchOutside():String{ return "UIControlTouchOutside";}
+	public static inline function UIControlTouchDragEnter():String{ return "UIControlTouchDragEnter";}
+	public static inline function UIControlTouchDragExit():String{ return "UIControlTouchDragExit";}
+	public static inline function UIControlTouchUpInside():String{ return "UIControlTouchUpInside";}
+	public static inline function UIControlTouchUpOutside():String{ return "UIControlTouchUpOutside";}
+	public static inline function UIControlTouchCancel():String{ return "UIControlTouchCancel";}
+	public static inline function UIControlValueChanged():String{ return "UIControlValueChanged";}
+	public static inline function UIControlEditingDidBegin():String{ return "UIControlEditingDidBegin";}
+	public static inline function UIControlEditingChanged():String{ return "UIControlEditingChanged";}
+	public static inline function UIControlEditingDidEnd():String{ return "UIControlEditingDidEnd";}
+	public static inline function UIControlEditingDidEndOnExit():String{ return "UIControlEditingDidEndOnExit";}
+	public static inline function UIControlAllTouchEvents():String{ return "UIControlAllTouchEvents";}
+	public static inline function UIControlAllEditingEvents():String{ return "UIControlAllEditingEvents";}
+	public static inline function UIControlApplicationReserved():String{ return "UIControlApplicationReserved";}
+	public static inline function UIControlSystemReserved():String{ return "UIControlSystemReserved";}
+	public static inline function UIControlAllEvents():String{ return "UIControlAllEvents";}
 	// ---------------------------------
 	
 	
@@ -52,80 +52,80 @@ class UIControl extends UIView
 	//Static Methods
 
 	//Properties
-	public var enabled(getEnabled, setEnabled):Bool;
-	private function getEnabled():Bool
+	public var enabled(get_enabled, set_enabled):Bool;
+	private function get_enabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setEnabled(value:Bool):Bool
+	private function set_enabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return enabled;
 	}
 
-	public var selected(getSelected, setSelected):Bool;
-	private function getSelected():Bool
+	public var selected(get_selected, set_selected):Bool;
+	private function get_selected():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setSelected(value:Bool):Bool
+	private function set_selected(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return selected;
 	}
 
-	public var highlighted(getHighlighted, setHighlighted):Bool;
-	private function getHighlighted():Bool
+	public var highlighted(get_highlighted, set_highlighted):Bool;
+	private function get_highlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHighlighted(value:Bool):Bool
+	private function set_highlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return highlighted;
 	}
 
-	public var contentVerticalAlignment(getContentVerticalAlignment, setContentVerticalAlignment):Int;
-	private function getContentVerticalAlignment():Int
+	public var contentVerticalAlignment(get_contentVerticalAlignment, set_contentVerticalAlignment):Int;
+	private function get_contentVerticalAlignment():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentVerticalAlignment", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setContentVerticalAlignment(value:Int):Int
+	private function set_contentVerticalAlignment(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentVerticalAlignment:", [value], [ObjectManager.INT_VAL], -1 );
 		return contentVerticalAlignment;
 	}
 
-	public var contentHorizontalAlignment(getContentHorizontalAlignment, setContentHorizontalAlignment):Int;
-	private function getContentHorizontalAlignment():Int
+	public var contentHorizontalAlignment(get_contentHorizontalAlignment, set_contentHorizontalAlignment):Int;
+	private function get_contentHorizontalAlignment():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentHorizontalAlignment", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setContentHorizontalAlignment(value:Int):Int
+	private function set_contentHorizontalAlignment(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentHorizontalAlignment:", [value], [ObjectManager.INT_VAL], -1 );
 		return contentHorizontalAlignment;
 	}
 
-	public var state(getState, null):Int;
-	private function getState():Int
+	public var state(get_state, null):Int;
+	private function get_state():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "state", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var tracking(getTracking, null):Bool;
-	private function getTracking():Bool
+	public var tracking(get_tracking, null):Bool;
+	private function get_tracking():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var touchInside(getTouchInside, null):Bool;
-	private function getTouchInside():Bool
+	public var touchInside(get_touchInside, null):Bool;
+	private function get_touchInside():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "touchInside", [], [], ObjectManager.BOOL_VAL);
 	}
@@ -142,39 +142,39 @@ class UIControl extends UIView
 	}
 
 
-	public static inline var UIControlEventTouchDown:Int =  1 << 0;
-	public static inline var UIControlEventTouchDownRepeat:Int =  1 << 1;
-	public static inline var UIControlEventTouchDragInside:Int =  1 << 2;
-	public static inline var UIControlEventTouchDragOutside:Int =  1 << 3;
-	public static inline var UIControlEventTouchDragEnter:Int =  1 << 4;
-	public static inline var UIControlEventTouchDragExit:Int =  1 << 5;
-	public static inline var UIControlEventTouchUpInside:Int =  1 << 6;
-	public static inline var UIControlEventTouchUpOutside:Int =  1 << 7;
-	public static inline var UIControlEventTouchCancel:Int =  1 << 8;
-	public static inline var UIControlEventValueChanged:Int =  1 << 12;
-	public static inline var UIControlEventEditingDidBegin:Int =  1 << 16;
-	public static inline var UIControlEventEditingChanged:Int =  1 << 17;
-	public static inline var UIControlEventEditingDidEnd:Int =  1 << 18;
-	public static inline var UIControlEventEditingDidEndOnExit:Int =  1 << 19;
-	public static inline var UIControlEventAllTouchEvents:Int = 14;
-	public static inline var UIControlEventAllEditingEvents:Int = 15;
-	public static inline var UIControlEventApplicationReserved:Int = 16;
-	public static inline var UIControlEventSystemReserved:Int = 17;
-	public static inline var UIControlEventAllEvents:Int = 18;
-	public static inline var UIControlContentVerticalAlignmentCenter:Int = 0;
-	public static inline var UIControlContentVerticalAlignmentTop:Int = 1;
-	public static inline var UIControlContentVerticalAlignmentBottom:Int = 2;
-	public static inline var UIControlContentVerticalAlignmentFill:Int = 3;
-	public static inline var UIControlContentHorizontalAlignmentCenter:Int = 0;
-	public static inline var UIControlContentHorizontalAlignmentLeft:Int = 1;
-	public static inline var UIControlContentHorizontalAlignmentRight:Int = 2;
-	public static inline var UIControlContentHorizontalAlignmentFill:Int = 3;
-	public static inline var UIControlStateNormal:Int = 0;
-	public static inline var UIControlStateHighlighted:Int =  1 << 0;
-	public static inline var UIControlStateDisabled:Int =  1 << 1;
-	public static inline var UIControlStateSelected:Int =  1 << 2;
-	public static inline var UIControlStateApplication:Int = 4;
-	public static inline var UIControlStateReserved:Int = 5;
+	public static inline function UIControlEventTouchDown():Int{return  1 << 0;}
+	public static inline function UIControlEventTouchDownRepeat():Int{return  1 << 1;}
+	public static inline function UIControlEventTouchDragInside():Int{return  1 << 2;}
+	public static inline function UIControlEventTouchDragOutside():Int{return  1 << 3;}
+	public static inline function UIControlEventTouchDragEnter():Int{return  1 << 4;}
+	public static inline function UIControlEventTouchDragExit():Int{return  1 << 5;}
+	public static inline function UIControlEventTouchUpInside():Int{return  1 << 6;}
+	public static inline function UIControlEventTouchUpOutside():Int{return  1 << 7;}
+	public static inline function UIControlEventTouchCancel():Int{return  1 << 8;}
+	public static inline function UIControlEventValueChanged():Int{return  1 << 12;}
+	public static inline function UIControlEventEditingDidBegin():Int{return  1 << 16;}
+	public static inline function UIControlEventEditingChanged():Int{return  1 << 17;}
+	public static inline function UIControlEventEditingDidEnd():Int{return  1 << 18;}
+	public static inline function UIControlEventEditingDidEndOnExit():Int{return  1 << 19;}
+	public static inline function UIControlEventAllTouchEvents():Int{return 14;}
+	public static inline function UIControlEventAllEditingEvents():Int{return 15;}
+	public static inline function UIControlEventApplicationReserved():Int{return 16;}
+	public static inline function UIControlEventSystemReserved():Int{return 17;}
+	public static inline function UIControlEventAllEvents():Int{return 18;}
+	public static inline function UIControlContentVerticalAlignmentCenter():Int{return 0;}
+	public static inline function UIControlContentVerticalAlignmentTop():Int{return 1;}
+	public static inline function UIControlContentVerticalAlignmentBottom():Int{return 2;}
+	public static inline function UIControlContentVerticalAlignmentFill():Int{return 3;}
+	public static inline function UIControlContentHorizontalAlignmentCenter():Int{return 0;}
+	public static inline function UIControlContentHorizontalAlignmentLeft():Int{return 1;}
+	public static inline function UIControlContentHorizontalAlignmentRight():Int{return 2;}
+	public static inline function UIControlContentHorizontalAlignmentFill():Int{return 3;}
+	public static inline function UIControlStateNormal():Int{return 0;}
+	public static inline function UIControlStateHighlighted():Int{return  1 << 0;}
+	public static inline function UIControlStateDisabled():Int{return  1 << 1;}
+	public static inline function UIControlStateSelected():Int{return  1 << 2;}
+	public static inline function UIControlStateApplication():Int{return 4;}
+	public static inline function UIControlStateReserved():Int{return 5;}
 
 
 }

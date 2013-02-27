@@ -27,53 +27,53 @@ class UIImageView extends UIView
 	//Static Methods
 
 	//Properties
-	public var image(null, setImage):String;
+	public var image(null, set_image):String;
 
-	private function setImage(value:String):String
+	private function set_image(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var highlightedImage(null, setHighlightedImage):String;
+	public var highlightedImage(null, set_highlightedImage):String;
 
-	private function setHighlightedImage(value:String):String
+	private function set_highlightedImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var highlighted(getHighlighted, setHighlighted):Bool;
-	private function getHighlighted():Bool
+	public var highlighted(get_highlighted, set_highlighted):Bool;
+	private function get_highlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHighlighted(value:Bool):Bool
+	private function set_highlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return highlighted;
 	}
 
-	public var animationDuration(getAnimationDuration, setAnimationDuration):Float;
-	private function getAnimationDuration():Float
+	public var animationDuration(get_animationDuration, set_animationDuration):Float;
+	private function get_animationDuration():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationDuration", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setAnimationDuration(value:Float):Float
+	private function set_animationDuration(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationDuration:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return animationDuration;
 	}
 
-	public var animationRepeatCount(getAnimationRepeatCount, setAnimationRepeatCount):Int;
-	private function getAnimationRepeatCount():Int
+	public var animationRepeatCount(get_animationRepeatCount, set_animationRepeatCount):Int;
+	private function get_animationRepeatCount():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationRepeatCount", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setAnimationRepeatCount(value:Int):Int
+	private function set_animationRepeatCount(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationRepeatCount:", [value], [ObjectManager.INT_VAL], -1 );
 		return animationRepeatCount;

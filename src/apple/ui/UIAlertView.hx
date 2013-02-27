@@ -27,67 +27,67 @@ class UIAlertView extends UIView
 	//Static Methods
 
 	//Properties
-	public var title(getTitle, setTitle):String;
-	private function getTitle():String
+	public var title(get_title, set_title):String;
+	private function get_title():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "title", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setTitle(value:String):String
+	private function set_title(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:", [value], [ObjectManager.STRING_VAL], -1 );
 		return title;
 	}
 
-	public var message(getMessage, setMessage):String;
-	private function getMessage():String
+	public var message(get_message, set_message):String;
+	private function get_message():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "message", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setMessage(value:String):String
+	private function set_message(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMessage:", [value], [ObjectManager.STRING_VAL], -1 );
 		return message;
 	}
 
-	public var numberOfButtons(getNumberOfButtons, null):Int;
-	private function getNumberOfButtons():Int
+	public var numberOfButtons(get_numberOfButtons, null):Int;
+	private function get_numberOfButtons():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfButtons", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var cancelButtonIndex(getCancelButtonIndex, setCancelButtonIndex):Int;
-	private function getCancelButtonIndex():Int
+	public var cancelButtonIndex(get_cancelButtonIndex, set_cancelButtonIndex):Int;
+	private function get_cancelButtonIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "cancelButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setCancelButtonIndex(value:Int):Int
+	private function set_cancelButtonIndex(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCancelButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
 		return cancelButtonIndex;
 	}
 
-	public var firstOtherButtonIndex(getFirstOtherButtonIndex, null):Int;
-	private function getFirstOtherButtonIndex():Int
+	public var firstOtherButtonIndex(get_firstOtherButtonIndex, null):Int;
+	private function get_firstOtherButtonIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "firstOtherButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var visible(getVisible, null):Bool;
-	private function getVisible():Bool
+	public var visible(get_visible, null):Bool;
+	private function get_visible():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var alertViewStyle(getAlertViewStyle, setAlertViewStyle):Int;
-	private function getAlertViewStyle():Int
+	public var alertViewStyle(get_alertViewStyle, set_alertViewStyle):Int;
+	private function get_alertViewStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alertViewStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setAlertViewStyle(value:Int):Int
+	private function set_alertViewStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAlertViewStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return alertViewStyle;
@@ -113,10 +113,10 @@ class UIAlertView extends UIView
 	}
 
 
-	public static inline var UIAlertViewStyleDefault:Int = 0;
-	public static inline var UIAlertViewStyleSecureTextInput:Int = 1;
-	public static inline var UIAlertViewStylePlainTextInput:Int = 2;
-	public static inline var UIAlertViewStyleLoginAndPasswordInput:Int = 3;
+	public static inline function UIAlertViewStyleDefault():Int{return 0;}
+	public static inline function UIAlertViewStyleSecureTextInput():Int{return 1;}
+	public static inline function UIAlertViewStylePlainTextInput():Int{return 2;}
+	public static inline function UIAlertViewStyleLoginAndPasswordInput():Int{return 3;}
 
 
 }

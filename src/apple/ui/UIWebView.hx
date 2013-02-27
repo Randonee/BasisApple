@@ -27,115 +27,115 @@ class UIWebView extends UIView
 	//Static Methods
 
 	//Properties
-	public var scrollView(getScrollView, null):UIScrollView;
-	private function getScrollView():UIScrollView
+	public var scrollView(get_scrollView, null):UIScrollView;
+	private function get_scrollView():UIScrollView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var request(getRequest, null):String;
-	private function getRequest():String
+	public var request(get_request, null):String;
+	private function get_request():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "request", [], [], ObjectManager.NSURLREQUEST_VAL);
 	}
 
-	public var canGoBack(getCanGoBack, null):Bool;
-	private function getCanGoBack():Bool
+	public var canGoBack(get_canGoBack, null):Bool;
+	private function get_canGoBack():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canGoBack", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var canGoForward(getCanGoForward, null):Bool;
-	private function getCanGoForward():Bool
+	public var canGoForward(get_canGoForward, null):Bool;
+	private function get_canGoForward():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "canGoForward", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var loading(getLoading, null):Bool;
-	private function getLoading():Bool
+	public var loading(get_loading, null):Bool;
+	private function get_loading():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "loading", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var scalesPageToFit(getScalesPageToFit, setScalesPageToFit):Bool;
-	private function getScalesPageToFit():Bool
+	public var scalesPageToFit(get_scalesPageToFit, set_scalesPageToFit):Bool;
+	private function get_scalesPageToFit():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scalesPageToFit", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setScalesPageToFit(value:Bool):Bool
+	private function set_scalesPageToFit(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScalesPageToFit:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return scalesPageToFit;
 	}
 
-	public var dataDetectorTypes(getDataDetectorTypes, setDataDetectorTypes):Int;
-	private function getDataDetectorTypes():Int
+	public var dataDetectorTypes(get_dataDetectorTypes, set_dataDetectorTypes):Int;
+	private function get_dataDetectorTypes():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dataDetectorTypes", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setDataDetectorTypes(value:Int):Int
+	private function set_dataDetectorTypes(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDataDetectorTypes:", [value], [ObjectManager.INT_VAL], -1 );
 		return dataDetectorTypes;
 	}
 
-	public var allowsInlineMediaPlayback(getAllowsInlineMediaPlayback, setAllowsInlineMediaPlayback):Bool;
-	private function getAllowsInlineMediaPlayback():Bool
+	public var allowsInlineMediaPlayback(get_allowsInlineMediaPlayback, set_allowsInlineMediaPlayback):Bool;
+	private function get_allowsInlineMediaPlayback():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsInlineMediaPlayback", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAllowsInlineMediaPlayback(value:Bool):Bool
+	private function set_allowsInlineMediaPlayback(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsInlineMediaPlayback:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsInlineMediaPlayback;
 	}
 
-	public var mediaPlaybackRequiresUserAction(getMediaPlaybackRequiresUserAction, setMediaPlaybackRequiresUserAction):Bool;
-	private function getMediaPlaybackRequiresUserAction():Bool
+	public var mediaPlaybackRequiresUserAction(get_mediaPlaybackRequiresUserAction, set_mediaPlaybackRequiresUserAction):Bool;
+	private function get_mediaPlaybackRequiresUserAction():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "mediaPlaybackRequiresUserAction", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setMediaPlaybackRequiresUserAction(value:Bool):Bool
+	private function set_mediaPlaybackRequiresUserAction(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMediaPlaybackRequiresUserAction:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return mediaPlaybackRequiresUserAction;
 	}
 
-	public var mediaPlaybackAllowsAirPlay(getMediaPlaybackAllowsAirPlay, setMediaPlaybackAllowsAirPlay):Bool;
-	private function getMediaPlaybackAllowsAirPlay():Bool
+	public var mediaPlaybackAllowsAirPlay(get_mediaPlaybackAllowsAirPlay, set_mediaPlaybackAllowsAirPlay):Bool;
+	private function get_mediaPlaybackAllowsAirPlay():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "mediaPlaybackAllowsAirPlay", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setMediaPlaybackAllowsAirPlay(value:Bool):Bool
+	private function set_mediaPlaybackAllowsAirPlay(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMediaPlaybackAllowsAirPlay:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return mediaPlaybackAllowsAirPlay;
 	}
 
-	public var suppressesIncrementalRendering(getSuppressesIncrementalRendering, setSuppressesIncrementalRendering):Bool;
-	private function getSuppressesIncrementalRendering():Bool
+	public var suppressesIncrementalRendering(get_suppressesIncrementalRendering, set_suppressesIncrementalRendering):Bool;
+	private function get_suppressesIncrementalRendering():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "suppressesIncrementalRendering", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setSuppressesIncrementalRendering(value:Bool):Bool
+	private function set_suppressesIncrementalRendering(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSuppressesIncrementalRendering:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return suppressesIncrementalRendering;
 	}
 
-	public var keyboardDisplayRequiresUserAction(getKeyboardDisplayRequiresUserAction, setKeyboardDisplayRequiresUserAction):Bool;
-	private function getKeyboardDisplayRequiresUserAction():Bool
+	public var keyboardDisplayRequiresUserAction(get_keyboardDisplayRequiresUserAction, set_keyboardDisplayRequiresUserAction):Bool;
+	private function get_keyboardDisplayRequiresUserAction():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyboardDisplayRequiresUserAction", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setKeyboardDisplayRequiresUserAction(value:Bool):Bool
+	private function set_keyboardDisplayRequiresUserAction(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyboardDisplayRequiresUserAction:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return keyboardDisplayRequiresUserAction;
@@ -173,12 +173,12 @@ class UIWebView extends UIView
 	}
 
 
-	public static inline var UIWebViewNavigationTypeLinkClicked:Int = 0;
-	public static inline var UIWebViewNavigationTypeFormSubmitted:Int = 1;
-	public static inline var UIWebViewNavigationTypeBackForward:Int = 2;
-	public static inline var UIWebViewNavigationTypeReload:Int = 3;
-	public static inline var UIWebViewNavigationTypeFormResubmitted:Int = 4;
-	public static inline var UIWebViewNavigationTypeOther:Int = 5;
+	public static inline function UIWebViewNavigationTypeLinkClicked():Int{return 0;}
+	public static inline function UIWebViewNavigationTypeFormSubmitted():Int{return 1;}
+	public static inline function UIWebViewNavigationTypeBackForward():Int{return 2;}
+	public static inline function UIWebViewNavigationTypeReload():Int{return 3;}
+	public static inline function UIWebViewNavigationTypeFormResubmitted():Int{return 4;}
+	public static inline function UIWebViewNavigationTypeOther():Int{return 5;}
 
 
 }

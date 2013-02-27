@@ -27,233 +27,233 @@ class UISearchBar extends UIView
 	//Static Methods
 
 	//Properties
-	public var barStyle(getBarStyle, setBarStyle):Int;
-	private function getBarStyle():Int
+	public var barStyle(get_barStyle, set_barStyle):Int;
+	private function get_barStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "barStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setBarStyle(value:Int):Int
+	private function set_barStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return barStyle;
 	}
 
-	public var text(getText, setText):String;
-	private function getText():String
+	public var text(get_text, set_text):String;
+	private function get_text():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "text", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setText(value:String):String
+	private function set_text(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setText:", [value], [ObjectManager.STRING_VAL], -1 );
 		return text;
 	}
 
-	public var prompt(getPrompt, setPrompt):String;
-	private function getPrompt():String
+	public var prompt(get_prompt, set_prompt):String;
+	private function get_prompt():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "prompt", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setPrompt(value:String):String
+	private function set_prompt(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPrompt:", [value], [ObjectManager.STRING_VAL], -1 );
 		return prompt;
 	}
 
-	public var placeholder(getPlaceholder, setPlaceholder):String;
-	private function getPlaceholder():String
+	public var placeholder(get_placeholder, set_placeholder):String;
+	private function get_placeholder():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "placeholder", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setPlaceholder(value:String):String
+	private function set_placeholder(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPlaceholder:", [value], [ObjectManager.STRING_VAL], -1 );
 		return placeholder;
 	}
 
-	public var showsBookmarkButton(getShowsBookmarkButton, setShowsBookmarkButton):Bool;
-	private function getShowsBookmarkButton():Bool
+	public var showsBookmarkButton(get_showsBookmarkButton, set_showsBookmarkButton):Bool;
+	private function get_showsBookmarkButton():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsBookmarkButton", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsBookmarkButton(value:Bool):Bool
+	private function set_showsBookmarkButton(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsBookmarkButton:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsBookmarkButton;
 	}
 
-	public var showsCancelButton(getShowsCancelButton, setShowsCancelButton):Bool;
-	private function getShowsCancelButton():Bool
+	public var showsCancelButton(get_showsCancelButton, set_showsCancelButton):Bool;
+	private function get_showsCancelButton():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsCancelButton", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsCancelButton(value:Bool):Bool
+	private function set_showsCancelButton(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsCancelButton;
 	}
 
-	public var showsSearchResultsButton(getShowsSearchResultsButton, setShowsSearchResultsButton):Bool;
-	private function getShowsSearchResultsButton():Bool
+	public var showsSearchResultsButton(get_showsSearchResultsButton, set_showsSearchResultsButton):Bool;
+	private function get_showsSearchResultsButton():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSearchResultsButton", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsSearchResultsButton(value:Bool):Bool
+	private function set_showsSearchResultsButton(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSearchResultsButton:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsSearchResultsButton;
 	}
 
-	public var searchResultsButtonSelected(getSearchResultsButtonSelected, setSearchResultsButtonSelected):Bool;
-	private function getSearchResultsButtonSelected():Bool
+	public var searchResultsButtonSelected(get_searchResultsButtonSelected, set_searchResultsButtonSelected):Bool;
+	private function get_searchResultsButtonSelected():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsButtonSelected", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setSearchResultsButtonSelected(value:Bool):Bool
+	private function set_searchResultsButtonSelected(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchResultsButtonSelected:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return searchResultsButtonSelected;
 	}
 
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
 	}
 
-	public var translucent(getTranslucent, setTranslucent):Bool;
-	private function getTranslucent():Bool
+	public var translucent(get_translucent, set_translucent):Bool;
+	private function get_translucent():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setTranslucent(value:Bool):Bool
+	private function set_translucent(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return translucent;
 	}
 
-	public var autocapitalizationType(getAutocapitalizationType, setAutocapitalizationType):Int;
-	private function getAutocapitalizationType():Int
+	public var autocapitalizationType(get_autocapitalizationType, set_autocapitalizationType):Int;
+	private function get_autocapitalizationType():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autocapitalizationType", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setAutocapitalizationType(value:Int):Int
+	private function set_autocapitalizationType(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutocapitalizationType:", [value], [ObjectManager.INT_VAL], -1 );
 		return autocapitalizationType;
 	}
 
-	public var autocorrectionType(getAutocorrectionType, setAutocorrectionType):Int;
-	private function getAutocorrectionType():Int
+	public var autocorrectionType(get_autocorrectionType, set_autocorrectionType):Int;
+	private function get_autocorrectionType():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autocorrectionType", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setAutocorrectionType(value:Int):Int
+	private function set_autocorrectionType(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutocorrectionType:", [value], [ObjectManager.INT_VAL], -1 );
 		return autocorrectionType;
 	}
 
-	public var spellCheckingType(getSpellCheckingType, setSpellCheckingType):Int;
-	private function getSpellCheckingType():Int
+	public var spellCheckingType(get_spellCheckingType, set_spellCheckingType):Int;
+	private function get_spellCheckingType():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "spellCheckingType", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setSpellCheckingType(value:Int):Int
+	private function set_spellCheckingType(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSpellCheckingType:", [value], [ObjectManager.INT_VAL], -1 );
 		return spellCheckingType;
 	}
 
-	public var keyboardType(getKeyboardType, setKeyboardType):Int;
-	private function getKeyboardType():Int
+	public var keyboardType(get_keyboardType, set_keyboardType):Int;
+	private function get_keyboardType():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyboardType", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setKeyboardType(value:Int):Int
+	private function set_keyboardType(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyboardType:", [value], [ObjectManager.INT_VAL], -1 );
 		return keyboardType;
 	}
 
-	public var selectedScopeButtonIndex(getSelectedScopeButtonIndex, setSelectedScopeButtonIndex):Int;
-	private function getSelectedScopeButtonIndex():Int
+	public var selectedScopeButtonIndex(get_selectedScopeButtonIndex, set_selectedScopeButtonIndex):Int;
+	private function get_selectedScopeButtonIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedScopeButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setSelectedScopeButtonIndex(value:Int):Int
+	private function set_selectedScopeButtonIndex(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedScopeButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
 		return selectedScopeButtonIndex;
 	}
 
-	public var showsScopeBar(getShowsScopeBar, setShowsScopeBar):Bool;
-	private function getShowsScopeBar():Bool
+	public var showsScopeBar(get_showsScopeBar, set_showsScopeBar):Bool;
+	private function get_showsScopeBar():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsScopeBar", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsScopeBar(value:Bool):Bool
+	private function set_showsScopeBar(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsScopeBar:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsScopeBar;
 	}
 
-	public var backgroundImage(null, setBackgroundImage):String;
+	public var backgroundImage(null, set_backgroundImage):String;
 
-	private function setBackgroundImage(value:String):String
+	private function set_backgroundImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var scopeBarBackgroundImage(null, setScopeBarBackgroundImage):String;
+	public var scopeBarBackgroundImage(null, set_scopeBarBackgroundImage):String;
 
-	private function setScopeBarBackgroundImage(value:String):String
+	private function set_scopeBarBackgroundImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var searchFieldBackgroundPositionAdjustment(getSearchFieldBackgroundPositionAdjustment, setSearchFieldBackgroundPositionAdjustment):Array<Int>;
-	private function getSearchFieldBackgroundPositionAdjustment():Array<Int>
+	public var searchFieldBackgroundPositionAdjustment(get_searchFieldBackgroundPositionAdjustment, set_searchFieldBackgroundPositionAdjustment):Array<Int>;
+	private function get_searchFieldBackgroundPositionAdjustment():Array<Int>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchFieldBackgroundPositionAdjustment", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setSearchFieldBackgroundPositionAdjustment(value:Array<Int>):Array<Int>
+	private function set_searchFieldBackgroundPositionAdjustment(value:Array<Int>):Array<Int>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchFieldBackgroundPositionAdjustment:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return searchFieldBackgroundPositionAdjustment;
 	}
 
-	public var searchTextPositionAdjustment(getSearchTextPositionAdjustment, setSearchTextPositionAdjustment):Array<Int>;
-	private function getSearchTextPositionAdjustment():Array<Int>
+	public var searchTextPositionAdjustment(get_searchTextPositionAdjustment, set_searchTextPositionAdjustment):Array<Int>;
+	private function get_searchTextPositionAdjustment():Array<Int>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchTextPositionAdjustment", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setSearchTextPositionAdjustment(value:Array<Int>):Array<Int>
+	private function set_searchTextPositionAdjustment(value:Array<Int>):Array<Int>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchTextPositionAdjustment:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return searchTextPositionAdjustment;
@@ -291,10 +291,10 @@ class UISearchBar extends UIView
 	}
 
 
-	public static inline var UISearchBarIconSearch:Int = 0;
-	public static inline var UISearchBarIconClear:Int = 1;
-	public static inline var UISearchBarIconBookmark:Int = 2;
-	public static inline var UISearchBarIconResultsList:Int = 3;
+	public static inline function UISearchBarIconSearch():Int{return 0;}
+	public static inline function UISearchBarIconClear():Int{return 1;}
+	public static inline function UISearchBarIconBookmark():Int{return 2;}
+	public static inline function UISearchBarIconResultsList():Int{return 3;}
 
 
 }

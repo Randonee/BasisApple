@@ -4,8 +4,8 @@ import cpp.Lib;
 
 class ObjectManager
 {
-	private var _classTypes:Hash<Class<Dynamic>>;
-	private var _objects:Hash<IObject>;
+	private var _classTypes:Map<String, Class<Dynamic>>;
+	private var _objects:Map<String, IObject>;
 	
 	public static inline var OBJECT_VAL:Int = 0;
 	public static inline var INT_VAL:Int = 1;
@@ -30,8 +30,8 @@ class ObjectManager
 
 	public function new():Void
 	{
-		_classTypes = new Hash<Class<Dynamic>>();
-		_objects = new Hash<IObject>();
+		_classTypes = new Map<String, Class<Dynamic>>();
+		_objects = new Map<String, IObject>();
 		
 		objectmanager_setHaxeCreateObjectHandler(cffi_addObject);
 		objectmanager_setDestroyObjectHandler(cffi_destroyObject);

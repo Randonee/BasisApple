@@ -27,73 +27,73 @@ class UIPageControl extends UIControl
 	//Static Methods
 
 	//Properties
-	public var numberOfPages(getNumberOfPages, setNumberOfPages):Int;
-	private function getNumberOfPages():Int
+	public var numberOfPages(get_numberOfPages, set_numberOfPages):Int;
+	private function get_numberOfPages():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfPages", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setNumberOfPages(value:Int):Int
+	private function set_numberOfPages(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNumberOfPages:", [value], [ObjectManager.INT_VAL], -1 );
 		return numberOfPages;
 	}
 
-	public var currentPage(getCurrentPage, setCurrentPage):Int;
-	private function getCurrentPage():Int
+	public var currentPage(get_currentPage, set_currentPage):Int;
+	private function get_currentPage():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentPage", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setCurrentPage(value:Int):Int
+	private function set_currentPage(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCurrentPage:", [value], [ObjectManager.INT_VAL], -1 );
 		return currentPage;
 	}
 
-	public var hidesForSinglePage(getHidesForSinglePage, setHidesForSinglePage):Bool;
-	private function getHidesForSinglePage():Bool
+	public var hidesForSinglePage(get_hidesForSinglePage, set_hidesForSinglePage):Bool;
+	private function get_hidesForSinglePage():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesForSinglePage", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHidesForSinglePage(value:Bool):Bool
+	private function set_hidesForSinglePage(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesForSinglePage:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return hidesForSinglePage;
 	}
 
-	public var defersCurrentPageDisplay(getDefersCurrentPageDisplay, setDefersCurrentPageDisplay):Bool;
-	private function getDefersCurrentPageDisplay():Bool
+	public var defersCurrentPageDisplay(get_defersCurrentPageDisplay, set_defersCurrentPageDisplay):Bool;
+	private function get_defersCurrentPageDisplay():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "defersCurrentPageDisplay", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setDefersCurrentPageDisplay(value:Bool):Bool
+	private function set_defersCurrentPageDisplay(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDefersCurrentPageDisplay:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return defersCurrentPageDisplay;
 	}
 
-	public var pageIndicatorTintColor(getPageIndicatorTintColor, setPageIndicatorTintColor):Array<Float>;
-	private function getPageIndicatorTintColor():Array<Float>
+	public var pageIndicatorTintColor(get_pageIndicatorTintColor, set_pageIndicatorTintColor):Array<Float>;
+	private function get_pageIndicatorTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pageIndicatorTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setPageIndicatorTintColor(value:Array<Float>):Array<Float>
+	private function set_pageIndicatorTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPageIndicatorTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return pageIndicatorTintColor;
 	}
 
-	public var currentPageIndicatorTintColor(getCurrentPageIndicatorTintColor, setCurrentPageIndicatorTintColor):Array<Float>;
-	private function getCurrentPageIndicatorTintColor():Array<Float>
+	public var currentPageIndicatorTintColor(get_currentPageIndicatorTintColor, set_currentPageIndicatorTintColor):Array<Float>;
+	private function get_currentPageIndicatorTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentPageIndicatorTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setCurrentPageIndicatorTintColor(value:Array<Float>):Array<Float>
+	private function set_currentPageIndicatorTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCurrentPageIndicatorTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return currentPageIndicatorTintColor;

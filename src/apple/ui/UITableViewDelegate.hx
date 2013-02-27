@@ -38,7 +38,7 @@ class UITableViewDelegate
 	
 	public function addTableView(talbeView:UITableView):Void
 	{
-		cpp_uitableviewdelegate_create(talbeView.basisID, [accessoryButtonTappedForRowWithIndexPath,
+		var handlers:Array<Dynamic> = [accessoryButtonTappedForRowWithIndexPath,
 														didDeselectRowAtIndexPath,
 														didEndDisplayingCell,
 														didEndDisplayingFooterView,
@@ -61,7 +61,9 @@ class UITableViewDelegate
 														willBeginEditingRowAtIndexPath,
 														willDisplayCell,
 														willDisplayFooterView,
-														willDisplayHeaderView]);
+														willDisplayHeaderView];
+	
+		cpp_uitableviewdelegate_create(talbeView.basisID, handlers);
 	}
 	private static var cpp_uitableviewdelegate_create = Lib.load("basis", "uitableviewdelegate_create", 2);
 	
@@ -160,7 +162,7 @@ class UITableViewDelegate
 			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return editingStyleForRowAtIndexPathHandler(tableView, indexPath);
 		}
-		return UITableViewCell.UITableViewCellStyleDefault;
+		return UITableViewCell.UITableViewCellStyleDefault();
 	}
 	
 	private function heightForFooterInSection(tableViewID:String, section:Int):Float

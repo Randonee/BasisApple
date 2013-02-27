@@ -27,37 +27,37 @@ class UIActivityIndicatorView extends UIView
 	//Static Methods
 
 	//Properties
-	public var activityIndicatorViewStyle(getActivityIndicatorViewStyle, setActivityIndicatorViewStyle):Int;
-	private function getActivityIndicatorViewStyle():Int
+	public var activityIndicatorViewStyle(get_activityIndicatorViewStyle, set_activityIndicatorViewStyle):Int;
+	private function get_activityIndicatorViewStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "activityIndicatorViewStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setActivityIndicatorViewStyle(value:Int):Int
+	private function set_activityIndicatorViewStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActivityIndicatorViewStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return activityIndicatorViewStyle;
 	}
 
-	public var hidesWhenStopped(getHidesWhenStopped, setHidesWhenStopped):Bool;
-	private function getHidesWhenStopped():Bool
+	public var hidesWhenStopped(get_hidesWhenStopped, set_hidesWhenStopped):Bool;
+	private function get_hidesWhenStopped():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesWhenStopped", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHidesWhenStopped(value:Bool):Bool
+	private function set_hidesWhenStopped(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesWhenStopped:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return hidesWhenStopped;
 	}
 
-	public var color(getColor, setColor):Array<Float>;
-	private function getColor():Array<Float>
+	public var color(get_color, set_color):Array<Float>;
+	private function get_color():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "color", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setColor(value:Array<Float>):Array<Float>
+	private function set_color(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return color;
@@ -83,9 +83,9 @@ class UIActivityIndicatorView extends UIView
 	}
 
 
-	public static inline var UIActivityIndicatorViewStyleWhiteLarge:Int = 0;
-	public static inline var UIActivityIndicatorViewStyleWhite:Int = 1;
-	public static inline var UIActivityIndicatorViewStyleGray:Int = 2;
+	public static inline function UIActivityIndicatorViewStyleWhiteLarge():Int{return 0;}
+	public static inline function UIActivityIndicatorViewStyleWhite():Int{return 1;}
+	public static inline function UIActivityIndicatorViewStyleGray():Int{return 2;}
 
 
 }

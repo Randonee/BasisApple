@@ -42,19 +42,19 @@ class MainView extends UIView
 		this.frame = [0.0, UIApplication.statusBarFrame[3], 768, 1024];
 		_navigationBar = new UINavigationBar();
 		_navigationBar.createNavigationItem(false);
-		_navigationBar.setItemTitle(0, "Bar Title");
+		_navigationBar.set_itemTitle(0, "Bar Title");
 		_navigationBar.frame = [0.0, 0, 768, 50];
 		addSubview(_navigationBar);
 		
 		_barButtonItem1 = new UIBarButtonItem();
 		_barButtonItem1.title = "Left";
 		_barButtonItem1.setHandler(onBarItemClick);
-		_navigationBar.setLeftBarItems(0, [_barButtonItem1]);
+		_navigationBar.set_leftBarItems(0, [_barButtonItem1]);
 		
 		_barButtonItem2 = new UIBarButtonItem();
 		_barButtonItem2.title = "Right";
 		_barButtonItem2.setHandler(onBarItemClick);
-		_navigationBar.setRightBarItems(0, [_barButtonItem2]);
+		_navigationBar.set_rightBarItems(0, [_barButtonItem2]);
 		
 		_alertView = new UIAlertView();
 		_alertView.addButtonWithTitle("OK");
@@ -66,10 +66,10 @@ class MainView extends UIView
 		_inputLabel.frame = [5.0, 60, 200, 30];
 	
 		_inputField= new UITextField();
-		_inputField.borderStyle = UITextField.UITextBorderStyleRoundedRect;
+		_inputField.borderStyle = UITextField.UITextBorderStyleRoundedRect();
 		addSubview(_inputField);
 		_inputField.frame = [5.0,90,200,30];
-		_inputField.addEventListener(UITextField.UITextFieldTextDidChange, onInputChanged);
+		_inputField.addEventListener(UITextField.UITextFieldTextDidChange(), onInputChanged);
 		
 		_outputLabel = new UILabel();
 		addSubview(_outputLabel);
@@ -79,13 +79,13 @@ class MainView extends UIView
 		_outputField= new UITextField();
 		addSubview(_outputField);
 		_outputField.frame = [5.0,170,200,30];
-		_outputField.borderStyle = UITextField.UITextBorderStyleRoundedRect;
+		_outputField.borderStyle = UITextField.UITextBorderStyleRoundedRect();
 
-		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect());
 		_sampleButton.frame = [50.0,220,100,30];
-		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
+		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal());
 		
-		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
+		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside(), onButtonClick);
 		addSubview(_sampleButton);
 		
 		_tableCellLabels = [];
@@ -111,10 +111,10 @@ class MainView extends UIView
 		_webView.loadRequest("http://haxe.org");
 		addSubview(_webView);
 		
-		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect());
 		_animateButton.frame = [380.0,70,150,30];
-		_animateButton.setTitleForState("Animate Button", UIControl.UIControlStateNormal);
-		_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
+		_animateButton.setTitleForState("Animate Button", UIControl.UIControlStateNormal());
+		_animateButton.addEventListener(UIControl.UIControlTouchUpInside(), onAnimateButtonClick);
 		addSubview(_animateButton);
 		
 		_haxeImage = new UIImageView();
@@ -173,7 +173,7 @@ class MainView extends UIView
 		var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableCell");
 	    if (cell == null)
 	    {
-	        cell = UITableViewCell.initWithStyleReuseIdentifier(UITableViewCell.UITableViewCellStyleDefault, "TableCell");
+	        cell = UITableViewCell.initWithStyleReuseIdentifier(UITableViewCell.UITableViewCellStyleDefault(), "TableCell");
 	    }
 		cell.textLabel.text = _tableCellLabels[indexPath[1]];
 		return cell;

@@ -15,8 +15,8 @@ class UICollectionReusableView extends UIView
 	}
 	
 	
-	public var reuseIdentifier(getReuseIdentifier, null) : String;
-	private function getReuseIdentifier():String
+	public var reuseIdentifier(get_reuseIdentifier, null) : String;
+	private function get_reuseIdentifier():String
 	{
 		return cpp_uicollectionreusableview_getReuseIdentifier(basisID);
 	}

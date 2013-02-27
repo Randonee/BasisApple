@@ -27,65 +27,65 @@ class UISwitch extends UIControl
 	//Static Methods
 
 	//Properties
-	public var onTintColor(getOnTintColor, setOnTintColor):Array<Float>;
-	private function getOnTintColor():Array<Float>
+	public var onTintColor(get_onTintColor, set_onTintColor):Array<Float>;
+	private function get_onTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "onTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setOnTintColor(value:Array<Float>):Array<Float>
+	private function set_onTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOnTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return onTintColor;
 	}
 
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
 	}
 
-	public var thumbTintColor(getThumbTintColor, setThumbTintColor):Array<Float>;
-	private function getThumbTintColor():Array<Float>
+	public var thumbTintColor(get_thumbTintColor, set_thumbTintColor):Array<Float>;
+	private function get_thumbTintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbTintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setThumbTintColor(value:Array<Float>):Array<Float>
+	private function set_thumbTintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return thumbTintColor;
 	}
 
-	public var onImage(null, setOnImage):String;
+	public var onImage(null, set_onImage):String;
 
-	private function setOnImage(value:String):String
+	private function set_onImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOnImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var offImage(null, setOffImage):String;
+	public var offImage(null, set_offImage):String;
 
-	private function setOffImage(value:String):String
+	private function set_offImage(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOffImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var on(getOn, setOn):Bool;
-	private function getOn():Bool
+	public var on(get_on, set_on):Bool;
+	private function get_on():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "on", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setOn(value:Bool):Bool
+	private function set_on(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOn:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return on;

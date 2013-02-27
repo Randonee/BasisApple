@@ -27,20 +27,20 @@ class UIPickerView extends UIView
 	//Static Methods
 
 	//Properties
-	public var showsSelectionIndicator(getShowsSelectionIndicator, setShowsSelectionIndicator):Bool;
-	private function getShowsSelectionIndicator():Bool
+	public var showsSelectionIndicator(get_showsSelectionIndicator, set_showsSelectionIndicator):Bool;
+	private function get_showsSelectionIndicator():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSelectionIndicator", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setShowsSelectionIndicator(value:Bool):Bool
+	private function set_showsSelectionIndicator(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSelectionIndicator:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return showsSelectionIndicator;
 	}
 
-	public var numberOfComponents(getNumberOfComponents, null):Int;
-	private function getNumberOfComponents():Int
+	public var numberOfComponents(get_numberOfComponents, null):Int;
+	private function get_numberOfComponents():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfComponents", [], [], ObjectManager.INT_VAL);
 	}

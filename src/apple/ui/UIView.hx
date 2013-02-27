@@ -17,7 +17,7 @@ class UIView extends UIResponder
 
 	//------ Added - NOT GENERATED ------
 
-	public static inline var UIViewDidMoveToSuperview:String = "UIViewDidMoveToSuperview";
+	public static inline function UIViewDidMoveToSuperview():String{ return "UIViewDidMoveToSuperview";}
 	
 	// ---------------------------------
 	
@@ -31,9 +31,9 @@ class UIView extends UIResponder
 	}
 
 	//Constants
-	//static public inline var UIViewNoIntrinsicMetric:Float;
-	//static public inline var UILayoutFittingCompressedSize:Array<Float>;
-	//static public inline var UILayoutFittingExpandedSize:Array<Float>;
+	//static public inline function UIViewNoIntrinsicMetric():Float{}
+	//static public inline function UILayoutFittingCompressedSize():Array<Float>{}
+	//static public inline function UILayoutFittingExpandedSize():Array<Float>{}
 
 	//Static Methods
 	static public function setAnimationDuration( duration:Float):Void
@@ -90,241 +90,241 @@ class UIView extends UIResponder
 	}
 
 	//Properties
-	public var userInteractionEnabled(getUserInteractionEnabled, setUserInteractionEnabled):Bool;
-	private function getUserInteractionEnabled():Bool
+	public var userInteractionEnabled(get_userInteractionEnabled, set_userInteractionEnabled):Bool;
+	private function get_userInteractionEnabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "userInteractionEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setUserInteractionEnabled(value:Bool):Bool
+	private function set_userInteractionEnabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setUserInteractionEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return userInteractionEnabled;
 	}
 
-	public var tag(getTag, setTag):Int;
-	private function getTag():Int
+	public var tag(get_tag, set_tag):Int;
+	private function get_tag():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tag", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setTag(value:Int):Int
+	private function set_tag(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTag:", [value], [ObjectManager.INT_VAL], -1 );
 		return tag;
 	}
 
-	public var frame(getFrame, setFrame):Array<Float>;
-	private function getFrame():Array<Float>
+	public var frame(get_frame, set_frame):Array<Float>;
+	private function get_frame():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "frame", [], [], ObjectManager.CGRECT_VAL);
 	}
 
-	private function setFrame(value:Array<Float>):Array<Float>
+	private function set_frame(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFrame:", [value], [ObjectManager.CGRECT_VAL], -1 );
 		return frame;
 	}
 
-	public var bounds(getBounds, setBounds):Array<Float>;
-	private function getBounds():Array<Float>
+	public var bounds(get_bounds, set_bounds):Array<Float>;
+	private function get_bounds():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "bounds", [], [], ObjectManager.CGRECT_VAL);
 	}
 
-	private function setBounds(value:Array<Float>):Array<Float>
+	private function set_bounds(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBounds:", [value], [ObjectManager.CGRECT_VAL], -1 );
 		return bounds;
 	}
 
-	public var center(getCenter, setCenter):Array<Float>;
-	private function getCenter():Array<Float>
+	public var center(get_center, set_center):Array<Float>;
+	private function get_center():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "center", [], [], ObjectManager.CGPOINT_VAL);
 	}
 
-	private function setCenter(value:Array<Float>):Array<Float>
+	private function set_center(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCenter:", [value], [ObjectManager.CGPOINT_VAL], -1 );
 		return center;
 	}
 
-	public var transform(getTransform, setTransform):Array<Float>;
-	private function getTransform():Array<Float>
+	public var transform(get_transform, set_transform):Array<Float>;
+	private function get_transform():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "transform", [], [], ObjectManager.CGAFFINETRANSFORM_VAL);
 	}
 
-	private function setTransform(value:Array<Float>):Array<Float>
+	private function set_transform(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTransform:", [value], [ObjectManager.CGAFFINETRANSFORM_VAL], -1 );
 		return transform;
 	}
 
-	public var contentScaleFactor(getContentScaleFactor, setContentScaleFactor):Float;
-	private function getContentScaleFactor():Float
+	public var contentScaleFactor(get_contentScaleFactor, set_contentScaleFactor):Float;
+	private function get_contentScaleFactor():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentScaleFactor", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setContentScaleFactor(value:Float):Float
+	private function set_contentScaleFactor(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentScaleFactor:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return contentScaleFactor;
 	}
 
-	public var multipleTouchEnabled(getMultipleTouchEnabled, setMultipleTouchEnabled):Bool;
-	private function getMultipleTouchEnabled():Bool
+	public var multipleTouchEnabled(get_multipleTouchEnabled, set_multipleTouchEnabled):Bool;
+	private function get_multipleTouchEnabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "multipleTouchEnabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setMultipleTouchEnabled(value:Bool):Bool
+	private function set_multipleTouchEnabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMultipleTouchEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return multipleTouchEnabled;
 	}
 
-	public var exclusiveTouch(getExclusiveTouch, setExclusiveTouch):Bool;
-	private function getExclusiveTouch():Bool
+	public var exclusiveTouch(get_exclusiveTouch, set_exclusiveTouch):Bool;
+	private function get_exclusiveTouch():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "exclusiveTouch", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setExclusiveTouch(value:Bool):Bool
+	private function set_exclusiveTouch(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setExclusiveTouch:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return exclusiveTouch;
 	}
 
-	public var autoresizesSubviews(getAutoresizesSubviews, setAutoresizesSubviews):Bool;
-	private function getAutoresizesSubviews():Bool
+	public var autoresizesSubviews(get_autoresizesSubviews, set_autoresizesSubviews):Bool;
+	private function get_autoresizesSubviews():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autoresizesSubviews", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAutoresizesSubviews(value:Bool):Bool
+	private function set_autoresizesSubviews(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutoresizesSubviews:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return autoresizesSubviews;
 	}
 
-	public var autoresizingMask(getAutoresizingMask, setAutoresizingMask):Int;
-	private function getAutoresizingMask():Int
+	public var autoresizingMask(get_autoresizingMask, set_autoresizingMask):Int;
+	private function get_autoresizingMask():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "autoresizingMask", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setAutoresizingMask(value:Int):Int
+	private function set_autoresizingMask(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAutoresizingMask:", [value], [ObjectManager.INT_VAL], -1 );
 		return autoresizingMask;
 	}
 
-	public var superview(getSuperview, null):UIView;
-	private function getSuperview():UIView
+	public var superview(get_superview, null):UIView;
+	private function get_superview():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "superview", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var window(getWindow, null):UIWindow;
-	private function getWindow():UIWindow
+	public var window(get_window, null):UIWindow;
+	private function get_window():UIWindow
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "window", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var clipsToBounds(getClipsToBounds, setClipsToBounds):Bool;
-	private function getClipsToBounds():Bool
+	public var clipsToBounds(get_clipsToBounds, set_clipsToBounds):Bool;
+	private function get_clipsToBounds():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clipsToBounds", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setClipsToBounds(value:Bool):Bool
+	private function set_clipsToBounds(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClipsToBounds:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clipsToBounds;
 	}
 
-	public var backgroundColor(getBackgroundColor, setBackgroundColor):Array<Float>;
-	private function getBackgroundColor():Array<Float>
+	public var backgroundColor(get_backgroundColor, set_backgroundColor):Array<Float>;
+	private function get_backgroundColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setBackgroundColor(value:Array<Float>):Array<Float>
+	private function set_backgroundColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return backgroundColor;
 	}
 
-	public var alpha(getAlpha, setAlpha):Float;
-	private function getAlpha():Float
+	public var alpha(get_alpha, set_alpha):Float;
+	private function get_alpha():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "alpha", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setAlpha(value:Float):Float
+	private function set_alpha(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAlpha:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return alpha;
 	}
 
-	public var opaque(getOpaque, setOpaque):Bool;
-	private function getOpaque():Bool
+	public var opaque(get_opaque, set_opaque):Bool;
+	private function get_opaque():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "opaque", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setOpaque(value:Bool):Bool
+	private function set_opaque(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOpaque:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return opaque;
 	}
 
-	public var clearsContextBeforeDrawing(getClearsContextBeforeDrawing, setClearsContextBeforeDrawing):Bool;
-	private function getClearsContextBeforeDrawing():Bool
+	public var clearsContextBeforeDrawing(get_clearsContextBeforeDrawing, set_clearsContextBeforeDrawing):Bool;
+	private function get_clearsContextBeforeDrawing():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsContextBeforeDrawing", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setClearsContextBeforeDrawing(value:Bool):Bool
+	private function set_clearsContextBeforeDrawing(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsContextBeforeDrawing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsContextBeforeDrawing;
 	}
 
-	public var hidden(getHidden, setHidden):Bool;
-	private function getHidden():Bool
+	public var hidden(get_hidden, set_hidden):Bool;
+	private function get_hidden():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidden", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHidden(value:Bool):Bool
+	private function set_hidden(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidden:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return hidden;
 	}
 
-	public var contentMode(getContentMode, setContentMode):Int;
-	private function getContentMode():Int
+	public var contentMode(get_contentMode, set_contentMode):Int;
+	private function get_contentMode():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentMode", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setContentMode(value:Int):Int
+	private function set_contentMode(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentMode:", [value], [ObjectManager.INT_VAL], -1 );
 		return contentMode;
 	}
 
-	public var restorationIdentifier(getRestorationIdentifier, setRestorationIdentifier):String;
-	private function getRestorationIdentifier():String
+	public var restorationIdentifier(get_restorationIdentifier, set_restorationIdentifier):String;
+	private function get_restorationIdentifier():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "restorationIdentifier", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setRestorationIdentifier(value:String):String
+	private function set_restorationIdentifier(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRestorationIdentifier:", [value], [ObjectManager.STRING_VAL], -1 );
 		return restorationIdentifier;
@@ -526,58 +526,58 @@ class UIView extends UIResponder
 	}
 
 
-	public static inline var UIViewAnimationCurveEaseInOut:Int = 0;
-	public static inline var UIViewAnimationCurveEaseIn:Int = 1;
-	public static inline var UIViewAnimationCurveEaseOut:Int = 2;
-	public static inline var UIViewAnimationCurveLinear:Int = 3;
-	public static inline var UIViewContentModeScaleToFill:Int = 0;
-	public static inline var UIViewContentModeScaleAspectFit:Int = 1;
-	public static inline var UIViewContentModeScaleAspectFill:Int = 2;
-	public static inline var UIViewContentModeRedraw:Int = 3;
-	public static inline var UIViewContentModeCenter:Int = 4;
-	public static inline var UIViewContentModeTop:Int = 5;
-	public static inline var UIViewContentModeBottom:Int = 6;
-	public static inline var UIViewContentModeLeft:Int = 7;
-	public static inline var UIViewContentModeRight:Int = 8;
-	public static inline var UIViewContentModeTopLeft:Int = 9;
-	public static inline var UIViewContentModeTopRight:Int = 10;
-	public static inline var UIViewContentModeBottomLeft:Int = 11;
-	public static inline var UIViewContentModeBottomRight:Int = 12;
-	public static inline var UIViewAnimationTransitionNone:Int = 0;
-	public static inline var UIViewAnimationTransitionFlipFromLeft:Int = 1;
-	public static inline var UIViewAnimationTransitionFlipFromRight:Int = 2;
-	public static inline var UIViewAnimationTransitionCurlUp:Int = 3;
-	public static inline var UIViewAnimationTransitionCurlDown:Int = 4;
-	public static inline var UIViewAutoresizingNone:Int = 0;
-	public static inline var UIViewAutoresizingFlexibleLeftMargin:Int =  1 << 0;
-	public static inline var UIViewAutoresizingFlexibleWidth:Int =  1 << 1;
-	public static inline var UIViewAutoresizingFlexibleRightMargin:Int =  1 << 2;
-	public static inline var UIViewAutoresizingFlexibleTopMargin:Int =  1 << 3;
-	public static inline var UIViewAutoresizingFlexibleHeight:Int =  1 << 4;
-	public static inline var UIViewAutoresizingFlexibleBottomMargin:Int =  1 << 5;
-	public static inline var UIViewAnimationOptionLayoutSubviews:Int =  1 << 0;
-	public static inline var UIViewAnimationOptionAllowUserInteraction:Int =  1 << 1;
-	public static inline var UIViewAnimationOptionBeginFromCurrentState:Int =  1 << 2;
-	public static inline var UIViewAnimationOptionRepeat:Int =  1 << 3;
-	public static inline var UIViewAnimationOptionAutoreverse:Int =  1 << 4;
-	public static inline var UIViewAnimationOptionOverrideInheritedDuration:Int =  1 << 5;
-	public static inline var UIViewAnimationOptionOverrideInheritedCurve:Int =  1 << 6;
-	public static inline var UIViewAnimationOptionAllowAnimatedContent:Int =  1 << 7;
-	public static inline var UIViewAnimationOptionShowHideTransitionViews:Int =  1 << 8;
-	public static inline var UIViewAnimationOptionCurveEaseInOut:Int =  0 << 16;
-	public static inline var UIViewAnimationOptionCurveEaseIn:Int =  1 << 16;
-	public static inline var UIViewAnimationOptionCurveEaseOut:Int =  2 << 16;
-	public static inline var UIViewAnimationOptionCurveLinear:Int =  3 << 16;
-	public static inline var UIViewAnimationOptionTransitionNone:Int =  0 << 20;
-	public static inline var UIViewAnimationOptionTransitionFlipFromLeft:Int =  1 << 20;
-	public static inline var UIViewAnimationOptionTransitionFlipFromRight:Int =  2 << 20;
-	public static inline var UIViewAnimationOptionTransitionCurlUp:Int =  3 << 20;
-	public static inline var UIViewAnimationOptionTransitionCurlDown:Int =  4 << 20;
-	public static inline var UIViewAnimationOptionTransitionCrossDissolve:Int =  5 << 20;
-	public static inline var UIViewAnimationOptionTransitionFlipFromTop:Int =  6 << 20;
-	public static inline var UIViewAnimationOptionTransitionFlipFromBottom:Int =  7 << 20;
-	public static inline var UILayoutConstraintAxisHorizontal:Int = 0;
-	public static inline var UILayoutConstraintAxisVertical:Int = 1;
+	public static inline function UIViewAnimationCurveEaseInOut():Int{return 0;}
+	public static inline function UIViewAnimationCurveEaseIn():Int{return 1;}
+	public static inline function UIViewAnimationCurveEaseOut():Int{return 2;}
+	public static inline function UIViewAnimationCurveLinear():Int{return 3;}
+	public static inline function UIViewContentModeScaleToFill():Int{return 0;}
+	public static inline function UIViewContentModeScaleAspectFit():Int{return 1;}
+	public static inline function UIViewContentModeScaleAspectFill():Int{return 2;}
+	public static inline function UIViewContentModeRedraw():Int{return 3;}
+	public static inline function UIViewContentModeCenter():Int{return 4;}
+	public static inline function UIViewContentModeTop():Int{return 5;}
+	public static inline function UIViewContentModeBottom():Int{return 6;}
+	public static inline function UIViewContentModeLeft():Int{return 7;}
+	public static inline function UIViewContentModeRight():Int{return 8;}
+	public static inline function UIViewContentModeTopLeft():Int{return 9;}
+	public static inline function UIViewContentModeTopRight():Int{return 10;}
+	public static inline function UIViewContentModeBottomLeft():Int{return 11;}
+	public static inline function UIViewContentModeBottomRight():Int{return 12;}
+	public static inline function UIViewAnimationTransitionNone():Int{return 0;}
+	public static inline function UIViewAnimationTransitionFlipFromLeft():Int{return 1;}
+	public static inline function UIViewAnimationTransitionFlipFromRight():Int{return 2;}
+	public static inline function UIViewAnimationTransitionCurlUp():Int{return 3;}
+	public static inline function UIViewAnimationTransitionCurlDown():Int{return 4;}
+	public static inline function UIViewAutoresizingNone():Int{return 0;}
+	public static inline function UIViewAutoresizingFlexibleLeftMargin():Int{return  1 << 0;}
+	public static inline function UIViewAutoresizingFlexibleWidth():Int{return  1 << 1;}
+	public static inline function UIViewAutoresizingFlexibleRightMargin():Int{return  1 << 2;}
+	public static inline function UIViewAutoresizingFlexibleTopMargin():Int{return  1 << 3;}
+	public static inline function UIViewAutoresizingFlexibleHeight():Int{return  1 << 4;}
+	public static inline function UIViewAutoresizingFlexibleBottomMargin():Int{return  1 << 5;}
+	public static inline function UIViewAnimationOptionLayoutSubviews():Int{return  1 << 0;}
+	public static inline function UIViewAnimationOptionAllowUserInteraction():Int{return  1 << 1;}
+	public static inline function UIViewAnimationOptionBeginFromCurrentState():Int{return  1 << 2;}
+	public static inline function UIViewAnimationOptionRepeat():Int{return  1 << 3;}
+	public static inline function UIViewAnimationOptionAutoreverse():Int{return  1 << 4;}
+	public static inline function UIViewAnimationOptionOverrideInheritedDuration():Int{return  1 << 5;}
+	public static inline function UIViewAnimationOptionOverrideInheritedCurve():Int{return  1 << 6;}
+	public static inline function UIViewAnimationOptionAllowAnimatedContent():Int{return  1 << 7;}
+	public static inline function UIViewAnimationOptionShowHideTransitionViews():Int{return  1 << 8;}
+	public static inline function UIViewAnimationOptionCurveEaseInOut():Int{return  0 << 16;}
+	public static inline function UIViewAnimationOptionCurveEaseIn():Int{return  1 << 16;}
+	public static inline function UIViewAnimationOptionCurveEaseOut():Int{return  2 << 16;}
+	public static inline function UIViewAnimationOptionCurveLinear():Int{return  3 << 16;}
+	public static inline function UIViewAnimationOptionTransitionNone():Int{return  0 << 20;}
+	public static inline function UIViewAnimationOptionTransitionFlipFromLeft():Int{return  1 << 20;}
+	public static inline function UIViewAnimationOptionTransitionFlipFromRight():Int{return  2 << 20;}
+	public static inline function UIViewAnimationOptionTransitionCurlUp():Int{return  3 << 20;}
+	public static inline function UIViewAnimationOptionTransitionCurlDown():Int{return  4 << 20;}
+	public static inline function UIViewAnimationOptionTransitionCrossDissolve():Int{return  5 << 20;}
+	public static inline function UIViewAnimationOptionTransitionFlipFromTop():Int{return  6 << 20;}
+	public static inline function UIViewAnimationOptionTransitionFlipFromBottom():Int{return  7 << 20;}
+	public static inline function UILayoutConstraintAxisHorizontal():Int{return 0;}
+	public static inline function UILayoutConstraintAxisVertical():Int{return 1;}
 
 
 }

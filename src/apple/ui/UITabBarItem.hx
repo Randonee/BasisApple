@@ -16,18 +16,18 @@ class UITabBarItem
 {
 
 
-	public static inline var UITabBarSystemItemMore:Int = 0;
-	public static inline var UITabBarSystemItemFavorites:Int = 1;
-	public static inline var UITabBarSystemItemFeatured:Int = 2;
-	public static inline var UITabBarSystemItemTopRated:Int = 3;
-	public static inline var UITabBarSystemItemRecents:Int = 4;
-	public static inline var UITabBarSystemItemContacts:Int = 5;
-	public static inline var UITabBarSystemItemHistory:Int = 6;
-	public static inline var UITabBarSystemItemBookmarks:Int = 7;
-	public static inline var UITabBarSystemItemSearch:Int = 8;
-	public static inline var UITabBarSystemItemDownloads:Int = 9;
-	public static inline var UITabBarSystemItemMostRecent:Int = 10;
-	public static inline var UITabBarSystemItemMostViewed:Int = 11;
+	public static inline function UITabBarSystemItemMore():Int{return 0;}
+	public static inline function UITabBarSystemItemFavorites():Int{return 1;}
+	public static inline function UITabBarSystemItemFeatured():Int{return 2;}
+	public static inline function UITabBarSystemItemTopRated():Int{return 3;}
+	public static inline function UITabBarSystemItemRecents():Int{return 4;}
+	public static inline function UITabBarSystemItemContacts():Int{return 5;}
+	public static inline function UITabBarSystemItemHistory():Int{return 6;}
+	public static inline function UITabBarSystemItemBookmarks():Int{return 7;}
+	public static inline function UITabBarSystemItemSearch():Int{return 8;}
+	public static inline function UITabBarSystemItemDownloads():Int{return 9;}
+	public static inline function UITabBarSystemItemMostRecent():Int{return 10;}
+	public static inline function UITabBarSystemItemMostViewed():Int{return 11;}
 
 
 }

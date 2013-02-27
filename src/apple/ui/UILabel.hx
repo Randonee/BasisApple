@@ -27,181 +27,181 @@ class UILabel extends UIView
 	//Static Methods
 
 	//Properties
-	public var text(getText, setText):String;
-	private function getText():String
+	public var text(get_text, set_text):String;
+	private function get_text():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "text", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setText(value:String):String
+	private function set_text(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setText:", [value], [ObjectManager.STRING_VAL], -1 );
 		return text;
 	}
 
-	public var textColor(getTextColor, setTextColor):Array<Float>;
-	private function getTextColor():Array<Float>
+	public var textColor(get_textColor, set_textColor):Array<Float>;
+	private function get_textColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTextColor(value:Array<Float>):Array<Float>
+	private function set_textColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return textColor;
 	}
 
-	public var shadowColor(getShadowColor, setShadowColor):Array<Float>;
-	private function getShadowColor():Array<Float>
+	public var shadowColor(get_shadowColor, set_shadowColor):Array<Float>;
+	private function get_shadowColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setShadowColor(value:Array<Float>):Array<Float>
+	private function set_shadowColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return shadowColor;
 	}
 
-	public var shadowOffset(getShadowOffset, setShadowOffset):Array<Float>;
-	private function getShadowOffset():Array<Float>
+	public var shadowOffset(get_shadowOffset, set_shadowOffset):Array<Float>;
+	private function get_shadowOffset():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowOffset", [], [], ObjectManager.CGSIZE_VAL);
 	}
 
-	private function setShadowOffset(value:Array<Float>):Array<Float>
+	private function set_shadowOffset(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowOffset:", [value], [ObjectManager.CGSIZE_VAL], -1 );
 		return shadowOffset;
 	}
 
-	public var textAlignment(getTextAlignment, setTextAlignment):Int;
-	private function getTextAlignment():Int
+	public var textAlignment(get_textAlignment, set_textAlignment):Int;
+	private function get_textAlignment():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textAlignment", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setTextAlignment(value:Int):Int
+	private function set_textAlignment(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextAlignment:", [value], [ObjectManager.INT_VAL], -1 );
 		return textAlignment;
 	}
 
-	public var lineBreakMode(getLineBreakMode, setLineBreakMode):Int;
-	private function getLineBreakMode():Int
+	public var lineBreakMode(get_lineBreakMode, set_lineBreakMode):Int;
+	private function get_lineBreakMode():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "lineBreakMode", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setLineBreakMode(value:Int):Int
+	private function set_lineBreakMode(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLineBreakMode:", [value], [ObjectManager.INT_VAL], -1 );
 		return lineBreakMode;
 	}
 
-	public var highlightedTextColor(getHighlightedTextColor, setHighlightedTextColor):Array<Float>;
-	private function getHighlightedTextColor():Array<Float>
+	public var highlightedTextColor(get_highlightedTextColor, set_highlightedTextColor):Array<Float>;
+	private function get_highlightedTextColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlightedTextColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setHighlightedTextColor(value:Array<Float>):Array<Float>
+	private function set_highlightedTextColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedTextColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return highlightedTextColor;
 	}
 
-	public var highlighted(getHighlighted, setHighlighted):Bool;
-	private function getHighlighted():Bool
+	public var highlighted(get_highlighted, set_highlighted):Bool;
+	private function get_highlighted():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setHighlighted(value:Bool):Bool
+	private function set_highlighted(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return highlighted;
 	}
 
-	public var enabled(getEnabled, setEnabled):Bool;
-	private function getEnabled():Bool
+	public var enabled(get_enabled, set_enabled):Bool;
+	private function get_enabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setEnabled(value:Bool):Bool
+	private function set_enabled(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return enabled;
 	}
 
-	public var numberOfLines(getNumberOfLines, setNumberOfLines):Int;
-	private function getNumberOfLines():Int
+	public var numberOfLines(get_numberOfLines, set_numberOfLines):Int;
+	private function get_numberOfLines():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfLines", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setNumberOfLines(value:Int):Int
+	private function set_numberOfLines(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNumberOfLines:", [value], [ObjectManager.INT_VAL], -1 );
 		return numberOfLines;
 	}
 
-	public var adjustsFontSizeToFitWidth(getAdjustsFontSizeToFitWidth, setAdjustsFontSizeToFitWidth):Bool;
-	private function getAdjustsFontSizeToFitWidth():Bool
+	public var adjustsFontSizeToFitWidth(get_adjustsFontSizeToFitWidth, set_adjustsFontSizeToFitWidth):Bool;
+	private function get_adjustsFontSizeToFitWidth():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsFontSizeToFitWidth", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAdjustsFontSizeToFitWidth(value:Bool):Bool
+	private function set_adjustsFontSizeToFitWidth(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsFontSizeToFitWidth:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsFontSizeToFitWidth;
 	}
 
-	public var adjustsLetterSpacingToFitWidth(getAdjustsLetterSpacingToFitWidth, setAdjustsLetterSpacingToFitWidth):Bool;
-	private function getAdjustsLetterSpacingToFitWidth():Bool
+	public var adjustsLetterSpacingToFitWidth(get_adjustsLetterSpacingToFitWidth, set_adjustsLetterSpacingToFitWidth):Bool;
+	private function get_adjustsLetterSpacingToFitWidth():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsLetterSpacingToFitWidth", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAdjustsLetterSpacingToFitWidth(value:Bool):Bool
+	private function set_adjustsLetterSpacingToFitWidth(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsLetterSpacingToFitWidth:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsLetterSpacingToFitWidth;
 	}
 
-	public var baselineAdjustment(getBaselineAdjustment, setBaselineAdjustment):Int;
-	private function getBaselineAdjustment():Int
+	public var baselineAdjustment(get_baselineAdjustment, set_baselineAdjustment):Int;
+	private function get_baselineAdjustment():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "baselineAdjustment", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setBaselineAdjustment(value:Int):Int
+	private function set_baselineAdjustment(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBaselineAdjustment:", [value], [ObjectManager.INT_VAL], -1 );
 		return baselineAdjustment;
 	}
 
-	public var minimumScaleFactor(getMinimumScaleFactor, setMinimumScaleFactor):Float;
-	private function getMinimumScaleFactor():Float
+	public var minimumScaleFactor(get_minimumScaleFactor, set_minimumScaleFactor):Float;
+	private function get_minimumScaleFactor():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumScaleFactor", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMinimumScaleFactor(value:Float):Float
+	private function set_minimumScaleFactor(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumScaleFactor:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return minimumScaleFactor;
 	}
 
-	public var preferredMaxLayoutWidth(getPreferredMaxLayoutWidth, setPreferredMaxLayoutWidth):Float;
-	private function getPreferredMaxLayoutWidth():Float
+	public var preferredMaxLayoutWidth(get_preferredMaxLayoutWidth, set_preferredMaxLayoutWidth):Float;
+	private function get_preferredMaxLayoutWidth():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "preferredMaxLayoutWidth", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setPreferredMaxLayoutWidth(value:Float):Float
+	private function set_preferredMaxLayoutWidth(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPreferredMaxLayoutWidth:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return preferredMaxLayoutWidth;

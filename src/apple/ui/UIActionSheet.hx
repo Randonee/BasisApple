@@ -27,68 +27,68 @@ class UIActionSheet extends UIView
 	//Static Methods
 
 	//Properties
-	public var title(getTitle, setTitle):String;
-	private function getTitle():String
+	public var title(get_title, set_title):String;
+	private function get_title():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "title", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setTitle(value:String):String
+	private function set_title(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:", [value], [ObjectManager.STRING_VAL], -1 );
 		return title;
 	}
 
-	public var actionSheetStyle(getActionSheetStyle, setActionSheetStyle):Int;
-	private function getActionSheetStyle():Int
+	public var actionSheetStyle(get_actionSheetStyle, set_actionSheetStyle):Int;
+	private function get_actionSheetStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "actionSheetStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setActionSheetStyle(value:Int):Int
+	private function set_actionSheetStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActionSheetStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return actionSheetStyle;
 	}
 
-	public var numberOfButtons(getNumberOfButtons, null):Int;
-	private function getNumberOfButtons():Int
+	public var numberOfButtons(get_numberOfButtons, null):Int;
+	private function get_numberOfButtons():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfButtons", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var cancelButtonIndex(getCancelButtonIndex, setCancelButtonIndex):Int;
-	private function getCancelButtonIndex():Int
+	public var cancelButtonIndex(get_cancelButtonIndex, set_cancelButtonIndex):Int;
+	private function get_cancelButtonIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "cancelButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setCancelButtonIndex(value:Int):Int
+	private function set_cancelButtonIndex(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCancelButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
 		return cancelButtonIndex;
 	}
 
-	public var destructiveButtonIndex(getDestructiveButtonIndex, setDestructiveButtonIndex):Int;
-	private function getDestructiveButtonIndex():Int
+	public var destructiveButtonIndex(get_destructiveButtonIndex, set_destructiveButtonIndex):Int;
+	private function get_destructiveButtonIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "destructiveButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setDestructiveButtonIndex(value:Int):Int
+	private function set_destructiveButtonIndex(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDestructiveButtonIndex:", [value], [ObjectManager.INT_VAL], -1 );
 		return destructiveButtonIndex;
 	}
 
-	public var firstOtherButtonIndex(getFirstOtherButtonIndex, null):Int;
-	private function getFirstOtherButtonIndex():Int
+	public var firstOtherButtonIndex(get_firstOtherButtonIndex, null):Int;
+	private function get_firstOtherButtonIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "firstOtherButtonIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var visible(getVisible, null):Bool;
-	private function getVisible():Bool
+	public var visible(get_visible, null):Bool;
+	private function get_visible():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.BOOL_VAL);
 	}
@@ -129,10 +129,10 @@ class UIActionSheet extends UIView
 	}
 
 
-	public static inline var UIActionSheetStyleAutomatic:Int = 0;
-	public static inline var UIActionSheetStyleDefault:Int = 1;
-	public static inline var UIActionSheetStyleBlackTranslucent:Int = 2;
-	public static inline var UIActionSheetStyleBlackOpaque:Int = 3;
+	public static inline function UIActionSheetStyleAutomatic():Int{return 0;}
+	public static inline function UIActionSheetStyleDefault():Int{return 1;}
+	public static inline function UIActionSheetStyleBlackTranslucent():Int{return 2;}
+	public static inline function UIActionSheetStyleBlackOpaque():Int{return 3;}
 
 
 }

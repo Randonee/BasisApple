@@ -73,13 +73,13 @@
 		</copy>
 	</target> 
 
-	<target name="testlib">
+	<target name="installib">
 		<exec dir="." failonerror="false" executable="haxelib">
 			<arg line="remove BasisApple" />
 		</exec>
 		<antcall target="buildHaxelib" />
 		<exec dir="." failonerror="true" executable="haxelib">
-			<arg line="test build/BasisApple.zip" />
+			<arg line="install build/BasisApple.zip" />
 		</exec>
 	</target>
 	

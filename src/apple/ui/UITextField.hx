@@ -17,35 +17,35 @@ class UITextField extends UIControl
 
 	//------ Added - NOT GENERATED ------
 	//Events
-	public static inline var UITextFieldTextDidBeginEditing:String = "UITextFieldTextDidBeginEditing";
-	public static inline var UITextFieldTextDidChange:String = "UITextFieldTextDidChange";
-	public static inline var UITextFieldTextDidEndEditing:String = "UITextFieldTextDidEndEditing";
+	public static inline function UITextFieldTextDidBeginEditing():String{ return "UITextFieldTextDidBeginEditing";}
+	public static inline function UITextFieldTextDidChange():String{ return "UITextFieldTextDidChange";}
+	public static inline function UITextFieldTextDidEndEditing():String{ return "UITextFieldTextDidEndEditing";}
 	
-	public var secureTextEntry(getSecureTextEntry, setSecureTextEntry) : Bool;
-	private function setSecureTextEntry(value:Bool):Bool
+	public var secureTextEntry(get_secureTextEntry, set_secureTextEntry) : Bool;
+	private function set_secureTextEntry(value:Bool):Bool
 	{
-		cpp_uitextfield_setSecureTextEntry(basisID, value);
-		return cpp_uitextfield_getSecureTextEntry(basisID);
+		cpp_uitextfield_set_secureTextEntry(basisID, value);
+		return cpp_uitextfield_get_secureTextEntry(basisID);
 	}
-	private static var cpp_uitextfield_setSecureTextEntry = Lib.load("basis", "uitextfield_setSecureTextEntry", 2);
-	private function getSecureTextEntry():Bool
+	private static var cpp_uitextfield_set_secureTextEntry = Lib.load("basis", "uitextfield_setSecureTextEntry", 2);
+	private function get_secureTextEntry():Bool
 	{
-		return cpp_uitextfield_getSecureTextEntry(basisID);
+		return cpp_uitextfield_get_secureTextEntry(basisID);
 	}
-	private static var cpp_uitextfield_getSecureTextEntry = Lib.load("basis", "uitextfield_getSecureTextEntry", 1);
+	private static var cpp_uitextfield_get_secureTextEntry = Lib.load("basis", "uitextfield_getSecureTextEntry", 1);
 
-	public var fontSize(getFontSize, setFontSize) : Float;
-	private function setFontSize(value:Float):Float
+	public var fontSize(get_fontSize, set_fontSize) : Float;
+	private function set_fontSize(value:Float):Float
 	{
-		cpp_uitextfield_setFontSize(basisID, value);
-		return cpp_uitextfield_getFontSize(basisID);
+		cpp_uitextfield_set_fontSize(basisID, value);
+		return cpp_uitextfield_get_fontSize(basisID);
 	}
-	private static var cpp_uitextfield_setFontSize = Lib.load("basis", "uitextfield_setFontSize", 2);
-	private function getFontSize():Float
+	private static var cpp_uitextfield_set_fontSize = Lib.load("basis", "uitextfield_setFontSize", 2);
+	private function get_fontSize():Float
 	{
-		return cpp_uitextfield_getFontSize(basisID);
+		return cpp_uitextfield_get_fontSize(basisID);
 	}
-	private static var cpp_uitextfield_getFontSize = Lib.load("basis", "uitextfield_getFontSize", 1);
+	private static var cpp_uitextfield_get_fontSize = Lib.load("basis", "uitextfield_getFontSize", 1);
 	// ---------------------------------
 	
 	
@@ -62,203 +62,203 @@ class UITextField extends UIControl
 	//Static Methods
 
 	//Properties
-	public var text(getText, setText):String;
-	private function getText():String
+	public var text(get_text, set_text):String;
+	private function get_text():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "text", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setText(value:String):String
+	private function set_text(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setText:", [value], [ObjectManager.STRING_VAL], -1 );
 		return text;
 	}
 
-	public var textColor(getTextColor, setTextColor):Array<Float>;
-	private function getTextColor():Array<Float>
+	public var textColor(get_textColor, set_textColor):Array<Float>;
+	private function get_textColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTextColor(value:Array<Float>):Array<Float>
+	private function set_textColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return textColor;
 	}
 
-	public var textAlignment(getTextAlignment, setTextAlignment):Int;
-	private function getTextAlignment():Int
+	public var textAlignment(get_textAlignment, set_textAlignment):Int;
+	private function get_textAlignment():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textAlignment", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setTextAlignment(value:Int):Int
+	private function set_textAlignment(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextAlignment:", [value], [ObjectManager.INT_VAL], -1 );
 		return textAlignment;
 	}
 
-	public var borderStyle(getBorderStyle, setBorderStyle):Int;
-	private function getBorderStyle():Int
+	public var borderStyle(get_borderStyle, set_borderStyle):Int;
+	private function get_borderStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "borderStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setBorderStyle(value:Int):Int
+	private function set_borderStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBorderStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return borderStyle;
 	}
 
-	public var placeholder(getPlaceholder, setPlaceholder):String;
-	private function getPlaceholder():String
+	public var placeholder(get_placeholder, set_placeholder):String;
+	private function get_placeholder():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "placeholder", [], [], ObjectManager.STRING_VAL);
 	}
 
-	private function setPlaceholder(value:String):String
+	private function set_placeholder(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPlaceholder:", [value], [ObjectManager.STRING_VAL], -1 );
 		return placeholder;
 	}
 
-	public var clearsOnBeginEditing(getClearsOnBeginEditing, setClearsOnBeginEditing):Bool;
-	private function getClearsOnBeginEditing():Bool
+	public var clearsOnBeginEditing(get_clearsOnBeginEditing, set_clearsOnBeginEditing):Bool;
+	private function get_clearsOnBeginEditing():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnBeginEditing", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setClearsOnBeginEditing(value:Bool):Bool
+	private function set_clearsOnBeginEditing(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnBeginEditing:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsOnBeginEditing;
 	}
 
-	public var adjustsFontSizeToFitWidth(getAdjustsFontSizeToFitWidth, setAdjustsFontSizeToFitWidth):Bool;
-	private function getAdjustsFontSizeToFitWidth():Bool
+	public var adjustsFontSizeToFitWidth(get_adjustsFontSizeToFitWidth, set_adjustsFontSizeToFitWidth):Bool;
+	private function get_adjustsFontSizeToFitWidth():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "adjustsFontSizeToFitWidth", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAdjustsFontSizeToFitWidth(value:Bool):Bool
+	private function set_adjustsFontSizeToFitWidth(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAdjustsFontSizeToFitWidth:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return adjustsFontSizeToFitWidth;
 	}
 
-	public var minimumFontSize(getMinimumFontSize, setMinimumFontSize):Float;
-	private function getMinimumFontSize():Float
+	public var minimumFontSize(get_minimumFontSize, set_minimumFontSize):Float;
+	private function get_minimumFontSize():Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumFontSize", [], [], ObjectManager.FLOAT_VAL);
 	}
 
-	private function setMinimumFontSize(value:Float):Float
+	private function set_minimumFontSize(value:Float):Float
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumFontSize:", [value], [ObjectManager.FLOAT_VAL], -1 );
 		return minimumFontSize;
 	}
 
-	public var background(null, setBackground):String;
+	public var background(null, set_background):String;
 
-	private function setBackground(value:String):String
+	private function set_background(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackground:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var disabledBackground(null, setDisabledBackground):String;
+	public var disabledBackground(null, set_disabledBackground):String;
 
-	private function setDisabledBackground(value:String):String
+	private function set_disabledBackground(value:String):String
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDisabledBackground:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
 		return null;
 	}
 
-	public var editing(getEditing, null):Bool;
-	private function getEditing():Bool
+	public var editing(get_editing, null):Bool;
+	private function get_editing():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	public var allowsEditingTextAttributes(getAllowsEditingTextAttributes, setAllowsEditingTextAttributes):Bool;
-	private function getAllowsEditingTextAttributes():Bool
+	public var allowsEditingTextAttributes(get_allowsEditingTextAttributes, set_allowsEditingTextAttributes):Bool;
+	private function get_allowsEditingTextAttributes():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsEditingTextAttributes", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAllowsEditingTextAttributes(value:Bool):Bool
+	private function set_allowsEditingTextAttributes(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsEditingTextAttributes:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsEditingTextAttributes;
 	}
 
-	public var clearButtonMode(getClearButtonMode, setClearButtonMode):Int;
-	private function getClearButtonMode():Int
+	public var clearButtonMode(get_clearButtonMode, set_clearButtonMode):Int;
+	private function get_clearButtonMode():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearButtonMode", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setClearButtonMode(value:Int):Int
+	private function set_clearButtonMode(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearButtonMode:", [value], [ObjectManager.INT_VAL], -1 );
 		return clearButtonMode;
 	}
 
-	public var leftView(getLeftView, setLeftView):UIView;
-	private function getLeftView():UIView
+	public var leftView(get_leftView, set_leftView):UIView;
+	private function get_leftView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "leftView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setLeftView(value:UIView):UIView
+	private function set_leftView(value:UIView):UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLeftView:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return leftView;
 	}
 
-	public var leftViewMode(getLeftViewMode, setLeftViewMode):Int;
-	private function getLeftViewMode():Int
+	public var leftViewMode(get_leftViewMode, set_leftViewMode):Int;
+	private function get_leftViewMode():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "leftViewMode", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setLeftViewMode(value:Int):Int
+	private function set_leftViewMode(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLeftViewMode:", [value], [ObjectManager.INT_VAL], -1 );
 		return leftViewMode;
 	}
 
-	public var rightView(getRightView, setRightView):UIView;
-	private function getRightView():UIView
+	public var rightView(get_rightView, set_rightView):UIView;
+	private function get_rightView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rightView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setRightView(value:UIView):UIView
+	private function set_rightView(value:UIView):UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRightView:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return rightView;
 	}
 
-	public var rightViewMode(getRightViewMode, setRightViewMode):Int;
-	private function getRightViewMode():Int
+	public var rightViewMode(get_rightViewMode, set_rightViewMode):Int;
+	private function get_rightViewMode():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rightViewMode", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setRightViewMode(value:Int):Int
+	private function set_rightViewMode(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRightViewMode:", [value], [ObjectManager.INT_VAL], -1 );
 		return rightViewMode;
 	}
 
-	public var clearsOnInsertion(getClearsOnInsertion, setClearsOnInsertion):Bool;
-	private function getClearsOnInsertion():Bool
+	public var clearsOnInsertion(get_clearsOnInsertion, set_clearsOnInsertion):Bool;
+	private function get_clearsOnInsertion():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "clearsOnInsertion", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setClearsOnInsertion(value:Bool):Bool
+	private function set_clearsOnInsertion(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setClearsOnInsertion:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return clearsOnInsertion;
@@ -304,14 +304,14 @@ class UITextField extends UIControl
 	}
 
 
-	public static inline var UITextBorderStyleNone:Int = 0;
-	public static inline var UITextBorderStyleLine:Int = 1;
-	public static inline var UITextBorderStyleBezel:Int = 2;
-	public static inline var UITextBorderStyleRoundedRect:Int = 3;
-	public static inline var UITextFieldViewModeNever:Int = 0;
-	public static inline var UITextFieldViewModeWhileEditing:Int = 1;
-	public static inline var UITextFieldViewModeUnlessEditing:Int = 2;
-	public static inline var UITextFieldViewModeAlways:Int = 3;
+	public static inline function UITextBorderStyleNone():Int{return 0;}
+	public static inline function UITextBorderStyleLine():Int{return 1;}
+	public static inline function UITextBorderStyleBezel():Int{return 2;}
+	public static inline function UITextBorderStyleRoundedRect():Int{return 3;}
+	public static inline function UITextFieldViewModeNever():Int{return 0;}
+	public static inline function UITextFieldViewModeWhileEditing():Int{return 1;}
+	public static inline function UITextFieldViewModeUnlessEditing():Int{return 2;}
+	public static inline function UITextFieldViewModeAlways():Int{return 3;}
 
 
 }

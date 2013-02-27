@@ -27,37 +27,37 @@ class UIToolbar extends UIView
 	//Static Methods
 
 	//Properties
-	public var barStyle(getBarStyle, setBarStyle):Int;
-	private function getBarStyle():Int
+	public var barStyle(get_barStyle, set_barStyle):Int;
+	private function get_barStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "barStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setBarStyle(value:Int):Int
+	private function set_barStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return barStyle;
 	}
 
-	public var translucent(getTranslucent, setTranslucent):Bool;
-	private function getTranslucent():Bool
+	public var translucent(get_translucent, set_translucent):Bool;
+	private function get_translucent():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setTranslucent(value:Bool):Bool
+	private function set_translucent(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return translucent;
 	}
 
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
@@ -75,9 +75,9 @@ class UIToolbar extends UIView
 	}
 
 
-	public static inline var UIToolbarPositionAny:Int = 0;
-	public static inline var UIToolbarPositionBottom:Int = 1;
-	public static inline var UIToolbarPositionTop:Int = 2;
+	public static inline function UIToolbarPositionAny():Int{return 0;}
+	public static inline function UIToolbarPositionBottom():Int{return 1;}
+	public static inline function UIToolbarPositionTop():Int{return 2;}
 
 
 }

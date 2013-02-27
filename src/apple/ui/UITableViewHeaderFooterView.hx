@@ -27,50 +27,50 @@ class UITableViewHeaderFooterView extends UIView
 	//Static Methods
 
 	//Properties
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
 	}
 
-	public var textLabel(getTextLabel, null):UILabel;
-	private function getTextLabel():UILabel
+	public var textLabel(get_textLabel, null):UILabel;
+	private function get_textLabel():UILabel
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textLabel", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var detailTextLabel(getDetailTextLabel, null):UILabel;
-	private function getDetailTextLabel():UILabel
+	public var detailTextLabel(get_detailTextLabel, null):UILabel;
+	private function get_detailTextLabel():UILabel
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "detailTextLabel", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var contentView(getContentView, null):UIView;
-	private function getContentView():UIView
+	public var contentView(get_contentView, null):UIView;
+	private function get_contentView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	public var backgroundView(getBackgroundView, setBackgroundView):UIView;
-	private function getBackgroundView():UIView
+	public var backgroundView(get_backgroundView, set_backgroundView):UIView;
+	private function get_backgroundView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setBackgroundView(value:UIView):UIView
+	private function set_backgroundView(value:UIView):UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundView:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return backgroundView;
 	}
 
-	public var reuseIdentifier(getReuseIdentifier, null):String;
-	private function getReuseIdentifier():String
+	public var reuseIdentifier(get_reuseIdentifier, null):String;
+	private function get_reuseIdentifier():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reuseIdentifier", [], [], ObjectManager.STRING_VAL);
 	}

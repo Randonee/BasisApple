@@ -39,7 +39,7 @@ class GroupResource extends FileResource
 class XCodeProject
 {
 	public var name(default, default):String;
-	public var fileName(getFileName, null):String;
+	public var fileName(get_fileName, null):String;
 	
 	public var sources(default, null):Array<FileResource>;
 	public var frameworks(default, null):Array<FileResource>;
@@ -644,7 +644,7 @@ class XCodeProject
 		return false;
 	}
 	
-	private function getFileName():String
+	private function get_fileName():String
 	{
 		return name + ".xcodeproj";
 	}

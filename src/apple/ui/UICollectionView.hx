@@ -27,37 +27,37 @@ class UICollectionView extends UIScrollView
 	//Static Methods
 
 	//Properties
-	public var backgroundView(getBackgroundView, setBackgroundView):UIView;
-	private function getBackgroundView():UIView
+	public var backgroundView(get_backgroundView, set_backgroundView):UIView;
+	private function get_backgroundView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundView", [], [], ObjectManager.OBJECT_VAL);
 	}
 
-	private function setBackgroundView(value:UIView):UIView
+	private function set_backgroundView(value:UIView):UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundView:", [value], [ObjectManager.OBJECT_VAL], -1 );
 		return backgroundView;
 	}
 
-	public var allowsSelection(getAllowsSelection, setAllowsSelection):Bool;
-	private function getAllowsSelection():Bool
+	public var allowsSelection(get_allowsSelection, set_allowsSelection):Bool;
+	private function get_allowsSelection():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsSelection", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAllowsSelection(value:Bool):Bool
+	private function set_allowsSelection(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsSelection:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsSelection;
 	}
 
-	public var allowsMultipleSelection(getAllowsMultipleSelection, setAllowsMultipleSelection):Bool;
-	private function getAllowsMultipleSelection():Bool
+	public var allowsMultipleSelection(get_allowsMultipleSelection, set_allowsMultipleSelection):Bool;
+	private function get_allowsMultipleSelection():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMultipleSelection", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setAllowsMultipleSelection(value:Bool):Bool
+	private function set_allowsMultipleSelection(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsMultipleSelection:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return allowsMultipleSelection;
@@ -131,13 +131,13 @@ class UICollectionView extends UIScrollView
 	}
 
 
-	public static inline var UICollectionViewScrollPositionNone:Int = 0;
-	public static inline var UICollectionViewScrollPositionTop:Int =  1 << 0;
-	public static inline var UICollectionViewScrollPositionCenteredVertically:Int =  1 << 1;
-	public static inline var UICollectionViewScrollPositionBottom:Int =  1 << 2;
-	public static inline var UICollectionViewScrollPositionLeft:Int =  1 << 3;
-	public static inline var UICollectionViewScrollPositionCenteredHorizontally:Int =  1 << 4;
-	public static inline var UICollectionViewScrollPositionRight:Int =  1 << 5;
+	public static inline function UICollectionViewScrollPositionNone():Int{return 0;}
+	public static inline function UICollectionViewScrollPositionTop():Int{return  1 << 0;}
+	public static inline function UICollectionViewScrollPositionCenteredVertically():Int{return  1 << 1;}
+	public static inline function UICollectionViewScrollPositionBottom():Int{return  1 << 2;}
+	public static inline function UICollectionViewScrollPositionLeft():Int{return  1 << 3;}
+	public static inline function UICollectionViewScrollPositionCenteredHorizontally():Int{return  1 << 4;}
+	public static inline function UICollectionViewScrollPositionRight():Int{return  1 << 5;}
 
 
 }

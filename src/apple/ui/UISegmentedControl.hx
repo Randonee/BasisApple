@@ -27,67 +27,67 @@ class UISegmentedControl extends UIControl
 	//Static Methods
 
 	//Properties
-	public var segmentedControlStyle(getSegmentedControlStyle, setSegmentedControlStyle):Int;
-	private function getSegmentedControlStyle():Int
+	public var segmentedControlStyle(get_segmentedControlStyle, set_segmentedControlStyle):Int;
+	private function get_segmentedControlStyle():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "segmentedControlStyle", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setSegmentedControlStyle(value:Int):Int
+	private function set_segmentedControlStyle(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSegmentedControlStyle:", [value], [ObjectManager.INT_VAL], -1 );
 		return segmentedControlStyle;
 	}
 
-	public var momentary(getMomentary, setMomentary):Bool;
-	private function getMomentary():Bool
+	public var momentary(get_momentary, set_momentary):Bool;
+	private function get_momentary():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "momentary", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setMomentary(value:Bool):Bool
+	private function set_momentary(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMomentary:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return momentary;
 	}
 
-	public var numberOfSegments(getNumberOfSegments, null):Int;
-	private function getNumberOfSegments():Int
+	public var numberOfSegments(get_numberOfSegments, null):Int;
+	private function get_numberOfSegments():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfSegments", [], [], ObjectManager.INT_VAL);
 	}
 
-	public var apportionsSegmentWidthsByContent(getApportionsSegmentWidthsByContent, setApportionsSegmentWidthsByContent):Bool;
-	private function getApportionsSegmentWidthsByContent():Bool
+	public var apportionsSegmentWidthsByContent(get_apportionsSegmentWidthsByContent, set_apportionsSegmentWidthsByContent):Bool;
+	private function get_apportionsSegmentWidthsByContent():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "apportionsSegmentWidthsByContent", [], [], ObjectManager.BOOL_VAL);
 	}
 
-	private function setApportionsSegmentWidthsByContent(value:Bool):Bool
+	private function set_apportionsSegmentWidthsByContent(value:Bool):Bool
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setApportionsSegmentWidthsByContent:", [value], [ObjectManager.BOOL_VAL], -1 );
 		return apportionsSegmentWidthsByContent;
 	}
 
-	public var selectedSegmentIndex(getSelectedSegmentIndex, setSelectedSegmentIndex):Int;
-	private function getSelectedSegmentIndex():Int
+	public var selectedSegmentIndex(get_selectedSegmentIndex, set_selectedSegmentIndex):Int;
+	private function get_selectedSegmentIndex():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedSegmentIndex", [], [], ObjectManager.INT_VAL);
 	}
 
-	private function setSelectedSegmentIndex(value:Int):Int
+	private function set_selectedSegmentIndex(value:Int):Int
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedSegmentIndex:", [value], [ObjectManager.INT_VAL], -1 );
 		return selectedSegmentIndex;
 	}
 
-	public var tintColor(getTintColor, setTintColor):Array<Float>;
-	private function getTintColor():Array<Float>
+	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
+	private function get_tintColor():Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
 	}
 
-	private function setTintColor(value:Array<Float>):Array<Float>
+	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
 		return tintColor;
@@ -165,15 +165,15 @@ class UISegmentedControl extends UIControl
 	}
 
 
-	public static inline var UISegmentedControlStylePlain:Int = 0;
-	public static inline var UISegmentedControlStyleBordered:Int = 1;
-	public static inline var UISegmentedControlStyleBar:Int = 2;
-	public static inline var UISegmentedControlStyleBezeled:Int = 3;
-	public static inline var UISegmentedControlSegmentAny:Int = 0;
-	public static inline var UISegmentedControlSegmentLeft:Int = 1;
-	public static inline var UISegmentedControlSegmentCenter:Int = 2;
-	public static inline var UISegmentedControlSegmentRight:Int = 3;
-	public static inline var UISegmentedControlSegmentAlone:Int = 4;
+	public static inline function UISegmentedControlStylePlain():Int{return 0;}
+	public static inline function UISegmentedControlStyleBordered():Int{return 1;}
+	public static inline function UISegmentedControlStyleBar():Int{return 2;}
+	public static inline function UISegmentedControlStyleBezeled():Int{return 3;}
+	public static inline function UISegmentedControlSegmentAny():Int{return 0;}
+	public static inline function UISegmentedControlSegmentLeft():Int{return 1;}
+	public static inline function UISegmentedControlSegmentCenter():Int{return 2;}
+	public static inline function UISegmentedControlSegmentRight():Int{return 3;}
+	public static inline function UISegmentedControlSegmentAlone():Int{return 4;}
 
 
 }
