@@ -2,19 +2,7 @@ package example;
 
 import basis.ios.IOSUtil;
 import basis.object.IObject;
-import apple.ui.UIView;
-import apple.ui.UILabel;
-import apple.ui.UITextField;
-import apple.ui.UIButton;
-import apple.ui.UIControl;
-import apple.ui.UIApplication;
-import apple.ui.UITableView;
-import apple.ui.UITableViewCell;
-import apple.ui.UIWebView;
-import apple.ui.UINavigationBar;
-import apple.ui.UIBarButtonItem;
-import apple.ui.UIAlertView;
-import apple.ui.UIImageView;
+import apple.ui.*;
 
 import basis.BasisApplication;
 
@@ -93,6 +81,12 @@ class MainView extends UIView
 			_tableCellLabels.push("Cell Label " + Std.string(a));
 		
 		_table = new UITableView();
+		_table.dataSource = new UITableViewDataSource();
+		_table.dataSource.addTableView(_table);
+		
+		_table.delegate = new UITableViewDelegate();
+		_table.delegate.addTableView(_table);
+		
 		_table.dataSource.titleForHeaderInSectionHandler = titleForHeaderInSection;
 		_table.dataSource.numberOfSectionsInTableViewHandler = numberOfSectionsInTableView;
 		_table.dataSource.numberOfRowsInSectionHandler = numberOfRowsInSection;

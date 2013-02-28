@@ -89,7 +89,7 @@ void (*_destroyHaxeObjectFunction)(id);
         invocation = [NSInvocation invocationWithMethodSignature:signature];
     }
     @catch (NSException *exception) {
-        NSLog(@"Method signature does not exist: %@", selectorString);
+        NSLog(@"Method signature does not exist: %@  for class: %s", selectorString, class_getName([object class]));
         return nil;
     }
     [invocation setTarget:object];

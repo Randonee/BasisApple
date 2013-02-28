@@ -14,6 +14,8 @@ namespace basis
 		return alloc_int(-1);
 	}
 	DEFINE_PRIM (uitableview_dequeueReusableCellWithIdentifier, 2);
+	
+	
 	value uitableview_dequeueReusableHeaderFooterViewWithIdentifier(value tag, value arg1)
 	{
 		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
@@ -21,4 +23,15 @@ namespace basis
 		return alloc_int((int)[returnVar tag]);
 	}
 	DEFINE_PRIM (uitableview_dequeueReusableHeaderFooterViewWithIdentifier, 2);
+	
+	
+	value uitableview_initWithFrameStyle(value frame, value style)
+	{
+		UITableView *table = [[UITableView alloc] initWithFrame: arrayToCGRect(frame) style:val_int(style)];
+		NSString *objectID = [[BasisApplication getObjectManager] addObject:table];
+		[[BasisApplication getObjectManager] createHaxeObject:table];
+		return alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]);
+	}
+	DEFINE_PRIM (uitableview_initWithFrameStyle, 2);
+	
 }

@@ -15,10 +15,24 @@ import basis.BasisApplication;
 class UITableView extends UIScrollView
 {
 
-	//------ Added NOT GENERATED ------
 
-	public var dataSource(default, null):UITableViewDataSource;
-	public var delegate(default, null):UITableViewDelegate;
+	//------ Added NOT GENERATED ------
+	
+	static public function initWithFrameStyle(rect:Array<Float>, style:Int):UITableView
+	{
+		var objectID:String = uitableview_initWithFrameStyle(rect, style);
+		var object:IObject = BasisApplication.instance.objectManager.getObject(objectID);
+		if(object != null)
+			return cast(object, UITableView);
+			
+		return null;
+	}
+	private static var uitableview_initWithFrameStyle = Lib.load ("basis", "uitableview_initWithFrameStyle", 2);
+
+
+
+	public var dataSource(default, default):UITableViewDataSource;
+	public var delegate(default, default):UITableViewDelegate;
 
 	public function new(?type:Class<IObject>=null)
 	{
@@ -26,12 +40,6 @@ class UITableView extends UIScrollView
 			type = UITableView;
 			
 		super(type);
-		
-		dataSource = new UITableViewDataSource();
-		dataSource.addTableView(this);
-
-		delegate = new UITableViewDelegate();
-		delegate.addTableView(this);
 	}
 
 	// ---------------------------------

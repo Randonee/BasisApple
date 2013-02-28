@@ -4,9 +4,6 @@ import cpp.Lib;
 
 class ObjectManager
 {
-	private var _classTypes:Map<String, Class<Dynamic>>;
-	private var _objects:Map<String, IObject>;
-	
 	public static inline var OBJECT_VAL:Int = 0;
 	public static inline var INT_VAL:Int = 1;
 	public static inline var FLOAT_VAL:Int = 2;
@@ -27,9 +24,15 @@ class ObjectManager
 	public static inline var UICOLOR_VAL:Int = 17;
 	public static inline var BOOL_VAL:Int = 18;
 	
+	
+	private var _classTypes:Map<String, Class<Dynamic>>;
+	private var _objects:Map<String, IObject>;
+	private var _scipCreate:Bool;
+	
 
 	public function new():Void
 	{
+		_scipCreate = false;
 		_classTypes = new Map<String, Class<Dynamic>>();
 		_objects = new Map<String, IObject>();
 		
@@ -47,6 +50,11 @@ class ObjectManager
 	
 	public function createObject(object:IObject, classPath:String):String
 	{
+		if(_scipCreate)
+		{
+			_scipCreate = false;
+			return object.basisID;
+		}
 		object.basisID = objectmanager_createObject(classPath);
 		_objects.set(Std.string(object.basisID), object);
 		return object.basisID;
@@ -131,6 +139,7 @@ class ObjectManager
 	//---- Called from cffi
 	public function cffi_addObject(id:String, className:String):Void
 	{
+		_scipCreate = true;
 		var object:IObject = Type.createInstance(_classTypes.get(className), []);
 		object.basisID = id;
 		_objects.set(id, object);

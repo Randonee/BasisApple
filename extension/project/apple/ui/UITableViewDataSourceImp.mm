@@ -110,7 +110,9 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-	return 0;
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value num = val_call1(_sectionForSectionIndexTitleHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
+	return val_int(num);
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
