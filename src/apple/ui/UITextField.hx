@@ -15,7 +15,7 @@ import basis.BasisApplication;
 class UITextField extends UIControl
 {
 
-	//------ Added - NOT GENERATED ------
+	//Additions
 	//Events
 	public static inline function UITextFieldTextDidBeginEditing():String{ return "UITextFieldTextDidBeginEditing";}
 	public static inline function UITextFieldTextDidChange():String{ return "UITextFieldTextDidChange";}
@@ -46,9 +46,8 @@ class UITextField extends UIControl
 		return cpp_uitextfield_get_fontSize(basisID);
 	}
 	private static var cpp_uitextfield_get_fontSize = Lib.load("basis", "uitextfield_getFontSize", 1);
-	// ---------------------------------
-	
-	
+
+	//Additions
 
 	public function new(?type:Class<IObject>=null)
 	{

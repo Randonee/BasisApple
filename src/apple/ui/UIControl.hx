@@ -15,7 +15,8 @@ import basis.BasisApplication;
 class UIControl extends UIView
 {
 
-	//------ Added - NOT GENERATED ------
+	//Additions
+
 	//Events
 	public static inline function UIControlTouchDown():String{ return "UIControlTouchDown";}
 	public static inline function UIControlTouchDownRepeat():String{ return "UIControlTouchDownRepeat";}
@@ -36,9 +37,8 @@ class UIControl extends UIView
 	public static inline function UIControlApplicationReserved():String{ return "UIControlApplicationReserved";}
 	public static inline function UIControlSystemReserved():String{ return "UIControlSystemReserved";}
 	public static inline function UIControlAllEvents():String{ return "UIControlAllEvents";}
-	// ---------------------------------
-	
-	
+
+	//Additions
 
 	public function new(?type:Class<IObject>=null)
 	{

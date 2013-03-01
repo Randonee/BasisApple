@@ -15,9 +15,7 @@ import basis.BasisApplication;
 class UITableView extends UIScrollView
 {
 
-
-	//------ Added NOT GENERATED ------
-	
+	//Additions
 	static public function initWithFrameStyle(rect:Array<Float>, style:Int):UITableView
 	{
 		var objectID:String = uitableview_initWithFrameStyle(rect, style);
@@ -29,22 +27,16 @@ class UITableView extends UIScrollView
 	}
 	private static var uitableview_initWithFrameStyle = Lib.load ("basis", "uitableview_initWithFrameStyle", 2);
 
-
-
 	public var dataSource(default, default):UITableViewDataSource;
 	public var delegate(default, default):UITableViewDelegate;
+	//Additions
 
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = UITableView;
-			
 		super(type);
 	}
-
-	// ---------------------------------
-	
-	
 
 	//Constants
 	//static public inline function UITableViewAutomaticDimension():Float{}

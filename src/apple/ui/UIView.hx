@@ -15,13 +15,9 @@ import basis.BasisApplication;
 class UIView extends UIResponder
 {
 
-	//------ Added - NOT GENERATED ------
-
+	//Additions
 	public static inline function UIViewDidMoveToSuperview():String{ return "UIViewDidMoveToSuperview";}
-	
-	// ---------------------------------
-	
-	
+	//Additions
 
 	public function new(?type:Class<IObject>=null)
 	{
