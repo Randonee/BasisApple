@@ -4,6 +4,7 @@
 @protocol ObjectManagerDelegateProtocol
 -(void)objectBeingDestroyed:(id)object;
 -(void)objectBeingAdded:(id)object;
+-(void)objectBeingReturnedByMethod:(id)object;
 @end
 
 @interface ObjectManager : NSObject

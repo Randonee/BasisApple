@@ -164,7 +164,7 @@ class MainView extends UIView
 	
 	private function cellForRowAtIndexPath(tableView:UITableView, indexPath:Array<Int>):UITableViewCell
 	{
-		var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableCell");
+		var cell:UITableViewCell = _table.dequeueReusableCellWithIdentifier("TableCell");
 	    if (cell == null)
 	    {
 	        cell = UITableViewCell.initWithStyleReuseIdentifier(UITableViewCell.UITableViewCellStyleDefault(), "TableCell");

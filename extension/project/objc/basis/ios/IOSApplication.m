@@ -56,6 +56,14 @@
 	return YES;
 }
 
+-(void)objectBeingReturnedByMethod:(id)object
+{
+	if([object isKindOfClass:[UITableViewCell class]])
+	{
+		[self.objectManager addObject:object];
+		[self.objectManager createHaxeObject:object];
+	}
+}
 
 -(void)objectBeingDestroyed:(id)object
 {

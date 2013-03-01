@@ -18,7 +18,6 @@ class UITableViewCell extends UIView
 	//------ added NOT GENERATED ------
 	static public function initWithStyleReuseIdentifier( style:Int,  reuseIdentifier:String):Dynamic
 	{
-	
 		var objectID:String = uitableviewcell_initWithStyleReuseIdentifier(style, reuseIdentifier);
 		var object:IObject = BasisApplication.instance.objectManager.getObject(objectID);
 		if(object != null)

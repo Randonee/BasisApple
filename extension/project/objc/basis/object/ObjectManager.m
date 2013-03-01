@@ -122,6 +122,9 @@ void (*_destroyHaxeObjectFunction)(id);
 	    if (result)
 	    {
 	        id object = (__bridge id)result;
+	        if(_delegate != nil)
+	       		[_delegate objectBeingReturnedByMethod:object];
+	       		
 	        return object;
 	    }
 	}

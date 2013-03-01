@@ -78,7 +78,9 @@ class ObjectManager
 			var obj:IObject = getObject(returnVar);
 			
 			if(obj != null)
+			{
 				return obj;
+			}
 		}
 		
 		return returnVar;
