@@ -10,7 +10,6 @@
 #include "../../apple/ui/UINavigationItemCFFI.mm"
 #include "../../apple/ui/UIBarItemCFFI.mm"
 #include "../../apple/ui/UIBarButtonItemCFFI.mm"
-#include "../../apple/ui/UIButtonCFFI_additions.mm"
 #include "../../apple/ui/UITableViewCellCFFI_additions.mm"
 
 #include "../../apple/applicationservices/CGAffineTransform.mm"
