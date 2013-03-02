@@ -1,3 +1,5 @@
+#include "IOSApplicationCFFI.mm"
+
 #include "../../apple/ui/UIApplicationCFFI.mm"
 #include "../../apple/ui/UICollectionReusableViewCFFI.mm"
 #include "../../apple/ui/UIImageViewCFFI_additions.mm"

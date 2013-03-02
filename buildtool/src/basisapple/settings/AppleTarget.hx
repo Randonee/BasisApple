@@ -5,7 +5,7 @@ import basis.settings.Target;
 class AppleTarget extends Target
 {
 	//Settings
-	static inline public var DEVICE_TYPE:String = "deviceType";
+	static inline public var OS_TYPE:String = "os";
 	static inline public var SIMULATOR:String = "simulator";
 	static inline public var SIMULATOR_TYPE:String = "simulatorType";
 	
@@ -15,7 +15,7 @@ class AppleTarget extends Target
 	
 	public function getDeviceTypeCompilerArgument():String
 	{
-		var type:String = getSetting(DEVICE_TYPE);
+		var type:String = getSetting(OS_TYPE);
 		
 		if(type == "ios")
 		{

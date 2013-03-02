@@ -14,8 +14,8 @@ import sys.io.FileOutput;
 
 class AppleBuildTool extends basis.BuildTool
 {
-	static inline public var SIMULATOR_LOCATION:String = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app/Contents/MacOS/iPhone Simulator";
-
+	static public inline function IOS_OS():String{return "ios";}
+	static public inline function OSX_OS():String{return "osx";}
 
 	override private function createSettings(path:String):ISettings
 	{
@@ -51,10 +51,10 @@ class AppleBuildTool extends basis.BuildTool
 			var assetPaths:Array<String> = deviceTarget.getCollection(Target.ASSET_PATHS, true);
 			var haxeLibs:Array<String> = deviceTarget.getCollection(Target.HAXE_LIBS, true);
 			
-			var deviceType:String = deviceTarget.getSetting(AppleTarget.DEVICE_TYPE);
+			var osType:String = deviceTarget.getSetting(AppleTarget.OS_TYPE);
 			var mainClass:String = deviceTarget.getSetting(Target.MAIN);
 			if(mainClass == "" || mainClass == null)
-				throw("No main class for: " + deviceType);
+				throw("No main class for: " + osType);
 				
 				
 			var settingsContenxt:Dynamic = deviceTarget.getSettingsContext();
@@ -64,7 +64,7 @@ class AppleBuildTool extends basis.BuildTool
 			
 			var appName:String = deviceTarget.getSetting(Target.APP_NAME);
 		
-			var targetPath:String = deviceTarget.getSetting(Target.BUILD_DIR) + "/" + deviceType;
+			var targetPath:String = deviceTarget.getSetting(Target.BUILD_DIR) + "/" + osType;
 			FileUtil.createDirectory(targetPath);
 			
 			var haxeBuildPath:String = targetPath + "/haxe/";
@@ -85,7 +85,7 @@ class AppleBuildTool extends basis.BuildTool
 			buildFile.writeString("-cp haxe\n");
 			buildFile.writeString("-cpp haxe/cpp\n");
 			buildFile.writeString("-D " + deviceTarget.getDeviceTypeCompilerArgument() + "\n");
-			if(deviceType == "ios")
+			if(osType == IOS_OS())
 				buildFile.writeString("-D ios\n");
 			else
 				buildFile.writeString("-D macos\n");
@@ -176,8 +176,17 @@ class AppleBuildTool extends basis.BuildTool
 			var basisStartContent:String = File.getContent(libPath + "template/BasisStart.cpp");
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", "#include <" + StringTools.replace(mainClass, ".", "/") + ".h>" );
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", "::" + StringTools.replace(mainClass, ".", "::") + "_obj::main();");
-			basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/ios/IOSApplication.h>");
-			basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::ios::IOSApplication >());");
+			
+			if(osType == IOS_OS())
+			{
+				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/ios/IOSApplication.h>");
+				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::ios::IOSApplication >());");
+			}
+			else if(osType == OSX_OS())
+			{
+				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/osx/OSXApplication.h>");
+				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::osx::OSXApplication >());");
+			}
 			
 			fout = sys.io.File.write(targetPath + "/haxe/cpp/src/BasisStart.cpp");
 			fout.writeString(basisStartContent);
@@ -188,7 +197,7 @@ class AppleBuildTool extends basis.BuildTool
 			
 			
 			//------------ Copy Libs -------------
-			if(deviceType == "ios")
+			if(osType == IOS_OS())
 			{
 				if(deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
 				{
@@ -214,7 +223,7 @@ class AppleBuildTool extends basis.BuildTool
 				}
 				
 			}
-			else if(deviceTarget.getSetting(Target.TYPE) == "mac")
+			else if(osType == OSX_OS())
 			{
 				FileUtil.copyInto(FileUtil.getHaxelib("hxcpp") + "bin/Mac/", xcodeBin + "/hxcpp/");
 				FileUtil.copyInto(libPath + "ndll/Mac/", xcodeBin + "/hxcpp/");
@@ -229,6 +238,20 @@ class AppleBuildTool extends basis.BuildTool
 			File.copy(libPath + "template/prefix.pch" , xcodeFiles + "/prefix.pch");
 			FileUtil.copyInto(libPath + "template/basis/", xcodeFiles + "/basis/", settingsContenxt);
 			FileUtil.copyInto(libPath + "template/objc_include/", xcodeFiles + "/objc_include/");
+			
+			if(osType == IOS_OS())
+			{
+				FileUtil.deleteDirectoryRecursive(xcodeFiles + "basis/osx");
+				FileSystem.deleteFile(xcodeFiles + "objc_include/OSXApplication.h");
+				FileSystem.deleteFile(xcodeFiles + "objc_include/OSXEventManager.h");
+			}
+			else if(osType == OSX_OS())
+			{
+				FileUtil.deleteDirectoryRecursive(xcodeFiles + "basis/ios");
+				FileSystem.deleteFile(xcodeFiles + "objc_include/IOSApplication.h");
+				FileSystem.deleteFile(xcodeFiles + "objc_include/IOSEventManager.h");
+			}
+			
 			//------------------------------------
 			
 			

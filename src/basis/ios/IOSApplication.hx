@@ -1,16 +1,35 @@
 package basis.ios;
 
-import basis.object.ObjectManager;
-
+import basis.object.*;
 import cpp.Lib;
 
 class IOSApplication extends BasisApplication
 {
+
+	static public var instance(get_instance, null):IOSApplication;
+	static private function get_instance():IOSApplication
+	{
+		return cast(BasisApplication.instance, IOSApplication);
+	}
+
+
 	public function new()
 	{
 		super();
 		addClasses();
 	}
+	
+	/**
+	* Adds a view to the base window of the aplication
+	*
+	* @param view the view to be added
+	**/
+	public function addToRootView(view:IObject):Void
+	{
+		iosapplication_addToRootView(view.basisID);
+	}
+	private static var iosapplication_addToRootView = Lib.load ("basis", "iosapplication_addToRootView", 1);
+	
 	
 	private function addClasses():Void
 	{
@@ -22,7 +41,6 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIControl);
 		objectManager.addClass(apple.ui.UIButton);
 		objectManager.addClass(apple.ui.UIButton, "UIRoundedRectButton");
-		
 		
 		objectManager.addClass(apple.ui.UITextField);
 		objectManager.addClass(apple.ui.UIImageView);

@@ -6,6 +6,7 @@
 
 @interface IOSApplication : BasisApplication <ObjectManagerDelegateProtocol>
 	+(void) start;
+	-(void) addToRootView:(NSString*) objectID;
 	@property (nonatomic, retain) UIWindow *window;
 	@property (nonatomic, retain) UIViewController *controller;
 @end

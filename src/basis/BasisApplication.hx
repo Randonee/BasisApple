@@ -36,18 +36,6 @@ class BasisApplication
 	}
 	
 	/**
-	* Adds a view to the base window of the aplication
-	*
-	* @param view the view to be added
-	**/
-	public function addToRootView(view:IObject):Void
-	{
-		basisapplication_addToRootView(view.basisID);
-	}
-	private static var basisapplication_addToRootView = Lib.load ("basis", "basisapplication_addToRootView", 1);
-	
-	
-	/**
 	* Adds an event listener
 	*
 	* @param type event type

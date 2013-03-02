@@ -14,8 +14,8 @@ class XmlAppleSettings extends XmlSettings
 	
 	override private function parseTarget(targetXML:Fast, currentTarget:Target):Void
 	{
-		if(targetXML.hasNode.device)
-			parseDevice(targetXML.node.device, currentTarget);
+		if(targetXML.hasNode.os)
+			parseOS(targetXML.node.os, currentTarget);
 		if(targetXML.hasNode.simulator)
 			parseSimulator(targetXML.node.simulator, currentTarget);
 		
@@ -25,9 +25,9 @@ class XmlAppleSettings extends XmlSettings
 		super.parseTarget(targetXML, currentTarget);
 	}
 	
-	private function parseDevice(xml:Fast, currentTarget:Target):Void
+	private function parseOS(xml:Fast, currentTarget:Target):Void
 	{
-		currentTarget.setSetting(AppleTarget.DEVICE_TYPE, xml.att.type);
+		currentTarget.setSetting(AppleTarget.OS_TYPE, xml.att.type);
 	}
 	
 	private function parseSimulator(xml:Fast, currentTarget:Target):Void

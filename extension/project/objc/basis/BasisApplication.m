@@ -34,8 +34,4 @@ BasisApplication *instance;
 	return instance.objectManager;
 }
 
--(void) addToRootView:(NSString*) objectID
-{
-}
-
 @end
