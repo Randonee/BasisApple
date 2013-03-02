@@ -1,7 +1,9 @@
-#include <MAIN_INCLUDE.h>
+MAIN_INCLUDE
+BASIS_APPLICATION_INCLUDE
 
 void startBasis()
 {
-	::MAIN_CLASS_obj::main();
+	BASIS_APPLICATION
+	MAIN_CLASS
 }
 

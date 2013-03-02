@@ -174,8 +174,11 @@ class AppleBuildTool extends basis.BuildTool
 			//----------- Build Start ------------
 			File.copy(libPath + "template/BuildBasisStart.xml" , targetPath + "/haxe/cpp/BuildBasisStart.xml");
 			var basisStartContent:String = File.getContent(libPath + "template/BasisStart.cpp");
-			basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", StringTools.replace(mainClass, ".", "/") );
-			basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", StringTools.replace(mainClass, ".", "::"));
+			basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", "#include <" + StringTools.replace(mainClass, ".", "/") + ".h>" );
+			basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", "::" + StringTools.replace(mainClass, ".", "::") + "_obj::main();");
+			basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/ios/IOSApplication.h>");
+			basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::ios::IOSApplication >());");
+			
 			fout = sys.io.File.write(targetPath + "/haxe/cpp/src/BasisStart.cpp");
 			fout.writeString(basisStartContent);
 			fout.close();
