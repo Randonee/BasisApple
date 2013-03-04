@@ -104,14 +104,14 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	NSString *objectID = [ObjectManager getObjectID:tableView];
-	value num = val_call1(_numberOfRowsInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
+	value num = val_call2(_numberOfRowsInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(section));
 	return val_int(num);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
 	NSString *objectID = [ObjectManager getObjectID:tableView];
-	value num = val_call1(_sectionForSectionIndexTitleHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
+	value num = val_call2(_sectionForSectionIndexTitleHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(index));
 	return val_int(num);
 }
 
