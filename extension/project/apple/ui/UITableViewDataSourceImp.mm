@@ -125,7 +125,7 @@ AutoGCRoot *_titleForHeaderInSectionHandler;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 	NSString *objectID = [ObjectManager getObjectID:tableView];
-	value str = val_call1(_numberOfRowsInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
+	value str = val_call1(_titleForHeaderInSectionHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]));
 	return [NSString stringWithCString:val_string(str)encoding:NSUTF8StringEncoding];
 }
 
