@@ -1,33 +1,8 @@
 #import "apple/ui/UITableViewDelegateImp.h"
 #import "BasisApplication.h"
 
+
 @implementation UITableViewDelegateImp
-
-AutoGCRoot *_accessoryButtonTappedForRowWithIndexPathHandler;
-AutoGCRoot *_didDeselectRowAtIndexPathHandler;
-AutoGCRoot *_didEndDisplayingCellHandler;
-AutoGCRoot *_didEndDisplayingFooterViewHandler;
-AutoGCRoot *_didEndDisplayingHeaderViewHandler;
-AutoGCRoot *_didEndEditingRowAtIndexPathHandler;
-AutoGCRoot *_didHighlightRowAtIndexPathHandler;
-AutoGCRoot *_didSelectRowAtIndexPathHandler;
-AutoGCRoot *_didUnhighlightRowAtIndexPathHandler;
-AutoGCRoot *_editingStyleForRowAtIndexPathHandler;
-AutoGCRoot *_heightForFooterInSectionHandler;
-AutoGCRoot *_heightForHeaderInSectionHandler;
-AutoGCRoot *_heightForRowAtIndexPathHandler;
-AutoGCRoot *_indentationLevelForRowAtIndexPathHandler;
-AutoGCRoot *_shouldHighlightRowAtIndexPathHandler;
-AutoGCRoot *_shouldIndentWhileEditingRowAtIndexPathHandler;
-AutoGCRoot *_shouldShowMenuForRowAtIndexPathHandler;
-AutoGCRoot *_titleForDeleteConfirmationButtonForRowAtIndexPathHandler;
-AutoGCRoot *_viewForFooterInSectionHandler;
-AutoGCRoot *_viewForHeaderInSectionHandler;
-AutoGCRoot *_willBeginEditingRowAtIndexPathHandler;
-AutoGCRoot *_willDisplayCellHandler;
-AutoGCRoot *_willDisplayFooterViewHandler;
-AutoGCRoot *_willDisplayHeaderViewHandler;
-
 
 -(void)setHandlers:(AutoGCRoot * ) accessoryButtonTappedForRowWithIndexPathHandler
 				  :(AutoGCRoot * ) didDeselectRowAtIndexPathHandler

@@ -81,11 +81,6 @@ class MainView extends UIView
 			_tableCellLabels.push("Cell Label " + Std.string(a));
 		
 		_table = new UITableView();
-		_table.dataSource = new UITableViewDataSource();
-		_table.dataSource.addTableView(_table);
-		
-		_table.delegate = new UITableViewDelegate();
-		_table.delegate.addTableView(_table);
 		
 		_table.dataSource.titleForHeaderInSectionHandler = titleForHeaderInSection;
 		_table.dataSource.numberOfSectionsInTableViewHandler = numberOfSectionsInTableView;

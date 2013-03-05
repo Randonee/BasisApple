@@ -19,14 +19,9 @@ class UITableViewDataSource
 	public var titleForHeaderInSectionHandler(default,default):UITableView->Int->String;
 	
 	
-	public function new()
+	public function new(tableView:UITableView)
 	{
-		
-	}
-	
-	public function addTableView(talbeView:UITableView):Void
-	{
-		cpp_uitableview_datasource_create(talbeView.basisID, numberOfSectionsInTableView,
+		cpp_uitableview_datasource_create(tableView.basisID, numberOfSectionsInTableView,
 													  canEditRowAtIndexPath,
 													  canMoveRowAtIndexPath,
 													  cellForRowAtIndexPath,
@@ -37,20 +32,8 @@ class UITableViewDataSource
 													  titleForFooterInSection,
 													  titleForHeaderInSection);
 	}
+
 	private static var cpp_uitableview_datasource_create = Lib.load("basis", "uitableviewdatasource_create", -1);
-	
-	public function addSectionIndexTitle(tableView:UITableView, title:String):Void
-	{
-		cpp_uitableview_add_section_index_title(tableView.basisID, title);
-	}
-	private static var cpp_uitableview_add_section_index_title = Lib.load("basis", "uitableviewdatasource_addSectionIndexTitle", 2);
-	
-	
-	public function clearSectionIndexTitles(tableView:UITableView):Void
-	{
-		cpp_uitableview_clear_section_index_titles(tableView.basisID);
-	}
-	private static var cpp_uitableview_clear_section_index_titles = Lib.load("basis", "uitableviewdatasource_clearSectionIndexTitles", 1);
 	
 	
 	private function numberOfSectionsInTableView(tableViewID:String):Int

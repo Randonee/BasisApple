@@ -27,12 +27,13 @@ class ObjectManager
 	
 	private var _classTypes:Map<String, Class<Dynamic>>;
 	private var _objects:Map<String, IObject>;
-	private var _scipCreate:Bool;
+	private var _creatingFromCFFI:Bool;
+	private var _cffiID:String;
 	
 
 	public function new():Void
 	{
-		_scipCreate = false;
+		_creatingFromCFFI = false;
 		_classTypes = new Map<String, Class<Dynamic>>();
 		_objects = new Map<String, IObject>();
 		
@@ -50,9 +51,10 @@ class ObjectManager
 	
 	public function createObject(object:IObject, classPath:String):String
 	{
-		if(_scipCreate)
+		if(_creatingFromCFFI)
 		{
-			_scipCreate = false;
+			_creatingFromCFFI = false;
+			object.basisID = _cffiID;
 			return object.basisID;
 		}
 		object.basisID = objectmanager_createObject(classPath);
@@ -141,9 +143,9 @@ class ObjectManager
 	//---- Called from cffi
 	public function cffi_addObject(id:String, className:String):Void
 	{
-		_scipCreate = true;
+		_creatingFromCFFI = true;
+		_cffiID = id;
 		var object:IObject = Type.createInstance(_classTypes.get(className), []);
-		object.basisID = id;
 		_objects.set(id, object);
 	}
 	

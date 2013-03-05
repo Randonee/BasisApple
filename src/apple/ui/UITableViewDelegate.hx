@@ -31,12 +31,7 @@ class UITableViewDelegate
 	public var willDisplayFooterViewHandler(default,default):UITableView->UIView->Int->Void;
 	public var willDisplayHeaderViewHandler(default,default):UITableView->UIView->Int->Void;
 	
-	public function new()
-	{
-		
-	}
-	
-	public function addTableView(talbeView:UITableView):Void
+	public function new(talbeView:UITableView)
 	{
 		var handlers:Array<Dynamic> = [accessoryButtonTappedForRowWithIndexPath,
 														didDeselectRowAtIndexPath,

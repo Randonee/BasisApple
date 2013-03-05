@@ -7,7 +7,6 @@
 #include "Util.mm"
 #include "object/ObjectManagerCFFI.mm"
 #include "EventManagerCFFI.mm"
-#include "BasisApplicationCFFI.mm"
 #import "BasisStart.h"
 
 

@@ -1,9 +1,13 @@
 #import "ObjectManager.h"
 
-@implementation ObjectManager
-
+@interface ObjectManager()
+{
 NSMutableDictionary *_objects;
 NSMutableDictionary *_classTypes;
+}
+@end
+
+@implementation ObjectManager
 
 void (*_createHaxeObjectFunction)(id);
 void (*_destroyHaxeObjectFunction)(id);
@@ -75,6 +79,13 @@ void (*_destroyHaxeObjectFunction)(id);
 {
 	NSString *className = [_classTypes objectForKey:haxeClassName];
 	id object = [[NSClassFromString(className) alloc] init];
+	
+	if(object == nil)
+	{
+		NSLog(@"ObjectManager: Class does not exist, %@", className);
+		return nil;
+	}
+	
 	return [self addObject:object];
 }
 

@@ -16,21 +16,4 @@ namespace basis
 		
 	}
 	DEFINE_PRIM_MULT (uitableviewdatasource_create);
-	
-	
-	void uitableviewdatasource_addSectionIndexTitle(value tag, value title)
-	{
-		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
-		UITableViewDataSourceImp *dataSource = (UITableViewDataSourceImp *) view.dataSource;
-		[dataSource addSectionIndexTitle:[NSString stringWithCString:val_string(title)encoding:NSUTF8StringEncoding]];
-	}
-	DEFINE_PRIM(uitableviewdatasource_addSectionIndexTitle, 2);
-	
-	void uitableviewdatasource_clearSectionIndexTitles(value tag)
-	{
-		UITableView *view = (UITableView *)[[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(tag) encoding:NSUTF8StringEncoding]];
-		UITableViewDataSourceImp *dataSource = (UITableViewDataSourceImp *) view.dataSource;
-		[dataSource clearSectionIndexTitles];
-	}
-	DEFINE_PRIM(uitableviewdatasource_clearSectionIndexTitles, 1);
 }

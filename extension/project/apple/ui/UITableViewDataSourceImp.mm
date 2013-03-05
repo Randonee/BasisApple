@@ -1,20 +1,8 @@
 #import "apple/ui/UITableViewDataSourceImp.h"
 #import "BasisApplication.h"
 
+
 @implementation UITableViewDataSourceImp
-
-NSMutableArray *_sectionIndexTitles;
-AutoGCRoot *_numberOfSectionsInTableViewHandler;
-AutoGCRoot *_canEditRowAtIndexPathHandler;
-AutoGCRoot *_canMoveRowAtIndexPathHandler;
-AutoGCRoot *_cellForRowAtIndexPathHandler;
-AutoGCRoot *_commitEditingStyleHandler;
-AutoGCRoot *_moveRowAtIndexPathHandler;
-AutoGCRoot *_numberOfRowsInSectionHandler;
-AutoGCRoot *_sectionForSectionIndexTitleHandler;
-AutoGCRoot *_titleForFooterInSectionHandler;
-AutoGCRoot *_titleForHeaderInSectionHandler;
-
 
 - (id) init
 {

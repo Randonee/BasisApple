@@ -5,6 +5,19 @@
 
 
 @interface UITableViewDataSourceImp : NSObject <UITableViewDataSource>
+{
+NSMutableArray *_sectionIndexTitles;
+AutoGCRoot *_numberOfSectionsInTableViewHandler;
+AutoGCRoot *_canEditRowAtIndexPathHandler;
+AutoGCRoot *_canMoveRowAtIndexPathHandler;
+AutoGCRoot *_cellForRowAtIndexPathHandler;
+AutoGCRoot *_commitEditingStyleHandler;
+AutoGCRoot *_moveRowAtIndexPathHandler;
+AutoGCRoot *_numberOfRowsInSectionHandler;
+AutoGCRoot *_sectionForSectionIndexTitleHandler;
+AutoGCRoot *_titleForFooterInSectionHandler;
+AutoGCRoot *_titleForHeaderInSectionHandler;
+}
 
 -(value)indexPathToArray:(NSIndexPath*)indexPath;
 

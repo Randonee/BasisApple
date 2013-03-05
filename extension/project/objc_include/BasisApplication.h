@@ -10,8 +10,6 @@
 	+(void)setStartHandler:(void(*)())handler;
 	+(void)callStartHandler;
 	
-	-(void) addToRootView:(NSString*) objectID;
-	
 	@property (nonatomic, retain) ObjectManager *objectManager;
 	@property (nonatomic, retain) EventManager *eventManager;
 @end
