@@ -53,10 +53,10 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIBarButtonItem);
 	
 		objectManager.addClass(apple.ui.UIView);
+		objectManager.addClass(apple.ui.UIView, "UITableViewCellContentView");
 		objectManager.addClass(apple.ui.UILabel);
 		objectManager.addClass(apple.ui.UIControl);
 		objectManager.addClass(apple.ui.UIButton);
-		objectManager.addClass(apple.ui.UIButton, "UIRoundedRectButton");
 		
 		objectManager.addClass(apple.ui.UITextField);
 		objectManager.addClass(apple.ui.UIImageView);

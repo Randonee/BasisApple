@@ -67,10 +67,18 @@
 
 -(void)objectBeingDestroyed:(id)object
 {
+
+  
 	if([object isKindOfClass:[UITableViewCell class]])
 	{
 		[self.objectManager destroyObject:((UITableViewCell *)object).textLabel];
 		[self.objectManager destroyHaxeObject:((UITableViewCell *)object).textLabel];
+		
+		[self.objectManager destroyObject:((UITableViewCell *)object).imageView];
+		[self.objectManager destroyHaxeObject:((UITableViewCell *)object).imageView];
+		
+		[self.objectManager destroyObject:((UITableViewCell *)object).contentView];
+		[self.objectManager destroyHaxeObject:((UITableViewCell *)object).contentView];
 	}
 }
 
@@ -111,6 +119,12 @@
 	{
 		[self.objectManager addObject:((UITableViewCell *)object).textLabel];
 		[self.objectManager createHaxeObject:((UITableViewCell *)object).textLabel];
+		
+		[self.objectManager addObject:((UITableViewCell *)object).imageView];
+		[self.objectManager createHaxeObject:((UITableViewCell *)object).imageView];
+
+		[self.objectManager addObject:((UITableViewCell *)object).contentView ];
+		[self.objectManager createHaxeObject:((UITableViewCell *)object).contentView ];
 	}
 }
 
