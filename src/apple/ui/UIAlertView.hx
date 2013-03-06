@@ -78,7 +78,7 @@ class UIAlertView extends UIView
 	public var visible(get_visible, null):Bool;
 	private function get_visible():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visible", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isVisible", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var alertViewStyle(get_alertViewStyle, set_alertViewStyle):Int;

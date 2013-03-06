@@ -55,7 +55,7 @@ class UIControl extends UIView
 	public var enabled(get_enabled, set_enabled):Bool;
 	private function get_enabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_enabled(value:Bool):Bool
@@ -67,7 +67,7 @@ class UIControl extends UIView
 	public var selected(get_selected, set_selected):Bool;
 	private function get_selected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isSelected", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_selected(value:Bool):Bool
@@ -79,7 +79,7 @@ class UIControl extends UIView
 	public var highlighted(get_highlighted, set_highlighted):Bool;
 	private function get_highlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_highlighted(value:Bool):Bool
@@ -121,13 +121,13 @@ class UIControl extends UIView
 	public var tracking(get_tracking, null):Bool;
 	private function get_tracking():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTracking", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var touchInside(get_touchInside, null):Bool;
 	private function get_touchInside():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "touchInside", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTouchInside", [], [], ObjectManager.BOOL_VAL());
 	}
 
 

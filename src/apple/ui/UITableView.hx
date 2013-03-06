@@ -103,7 +103,7 @@ class UITableView extends UIScrollView
 	public var editing(get_editing, set_editing):Bool;
 	private function get_editing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editing", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEditing", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_editing(value:Bool):Bool

@@ -90,7 +90,7 @@ class UITextView extends UIScrollView
 	public var editable(get_editable, set_editable):Bool;
 	private function get_editable():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editable", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEditable", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_editable(value:Bool):Bool
@@ -222,7 +222,7 @@ class UITextView extends UIScrollView
 	public var secureTextEntry(get_secureTextEntry, set_secureTextEntry):Bool;
 	private function get_secureTextEntry():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "secureTextEntry", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isSecureTextEntry", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_secureTextEntry(value:Bool):Bool

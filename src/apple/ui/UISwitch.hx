@@ -82,7 +82,7 @@ class UISwitch extends UIControl
 	public var on(get_on, set_on):Bool;
 	private function get_on():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "on", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isOn", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_on(value:Bool):Bool

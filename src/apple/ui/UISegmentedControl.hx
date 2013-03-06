@@ -42,7 +42,7 @@ class UISegmentedControl extends UIControl
 	public var momentary(get_momentary, set_momentary):Bool;
 	private function get_momentary():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "momentary", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isMomentary", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_momentary(value:Bool):Bool

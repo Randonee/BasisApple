@@ -54,7 +54,7 @@ class UIWebView extends UIView
 	public var loading(get_loading, null):Bool;
 	private function get_loading():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "loading", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isLoading", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var scalesPageToFit(get_scalesPageToFit, set_scalesPageToFit):Bool;

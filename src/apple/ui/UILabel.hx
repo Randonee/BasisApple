@@ -126,7 +126,7 @@ class UILabel extends UIView
 	public var highlighted(get_highlighted, set_highlighted):Bool;
 	private function get_highlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_highlighted(value:Bool):Bool
@@ -138,7 +138,7 @@ class UILabel extends UIView
 	public var enabled(get_enabled, set_enabled):Bool;
 	private function get_enabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_enabled(value:Bool):Bool

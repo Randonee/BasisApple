@@ -68,7 +68,7 @@ class UIScrollView extends UIView
 	public var directionalLockEnabled(get_directionalLockEnabled, set_directionalLockEnabled):Bool;
 	private function get_directionalLockEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "directionalLockEnabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isDirectionalLockEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_directionalLockEnabled(value:Bool):Bool
@@ -116,7 +116,7 @@ class UIScrollView extends UIView
 	public var pagingEnabled(get_pagingEnabled, set_pagingEnabled):Bool;
 	private function get_pagingEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pagingEnabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isPagingEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_pagingEnabled(value:Bool):Bool
@@ -128,7 +128,7 @@ class UIScrollView extends UIView
 	public var scrollEnabled(get_scrollEnabled, set_scrollEnabled):Bool;
 	private function get_scrollEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollEnabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isScrollEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_scrollEnabled(value:Bool):Bool
@@ -200,19 +200,19 @@ class UIScrollView extends UIView
 	public var tracking(get_tracking, null):Bool;
 	private function get_tracking():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tracking", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTracking", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var dragging(get_dragging, null):Bool;
 	private function get_dragging():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dragging", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isDragging", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var decelerating(get_decelerating, null):Bool;
 	private function get_decelerating():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "decelerating", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isDecelerating", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var delaysContentTouches(get_delaysContentTouches, set_delaysContentTouches):Bool;
@@ -290,13 +290,13 @@ class UIScrollView extends UIView
 	public var zooming(get_zooming, null):Bool;
 	private function get_zooming():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "zooming", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isZooming", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var zoomBouncing(get_zoomBouncing, null):Bool;
 	private function get_zoomBouncing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "zoomBouncing", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isZoomBouncing", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var scrollsToTop(get_scrollsToTop, set_scrollsToTop):Bool;

@@ -194,7 +194,7 @@ class UINavigationBar extends UIView
 	public var translucent(get_translucent, set_translucent):Bool;
 	private function get_translucent():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTranslucent", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_translucent(value:Bool):Bool

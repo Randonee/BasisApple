@@ -36,7 +36,7 @@ class UICollectionViewCell extends UICollectionReusableView
 	public var selected(get_selected, set_selected):Bool;
 	private function get_selected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selected", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isSelected", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_selected(value:Bool):Bool
@@ -48,7 +48,7 @@ class UICollectionViewCell extends UICollectionReusableView
 	public var highlighted(get_highlighted, set_highlighted):Bool;
 	private function get_highlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_highlighted(value:Bool):Bool

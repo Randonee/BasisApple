@@ -89,7 +89,7 @@ class UIView extends UIResponder
 	public var userInteractionEnabled(get_userInteractionEnabled, set_userInteractionEnabled):Bool;
 	private function get_userInteractionEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "userInteractionEnabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isUserInteractionEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_userInteractionEnabled(value:Bool):Bool
@@ -173,7 +173,7 @@ class UIView extends UIResponder
 	public var multipleTouchEnabled(get_multipleTouchEnabled, set_multipleTouchEnabled):Bool;
 	private function get_multipleTouchEnabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "multipleTouchEnabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isMultipleTouchEnabled", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_multipleTouchEnabled(value:Bool):Bool
@@ -185,7 +185,7 @@ class UIView extends UIResponder
 	public var exclusiveTouch(get_exclusiveTouch, set_exclusiveTouch):Bool;
 	private function get_exclusiveTouch():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "exclusiveTouch", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isExclusiveTouch", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_exclusiveTouch(value:Bool):Bool
@@ -269,7 +269,7 @@ class UIView extends UIResponder
 	public var opaque(get_opaque, set_opaque):Bool;
 	private function get_opaque():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "opaque", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isOpaque", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_opaque(value:Bool):Bool
@@ -293,7 +293,7 @@ class UIView extends UIResponder
 	public var hidden(get_hidden, set_hidden):Bool;
 	private function get_hidden():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidden", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHidden", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_hidden(value:Bool):Bool

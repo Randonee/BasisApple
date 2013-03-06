@@ -82,7 +82,7 @@ class UISlider extends UIControl
 	public var continuous(get_continuous, set_continuous):Bool;
 	private function get_continuous():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "continuous", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isContinuous", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_continuous(value:Bool):Bool

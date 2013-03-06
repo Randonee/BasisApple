@@ -45,7 +45,7 @@ class UIWindow extends UIView
 	public var keyWindow(get_keyWindow, null):Bool;
 	private function get_keyWindow():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyWindow", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isKeyWindow", [], [], ObjectManager.BOOL_VAL());
 	}
 
 

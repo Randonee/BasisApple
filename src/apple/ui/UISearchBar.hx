@@ -114,7 +114,7 @@ class UISearchBar extends UIView
 	public var searchResultsButtonSelected(get_searchResultsButtonSelected, set_searchResultsButtonSelected):Bool;
 	private function get_searchResultsButtonSelected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsButtonSelected", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isSearchResultsButtonSelected", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_searchResultsButtonSelected(value:Bool):Bool
@@ -138,7 +138,7 @@ class UISearchBar extends UIView
 	public var translucent(get_translucent, set_translucent):Bool;
 	private function get_translucent():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTranslucent", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_translucent(value:Bool):Bool

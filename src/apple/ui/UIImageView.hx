@@ -46,7 +46,7 @@ class UIImageView extends UIView
 	public var highlighted(get_highlighted, set_highlighted):Bool;
 	private function get_highlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlighted", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_highlighted(value:Bool):Bool
