@@ -65,6 +65,7 @@ class MainView extends UIView
 		_outputLabel.frame = [5.0,140,200,30];
 		
 		_outputField= new UITextField();
+		_outputField.font = UIFont.boldSystemFontOfSize(_outputLabel.font.pointSize);
 		addSubview(_outputField);
 		_outputField.frame = [5.0,170,200,30];
 		_outputField.borderStyle = UITextField.UITextBorderStyleRoundedRect();

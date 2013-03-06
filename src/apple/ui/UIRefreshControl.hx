@@ -30,18 +30,18 @@ class UIRefreshControl extends UIControl
 	public var refreshing(get_refreshing, null):Bool;
 	private function get_refreshing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "refreshing", [], [], ObjectManager.BOOL_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "refreshing", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
 	private function get_tintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL());
 	}
 
 	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL()], -1 );
 		return tintColor;
 	}
 

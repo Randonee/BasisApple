@@ -30,24 +30,24 @@ class UITabBar extends UIView
 	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
 	private function get_tintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL());
 	}
 
 	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL()], -1 );
 		return tintColor;
 	}
 
 	public var selectedImageTintColor(get_selectedImageTintColor, set_selectedImageTintColor):Array<Float>;
 	private function get_selectedImageTintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedImageTintColor", [], [], ObjectManager.UICOLOR_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedImageTintColor", [], [], ObjectManager.UICOLOR_VAL());
 	}
 
 	private function set_selectedImageTintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedImageTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedImageTintColor:", [value], [ObjectManager.UICOLOR_VAL()], -1 );
 		return selectedImageTintColor;
 	}
 
@@ -55,7 +55,7 @@ class UITabBar extends UIView
 
 	private function set_backgroundImage(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [ObjectManager.UIIMAGE_VAL()], -1 );
 		return null;
 	}
 
@@ -63,7 +63,7 @@ class UITabBar extends UIView
 
 	private function set_selectionIndicatorImage(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectionIndicatorImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectionIndicatorImage:", [value], [ObjectManager.UIIMAGE_VAL()], -1 );
 		return null;
 	}
 
@@ -71,7 +71,7 @@ class UITabBar extends UIView
 
 	private function set_shadowImage(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [ObjectManager.UIIMAGE_VAL()], -1 );
 		return null;
 	}
 
@@ -79,11 +79,11 @@ class UITabBar extends UIView
 	//Methods
 	public function endCustomizingAnimated( animated:Bool):Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "endCustomizingAnimated:", [animated], [ObjectManager.BOOL_VAL], ObjectManager.BOOL_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "endCustomizingAnimated:", [animated], [ObjectManager.BOOL_VAL()], ObjectManager.BOOL_VAL());
 	}
 	public function isCustomizing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isCustomizing", [], [], ObjectManager.BOOL_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isCustomizing", [], [], ObjectManager.BOOL_VAL());
 	}
 
 

@@ -2,6 +2,7 @@ package basis.ios;
 
 import basis.object.*;
 import cpp.Lib;
+import apple.ui.*;
 
 class IOSApplication extends BasisApplication
 {
@@ -17,6 +18,21 @@ class IOSApplication extends BasisApplication
 	{
 		super();
 		addClasses();
+		
+		objectManager.addReturnValueHandler(ObjectManager.UIFONT_VAL(), handleUIFontReturnValue);
+		objectManager.addArgumentValueHandler(UIFont, handleUIFontArgumentType);
+	}
+	
+	private function handleUIFontReturnValue(returnVar:Dynamic):Dynamic
+	{
+		return new UIFont(returnVar);
+	}
+	
+	private function handleUIFontArgumentType(arg:Dynamic):Dynamic
+	{
+		var font:UIFont = arg;
+		var returnArr:Array<Dynamic> = [font.fontName, font.pointSize];
+		return returnArr;
 	}
 	
 	/**

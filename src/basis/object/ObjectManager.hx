@@ -4,31 +4,34 @@ import cpp.Lib;
 
 class ObjectManager
 {
-	public static inline var OBJECT_VAL:Int = 0;
-	public static inline var INT_VAL:Int = 1;
-	public static inline var FLOAT_VAL:Int = 2;
-	public static inline var STRING_VAL:Int = 3;
-	public static inline var CGRECT_VAL:Int = 4;
-	public static inline var UIEDGEINSETS_VAL:Int = 5;
-	public static inline var CGAFFINETRANSFORM_VAL:Int = 6;
-	public static inline var CGPOINT_VAL:Int = 7;
-	public static inline var CGSIZE_VAL:Int = 8;
-	public static inline var CGCOLORREF_VAL:Int = 9;
-	public static inline var NSURL_VAL:Int = 10;
-	public static inline var NSURLREQUEST_VAL:Int = 11;
-	public static inline var NSINDEXPATH_VAL:Int = 12;
-	public static inline var NSINDEXSET_VAL:Int = 13;
-	public static inline var NSRANGE_VAL:Int = 14;
-	public static inline var UIOFFSET_VAL:Int = 15;
-	public static inline var UIIMAGE_VAL:Int = 16;
-	public static inline var UICOLOR_VAL:Int = 17;
-	public static inline var BOOL_VAL:Int = 18;
+	public static inline function OBJECT_VAL():Int{return 0;}
+	public static inline function INT_VAL():Int{return 1;}
+	public static inline function FLOAT_VAL():Int{return 2;}
+	public static inline function STRING_VAL():Int{return 3;}
+	public static inline function CGRECT_VAL():Int{return 4;}
+	public static inline function UIEDGEINSETS_VAL():Int{return 5;}
+	public static inline function CGAFFINETRANSFORM_VAL():Int{return 6;}
+	public static inline function CGPOINT_VAL():Int{return 7;}
+	public static inline function CGSIZE_VAL():Int{return 8;}
+	public static inline function CGCOLORREF_VAL():Int{return 9;}
+	public static inline function NSURL_VAL():Int{return 10;}
+	public static inline function NSURLREQUEST_VAL():Int{return 11;}
+	public static inline function NSINDEXPATH_VAL():Int{return 12;}
+	public static inline function NSINDEXSET_VAL():Int{return 13;}
+	public static inline function NSRANGE_VAL():Int{return 14;}
+	public static inline function UIOFFSET_VAL():Int{return 15;}
+	public static inline function UIIMAGE_VAL():Int{return 16;}
+	public static inline function UICOLOR_VAL():Int{return 17;}
+	public static inline function BOOL_VAL():Int{return 18;}
+	public static inline function UIFONT_VAL():Int{return 19;}
 	
 	
 	private var _classTypes:Map<String, Class<Dynamic>>;
 	private var _objects:Map<String, IObject>;
 	private var _creatingFromCFFI:Bool;
 	private var _cffiID:String;
+	private var _returnValueHandlers:Map<Int, Dynamic->Dynamic>;
+	private var _argumentValueHandlers:Map<String, Dynamic->Dynamic>;
 	
 
 	public function new():Void
@@ -36,6 +39,8 @@ class ObjectManager
 		_creatingFromCFFI = false;
 		_classTypes = new Map<String, Class<Dynamic>>();
 		_objects = new Map<String, IObject>();
+		_returnValueHandlers = new Map<Int, Dynamic->Dynamic>();
+		_argumentValueHandlers = new Map<String, Dynamic->Dynamic>();
 		
 		objectmanager_setHaxeCreateObjectHandler(cffi_addObject);
 		objectmanager_setDestroyObjectHandler(cffi_destroyObject);
@@ -65,13 +70,7 @@ class ObjectManager
 	
 	public function callInstanceMethod(object:IObject, selector:String, args:Array<Dynamic>, argTypes:Array<Int>, returnType:Int):Dynamic
 	{
-		for(a in 0...args.length)
-		{
-			if(Std.is(args[a], IObject))
-				args[a] = args[a].basisID;
-		}
-
-		var returnVar:Dynamic = objectmanager_callInstanceMethod(object.basisID, selector, args, argTypes, returnType);
+		var returnVar:Dynamic = objectmanager_callInstanceMethod(object.basisID, selector, createArguments(args), argTypes, returnType);
 		if(returnVar == null)
 			return null;
 		
@@ -80,10 +79,11 @@ class ObjectManager
 			var obj:IObject = getObject(returnVar);
 			
 			if(obj != null)
-			{
 				return obj;
-			}
 		}
+		
+		if(_returnValueHandlers.exists(returnType) )
+			return _returnValueHandlers.get(returnType)(returnVar);
 		
 		return returnVar;
 	}
@@ -92,13 +92,7 @@ class ObjectManager
 	
 	public function callClassMethod(haxeClassName:String, selector:String, args:Array<Dynamic>, argTypes:Array<Int>, returnType:Int):Dynamic
 	{
-		for(a in 0...args.length)
-		{
-			if(Std.is(args[a], IObject))
-				args[a] = args[a].basisID;
-		}
-		
-		var returnVar:Dynamic = objectmanager_callClassMethod(haxeClassName, selector, args, argTypes, returnType);
+		var returnVar:Dynamic = objectmanager_callClassMethod(haxeClassName, selector, createArguments(args), argTypes, returnType);
 		if(returnVar == null)
 			return null;
 		
@@ -108,13 +102,16 @@ class ObjectManager
 			
 			if(obj != null)
 				return obj;
-			else if(returnType == OBJECT_VAL)
+			else if(returnType == OBJECT_VAL())
 			{
 				cffi_addObject(returnVar, haxeClassName);
 				return getObject(returnVar);
 			}
 		}
-		
+
+		if(_returnValueHandlers.exists(returnType) )
+			return _returnValueHandlers.get(returnType)(returnVar);
+
 		return returnVar;
 	}
 	private static var objectmanager_callClassMethod = Lib.load ("basis", "objectmanager_callClassMethod", 5);
@@ -140,6 +137,16 @@ class ObjectManager
 	private static var objectmanager_addClass = Lib.load ("basis", "objectmanager_addClass", 2);
 	
 	
+	public function addReturnValueHandler(returnType:Int, handler:Dynamic->Dynamic):Void
+	{
+		_returnValueHandlers.set(returnType, handler);
+	}
+	
+	public function addArgumentValueHandler(classType:Class<Dynamic>, handler:Dynamic->Dynamic):Void
+	{
+		_argumentValueHandlers.set(Type.getClassName(classType), handler);
+	}
+	
 	//---- Called from cffi
 	public function cffi_addObject(id:String, className:String):Void
 	{
@@ -155,6 +162,21 @@ class ObjectManager
 	}
 	//-------------------------
 	
+	private function createArguments(args:Array<Dynamic>):Array<Dynamic>
+	{
+		for(a in 0...args.length)
+		{
+			if(Std.is(args[a], IObject))
+				args[a] = args[a].basisID;
+			else 
+			{
+				var className:String = Type.getClassName(Type.getClass(args[a]));
+				if(_argumentValueHandlers.exists(className))
+					args[a] = _argumentValueHandlers.get(className)(args[a]);
+			}
+		}
+		return args;
+	}
 	
 	private function getClassNameWithoutPath(classPath:String):String
 	{

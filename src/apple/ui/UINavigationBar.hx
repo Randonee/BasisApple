@@ -170,48 +170,48 @@ class UINavigationBar extends UIView
 	public var barStyle(get_barStyle, set_barStyle):Int;
 	private function get_barStyle():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "barStyle", [], [], ObjectManager.INT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "barStyle", [], [], ObjectManager.INT_VAL());
 	}
 
 	private function set_barStyle(value:Int):Int
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [ObjectManager.INT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [ObjectManager.INT_VAL()], -1 );
 		return barStyle;
 	}
 
 	public var delegate(get_delegate, set_delegate):Dynamic;
 	private function get_delegate():Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "delegate", [], [], ObjectManager.OBJECT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "delegate", [], [], ObjectManager.OBJECT_VAL());
 	}
 
 	private function set_delegate(value:Dynamic):Dynamic
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDelegate:", [value], [ObjectManager.OBJECT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDelegate:", [value], [ObjectManager.OBJECT_VAL()], -1 );
 		return delegate;
 	}
 
 	public var translucent(get_translucent, set_translucent):Bool;
 	private function get_translucent():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "translucent", [], [], ObjectManager.BOOL_VAL());
 	}
 
 	private function set_translucent(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.BOOL_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTranslucent:", [value], [ObjectManager.BOOL_VAL()], -1 );
 		return translucent;
 	}
 
 	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
 	private function get_tintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL());
 	}
 
 	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL()], -1 );
 		return tintColor;
 	}
 
@@ -219,7 +219,7 @@ class UINavigationBar extends UIView
 
 	private function set_shadowImage(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [ObjectManager.UIIMAGE_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [ObjectManager.UIIMAGE_VAL()], -1 );
 		return null;
 	}
 
@@ -227,15 +227,15 @@ class UINavigationBar extends UIView
 	//Methods
 	public function setBackgroundImageForBarMetrics( backgroundImage:String,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forBarMetrics:", [backgroundImage, barMetrics], [ObjectManager.UIIMAGE_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forBarMetrics:", [backgroundImage, barMetrics], [ObjectManager.UIIMAGE_VAL(), ObjectManager.INT_VAL()], -1);
 	}
 	public function setTitleVerticalPositionAdjustmentForBarMetrics( adjustment:Float,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleVerticalPositionAdjustment:forBarMetrics:", [adjustment, barMetrics], [ObjectManager.FLOAT_VAL, ObjectManager.INT_VAL], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleVerticalPositionAdjustment:forBarMetrics:", [adjustment, barMetrics], [ObjectManager.FLOAT_VAL(), ObjectManager.INT_VAL()], -1);
 	}
 	public function titleVerticalPositionAdjustmentForBarMetrics( barMetrics:Int):Float
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleVerticalPositionAdjustmentForBarMetrics:", [barMetrics], [ObjectManager.INT_VAL], ObjectManager.FLOAT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleVerticalPositionAdjustmentForBarMetrics:", [barMetrics], [ObjectManager.INT_VAL()], ObjectManager.FLOAT_VAL());
 	}
 
 

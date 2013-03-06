@@ -23,6 +23,7 @@ enum ARG_TYPES
 	UIImageVal,
 	UIColorVal,
 	boolVal,
+	UIFontVal,
 };
 
 
@@ -66,7 +67,7 @@ namespace basis
     	NSMutableArray *objcArgs = getMethodArgs(args, argTypes);
     	BOOL isObject = isTypeObject(val_int(returnType));
     	id returnVar = [[BasisApplication getObjectManager] callMethod:cls :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
-    	if(returnVar == nil)
+    	if(returnVar == nil || returnVar == [NSNull null])
     		return nil;
     		
     	if(val_int(returnType) == objectVal)
@@ -82,8 +83,7 @@ namespace basis
     	NSMutableArray *objcArgs = getMethodArgs(args, argTypes);
     	BOOL isObject = isTypeObject(val_int(returnType));
     	id returnVar = [[BasisApplication getObjectManager] callMethod:object :[NSString stringWithCString:val_string(selectorString) encoding:NSUTF8StringEncoding] :objcArgs :isObject];
-		
-    	if(returnVar == nil)
+    	if(returnVar == nil || returnVar == [NSNull null])
     		return nil;
     	
     	return getCallMethodReturnValue(returnVar, val_int(returnType));
@@ -206,6 +206,10 @@ namespace basis
 						int val = val_bool(arg);
 						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(BOOL)]];
 					}
+					break;
+					
+					case UIFontVal:
+						[objcArgs addObject:arrayToUIFont(arg)];
 					break;
 					
 					default:
@@ -339,6 +343,10 @@ namespace basis
 				[returnVar getValue:&var];
 				return alloc_bool(var);
 			}
+			break;
+			
+			case UIFontVal:
+				return uiFontToArray(returnVar);
 			break;
 			
 			default:

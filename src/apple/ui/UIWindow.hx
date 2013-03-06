@@ -33,19 +33,19 @@ class UIWindow extends UIView
 	public var windowLevel(get_windowLevel, set_windowLevel):Float;
 	private function get_windowLevel():Float
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "windowLevel", [], [], ObjectManager.FLOAT_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "windowLevel", [], [], ObjectManager.FLOAT_VAL());
 	}
 
 	private function set_windowLevel(value:Float):Float
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWindowLevel:", [value], [ObjectManager.FLOAT_VAL], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWindowLevel:", [value], [ObjectManager.FLOAT_VAL()], -1 );
 		return windowLevel;
 	}
 
 	public var keyWindow(get_keyWindow, null):Bool;
 	private function get_keyWindow():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyWindow", [], [], ObjectManager.BOOL_VAL);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyWindow", [], [], ObjectManager.BOOL_VAL());
 	}
 
 

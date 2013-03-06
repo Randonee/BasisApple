@@ -241,3 +241,30 @@ UIImage* pathToUIImage(value path)
 	NSString *filePath = [NSString stringWithCString:val_string(path)encoding:NSUTF8StringEncoding];
 	return [UIImage imageWithContentsOfFile:filePath];
 }
+
+
+value uiFontToArray(UIFont* font)
+{
+
+	if(font == nil)
+		NSLog(@"sssssssss");
+
+	value arr = alloc_array(8);
+	
+	val_array_set_i(arr, 0, alloc_string([font.familyName cStringUsingEncoding:NSUTF8StringEncoding]));
+	val_array_set_i(arr, 1, alloc_string([font.fontName cStringUsingEncoding:NSUTF8StringEncoding]));
+	val_array_set_i(arr, 2, alloc_float(font.pointSize));
+	val_array_set_i(arr, 3, alloc_float(font.ascender));
+	val_array_set_i(arr, 4, alloc_int(font.descender));
+	val_array_set_i(arr, 5, alloc_int(font.capHeight));
+	val_array_set_i(arr, 6, alloc_int(font.xHeight));
+	val_array_set_i(arr, 7, alloc_int(font.lineHeight));	
+	
+	return arr;
+}
+
+UIFont* arrayToUIFont(value arr)
+{
+	NSString *name = [NSString stringWithCString:val_string(val_array_i(arr, 0))encoding:NSUTF8StringEncoding];
+	return [UIFont fontWithName:name size:val_float(val_array_i(arr, 1))];
+}
