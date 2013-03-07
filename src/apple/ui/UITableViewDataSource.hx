@@ -11,7 +11,7 @@ class UITableViewDataSource
 	public var canMoveRowAtIndexPathHandler(default,default):UITableView->Array<Int>->Bool;
 	public var cellForRowAtIndexPathHandler(default,default):UITableView->Array<Int>->UITableViewCell;
 	public var commitEditingStyleHandler(default,default):UITableView->Int->Array<Int>->Void;
-	public var moveRowAtIndexPathHandler(default,default):UITableView->Array<Int>->UITableView;
+	public var moveRowAtIndexPathHandler(default,default):UITableView->Array<Int>->Void;
 	public var moveRowAtIndexPathfromIndexPathHandler(default,default):UITableView->Array<Int>->Array<Int>->Void;
 	public var numberOfRowsInSectionHandler(default,default):UITableView->Int->Int;
 	public var sectionForSectionIndexTitleHandler(default,default):UITableView->String->Int->Int;
@@ -88,14 +88,13 @@ class UITableViewDataSource
 		}
 	}
 	
-	private function moveRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):UITableView
+	private function moveRowAtIndexPath(tableViewID:String, indexPath:Array<Int>):Void
 	{
 		if(moveRowAtIndexPathHandler != null)
 		{
 			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
-			return moveRowAtIndexPathHandler(tableView, indexPath);
+			moveRowAtIndexPathHandler(tableView, indexPath);
 		}
-		return null;
 	}
 	
 	private function moveRowAtIndexPathfromIndexPath(tableViewID:String, fromIndexPath:Array<Int>, toIndexPath:Array<Int>):Void

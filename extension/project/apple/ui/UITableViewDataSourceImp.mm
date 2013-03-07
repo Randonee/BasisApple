@@ -70,7 +70,9 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return true;
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	value val = val_call2(_canMoveRowAtIndexPathHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:indexPath]);
+	return val_bool(val);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,10 +85,14 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	val_call3(_commitEditingStyleHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), alloc_int(editingStyle), [self indexPathToArray:indexPath]);
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+	NSString *objectID = [ObjectManager getObjectID:tableView];
+	val_call3(_canMoveRowAtIndexPathHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), [self indexPathToArray:fromIndexPath], [self indexPathToArray:toIndexPath]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
