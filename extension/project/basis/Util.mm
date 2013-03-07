@@ -245,10 +245,6 @@ UIImage* pathToUIImage(value path)
 
 value uiFontToArray(UIFont* font)
 {
-
-	if(font == nil)
-		NSLog(@"sssssssss");
-
 	value arr = alloc_array(8);
 	
 	val_array_set_i(arr, 0, alloc_string([font.familyName cStringUsingEncoding:NSUTF8StringEncoding]));
