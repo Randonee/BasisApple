@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UITableViewHeaderFooterView extends UIView
 {
@@ -30,56 +28,56 @@ class UITableViewHeaderFooterView extends UIView
 	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
 	private function get_tintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], TypeValues.UIColorVal());
 	}
 
 	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [TypeValues.UIColorVal()], -1 );
 		return tintColor;
 	}
 
 	public var textLabel(get_textLabel, null):UILabel;
 	private function get_textLabel():UILabel
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textLabel", [], [], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "textLabel", [], [], TypeValues.ObjectVal());
 	}
 
 	public var detailTextLabel(get_detailTextLabel, null):UILabel;
 	private function get_detailTextLabel():UILabel
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "detailTextLabel", [], [], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "detailTextLabel", [], [], TypeValues.ObjectVal());
 	}
 
 	public var contentView(get_contentView, null):UIView;
 	private function get_contentView():UIView
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentView", [], [], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentView", [], [], TypeValues.ObjectVal());
 	}
 
 	public var backgroundView(get_backgroundView, set_backgroundView):UIView;
 	private function get_backgroundView():UIView
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundView", [], [], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundView", [], [], TypeValues.ObjectVal());
 	}
 
 	private function set_backgroundView(value:UIView):UIView
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundView:", [value], [ObjectManager.OBJECT_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundView:", [value], [TypeValues.ObjectVal()], -1 );
 		return backgroundView;
 	}
 
 	public var reuseIdentifier(get_reuseIdentifier, null):String;
 	private function get_reuseIdentifier():String
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reuseIdentifier", [], [], ObjectManager.STRING_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reuseIdentifier", [], [], TypeValues.StringVal());
 	}
 
 
 	//Methods
 	public function initWithReuseIdentifier( reuseIdentifier:String):Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithReuseIdentifier:", [reuseIdentifier], [ObjectManager.STRING_VAL()], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithReuseIdentifier:", [reuseIdentifier], [TypeValues.StringVal()], TypeValues.ObjectVal());
 	}
 	public function prepareForReuse():Void
 	{

@@ -1,5 +1,6 @@
 package basis.ios;
 
+import basis.object.TypeValues;
 import basis.object.*;
 import cpp.Lib;
 import apple.ui.*;
@@ -19,7 +20,7 @@ class IOSApplication extends BasisApplication
 		super();
 		addClasses();
 		
-		objectManager.addReturnValueHandler(ObjectManager.UIFONT_VAL(), handleUIFontReturnValue);
+		objectManager.addReturnValueHandler(TypeValues.UIFontVal(), handleUIFontReturnValue);
 		objectManager.addArgumentValueHandler(UIFont, handleUIFontArgumentType);
 	}
 	

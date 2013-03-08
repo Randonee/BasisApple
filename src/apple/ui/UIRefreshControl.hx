@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UIRefreshControl extends UIControl
 {
@@ -30,18 +28,18 @@ class UIRefreshControl extends UIControl
 	public var refreshing(get_refreshing, null):Bool;
 	private function get_refreshing():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isRefreshing", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isRefreshing", [], [], TypeValues.BoolVal());
 	}
 
 	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
 	private function get_tintColor():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], ObjectManager.UICOLOR_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "tintColor", [], [], TypeValues.UIColorVal());
 	}
 
 	private function set_tintColor(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [ObjectManager.UICOLOR_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [TypeValues.UIColorVal()], -1 );
 		return tintColor;
 	}
 

@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UIImageView extends UIView
 {
@@ -31,7 +29,7 @@ class UIImageView extends UIView
 
 	private function set_image(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [ObjectManager.UIIMAGE_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [TypeValues.UIImageVal()], -1 );
 		return null;
 	}
 
@@ -39,43 +37,43 @@ class UIImageView extends UIView
 
 	private function set_highlightedImage(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedImage:", [value], [ObjectManager.UIIMAGE_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedImage:", [value], [TypeValues.UIImageVal()], -1 );
 		return null;
 	}
 
 	public var highlighted(get_highlighted, set_highlighted):Bool;
 	private function get_highlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], TypeValues.BoolVal());
 	}
 
 	private function set_highlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [TypeValues.BoolVal()], -1 );
 		return highlighted;
 	}
 
 	public var animationDuration(get_animationDuration, set_animationDuration):Float;
 	private function get_animationDuration():Float
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationDuration", [], [], ObjectManager.FLOAT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationDuration", [], [], TypeValues.FloatVal());
 	}
 
 	private function set_animationDuration(value:Float):Float
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationDuration:", [value], [ObjectManager.FLOAT_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationDuration:", [value], [TypeValues.FloatVal()], -1 );
 		return animationDuration;
 	}
 
 	public var animationRepeatCount(get_animationRepeatCount, set_animationRepeatCount):Int;
 	private function get_animationRepeatCount():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationRepeatCount", [], [], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "animationRepeatCount", [], [], TypeValues.IntVal());
 	}
 
 	private function set_animationRepeatCount(value:Int):Int
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationRepeatCount:", [value], [ObjectManager.INT_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAnimationRepeatCount:", [value], [TypeValues.IntVal()], -1 );
 		return animationRepeatCount;
 	}
 
@@ -83,11 +81,11 @@ class UIImageView extends UIView
 	//Methods
 	public function initWithImage( image:String):Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:", [image], [ObjectManager.UIIMAGE_VAL()], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:", [image], [TypeValues.UIImageVal()], TypeValues.ObjectVal());
 	}
 	public function initWithImageHighlightedImage( image:String,  highlightedImage:String):Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:highlightedImage:", [image, highlightedImage], [ObjectManager.UIIMAGE_VAL(), ObjectManager.UIIMAGE_VAL()], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:highlightedImage:", [image, highlightedImage], [TypeValues.UIImageVal(), TypeValues.UIImageVal()], TypeValues.ObjectVal());
 	}
 	public function stopAnimating():Void
 	{
@@ -99,7 +97,7 @@ class UIImageView extends UIView
 	}
 	public function isAnimating():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isAnimating", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isAnimating", [], [], TypeValues.BoolVal());
 	}
 
 

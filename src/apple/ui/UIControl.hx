@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UIControl extends UIView
 {
@@ -55,90 +53,90 @@ class UIControl extends UIView
 	public var enabled(get_enabled, set_enabled):Bool;
 	private function get_enabled():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabled", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabled", [], [], TypeValues.BoolVal());
 	}
 
 	private function set_enabled(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [ObjectManager.BOOL_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setEnabled:", [value], [TypeValues.BoolVal()], -1 );
 		return enabled;
 	}
 
 	public var selected(get_selected, set_selected):Bool;
 	private function get_selected():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isSelected", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isSelected", [], [], TypeValues.BoolVal());
 	}
 
 	private function set_selected(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [ObjectManager.BOOL_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelected:", [value], [TypeValues.BoolVal()], -1 );
 		return selected;
 	}
 
 	public var highlighted(get_highlighted, set_highlighted):Bool;
 	private function get_highlighted():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isHighlighted", [], [], TypeValues.BoolVal());
 	}
 
 	private function set_highlighted(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [ObjectManager.BOOL_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlighted:", [value], [TypeValues.BoolVal()], -1 );
 		return highlighted;
 	}
 
 	public var contentVerticalAlignment(get_contentVerticalAlignment, set_contentVerticalAlignment):Int;
 	private function get_contentVerticalAlignment():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentVerticalAlignment", [], [], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentVerticalAlignment", [], [], TypeValues.IntVal());
 	}
 
 	private function set_contentVerticalAlignment(value:Int):Int
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentVerticalAlignment:", [value], [ObjectManager.INT_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentVerticalAlignment:", [value], [TypeValues.IntVal()], -1 );
 		return contentVerticalAlignment;
 	}
 
 	public var contentHorizontalAlignment(get_contentHorizontalAlignment, set_contentHorizontalAlignment):Int;
 	private function get_contentHorizontalAlignment():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentHorizontalAlignment", [], [], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentHorizontalAlignment", [], [], TypeValues.IntVal());
 	}
 
 	private function set_contentHorizontalAlignment(value:Int):Int
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentHorizontalAlignment:", [value], [ObjectManager.INT_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentHorizontalAlignment:", [value], [TypeValues.IntVal()], -1 );
 		return contentHorizontalAlignment;
 	}
 
 	public var state(get_state, null):Int;
 	private function get_state():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "state", [], [], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "state", [], [], TypeValues.IntVal());
 	}
 
 	public var tracking(get_tracking, null):Bool;
 	private function get_tracking():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTracking", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTracking", [], [], TypeValues.BoolVal());
 	}
 
 	public var touchInside(get_touchInside, null):Bool;
 	private function get_touchInside():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTouchInside", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isTouchInside", [], [], TypeValues.BoolVal());
 	}
 
 
 	//Methods
 	public function sendActionsForControlEvents( controlEvents:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "sendActionsForControlEvents:", [controlEvents], [ObjectManager.INT_VAL()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "sendActionsForControlEvents:", [controlEvents], [TypeValues.IntVal()], -1);
 	}
 	public function allControlEvents():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allControlEvents", [], [], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allControlEvents", [], [], TypeValues.IntVal());
 	}
 
 

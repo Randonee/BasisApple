@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UITabBarController
 {

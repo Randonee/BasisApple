@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UIWindow extends UIView
 {
@@ -33,19 +31,19 @@ class UIWindow extends UIView
 	public var windowLevel(get_windowLevel, set_windowLevel):Float;
 	private function get_windowLevel():Float
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "windowLevel", [], [], ObjectManager.FLOAT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "windowLevel", [], [], TypeValues.FloatVal());
 	}
 
 	private function set_windowLevel(value:Float):Float
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWindowLevel:", [value], [ObjectManager.FLOAT_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setWindowLevel:", [value], [TypeValues.FloatVal()], -1 );
 		return windowLevel;
 	}
 
 	public var keyWindow(get_keyWindow, null):Bool;
 	private function get_keyWindow():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isKeyWindow", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isKeyWindow", [], [], TypeValues.BoolVal());
 	}
 
 

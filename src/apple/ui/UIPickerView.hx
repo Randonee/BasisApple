@@ -4,13 +4,11 @@
 package apple.ui;
 
 import cpp.Lib;
-import basis.object.ObjectManager;
-import basis.object.IObject;
-import basis.object.AbstractObject;
-import apple.appkit.NSText;
-import apple.appkit.NSParagraphStyle;
-import apple.ui.UIkit;
+import basis.object.*;
+import apple.appkit.*;
+import apple.ui.*;
 import basis.BasisApplication;
+import basis.object.TypeValues;
 
 class UIPickerView extends UIView
 {
@@ -30,19 +28,19 @@ class UIPickerView extends UIView
 	public var showsSelectionIndicator(get_showsSelectionIndicator, set_showsSelectionIndicator):Bool;
 	private function get_showsSelectionIndicator():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSelectionIndicator", [], [], ObjectManager.BOOL_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "showsSelectionIndicator", [], [], TypeValues.BoolVal());
 	}
 
 	private function set_showsSelectionIndicator(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSelectionIndicator:", [value], [ObjectManager.BOOL_VAL()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsSelectionIndicator:", [value], [TypeValues.BoolVal()], -1 );
 		return showsSelectionIndicator;
 	}
 
 	public var numberOfComponents(get_numberOfComponents, null):Int;
 	private function get_numberOfComponents():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfComponents", [], [], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfComponents", [], [], TypeValues.IntVal());
 	}
 
 
@@ -53,27 +51,27 @@ class UIPickerView extends UIView
 	}
 	public function numberOfRowsInComponent( component:Int):Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfRowsInComponent:", [component], [ObjectManager.INT_VAL()], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "numberOfRowsInComponent:", [component], [TypeValues.IntVal()], TypeValues.IntVal());
 	}
 	public function rowSizeForComponent( component:Int):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rowSizeForComponent:", [component], [ObjectManager.INT_VAL()], ObjectManager.CGSIZE_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rowSizeForComponent:", [component], [TypeValues.IntVal()], TypeValues.CGSizeVal());
 	}
 	public function reloadComponent( component:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "reloadComponent:", [component], [ObjectManager.INT_VAL()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "reloadComponent:", [component], [TypeValues.IntVal()], -1);
 	}
 	public function selectedRowInComponent( component:Int):Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedRowInComponent:", [component], [ObjectManager.INT_VAL()], ObjectManager.INT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedRowInComponent:", [component], [TypeValues.IntVal()], TypeValues.IntVal());
 	}
 	public function viewForRowForComponent( row:Int,  component:Int):UIView
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "viewForRow:forComponent:", [row, component], [ObjectManager.INT_VAL(), ObjectManager.INT_VAL()], ObjectManager.OBJECT_VAL());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "viewForRow:forComponent:", [row, component], [TypeValues.IntVal(), TypeValues.IntVal()], TypeValues.ObjectVal());
 	}
 	public function selectRowInComponentAnimated( row:Int,  component:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectRow:inComponent:animated:", [row, component, animated], [ObjectManager.INT_VAL(), ObjectManager.INT_VAL(), ObjectManager.BOOL_VAL()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "selectRow:inComponent:animated:", [row, component, animated], [TypeValues.IntVal(), TypeValues.IntVal(), TypeValues.BoolVal()], -1);
 	}
 
 
