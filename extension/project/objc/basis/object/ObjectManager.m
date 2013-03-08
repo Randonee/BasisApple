@@ -61,11 +61,17 @@ void (*_destroyHaxeObjectFunction)(id);
 	return [_classTypes objectForKey:objcClassName];
 }
 
+/**
+* Retrieves an object from the system
+**/
 -(id) getObject:(NSString *) objectID
 {
 	return [_objects objectForKey:objectID];
 }
 
+/**
+* Adds an object to the basis system
+**/
 -(NSString *) addObject:(NSObject*)object
 {
 	NSString* objectID = [ObjectManager getObjectID:object];
@@ -75,6 +81,11 @@ void (*_destroyHaxeObjectFunction)(id);
 	return objectID;
 }
 
+/**
+* Creates an instance of an object with the given classname
+* 
+* @param haxeClassName full haxe class name with path
+**/
 -(NSString *) createObjectWithClassName:(NSString*)haxeClassName
 {
 	NSString *className = [_classTypes objectForKey:haxeClassName];
@@ -89,6 +100,14 @@ void (*_destroyHaxeObjectFunction)(id);
 	return [self addObject:object];
 }
 
+/**
+* Calls a selector on an object
+* 
+* @param object the target for the selector
+* @param the selector to be called
+* @param args arguments for the selector
+* @param isObject indicates if the return value is an object or scalar
+**/
 -(id) callMethod:(id)object :(NSString *)selectorString :(NSArray *)args :(BOOL)isObject
 {
 	SEL msel;

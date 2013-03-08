@@ -26,17 +26,6 @@ class IOSApplication extends BasisApplication
 		objectManager.addArgumentValueHandler(UIFont, handleUIFontArgumentType);
 	}
 	
-	private function handleUIFontReturnValue(returnVar:Dynamic):Dynamic
-	{
-		return new UIFont(returnVar);
-	}
-	
-	private function handleUIFontArgumentType(arg:Dynamic):Dynamic
-	{
-		var font:UIFont = arg;
-		var returnArr:Array<Dynamic> = [font.fontName, font.pointSize];
-		return returnArr;
-	}
 	
 	/**
 	* Adds a view to the base window of the aplication
@@ -49,6 +38,18 @@ class IOSApplication extends BasisApplication
 	}
 	private static var iosapplication_addToRootView = Lib.load ("basis", "iosapplication_addToRootView", 1);
 	
+	
+	private function handleUIFontReturnValue(returnVar:Dynamic):Dynamic
+	{
+		return new UIFont(returnVar);
+	}
+	
+	private function handleUIFontArgumentType(arg:Dynamic):Dynamic
+	{
+		var font:UIFont = arg;
+		var returnArr:Array<Dynamic> = [font.fontName, font.pointSize];
+		return returnArr;
+	}
 	
 	private function addClasses():Void
 	{

@@ -4,12 +4,24 @@ import cpp.Lib;
 
 class IOSUtil
 {
+	/**
+	* Returns a full path to the application directory
+	**/
 	static public function getBundlePath():String
 	{
 		return cpp_basis_getBundlePath();
 	}
 	private static var cpp_basis_getBundlePath = Lib.load ("basis", "basis_getBundlePath", 0);
 	
+	/**
+	* Retrieves a path to the given asset
+	**/
+	static public function getAssetPath(fileName:String):String
+	{
+		return cpp_basis_getBundlePath() + "/assets/" + fileName;
+	}
+	
+	//------ For Unit Tests --------
 	static public function quitForUnitTests():String
 	{
 		return basis_quit_for_unit_tests();
@@ -21,11 +33,5 @@ class IOSUtil
 		return basis_outputTestSuccess();
 	}
 	private static var basis_outputTestSuccess = Lib.load ("basis", "basis_outputTestSuccess", 0);
-	
-	
-	
-	static public function getAssetPath(fileName:String):String
-	{
-		return cpp_basis_getBundlePath() + "/assets/" + fileName;
-	}
+	//-------------------------------
 }

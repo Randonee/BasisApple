@@ -4,6 +4,9 @@ import basis.object.ObjectManager;
 import basis.object.IObject;
 import cpp.Lib;
 
+/**
+*	Singleton base class
+**/
 class BasisApplication
 {
 	static public var instance(get_instance, null):BasisApplication;
@@ -19,7 +22,9 @@ class BasisApplication
 	public var objectManager(default, null):ObjectManager;
 	public var eventManager(default, null):EventManager;
 	
-	
+	/**
+	*	Sets the application type. For example see IOSApplication
+	**/
 	static public function init(applicationType:Class<BasisApplication>):Void
 	{
 		if(applicationType == null)
@@ -28,35 +33,9 @@ class BasisApplication
 		_instance = Type.createInstance(applicationType, []);
 	}
 	
-	
 	private function new()
 	{
 		objectManager = new ObjectManager();
 		eventManager = new EventManager();
 	}
-	
-	/**
-	* Adds an event listener
-	*
-	* @param type event type
-	* @param view the view that will be dispatching the event
-	* @param handler the function that will be called when the event occurs
-	**/
-	public function addEventListener(type:String, view:IObject, handler:IObject->String->Void):Void
-	{
-	//	_eventManager.addEventListener(type, view, handler);
-	}
-	
-	/**
-	* removes an event listener
-	*
-	* @param type event type
-	* @param view the view that will be dispatching the event
-	* @param handler the function that will be called when the event occurs
-	**/
-	public function removeEventListener(type:String, view:IObject, handler:IObject->String->Void):Void
-	{
-	//	_eventManager.removeEventListener(type, view, handler);
-	}
-	
 }
