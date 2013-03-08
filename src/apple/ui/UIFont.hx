@@ -1,6 +1,3 @@
-//This code was generated using ObjcToHaxeExtern
-//https://github.com/Randonee/ObjcToHaxeExtern
-
 package apple.ui;
 
 import cpp.Lib;

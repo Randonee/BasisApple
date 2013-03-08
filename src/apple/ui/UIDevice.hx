@@ -40,9 +40,7 @@ class UIDevice
 	static private function get_orientation():Int{return uidevice_getOrientation();}
 	private static var uidevice_getOrientation = Lib.load("basis", "uidevice_getOrientation", 0);
 	
-//	public var model (default, null) :String;             // e.g. @"iPhone", @"iPod touch"
 //	public var localizedModel (default, null) :String;    // localized version of model
 //	public var systemName (default, null) :String;        // e.g. @"iOS"
 //	public var systemVersion (default, null) :String;     // e.g. @"4.0"
-//	public var orientation (default, null) :UIDeviceOrientation;
 }

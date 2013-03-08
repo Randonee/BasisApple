@@ -4,7 +4,6 @@ import cpp.Lib;
 
 class UIApplication
 {
-	
 	//UIDeviceOrientation
 	static public inline var UIInterfaceOrientationPortrait:Int = 1; 			//UIDeviceOrientationPortrait
 	static public inline var UIInterfaceOrientationPortraitUpsideDown:Int = 2; 	//UIDeviceOrientationPortraitUpsideDown
@@ -26,10 +25,4 @@ class UIApplication
 		return uiapplication_getStatusBarFrame();
 	}
 	private static var uiapplication_getStatusBarFrame = Lib.load("basis", "uiapplication_getStatusBarFrame", 0);
-	
-	
-//	static public var statusBarOrientation(get_statusBarOrientation,  null):String;
-//	static private function get_statusBarOrientation():Int{return cpp_uiapplication_get_statusBarOrientation();}
-//	private static var cpp_uiapplication_get_statusBarOrientation = Lib.load("basis", "cpp_uiapplication_get_statusBarOrientation", 0);
-	
 }
