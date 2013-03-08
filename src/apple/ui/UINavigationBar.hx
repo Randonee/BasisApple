@@ -13,11 +13,14 @@ import basis.object.TypeValues;
 class UINavigationBar extends UIView
 {
 
+	public var delegate(default, null):UINavigationBarDelegate;
+	
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = UINavigationBar;
 		super(type);
+		delegate = new UINavigationBarDelegate(this);
 	}
 
 	//Constants
@@ -35,18 +38,6 @@ class UINavigationBar extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBarStyle:", [value], [TypeValues.IntVal()], -1 );
 		return barStyle;
-	}
-
-	public var delegate(get_delegate, set_delegate):Dynamic;
-	private function get_delegate():Dynamic
-	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "delegate", [], [], TypeValues.ObjectVal());
-	}
-
-	private function set_delegate(value:Dynamic):Dynamic
-	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDelegate:", [value], [TypeValues.ObjectVal()], -1 );
-		return delegate;
 	}
 
 	public var translucent(get_translucent, set_translucent):Bool;

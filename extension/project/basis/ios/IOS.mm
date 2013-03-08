@@ -8,3 +8,4 @@
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 #include "../../apple/ui/UITableViewDataSourceCFFI.mm"
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"
+#include "../../apple/ui/UINavigationBarDelegateCFFI.mm"

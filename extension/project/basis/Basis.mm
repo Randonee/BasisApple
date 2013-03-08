@@ -1,9 +1,6 @@
 #include <hx/CFFI.h>
 #import "BasisApplication.h"
 #import <Foundation/Foundation.h>
-#import "apple/ui/UITableViewDataSourceImp.h"
-#import "apple/ui/UITableViewDelegateImp.h"
-#import "apple/ui/UIBarButtonItemTarget.h"
 #include "Util.mm"
 #include "object/ObjectManagerCFFI.mm"
 #include "EventManagerCFFI.mm"
@@ -11,6 +8,11 @@
 
 
 #ifdef IPHONE
+#import "apple/ui/UINavigationBarDelegateImp.h"
+#import "apple/ui/UITableViewDataSourceImp.h"
+#import "apple/ui/UITableViewDelegateImp.h"
+#import "apple/ui/UIBarButtonItemTarget.h"
+
 #import "IOSApplication.h"
 #endif
 
