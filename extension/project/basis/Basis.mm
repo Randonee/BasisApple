@@ -27,7 +27,7 @@ namespace basis
 	
 	void startBasisHandler()
 	{
-		//this method is created for each project
+		//this method is created for each project. see BasisStart.cpp
 		startBasis();
 	}
 
@@ -41,7 +41,7 @@ namespace basis
 	#include "ios/OSX.mm"
 	#endif
 	
-	void initBasis()
+	void basis_initBasis()
 	{
 		[BasisApplication setStartHandler:&startBasisHandler];
 		#ifdef IPHONE
@@ -52,5 +52,5 @@ namespace basis
 			[BasisOSXApplication start];
 		#endif
 	}
-	DEFINE_PRIM (initBasis, 0);
+	DEFINE_PRIM (basis_initBasis, 0);
 }

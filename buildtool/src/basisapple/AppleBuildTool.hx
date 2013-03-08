@@ -97,7 +97,7 @@ class AppleBuildTool extends basis.BuildTool
 			for(haxelib in haxeLibs)
 				buildFile.writeString("-lib " + haxelib + "\n");
 			
-			buildFile.writeString("-main RealMain\n");
+			buildFile.writeString("-main BasisMain\n");
 			buildFile.close();
 			//------------------------------------
 			
@@ -159,10 +159,10 @@ class AppleBuildTool extends basis.BuildTool
 			//------------------------------------
 			
 			//-------- Main haxe class -----------
-			var realMainContent:String = File.getContent(libPath + "template/RealMain.hx");
-			realMainContent = StringTools.replace(realMainContent, "MAIN_INCLUDE", mainClass);
-			var fout = sys.io.File.write(targetPath + "/haxe/RealMain.hx");
-			fout.writeString(realMainContent);
+			var basisMainContent:String = File.getContent(libPath + "template/BasisMain.hx");
+			basisMainContent = StringTools.replace(basisMainContent, "MAIN_INCLUDE", mainClass);
+			var fout = sys.io.File.write(targetPath + "/haxe/BasisMain.hx");
+			fout.writeString(basisMainContent);
 			fout.close();
 			//------------------------------------
 			
