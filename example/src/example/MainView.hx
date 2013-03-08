@@ -3,6 +3,7 @@ package example;
 import basis.ios.IOSUtil;
 import basis.object.IObject;
 import apple.ui.*;
+import apple.ui.UINavigationBar;
 
 import basis.BasisApplication;
 
@@ -19,6 +20,7 @@ class MainView extends UIView
 	private var _tableCellLabels:Array<String>;
 	private var _webView:UIWebView;
 	private var _navigationBar:UINavigationBar;
+	private var _navItem:UINavigationItem;
 	private var _barButtonItem1:UIBarButtonItem;
 	private var _barButtonItem2:UIBarButtonItem;
 	private var _alertView:UIAlertView;
@@ -29,20 +31,23 @@ class MainView extends UIView
 		super();
 		this.frame = [0.0, UIApplication.statusBarFrame[3], 768, 1024];
 		_navigationBar = new UINavigationBar();
-		_navigationBar.createNavigationItem(false);
-		_navigationBar.set_itemTitle(0, "Bar Title");
 		_navigationBar.frame = [0.0, 0, 768, 50];
 		addSubview(_navigationBar);
 		
+		_navItem = new UINavigationItem();
+		_navItem.title = "Example";
+		
 		_barButtonItem1 = new UIBarButtonItem();
 		_barButtonItem1.title = "Left";
-		_barButtonItem1.setHandler(onBarItemClick);
-		_navigationBar.set_leftBarItems(0, [_barButtonItem1]);
+		_barButtonItem1.addEventListener(UIBarButtonItem.UIBarButtonItemActionEvent(), onBarItemClick);
+		_navItem.setLeftBarButtonItemAnimated(_barButtonItem1, false);
 		
 		_barButtonItem2 = new UIBarButtonItem();
 		_barButtonItem2.title = "Right";
-		_barButtonItem2.setHandler(onBarItemClick);
-		_navigationBar.set_rightBarItems(0, [_barButtonItem2]);
+		_barButtonItem2.addEventListener(UIBarButtonItem.UIBarButtonItemActionEvent(), onBarItemClick);
+		_navItem.setRightBarButtonItemAnimated(_barButtonItem2, false);
+		
+		_navigationBar.pushNavigationItemAnimated(_navItem, false);
 		
 		_alertView = new UIAlertView();
 		_alertView.addButtonWithTitle("OK");
@@ -113,9 +118,9 @@ class MainView extends UIView
 		addSubview(_haxeImage);
 	}
 	
-	private function onBarItemClick(item:UIBarButtonItem):Void
+	private function onBarItemClick(object:IObject, type:String):Void
 	{
-		if(item == _barButtonItem1)
+		if(object == _barButtonItem1)
 			_alertView.message = "Left Button Presssed";
 		else
 			_alertView.message = "Right Button Presssed";

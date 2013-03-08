@@ -87,3 +87,36 @@ class UICollectionViewCell extends UICollectionReusableView
 
 }
 
+class UICollectionReusableView extends UIView
+{
+
+	public function new(?type:Class<IObject>=null)
+	{
+		if(type == null)
+			type = UICollectionReusableView;
+		super(type);
+	}
+
+	//Constants
+
+	//Static Methods
+
+	//Properties
+	public var reuseIdentifier(get_reuseIdentifier, null):String;
+	private function get_reuseIdentifier():String
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "reuseIdentifier", [], [], TypeValues.StringVal());
+	}
+
+
+	//Methods
+	public function prepareForReuse():Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "prepareForReuse", [], [], -1);
+	}
+
+
+
+
+}
+

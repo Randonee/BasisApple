@@ -10,8 +10,55 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 
-class UITabBarItem
+class UITabBarItem extends UIBarItem
 {
+
+	public function new(?type:Class<IObject>=null)
+	{
+		if(type == null)
+			type = UITabBarItem;
+		super(type);
+	}
+
+	//Constants
+
+	//Static Methods
+
+	//Properties
+	public var badgeValue(get_badgeValue, set_badgeValue):String;
+	private function get_badgeValue():String
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "badgeValue", [], [], TypeValues.StringVal());
+	}
+
+	private function set_badgeValue(value:String):String
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBadgeValue:", [value], [TypeValues.StringVal()], -1 );
+		return badgeValue;
+	}
+
+
+	//Methods
+	public function setTitlePositionAdjustment( adjustment:Array<Int>):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitlePositionAdjustment:", [adjustment], [TypeValues.ObjectVal()], -1);
+	}
+	public function initWithTitleImageTag( title:String,  image:String,  tag:Int):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithTitle:image:tag:", [title, image, tag], [TypeValues.StringVal(), TypeValues.UIImageVal(), TypeValues.IntVal()], TypeValues.ObjectVal());
+	}
+	public function setFinishedSelectedImageWithFinishedUnselectedImage( selectedImage:String,  unselectedImage:String):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFinishedSelectedImage:withFinishedUnselectedImage:", [selectedImage, unselectedImage], [TypeValues.UIImageVal(), TypeValues.UIImageVal()], -1);
+	}
+	public function initWithTabBarSystemItemTag( systemItem:Int,  tag:Int):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithTabBarSystemItem:tag:", [systemItem, tag], [TypeValues.IntVal(), TypeValues.IntVal()], TypeValues.ObjectVal());
+	}
+	public function titlePositionAdjustment():Array<Int>
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titlePositionAdjustment", [], [], TypeValues.ObjectVal());
+	}
 
 
 	public static inline function UITabBarSystemItemMore():Int{return 0;}

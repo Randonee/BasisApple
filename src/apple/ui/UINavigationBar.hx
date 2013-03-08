@@ -13,146 +13,6 @@ import basis.object.TypeValues;
 class UINavigationBar extends UIView
 {
 
-	//Additions
-	public function get_hidesBackButton(index:Int):Bool
-	{
-		return uinavigationitem_getHidesBackButton(basisID, index);
-	}
-	private static var uinavigationitem_getHidesBackButton = Lib.load("basis", "uinavigationitem_getHidesBackButton", 2);
-
-	public function set_hidesBackButton(index:Int, value:Bool):Void
-	{
-		uinavigationitem_setHidesBackButton(basisID, index, value);
-	}
-	private static var uinavigationitem_setHidesBackButton = Lib.load("basis", "uinavigationitem_setHidesBackButton", 3);
-
-	public function set_hidesBackButtonAnimated(index:Int, value:Bool, animated:Bool):Void
-	{
-		uinavigationitem_setHidesBackButtonAnimated(basisID, index, value, animated);
-	}
-	private static var uinavigationitem_setHidesBackButtonAnimated = Lib.load("basis", "uinavigationitem_setHidesBackButtonAnimated", 4);
-
-
-	public function get_leftItemsSupplementBackButton(index:Int):Bool
-	{
-		return uinavigationitem_getLeftItemsSupplementBackButton(basisID, index);
-	}
-	private static var uinavigationitem_getLeftItemsSupplementBackButton = Lib.load("basis", "uinavigationitem_getLeftItemsSupplementBackButton", 2);
-
-	public function set_leftItemsSupplementBackButton(index:Int, value:Bool):Void
-	{
-		uinavigationitem_setLeftItemsSupplementBackButton(basisID, index, value);
-	}
-	private static var uinavigationitem_setLeftItemsSupplementBackButton = Lib.load("basis", "uinavigationitem_setLeftItemsSupplementBackButton", 3);
-
-
-	public function get_leftBarItems(index:Int):Array<UIBarButtonItem>
-	{
-		var barItemIDs:Array<String> = uinavigationitem_getLeftBarItems(basisID, index);
-		var items:Array<UIBarButtonItem> = new Array<UIBarButtonItem>();
-
-		for(itemID in barItemIDs)
-			items.push(cast(BasisApplication.instance.objectManager.getObject(itemID), UIBarButtonItem));
-
-		return items;
-	}
-	private static var uinavigationitem_getLeftBarItems = Lib.load("basis", "uinavigationitem_getLeftBarItems", 2);
-
-
-	public function set_leftBarItems(index:Int, items:Array<UIBarButtonItem>):Void
-	{
-		var objectIDs:Array<String> = new Array<String>();
-
-		for(item in items)
-			objectIDs.push(item.basisID);
-
-		uinavigationitem_setLeftBarItems(basisID, index, objectIDs, objectIDs.length);
-	}
-	private static var uinavigationitem_setLeftBarItems = Lib.load("basis", "uinavigationitem_setLeftBarItems", 4);
-
-
-	public function get_rightBarItems(index:Int):Array<UIBarButtonItem>
-	{
-		var barItemIDs:Array<String> = uinavigationitem_getRightBarItems(basisID, index);
-		var items:Array<UIBarButtonItem> = new Array<UIBarButtonItem>();
-
-		for(itemID in barItemIDs)
-			items.push(cast(BasisApplication.instance.objectManager.getObject(itemID), UIBarButtonItem));
-
-		return items;
-	}
-	private static var uinavigationitem_getRightBarItems = Lib.load("basis", "uinavigationitem_getRightBarItems", 2);
-
-	public function set_rightBarItems(index:Int, items:Array<UIBarButtonItem>):Void
-	{
-		var objectIDs:Array<String> = new Array<String>();
-
-		for(item in items)
-			objectIDs.push(item.basisID);
-
-		uinavigationitem_setRightBarItems(basisID, index, objectIDs, objectIDs.length);
-	}
-	private static var uinavigationitem_setRightBarItems = Lib.load("basis", "uinavigationitem_setRightBarItems", 4);
-
-
-	public function get_itemTitle(index:Int):String
-	{
-		return uinavigationitem_getTitle(basisID, index);
-	}
-	private static var uinavigationitem_getTitle = Lib.load("basis", "uinavigationitem_getTitle", 2);
-
-	public function set_itemTitle(index:Int, value:String):Void
-	{
-		uinavigationitem_setTitle(basisID, index, value);
-	}
-	private static var uinavigationitem_setTitle = Lib.load("basis", "uinavigationitem_setTitle", 3);
-
-
-	public function get_itemPrompt(index:Int):String
-	{
-		return uinavigationitem_getPrompt(basisID, index);
-	}
-	private static var uinavigationitem_getPrompt = Lib.load("basis", "uinavigationitem_getPrompt", 2);
-
-	public function set_itemPrompt(index:Int, value:String):Void
-	{
-		uinavigationitem_setPrompt(basisID, index, value);
-	}
-	private static var uinavigationitem_setPrompt = Lib.load("basis", "uinavigationitem_setPrompt", 3);
-
-
-
-	public function get_ItemTitleView(index:Int):UIView
-	{
-		var viewID:String = uinavigationitem_getTitleView(basisID, index);
-		return cast(BasisApplication.instance.objectManager.getObject(viewID), UIView);
-	}
-	private static var uinavigationitem_getTitleView = Lib.load("basis", "uinavigationitem_getTitleView", 2);
-
-	public function set_ItemTitleView(index:Int, view:UIView):Void
-	{
-		var objectID:String = null;
-		if(view != null)
-			objectID = view.basisID;
-
-		uinavigationitem_setTitleView(basisID, index, objectID);
-	}
-	private static var uinavigationitem_setTitleView = Lib.load("basis", "uinavigationitem_setTitleView", 3);
-
-	public function popNavigationItem(animated:Bool):Void
-	{
-		uinavigationitem_popNavigationItem(basisID, animated);
-	}
-	private static var uinavigationitem_popNavigationItem = Lib.load("basis", "uinavigationitem_popNavigationItem", 2);
-
-	public function createNavigationItem(animated:Bool):Void
-	{
-		uinavigationitem_createNavigationItem(basisID, animated);
-	}
-	private static var uinavigationitem_createNavigationItem = Lib.load("basis", "uinavigationitem_createNavigationItem", 2);
-
-	//Additions
-
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -201,6 +61,18 @@ class UINavigationBar extends UIView
 		return translucent;
 	}
 
+	public var topItem(get_topItem, null):UINavigationItem;
+	private function get_topItem():UINavigationItem
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "topItem", [], [], TypeValues.ObjectVal());
+	}
+
+	public var backItem(get_backItem, null):UINavigationItem;
+	private function get_backItem():UINavigationItem
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backItem", [], [], TypeValues.ObjectVal());
+	}
+
 	public var tintColor(get_tintColor, set_tintColor):Array<Float>;
 	private function get_tintColor():Array<Float>
 	{
@@ -223,6 +95,10 @@ class UINavigationBar extends UIView
 
 
 	//Methods
+	public function pushNavigationItemAnimated( item:UINavigationItem,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "pushNavigationItem:animated:", [item, animated], [TypeValues.ObjectVal(), TypeValues.BoolVal()], -1);
+	}
 	public function setBackgroundImageForBarMetrics( backgroundImage:String,  barMetrics:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forBarMetrics:", [backgroundImage, barMetrics], [TypeValues.UIImageVal(), TypeValues.IntVal()], -1);
@@ -231,9 +107,148 @@ class UINavigationBar extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleVerticalPositionAdjustment:forBarMetrics:", [adjustment, barMetrics], [TypeValues.FloatVal(), TypeValues.IntVal()], -1);
 	}
+	public function popNavigationItemAnimated( animated:Bool):UINavigationItem
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popNavigationItemAnimated:", [animated], [TypeValues.BoolVal()], TypeValues.ObjectVal());
+	}
 	public function titleVerticalPositionAdjustmentForBarMetrics( barMetrics:Int):Float
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleVerticalPositionAdjustmentForBarMetrics:", [barMetrics], [TypeValues.IntVal()], TypeValues.FloatVal());
+	}
+
+
+
+
+}
+
+class UINavigationItem extends AbstractObject
+{
+
+	public function new(?type:Class<IObject>=null)
+	{
+		if(type == null)
+			type = UINavigationItem;
+		super(type);
+	}
+
+	//Constants
+
+	//Static Methods
+
+	//Properties
+	public var title(get_title, set_title):String;
+	private function get_title():String
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "title", [], [], TypeValues.StringVal());
+	}
+
+	private function set_title(value:String):String
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:", [value], [TypeValues.StringVal()], -1 );
+		return title;
+	}
+
+	public var backBarButtonItem(get_backBarButtonItem, set_backBarButtonItem):UIBarButtonItem;
+	private function get_backBarButtonItem():UIBarButtonItem
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backBarButtonItem", [], [], TypeValues.ObjectVal());
+	}
+
+	private function set_backBarButtonItem(value:UIBarButtonItem):UIBarButtonItem
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackBarButtonItem:", [value], [TypeValues.ObjectVal()], -1 );
+		return backBarButtonItem;
+	}
+
+	public var titleView(get_titleView, set_titleView):UIView;
+	private function get_titleView():UIView
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleView", [], [], TypeValues.ObjectVal());
+	}
+
+	private function set_titleView(value:UIView):UIView
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitleView:", [value], [TypeValues.ObjectVal()], -1 );
+		return titleView;
+	}
+
+	public var prompt(get_prompt, set_prompt):String;
+	private function get_prompt():String
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "prompt", [], [], TypeValues.StringVal());
+	}
+
+	private function set_prompt(value:String):String
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPrompt:", [value], [TypeValues.StringVal()], -1 );
+		return prompt;
+	}
+
+	public var hidesBackButton(get_hidesBackButton, set_hidesBackButton):Bool;
+	private function get_hidesBackButton():Bool
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "hidesBackButton", [], [], TypeValues.BoolVal());
+	}
+
+	private function set_hidesBackButton(value:Bool):Bool
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesBackButton:", [value], [TypeValues.BoolVal()], -1 );
+		return hidesBackButton;
+	}
+
+	public var leftItemsSupplementBackButton(get_leftItemsSupplementBackButton, set_leftItemsSupplementBackButton):Bool;
+	private function get_leftItemsSupplementBackButton():Bool
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "leftItemsSupplementBackButton", [], [], TypeValues.BoolVal());
+	}
+
+	private function set_leftItemsSupplementBackButton(value:Bool):Bool
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLeftItemsSupplementBackButton:", [value], [TypeValues.BoolVal()], -1 );
+		return leftItemsSupplementBackButton;
+	}
+
+	public var leftBarButtonItem(get_leftBarButtonItem, set_leftBarButtonItem):UIBarButtonItem;
+	private function get_leftBarButtonItem():UIBarButtonItem
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "leftBarButtonItem", [], [], TypeValues.ObjectVal());
+	}
+
+	private function set_leftBarButtonItem(value:UIBarButtonItem):UIBarButtonItem
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLeftBarButtonItem:", [value], [TypeValues.ObjectVal()], -1 );
+		return leftBarButtonItem;
+	}
+
+	public var rightBarButtonItem(get_rightBarButtonItem, set_rightBarButtonItem):UIBarButtonItem;
+	private function get_rightBarButtonItem():UIBarButtonItem
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rightBarButtonItem", [], [], TypeValues.ObjectVal());
+	}
+
+	private function set_rightBarButtonItem(value:UIBarButtonItem):UIBarButtonItem
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRightBarButtonItem:", [value], [TypeValues.ObjectVal()], -1 );
+		return rightBarButtonItem;
+	}
+
+
+	//Methods
+	public function setLeftBarButtonItemAnimated( item:UIBarButtonItem,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLeftBarButtonItem:animated:", [item, animated], [TypeValues.ObjectVal(), TypeValues.BoolVal()], -1);
+	}
+	public function setRightBarButtonItemAnimated( item:UIBarButtonItem,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRightBarButtonItem:animated:", [item, animated], [TypeValues.ObjectVal(), TypeValues.BoolVal()], -1);
+	}
+	public function initWithTitle( title:String):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithTitle:", [title], [TypeValues.StringVal()], TypeValues.ObjectVal());
+	}
+	public function setHidesBackButtonAnimated( hidesBackButton:Bool,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHidesBackButton:animated:", [hidesBackButton, animated], [TypeValues.BoolVal(), TypeValues.BoolVal()], -1);
 	}
 
 

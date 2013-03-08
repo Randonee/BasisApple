@@ -19,6 +19,8 @@
     method_setImplementation(addSubviewMethod, newImp);
 }
 
+-(void) onBarButtonItemActionEvent:(id)sender{[self callHandlers:[ObjectManager getObjectID:sender] :"UIBarButtonItemActionEvent"];}
+
 //Device Events
 //-(void) onUIDeviceBatteryStateDidChangeNotification:(NSNotification *) notification{[self callHandlers:@"" :"UIDeviceBatteryStateDidChangeNotification"];}
 -(void) onUIDeviceOrientationDidChangeNotification:(NSNotification *) notification{[self callHandlers:@"" :"UIDeviceOrientationDidChangeNotification"];}

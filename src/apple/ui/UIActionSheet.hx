@@ -113,6 +113,10 @@ class UIActionSheet extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromToolbar:", [view], [TypeValues.ObjectVal()], -1);
 	}
+	public function showFromBarButtonItemAnimated( item:UIBarButtonItem,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "showFromBarButtonItem:animated:", [item, animated], [TypeValues.ObjectVal(), TypeValues.BoolVal()], -1);
+	}
 	public function dismissWithClickedButtonIndexAnimated( buttonIndex:Int,  animated:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissWithClickedButtonIndex:animated:", [buttonIndex, animated], [TypeValues.IntVal(), TypeValues.BoolVal()], -1);

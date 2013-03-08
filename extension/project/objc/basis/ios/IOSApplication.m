@@ -126,6 +126,13 @@
 		[self.objectManager addObject:((UITableViewCell *)object).contentView ];
 		[self.objectManager createHaxeObject:((UITableViewCell *)object).contentView ];
 	}
+	
+	if([object isKindOfClass:[UIBarButtonItem class]])
+	{
+		UIBarButtonItem *item = (UIBarButtonItem *)[self.objectManager getObject:[ObjectManager getObjectID:object]];
+		item.target = [BasisApplication getInstance].eventManager;
+		item.action = @selector(onBarButtonItemActionEvent:);
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

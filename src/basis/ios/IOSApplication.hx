@@ -4,6 +4,8 @@ import basis.object.TypeValues;
 import basis.object.*;
 import cpp.Lib;
 import apple.ui.*;
+import apple.ui.UICollectionViewCell;
+import apple.ui.UINavigationBar;
 
 class IOSApplication extends BasisApplication
 {
@@ -69,6 +71,7 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UICollectionViewCell);
 		objectManager.addClass(apple.ui.UIDatePicker);
 		objectManager.addClass(apple.ui.UINavigationBar);
+		objectManager.addClass(apple.ui.UINavigationItem);
 		objectManager.addClass(apple.ui.UIPageControl);
 		objectManager.addClass(apple.ui.UIPickerView);
 		objectManager.addClass(apple.ui.UIPickerView);
@@ -91,6 +94,5 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIView);
 		objectManager.addClass(apple.ui.UIWebView);
 		objectManager.addClass(apple.ui.UIWindow);
-		objectManager.addClass(apple.ui.UINavigationBar);
 	}
 }
