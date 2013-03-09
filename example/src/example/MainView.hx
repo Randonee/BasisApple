@@ -116,6 +116,14 @@ class MainView extends UIView
 		_haxeImage.image = IOSUtil.getAssetPath("haxe.png");
 		_haxeImage.frame = [400.0, 120, 100, 100];
 		addSubview(_haxeImage);
+		
+		
+		BasisApplication.instance.eventManager.addGlobalEventListener(UIDevice.UIDeviceOrientationDidChangeNotification(), onOrientationChange);
+	}
+	
+	private function onOrientationChange(type:String):Void
+	{
+		trace("device orientation changed");
 	}
 	
 	private function onBarItemClick(object:IObject, type:String):Void

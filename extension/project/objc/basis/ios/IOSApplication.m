@@ -42,6 +42,8 @@
 		[self.eventManager callHandlers:[ObjectManager getObjectID:object] :"UIViewDidMoveToSuperview"];
 	})];
 	
+	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceProximityStateDidChangeNotification:) name:UIDeviceProximityStateDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceBatteryStateDidChangeNotification:) name:UIDeviceBatteryStateDidChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
  	[UIDevice.currentDevice beginGeneratingDeviceOrientationNotifications];
 	

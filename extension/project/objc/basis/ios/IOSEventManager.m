@@ -22,9 +22,9 @@
 -(void) onBarButtonItemActionEvent:(id)sender{[self callHandlers:[ObjectManager getObjectID:sender] :"UIBarButtonItemActionEvent"];}
 
 //Device Events
-//-(void) onUIDeviceBatteryStateDidChangeNotification:(NSNotification *) notification{[self callHandlers:@"" :"UIDeviceBatteryStateDidChangeNotification"];}
--(void) onUIDeviceOrientationDidChangeNotification:(NSNotification *) notification{[self callHandlers:@"" :"UIDeviceOrientationDidChangeNotification"];}
-//-(void) onUIDeviceProximityStateDidChangeNotification:(NSNotification *) notification{[self callHandlers:@"" :"UIDeviceProximityStateDidChangeNotification"];}
+-(void) onUIDeviceBatteryStateDidChangeNotification:(NSNotification *) notification{[self callGlobalHandlers:"UIDeviceBatteryStateDidChangeNotification"];}
+-(void) onUIDeviceOrientationDidChangeNotification:(NSNotification *) notification{[self callGlobalHandlers:"UIDeviceOrientationDidChangeNotification"];}
+-(void) onUIDeviceProximityStateDidChangeNotification:(NSNotification *) notification{[self callGlobalHandlers:"UIDeviceProximityStateDidChangeNotification"];}
 
 
 

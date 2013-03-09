@@ -13,14 +13,18 @@ typedef BasisEventListener =
 class EventManager
 {	
 	private var _eventListeners:Map<String,Map<String,Array<BasisEventListener>>>;
+	private var _globalEventListeners:Map<String, Array<String->Void>>;
 	
 	public function new()
 	{
 		_eventListeners = new Map<String,Map<String,Array<BasisEventListener>>>();
+		_globalEventListeners = new Map<String, Array<String->Void>>();
 		eventManager_setEventHandler(handleEvent);
+		eventManager_setGlobalEventHandler(handleGlobalEvent);
 	}
 	
 	private static var eventManager_setEventHandler = Lib.load ("basis", "eventManager_setEventHandler", 1);
+	private static var eventManager_setGlobalEventHandler = Lib.load ("basis", "eventManager_setGlobalEventHandler", 1);
 	
 	/**
 	* Adds an event listener
@@ -33,13 +37,12 @@ class EventManager
 	{
 		removeEventListener(type, object, handler);
 		
-		var key:String = Std.string(object.basisID);
-		var objectListeners:Map<String,Array<BasisEventListener>> = _eventListeners.get(key);
+		var objectListeners:Map<String,Array<BasisEventListener>> = _eventListeners.get(object.basisID);
 		
 		if(objectListeners == null)
 		{
 			objectListeners = new Map<String,Array<BasisEventListener>>();
-			_eventListeners.set(key, objectListeners);
+			_eventListeners.set(object.basisID, objectListeners);
 		}
 		
 		var typeListeners:Array<BasisEventListener> = objectListeners.get(type);
@@ -83,6 +86,38 @@ class EventManager
 	}
 	
 	/**
+	* Adds a listener to an event that is not object spacific.
+	*
+	* @param type event type
+	* @param handler the function that will be called when the event occurs
+	**/
+	public function addGlobalEventListener(type:String, handler:String->Void):Void
+	{
+		removeGlobalEventListener(type, handler);
+		var listeners:Array<String->Void> = _globalEventListeners.get(type);
+		if(listeners == null)
+		{
+			listeners = new Array<String->Void>();
+			_globalEventListeners.set(type, listeners);
+		}
+		listeners.push(handler);
+	}
+	
+	/**
+	* Removes a global event listener
+	*
+	* @param type event type
+	* @param handler the function that will be called when the event occurs
+	**/
+	public function removeGlobalEventListener(type:String, handler:String->Void):Void
+	{
+		var listeners:Array<String->Void> = _globalEventListeners.get(type);
+		
+		if(listeners != null)
+			listeners.remove(handler);
+	}
+	
+	/**
 	* Handles events from objective c
 	*
 	* @param type event type
@@ -101,6 +136,22 @@ class EventManager
 				for(a in 0...typeListeners.length)
 					typeListeners[a].handler(typeListeners[a].object, type);
 			}
+		}
+	}
+	
+	/**
+	* Handles global events from objective c
+	*
+	* @param type event type
+	**/
+	public function handleGlobalEvent(type:String):Void
+	{
+		var listeners:Array<String->Void> = _globalEventListeners.get(type);
+		
+		if(listeners != null)
+		{
+			for(listener in listeners)
+				listener(type);
 		}
 	}
 	

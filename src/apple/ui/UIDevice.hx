@@ -7,7 +7,6 @@ class UIDevice
 	//events
 	static public inline function UIDeviceOrientationDidChangeNotification():String{return "UIDeviceOrientationDidChangeNotification";};
 
-
 	//UIUserInterfaceIdiom
 	static public inline function UIUserInterfaceIdiomPhone():Int{ return  0;}
 	static public inline function UIUserInterfaceIdiomPad():Int{ return  1;}
@@ -39,8 +38,4 @@ class UIDevice
 	
 	static private function get_orientation():Int{return uidevice_getOrientation();}
 	private static var uidevice_getOrientation = Lib.load("basis", "uidevice_getOrientation", 0);
-	
-//	public var localizedModel (default, null) :String;    // localized version of model
-//	public var systemName (default, null) :String;        // e.g. @"iOS"
-//	public var systemVersion (default, null) :String;     // e.g. @"4.0"
 }
