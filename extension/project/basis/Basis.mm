@@ -11,6 +11,7 @@
 #import "apple/ui/UINavigationBarDelegateImp.h"
 #import "apple/ui/UITableViewDataSourceImp.h"
 #import "apple/ui/UITableViewDelegateImp.h"
+#import "apple/ui/UIWebViewDelegateImp.h"
 #import "apple/ui/UIBarButtonItemTarget.h"
 
 #import "IOSApplication.h"

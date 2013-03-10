@@ -9,3 +9,4 @@
 #include "../../apple/ui/UITableViewDataSourceCFFI.mm"
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"
 #include "../../apple/ui/UINavigationBarDelegateCFFI.mm"
+#include "../../apple/ui/UIWebViewDelegateCFFI.mm"

@@ -13,12 +13,17 @@ import basis.object.TypeValues;
 class UIWebView extends UIView
 {
 
+	//Additions
+	public var delegate(default, null):UIWebViewDelegate;
+	
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = UIWebView;
 		super(type);
+		delegate = new UIWebViewDelegate(this);
 	}
+	//Additions
 
 	//Constants
 

@@ -22,6 +22,7 @@
 		<file name="apple/ui/UITableViewDelegateImp.mm"/>
 		<file name="apple/ui/UIScrollViewDelegateImp.mm"/>
 		<file name="apple/ui/UINavigationBarDelegateImp.mm"/>
+		<file name="apple/ui/UIWebViewDelegateImp.mm"/>
 		<file name="basis/Basis.mm"/>
     </files>
 

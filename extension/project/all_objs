@@ -1,5 +1,0 @@
-obj/darwin64//common/ExternalInterface.o
-obj/darwin64//basis/osx/BasisOSXApplication.o
-obj/darwin64//basis/osx/WindowManager.o
-obj/darwin64//basis/osx/WindowEventManager.o
-obj/darwin64//basis/Basis.o

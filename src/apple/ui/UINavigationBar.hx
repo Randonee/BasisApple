@@ -13,6 +13,7 @@ import basis.object.TypeValues;
 class UINavigationBar extends UIView
 {
 
+	//Additions
 	public var delegate(default, null):UINavigationBarDelegate;
 	
 	public function new(?type:Class<IObject>=null)
@@ -22,6 +23,7 @@ class UINavigationBar extends UIView
 		super(type);
 		delegate = new UINavigationBarDelegate(this);
 	}
+	//Additions
 
 	//Constants
 
