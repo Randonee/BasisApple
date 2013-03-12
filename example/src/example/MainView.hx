@@ -121,6 +121,25 @@ class MainView extends UIView
 		BasisApplication.instance.eventManager.addGlobalEventListener(UIDevice.UIDeviceOrientationDidChangeNotification(), onOrientationChange);
 	}
 	
+	private function animationsHandler():Void
+	{
+		if(_haxeImage.frame[0] < 600)
+			_haxeImage.frame = [600.0, 120, 100, 100];
+		else
+			_haxeImage.frame = [230.0, 120, 100, 100];
+	}
+	
+	private function animationsCompleteHandler(finished:Bool):Void
+	{
+		trace("Animation Complete");
+	}
+	
+	private function onAnimateButtonClick(object:IObject, type:String):Void
+	{
+		UIView.animateWithDuration(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn(), animationsHandler, animationsCompleteHandler);
+	}
+	
+	
 	private function onOrientationChange(type:String):Void
 	{
 		trace("device orientation changed");
@@ -138,16 +157,6 @@ class MainView extends UIView
 	private function onButtonClick(object:IObject, type):Void
 	{
 		_inputField.text = "Button Clicked";
-	}
-	
-	private function onAnimateButtonClick(object:IObject, type:String):Void
-	{
-		UIView.beginAnimationsContext("buttonAnimate", null);
-		if(_haxeImage.frame[0] < 600)
-			_haxeImage.frame = [600.0, 120, 100, 100];
-		else
-			_haxeImage.frame = [230.0, 120, 100, 100];
-		UIView.commitAnimations();
 	}
 	
 	private function onInputChanged(object:IObject, type):Void
