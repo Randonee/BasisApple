@@ -1,16 +1,11 @@
 <xml>
 	
 	<set name="GCC_THIN_ARCHIVE" value="1" if="iphone"/>
-	
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
-
 	<set name="mobile" value="1" if="iphone"/>
-
-	<set name="SLIBEXT" value=".lib" if="windows"/>
-	<set name="SLIBEXT" value=".a" unless="windows"/>
-	<set name="SLIBEXT" value=".so" if="webos"/>
-    
-    <files id="iphone">
+	<set name="HXCPP_M64" value="1" if="macos"/>
+	
+    <files id="files">
         <depend name="${HXCPP}/include/hx/Macros.h"/>
         <depend name="${HXCPP}/include/hx/CFFI.h"/>
         <compilerflag value="-Iinclude"/>
@@ -22,7 +17,7 @@
 	
 	<set name="IOS_ARCH" value="-v7" if="HXCPP_ARMV7"/>
 	
-	<set name="ndll-tool" value="dll" unless="iphone"/>
+	<set name="ndll-tool" value="static_link" unless="iphone"/>
 	<set name="ndll-tool" value="static_link" if="iphone"/>
 	<set name="name_extra" value=".iphoneos${IOS_ARCH}" if="iphoneos"/>
 	<set name="name_extra" value=".iphonesim" if="iphonesim"/>
@@ -39,7 +34,7 @@
 
 		<outdir name="../obj/" />
 		<ext value=".ndll" unless="mobile"/>
-		<files id="iphone" if="iphone"/>
+		<files id="files" />
 	</target>
 
 	<target id="default">

@@ -691,7 +691,7 @@ class XCodeSettings
 			debugBuildSettings.set("ALWAYS_SEARCH_USER_PATHS", "NO");
 			debugBuildSettings.set("ARCHS", "\"$(ARCHS_STANDARD_64_BIT)\"");
 			debugBuildSettings.set("CLANG_CXX_LANGUAGE_STANDARD", "\"gnu++0x\"");
-			debugBuildSettings.set("CLANG_CXX_LIBRARY", "\"libc++\"");
+			debugBuildSettings.set("CLANG_CXX_LIBRARY", "\"libstdc++\"");
 			debugBuildSettings.set("CLANG_ENABLE_OBJC_ARC", "YES");
 			debugBuildSettings.set("CLANG_WARN_CONSTANT_CONVERSION", "YES");
 			debugBuildSettings.set("CLANG_WARN_EMPTY_BODY", "YES");

@@ -9,8 +9,6 @@
 
 	<set name="mobile" value="1" if="iphone"/>
 
-	<set name="OSX" value="1" if="macos"/>
-	
 	<depend name="${HXCPP}/include/hx/Macros.h"/>
     <depend name="${HXCPP}/include/hx/CFFI.h"/>
 

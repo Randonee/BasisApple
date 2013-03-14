@@ -92,6 +92,7 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			else
 			{
+				buildFile.writeString("-D osx\n");
 				buildFile.writeString("-D HXCPP_M64\n");
 				buildFile.writeString("-D static\n");
 			}
@@ -183,13 +184,17 @@ class AppleBuildTool extends basis.BuildTool
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", "#include <" + StringTools.replace(mainClass, ".", "/") + ".h>" );
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", "::" + StringTools.replace(mainClass, ".", "::") + "_obj::main();");
 			
+			var args:String = "";
+			
 			if(osType == IOS_OS())
 			{
+				args = "-D" + deviceTarget.getDeviceTypeCompilerArgument();
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/ios/IOSApplication.h>");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::ios::IOSApplication >());");
 			}
 			else if(osType == OSX_OS())
 			{
+				args = "-DHXCPP_M64";
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/osx/OSXApplication.h>");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::osx::OSXApplication >());");
 			}
@@ -198,7 +203,7 @@ class AppleBuildTool extends basis.BuildTool
 			fout.writeString(basisStartContent);
 			fout.close();
 			
-			ProcessUtil.runCommand(targetPath + "/haxe/cpp", "haxelib", ["run", "hxcpp", "BuildBasisStart.xml", "-D"+ deviceTarget.getDeviceTypeCompilerArgument()]);
+			ProcessUtil.runCommand(targetPath + "/haxe/cpp", "haxelib", ["run", "hxcpp", "BuildBasisStart.xml", args]);
 			//------------------------------------
 			
 			//------------ Copy Libs -------------
