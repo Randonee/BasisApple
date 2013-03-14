@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @protocol ObjectManagerDelegateProtocol
 -(void)objectBeingDestroyed:(id)object;

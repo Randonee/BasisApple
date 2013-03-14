@@ -1,4 +1,3 @@
-#import <UIKit/UIKit.h>
 #import "BasisApplication.h"
 #import <objc/runtime.h>
 
@@ -125,13 +124,9 @@ namespace basis
 					break;
 					
 					case CGRectVal:
-						[objcArgs addObject:[NSValue valueWithCGRect:arrayToCGRect(arg)]];
-					break;
-					
-					case UIEdgeInsetsVal:
 					{
-						UIEdgeInsets val = arrayToUIEdgeInsets(arg);
-						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIEdgeInsets)]];
+						CGRect val = arrayToCGRect(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(CGRect)]];
 					}
 					break;
 					
@@ -163,10 +158,6 @@ namespace basis
 					}
 					break;
 					
-					case UIColorVal:
-						[objcArgs addObject:arrayToUIColor(arg)];
-					break;
-					
 					case NSURLVal:
 						[objcArgs addObject:stringToNSURL(arg)];
 					break;
@@ -190,17 +181,6 @@ namespace basis
 					}
 					break;
 					
-					case UIOffsetVal:
-					{
-						UIOffset val = arrayToUIOffset(arg);
-						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIOffset)]];
-					}
-					break;
-					
-					case UIImageVal:
-						[objcArgs addObject:pathToUIImage(arg)];
-					break;
-					
 					case boolVal:
 					{
 						int val = val_bool(arg);
@@ -208,9 +188,33 @@ namespace basis
 					}
 					break;
 					
-					case UIFontVal:
-						[objcArgs addObject:arrayToUIFont(arg)];
-					break;
+					#ifdef IPHONE
+						case UIEdgeInsetsVal:
+						{
+							UIEdgeInsets val = arrayToUIEdgeInsets(arg);
+							[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIEdgeInsets)]];
+						}
+						break;
+						
+						case UIOffsetVal:
+						{
+							UIOffset val = arrayToUIOffset(arg);
+							[objcArgs addObject:[NSValue value:&val withObjCType:@encode(UIOffset)]];
+						}
+						break;
+						
+						case UIColorVal:
+							[objcArgs addObject:arrayToUIColor(arg)];
+						break;
+						
+						case UIImageVal:
+							[objcArgs addObject:pathToUIImage(arg)];
+						break;
+						
+						case UIFontVal:
+							[objcArgs addObject:arrayToUIFont(arg)];
+						break;
+					#endif
 					
 					default:
 	    			{
@@ -254,14 +258,6 @@ namespace basis
 				CGRect var;
 				[returnVar getValue:&var];
 				return cgRectToArray(var);
-			}
-			break;
-			
-			case UIEdgeInsetsVal:
-			{
-				UIEdgeInsets var;
-				[returnVar getValue:&var];
-				return uiEdgeInsetsToArray(var);
 			}
 			break;
 			
@@ -321,22 +317,6 @@ namespace basis
 			}
 			break;
 			
-			case UIOffsetVal:
-			{
-				UIOffset var;
-				[returnVar getValue:&var];
-				return uiOffsetToArray(var);
-			}
-			break;
-			
-			case UIImageVal:
-				return nil;
-			break;
-			
-			case UIColorVal:
-				return uiColorToArray(returnVar);
-			break;
-			
 			case boolVal:
 			{
 				int var;
@@ -345,9 +325,37 @@ namespace basis
 			}
 			break;
 			
-			case UIFontVal:
-				return uiFontToArray(returnVar);
-			break;
+			#ifdef IPHONE
+			
+				case UIEdgeInsetsVal:
+				{
+					UIEdgeInsets var;
+					[returnVar getValue:&var];
+					return uiEdgeInsetsToArray(var);
+				}
+				break;
+			
+				case UIOffsetVal:
+				{
+					UIOffset var;
+					[returnVar getValue:&var];
+					return uiOffsetToArray(var);
+				}
+				break;
+			
+				case UIImageVal:
+					return nil;
+				break;
+				
+				case UIColorVal:
+					return uiColorToArray(returnVar);
+				break;
+				
+				case UIFontVal:
+					return uiFontToArray(returnVar);
+				break;
+			
+			#endif
 			
 			default:
 			{

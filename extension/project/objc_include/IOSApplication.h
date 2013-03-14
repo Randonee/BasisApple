@@ -4,7 +4,7 @@
 #import "ObjectManager.h"
 
 
-@interface IOSApplication : BasisApplication <ObjectManagerDelegateProtocol>
+@interface IOSApplication : BasisApplication <ObjectManagerDelegateProtocol, UIApplicationDelegate>
 	+(void) start;
 	-(void) addToRootView:(NSString*) objectID;
 	@property (nonatomic, retain) UIWindow *window;

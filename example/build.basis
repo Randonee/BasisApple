@@ -3,17 +3,26 @@
 	<source path="src" />
 	<asset path="assets" />
 	<builddir path="build" />
-	<target name="apple" type="Apple">
+	<main classpath="example.ApplicationMain" />
+	<target name="ios" type="Apple">
+		<os type="ios" />
 		<framework name="UIKit" />
 		<framework name="Foundation" />
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
 		<target name="ipad">
-			<os type="ios" />
 			<simulator use="true" type="ipad"/>
-			<main classpath="example.ApplicationMain" />
 			<debug value="true" />
 			<runWhenFinished value="true" />
 		</target>
+	</target>
+	<target name="osx" type="Apple">
+		<os type="osx" />
+		<framework name="Foundation" />
+		<framework name="CoreGraphics" />
+		<framework name="QuartzCore" />
+		<main classpath="example.ApplicationMain" />
+		<debug value="true" />
+		<runWhenFinished value="true" />
 	</target>
 </target>

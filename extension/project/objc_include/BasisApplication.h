@@ -1,9 +1,8 @@
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "ObjectManager.h"
 #import "EventManager.h"
 
-@interface BasisApplication : UIResponder <UIApplicationDelegate>
+@interface BasisApplication : NSObject 
 	+(void) setInstance:(BasisApplication *)value;
 	+(BasisApplication *) getInstance;
 	+(ObjectManager *) getObjectManager;

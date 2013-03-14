@@ -6,35 +6,6 @@ import sys.io.FileOutput;
 
 import basis.FileUtil;
 
-class FileResource
-{
-	public var name:String;
-	public var guid:String;
-	public var fileRef:String;
-	public var path:String;
-	
-	public function new(name:String, guid:String, fileRef:String, ?path:String="")
-	{
-		this.name = name;
-		this.guid = guid;
-		this.fileRef = fileRef;
-		this.path = path;
-	}
-}
-
-class GroupResource extends FileResource
-{
-	public var items:Array<FileResource>;
-	public var isResource:Bool;
-	
-	public function new(name:String, guid:String, fileRef:String, items:Array<FileResource>, ?path:String="", ?isResource = false)
-	{
-		super(name, guid, fileRef, path);
-		this.items = items;
-		this.isResource = isResource;
-	}
-}
-
 
 class XCodeProject
 {
@@ -73,8 +44,10 @@ class XCodeProject
 	private var _releaseID:String;
 	private var _debug2ID:String;
 	private var _release2ID:String;
+	
+	private var _xCodeSettings:XCodeSettings;
 
-	public function new(name:String)
+	public function new(name:String, osType:String)
 	{
 		this.name = name;
 		sources = new Array<FileResource>();
@@ -82,6 +55,8 @@ class XCodeProject
 		frameworks = new Array<FileResource>();
 		plists = new Array<FileResource>();
 		sourceDirectories = new Array<GroupResource>();
+		
+		_xCodeSettings = new XCodeSettings(name, osType);
 		
 		_frameworkFiles = new Array<FileResource>();
 		
@@ -282,7 +257,7 @@ class XCodeProject
 	private function addPBXFileReferenceFileRef(resource:FileResource):Void
 	{
 		var line:String = "\t\t" + resource.fileRef + " /* " + resource.name + " */ = {isa = PBXFileReference; ";
-		if(fileIsSource(resource))
+		if(fileIsSource(resource) && resource.name.indexOf("ndll") == -1)
 			line +=  "fileEncoding = 4; ";
 			
 		line += "lastKnownFileType = " + getFileType(resource.name) + "; path = \"" + resource.name + "\"; sourceTree = \"<group>\"; };";
@@ -425,29 +400,10 @@ class XCodeProject
 		addLine("\t\t" + _debugID + " /* Debug */ = {");
 		addLine("\t\t\tisa = XCBuildConfiguration;");
 		addLine("\t\t\tbuildSettings = {");
-		addLine("\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;");
-		addLine("\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";");
-		addLine("\t\t\t\tCLANG_CXX_LIBRARY = \"libstdc++\";");
-		addLine("\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;");
-		addLine("\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;");
-		addLine("\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;");
-		addLine("\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";");
-		addLine("\t\t\t\tCOPY_PHASE_STRIP = NO;");
-		addLine("\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;");
-		addLine("\t\t\t\tGCC_DYNAMIC_NO_PIC = NO;");
-		addLine("\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;");
-		addLine("\t\t\t\tGCC_PREPROCESSOR_DEFINITIONS = (");
-		addLine("\t\t\t\t\t\"DEBUG=1\",");
-		addLine("\t\t\t\t\t\"$(inherited)\",");
-		addLine("\t\t\t\t);");
-		addLine("\t\t\t\tGCC_SYMBOLS_PRIVATE_EXTERN = NO;");
-		addLine("\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES;");
-		addLine("\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES;");
-		addLine("\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;");
-		addLine("\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 6.0;");
-		addLine("\t\t\t\tONLY_ACTIVE_ARCH = YES;");
-		addLine("\t\t\t\tSDKROOT = iphoneos;");
-		addLine("\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";");
+		
+		for(key in _xCodeSettings.debugBuildSettings.keys())
+			addLine("\t\t\t\t" + key + " = " + _xCodeSettings.debugBuildSettings.get(key) + ";");
+		
 		addLine("\t\t\t};");
 		addLine("\t\t\tname = Debug;");
 		addLine("\t\t};");
@@ -455,23 +411,9 @@ class XCodeProject
 		addLine("\t\t" + _releaseID + " /* Release */ = {");
 		addLine("\t\t\tisa = XCBuildConfiguration;");
 		addLine("\t\t\tbuildSettings = {");
-		addLine("\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;");
-		addLine("\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";");
-		addLine("\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";");
-		addLine("\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;");
-		addLine("\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;");
-		addLine("\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;");
-		addLine("\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";");
-		addLine("\t\t\t\tCOPY_PHASE_STRIP = YES;");
-		addLine("\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;");
-		addLine("\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES;");
-		addLine("\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES;");
-		addLine("\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;");
-		addLine("\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 6.0;");
-		addLine("\t\t\t\tOTHER_CFLAGS = \"-DNS_BLOCK_ASSERTIONS=1\";");
-		addLine("\t\t\t\tSDKROOT = iphoneos;");
-		addLine("\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";");
-		addLine("\t\t\t\tVALIDATE_PRODUCT = YES;");
+		
+		for(key in _xCodeSettings.releaseBuildSettings.keys())
+			addLine("\t\t\t\t" + key + " = " + _xCodeSettings.releaseBuildSettings.get(key) + ";");
 		
 		addLine("\t\t\t};");
 		addLine("\t\t\tname = Release;");
@@ -480,15 +422,10 @@ class XCodeProject
 		addLine("\t\t" + _debug2ID + " /* Debug */ = {");
 		addLine("\t\t\tisa = XCBuildConfiguration;");
 		addLine("\t\t\tbuildSettings = {");
-		addLine("\t\t\t\tGCC_PRECOMPILE_PREFIX_HEADER = YES;");
-		addLine("\t\t\t\tGCC_PREFIX_HEADER = \"Files/prefix.pch\";");
-		addLine("\t\t\t\tINFOPLIST_FILE = \"Files/" + name + "-Info.plist\";");
-		addLine("\t\t\t\tLIBRARY_SEARCH_PATHS = (");
-		addLine("\t\t\t\t\t\"$(inherited)\",");
-		addLine("\t\t\t\t\t\"$(SRCROOT)/Files/**\",");
-		addLine("\t\t\t\t\t);");
-		addLine("\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";");
-		addLine("\t\t\t\tWRAPPER_EXTENSION = app;");
+
+		for(key in _xCodeSettings.debugTargetSettings.keys())
+			addLine("\t\t\t\t" + key + " = " + _xCodeSettings.debugTargetSettings.get(key) + ";");		
+
 		addLine("\t\t\t};");
 		addLine("\t\t\tname = Debug;");
 		addLine("\t\t};");
@@ -496,15 +433,10 @@ class XCodeProject
 		addLine("\t\t" + _release2ID + " /* Release */ = {");
 		addLine("\t\t\tisa = XCBuildConfiguration;");
 		addLine("\t\t\tbuildSettings = {");
-		addLine("\t\t\t\tGCC_PRECOMPILE_PREFIX_HEADER = YES;");
-		addLine("\t\t\t\tGCC_PREFIX_HEADER = \"Files/prefix.pch\";");
-		addLine("\t\t\t\tINFOPLIST_FILE = \"Files/" + name + "-Info.plist\";");
-		addLine("\t\t\t\tLIBRARY_SEARCH_PATHS = (");
-		addLine("\t\t\t\t\t\"$(inherited)\",");
-		addLine("\t\t\t\t\t\"$(SRCROOT)/Files/**\",");
-		addLine("\t\t\t\t\t);");
-		addLine("\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";");
-		addLine("\t\t\t\tWRAPPER_EXTENSION = app;");
+		
+		for(key in _xCodeSettings.releaseTargetSettings.keys())
+			addLine("\t\t\t\t" + key + " = " + _xCodeSettings.releaseTargetSettings.get(key) + ";");
+
 		addLine("\t\t\t};");
 		addLine("\t\t\tname = Release;");
 		addLine("\t\t};");
@@ -515,7 +447,6 @@ class XCodeProject
 	
 	private function addXCConfigurationListSection():Void
 	{
-	
 		addLine("/* Begin XCConfigurationList section */");
 		addLine("\t\t" + _buildConfigurationListID + " /* Build configuration list for PBXProject \"" + name + "\" */ = {");
 		addLine("\t\t\tisa = XCConfigurationList;");
@@ -571,6 +502,10 @@ class XCodeProject
 				return "compiled.mach-o.objfile";	
 			case "a":
 				return "archive.ar";
+			case "ndll":
+				return "archive.ar";
+			case "dylib":
+				return "compiled.mach-o.dylib";	
 			case "pdf":
 				return "image.pdf";
 			case "png":
@@ -594,7 +529,7 @@ class XCodeProject
 	private function fileIsSource(file:FileResource):Bool
 	{
 		var extension:String = FileUtil.getFileExtention(file.name);
-		if(extension == "o" || extension == "a" || extension == "file" )
+		if(extension == "o" || extension == "a" || extension == "file" || extension == "ndll" || extension == "dylib" )
 			return false;
 		
 		return true;
@@ -610,7 +545,7 @@ class XCodeProject
 	{
 		var extention:String = FileUtil.getFileExtention(file.name);
 		
-		if(extention == "a" || extention == "o")
+		if(extention == "a" || extention == "o" || extention == "ndll" || extention == "dylib")
 		{
 			_frameworkFiles.push(file);
 		}
@@ -649,4 +584,170 @@ class XCodeProject
 		return name + ".xcodeproj";
 	}
 	
+}
+
+
+
+class FileResource
+{
+	public var name:String;
+	public var guid:String;
+	public var fileRef:String;
+	public var path:String;
+	
+	public function new(name:String, guid:String, fileRef:String, ?path:String="")
+	{
+		this.name = name;
+		this.guid = guid;
+		this.fileRef = fileRef;
+		this.path = path;
+	}
+}
+
+class GroupResource extends FileResource
+{
+	public var items:Array<FileResource>;
+	public var isResource:Bool;
+	
+	public function new(name:String, guid:String, fileRef:String, items:Array<FileResource>, ?path:String="", ?isResource = false)
+	{
+		super(name, guid, fileRef, path);
+		this.items = items;
+		this.isResource = isResource;
+	}
+}
+
+class XCodeSettings
+{
+	public var debugBuildSettings:Map<String, String>;
+	public var releaseBuildSettings:Map<String, String>;
+	public var debugTargetSettings:Map<String, String>;
+	public var releaseTargetSettings:Map<String, String>;
+
+	public function new(projectName:String, osType:String)
+	{
+		debugBuildSettings = new Map<String, String>();
+		releaseBuildSettings = new Map<String, String>();
+		debugTargetSettings = new Map<String, String>();
+		releaseTargetSettings = new Map<String, String>();
+		
+		if(osType == "ios")
+		{
+			debugBuildSettings.set("ALWAYS_SEARCH_USER_PATHS", "NO");
+			debugBuildSettings.set("CLANG_CXX_LANGUAGE_STANDARD", "\"gnu++0x\"");
+			debugBuildSettings.set("CLANG_CXX_LIBRARY", "\"libstdc++\"");
+			debugBuildSettings.set("CLANG_ENABLE_OBJC_ARC", "YES");
+			debugBuildSettings.set("CLANG_WARN_EMPTY_BODY", "YES");
+			debugBuildSettings.set("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES");
+			debugBuildSettings.set("\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\"", "\"iPhone Developer\"");
+			debugBuildSettings.set("COPY_PHASE_STRIP", "NO");
+			debugBuildSettings.set("GCC_C_LANGUAGE_STANDARD", "gnu99");
+			debugBuildSettings.set("GCC_DYNAMIC_NO_PIC", "NO");
+			debugBuildSettings.set("GCC_OPTIMIZATION_LEVEL", "0");
+			debugBuildSettings.set("GCC_PREPROCESSOR_DEFINITIONS", "(\n\t\"DEBUG=1\",\n\t\"$(inherited)\",\n)");
+			debugBuildSettings.set("GCC_SYMBOLS_PRIVATE_EXTERN", "NO");
+			debugBuildSettings.set("GCC_WARN_ABOUT_RETURN_TYPE", "YES");
+			debugBuildSettings.set("GCC_WARN_UNINITIALIZED_AUTOS", "YES");
+			debugBuildSettings.set("GCC_WARN_UNUSED_VARIABLE", "YES");
+			debugBuildSettings.set("IPHONEOS_DEPLOYMENT_TARGET", "6.0");
+			debugBuildSettings.set("ONLY_ACTIVE_ARCH", "YES");
+			debugBuildSettings.set("SDKROOT", "iphoneos");
+			debugBuildSettings.set("TARGETED_DEVICE_FAMILY", "\"1,2\"");
+			
+			releaseBuildSettings.set("ALWAYS_SEARCH_USER_PATHS", "NO");
+			releaseBuildSettings.set("CLANG_CXX_LANGUAGE_STANDARD", "\"gnu++0x\"");
+			releaseBuildSettings.set("CLANG_CXX_LIBRARY", "\"libc++\"");
+			releaseBuildSettings.set("CLANG_ENABLE_OBJC_ARC", "YES");
+			releaseBuildSettings.set("CLANG_WARN_EMPTY_BODY", "YES");
+			releaseBuildSettings.set("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES");
+			releaseBuildSettings.set("\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\"", "\"iPhone Developer\"");
+			releaseBuildSettings.set("COPY_PHASE_STRIP", "YES");
+			releaseBuildSettings.set("GCC_C_LANGUAGE_STANDARD", "gnu99");
+			releaseBuildSettings.set("GCC_WARN_ABOUT_RETURN_TYPE", "YES");
+			releaseBuildSettings.set("GCC_WARN_UNINITIALIZED_AUTOS", "YES");
+			releaseBuildSettings.set("GCC_WARN_UNUSED_VARIABLE", "YES");
+			releaseBuildSettings.set("IPHONEOS_DEPLOYMENT_TARGET", "6.0");
+			releaseBuildSettings.set("OTHER_CFLAGS", "\"-DNS_BLOCK_ASSERTIONS=1\"");
+			releaseBuildSettings.set("SDKROOT", "iphoneos");
+			releaseBuildSettings.set("TARGETED_DEVICE_FAMILY", "\"1,2\"");
+			releaseBuildSettings.set("VALIDATE_PRODUCT", "YES");
+			
+			debugTargetSettings.set("GCC_PRECOMPILE_PREFIX_HEADER", "YES");
+			debugTargetSettings.set("GCC_PREFIX_HEADER", "\"Files/prefix.pch\"");
+			debugTargetSettings.set("INFOPLIST_FILE", "\"Files/" + projectName + "-Info.plist\"");
+			debugTargetSettings.set("LIBRARY_SEARCH_PATHS", "(\n\t\"$(inherited)\",\n\t\"$(SRCROOT)/Files/**\",\n)");
+			debugTargetSettings.set("PRODUCT_NAME", "\"$(TARGET_NAME)\"");
+			debugTargetSettings.set("WRAPPER_EXTENSION", "app");
+			
+			releaseTargetSettings.set("GCC_PRECOMPILE_PREFIX_HEADER", "YES");
+			releaseTargetSettings.set("GCC_PREFIX_HEADER", "\"Files/prefix.pch\"");
+			releaseTargetSettings.set("INFOPLIST_FILE", "\"Files/" + projectName + "-Info.plist\"");
+			releaseTargetSettings.set("LIBRARY_SEARCH_PATHS", "(\n\t\"$(inherited)\",\n\t\"$(SRCROOT)/Files/**\",\n)");
+			releaseTargetSettings.set("PRODUCT_NAME", "\"$(TARGET_NAME)\"");
+			releaseTargetSettings.set("WRAPPER_EXTENSION", "app");
+		}
+		else
+		{
+			debugBuildSettings.set("ALWAYS_SEARCH_USER_PATHS", "NO");
+			debugBuildSettings.set("ARCHS", "\"$(ARCHS_STANDARD_64_BIT)\"");
+			debugBuildSettings.set("CLANG_CXX_LANGUAGE_STANDARD", "\"gnu++0x\"");
+			debugBuildSettings.set("CLANG_CXX_LIBRARY", "\"libc++\"");
+			debugBuildSettings.set("CLANG_ENABLE_OBJC_ARC", "YES");
+			debugBuildSettings.set("CLANG_WARN_CONSTANT_CONVERSION", "YES");
+			debugBuildSettings.set("CLANG_WARN_EMPTY_BODY", "YES");
+			debugBuildSettings.set("CLANG_WARN_ENUM_CONVERSION", "YES");
+			debugBuildSettings.set("CLANG_WARN_INT_CONVERSION", "YES");
+			debugBuildSettings.set("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES");
+			debugBuildSettings.set("COPY_PHASE_STRIP", "NO");
+			debugBuildSettings.set("GCC_C_LANGUAGE_STANDARD", "gnu99");
+			debugBuildSettings.set("GCC_DYNAMIC_NO_PIC", "NO");
+			debugBuildSettings.set("GCC_ENABLE_OBJC_EXCEPTIONS", "YES");
+			debugBuildSettings.set("GCC_OPTIMIZATION_LEVEL", "0");
+			debugBuildSettings.set("GCC_PREPROCESSOR_DEFINITIONS", "(\n\t\"DEBUG=1\",\n\t\"$(inherited)\",\n)");
+			debugBuildSettings.set("GCC_SYMBOLS_PRIVATE_EXTERN", "NO");
+			debugBuildSettings.set("GCC_WARN_64_TO_32_BIT_CONVERSION", "YES");
+			debugBuildSettings.set("GCC_WARN_ABOUT_RETURN_TYPE", "YES");
+			debugBuildSettings.set("GCC_WARN_UNINITIALIZED_AUTOS", "YES");
+			debugBuildSettings.set("GCC_WARN_UNUSED_VARIABLE", "YES");
+			debugBuildSettings.set("MACOSX_DEPLOYMENT_TARGET", "10.8");
+			debugBuildSettings.set("ONLY_ACTIVE_ARCH", "YES");
+			debugBuildSettings.set("SDKROOT", "macosx");
+			
+			releaseBuildSettings.set("ALWAYS_SEARCH_USER_PATHS", "NO");
+			releaseBuildSettings.set("ARCHS", "\"$(ARCHS_STANDARD_64_BIT)\"");
+			releaseBuildSettings.set("CLANG_CXX_LANGUAGE_STANDARD", "\"gnu++0x\"");
+			releaseBuildSettings.set("CLANG_CXX_LIBRARY", "\"libc++\"");
+			releaseBuildSettings.set("CLANG_ENABLE_OBJC_ARC", "YES");
+			releaseBuildSettings.set("CLANG_WARN_CONSTANT_CONVERSION", "YES");
+			releaseBuildSettings.set("CLANG_WARN_EMPTY_BODY", "YES");
+			releaseBuildSettings.set("CLANG_WARN_ENUM_CONVERSION", "YES");
+			releaseBuildSettings.set("CLANG_WARN_INT_CONVERSION", "YES");
+			releaseBuildSettings.set("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES");
+			releaseBuildSettings.set("COPY_PHASE_STRIP", "YES");
+			releaseBuildSettings.set("DEBUG_INFORMATION_FORMAT", "\"dwarf-with-dsym\"");
+			releaseBuildSettings.set("GCC_C_LANGUAGE_STANDARD", "gnu99");
+			releaseBuildSettings.set("GCC_ENABLE_OBJC_EXCEPTIONS", "YES");
+			releaseBuildSettings.set("GCC_WARN_64_TO_32_BIT_CONVERSION", "YES");
+			releaseBuildSettings.set("GCC_WARN_ABOUT_RETURN_TYPE", "YES");
+			releaseBuildSettings.set("GCC_WARN_UNINITIALIZED_AUTOS", "YES");
+			releaseBuildSettings.set("GCC_WARN_UNUSED_VARIABLE", "YES");
+			releaseBuildSettings.set("MACOSX_DEPLOYMENT_TARGET", "10.8");
+			releaseBuildSettings.set("SDKROOT", "macosx");
+			
+			debugTargetSettings.set("COMBINE_HIDPI_IMAGES", "YES");
+			debugTargetSettings.set("GCC_PRECOMPILE_PREFIX_HEADER", "YES");
+			debugTargetSettings.set("GCC_PREFIX_HEADER", "\"Files/prefix.pch\"");
+			debugTargetSettings.set("INFOPLIST_FILE", "\"Files/" + projectName + "-Info.plist\"");
+			debugTargetSettings.set("PRODUCT_NAME", "\"$(TARGET_NAME)\"");
+			debugTargetSettings.set("WRAPPER_EXTENSION", "app");
+			
+			releaseTargetSettings.set("COMBINE_HIDPI_IMAGES", "YES");
+			releaseTargetSettings.set("GCC_PRECOMPILE_PREFIX_HEADER", "YES");
+			releaseTargetSettings.set("GCC_PREFIX_HEADER", "\"Files/prefix.pch\"");
+			releaseTargetSettings.set("INFOPLIST_FILE", "\"Files/" + projectName + "-Info.plist\"");
+			releaseTargetSettings.set("PRODUCT_NAME", "\"$(TARGET_NAME)\"");
+			releaseTargetSettings.set("WRAPPER_EXTENSION", "app");
+		}
+
+	}
 }

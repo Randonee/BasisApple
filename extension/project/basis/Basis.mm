@@ -1,7 +1,19 @@
+#ifdef IPHONE
+#import <UIKit/UIKit.h>
+#else
+#import <IOKit/IOKitLib.h> 
+#import <Cocoa/Cocoa.h>
+#endif
+
 #include <hx/CFFI.h>
 #import "BasisApplication.h"
 #import <Foundation/Foundation.h>
 #include "Util.mm"
+
+#ifdef IPHONE
+#include "ios/IOSUtil.mm"
+#endif
+
 #include "object/ObjectManagerCFFI.mm"
 #include "EventManagerCFFI.mm"
 #import "BasisStart.h"

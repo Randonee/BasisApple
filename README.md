@@ -23,7 +23,7 @@ Running the Example
 See https://github.com/Randonee/Basis for build instructions.
 
 * First download and install from trunk
-* Then, from the example directory run the command: haxelib run Basis build.basis apple
+* Then, from the example directory run the command: haxelib run Basis build.basis ios
 
 Documentation
 -------------

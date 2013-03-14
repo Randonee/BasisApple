@@ -1,4 +1,3 @@
-#import <UIKit/UIKit.h>
 #import "BasisApplication.h"
 
 namespace basis
