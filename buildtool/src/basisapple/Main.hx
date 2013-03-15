@@ -5,6 +5,13 @@ class Main
 {
 	static public function main():Void
 	{
-		new AppleBuildTool().build();
+		try
+		{
+			new AppleBuildTool().build();
+		}
+		catch(error:String)
+		{
+			neko.Lib.println(error);
+		}
 	}
 }
