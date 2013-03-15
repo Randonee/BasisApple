@@ -1,11 +1,10 @@
 package example;
 
+import basis.BasisApplication;
 import basis.ios.IOSUtil;
 import basis.object.IObject;
 import apple.ui.*;
 import apple.ui.UINavigationBar;
-
-import basis.BasisApplication;
 
 class MainView extends UIView
 {
@@ -87,7 +86,6 @@ class MainView extends UIView
 			_tableCellLabels.push("Cell Label " + Std.string(a));
 		
 		_table = new UITableView();
-		
 		_table.dataSource.titleForHeaderInSectionHandler = titleForHeaderInSection;
 		_table.dataSource.numberOfSectionsInTableViewHandler = numberOfSectionsInTableView;
 		_table.dataSource.numberOfRowsInSectionHandler = numberOfRowsInSection;
@@ -121,24 +119,6 @@ class MainView extends UIView
 		BasisApplication.instance.eventManager.addGlobalEventListener(UIDevice.UIDeviceOrientationDidChangeNotification(), onOrientationChange);
 	}
 	
-	private function animationsHandler():Void
-	{
-		if(_haxeImage.frame[0] < 600)
-			_haxeImage.frame = [600.0, 120, 100, 100];
-		else
-			_haxeImage.frame = [230.0, 120, 100, 100];
-	}
-	
-	private function animationsCompleteHandler(finished:Bool):Void
-	{
-		trace("Animation Complete");
-	}
-	
-	private function onAnimateButtonClick(object:IObject, type:String):Void
-	{
-		UIView.animateWithDuration(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn(), animationsHandler, animationsCompleteHandler);
-	}
-	
 	
 	private function onOrientationChange(type:String):Void
 	{
@@ -164,6 +144,30 @@ class MainView extends UIView
 		_outputField.text = _inputField.text;
 	}
 	
+	
+	//---------- Animation Handlers ----------
+	private function animationsHandler():Void
+	{
+		if(_haxeImage.frame[0] < 600)
+			_haxeImage.frame = [600.0, 120, 100, 100];
+		else
+			_haxeImage.frame = [230.0, 120, 100, 100];
+	}
+	
+	private function animationsCompleteHandler(finished:Bool):Void
+	{
+		trace("Animation Complete");
+	}
+	
+	private function onAnimateButtonClick(object:IObject, type:String):Void
+	{
+		UIView.animateWithDuration(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn(), animationsHandler, animationsCompleteHandler);
+	}
+	//----------------------------------------
+	
+	
+	//---------- Table Handlers ----------
+	//Datasource
 	private function titleForHeaderInSection(tableView:UITableView, section:Int):String
 	{
 		return "Section";
@@ -179,7 +183,6 @@ class MainView extends UIView
 		return 100;
 	}
 	
-	
 	private function cellForRowAtIndexPath(tableView:UITableView, indexPath:Array<Int>):UITableViewCell
 	{
 		var cell:UITableViewCell = _table.dequeueReusableCellWithIdentifier("TableCell");
@@ -191,9 +194,10 @@ class MainView extends UIView
 		return cell;
 	}
 	
-	
+	//Delegate
 	private function didSelectRowAtIndexPath(tableView:UITableView, indexPath:Array<Int>):Void
 	{
 		_tableEventLabel.text = _tableCellLabels[indexPath[1]];
 	}
+	//------------------------------------
 }
