@@ -28,6 +28,11 @@ class ComponentExample extends UIView
 	public function new()
 	{
 		super();
+		
+		autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | 
+							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
+							UIView.UIViewAutoresizingFlexibleBottomMargin();
+		
 		backgroundColor = [1.0, 1, 1, 1];
 		
 		_inputLabel = new UILabel();
@@ -134,7 +139,6 @@ class ComponentExample extends UIView
 	
 	private function animationsCompleteHandler(finished:Bool):Void
 	{
-		trace("Animation Complete");
 	}
 	
 	private function onAnimateButtonClick(object:IObject, type:String):Void
