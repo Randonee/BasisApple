@@ -24,12 +24,37 @@ class WebViewExample extends UIView
 							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
 							UIView.UIViewAutoresizingFlexibleBottomMargin();
 		addSubview(_webView);
-		
 		addEventListener(UIView.UIViewDidMoveToSuperview(), onAddedToSuperView);
+		
+		_webView.delegate.didFailLoadWithErrorHandler = didFailLoadWithError;
+		_webView.delegate.shouldStartLoadWithRequestHandler = shouldStartLoadWithRequest;
+		_webView.delegate.webViewDidFinishLoadHandler = webViewDidFinishLoad;
+		_webView.delegate.webViewDidStartLoadHandler = webViewDidStartLoad;
 	}
 	
 	private function onAddedToSuperView(object:IObject, type:String):Void
 	{
 		_webView.frame = [0.0, 0, frame[2], frame[3]];
+	}
+	
+	private function shouldStartLoadWithRequest(webViewDidStartLoad, url:String, navigationType:Int):Bool
+	{
+		trace("WebView: " + url);
+		return true;
+	}
+	
+	private function webViewDidFinishLoad(webViewDidStartLoad):Void
+	{
+		trace("WebView finished load");
+	}
+	
+	private function webViewDidStartLoad(webViewDidStartLoad):Void
+	{
+		trace("WebView started load");
+	}
+	
+	private function didFailLoadWithError(webViewDidStartLoad, error:String):Void
+	{
+		trace("WebView: " + error);
 	}
 }
