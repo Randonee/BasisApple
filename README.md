@@ -49,7 +49,7 @@ would become:
 
 **Delegates and Data Sources**
 
-You can not set delegates the same way you can in cocoa. Rather than set a delegate object you would set individual handler methods.
+You can not set delegates the same way you can in cocoa. Rather than set a delegate object you would set individual handler function.
 For example, UITableView handlers would be set like this:
 
 	var table:UITableView = new UITableView();
@@ -64,7 +64,7 @@ For example, UITableView handlers would be set like this:
 		return "Section Title";
 	}
 	
-	... the rest of the methods would follow.
+	... the rest of the functions would follow.
 
 **Events**
 
