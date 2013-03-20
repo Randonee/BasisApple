@@ -82,6 +82,22 @@
 		[self.objectManager destroyObject:((UITableViewCell *)object).contentView];
 		[self.objectManager destroyHaxeObject:((UITableViewCell *)object).contentView];
 	}
+	
+	if([object isKindOfClass:[UIViewController class]])
+	{
+		[self.objectManager destroyObject:((UIImagePickerController *)object).view];
+		[self.objectManager destroyHaxeObject:((UIImagePickerController *)object).view];
+	}
+	
+	if([object isKindOfClass:[UIPopoverController class]])
+	{
+		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
+		[self.objectManager destroyObject:contentViewController];
+		[self.objectManager destroyHaxeObject:contentViewController];
+		
+		[self.objectManager destroyObject:contentViewController.view];
+		[self.objectManager destroyHaxeObject:contentViewController.view];
+	}
 }
 
 -(void)objectBeingAdded:(id)object
@@ -134,6 +150,22 @@
 		UIBarButtonItem *item = (UIBarButtonItem *)[self.objectManager getObject:[ObjectManager getObjectID:object]];
 		item.target = [BasisApplication getInstance].eventManager;
 		item.action = @selector(onBarButtonItemActionEvent:);
+	}
+	
+	if([object isKindOfClass:[UIViewController class]])
+	{
+		[self.objectManager addObject:((UIViewController *)object).view ];
+		[self.objectManager createHaxeObject:((UIViewController *)object).view ];
+	}
+	
+	if([object isKindOfClass:[UIPopoverController class]])
+	{
+		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
+		[self.objectManager addObject:contentViewController];
+		[self.objectManager createHaxeObject:contentViewController];
+		
+		[self.objectManager addObject:contentViewController.view];
+		[self.objectManager createHaxeObject:contentViewController.view];
 	}
 }
 

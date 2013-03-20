@@ -58,12 +58,15 @@ class IOSApplication extends BasisApplication
 	
 		objectManager.addClass(apple.ui.UIView);
 		objectManager.addClass(apple.ui.UIView, "UITableViewCellContentView");
+		objectManager.addClass(apple.ui.UIView, "UILayoutContainerView");
+		objectManager.addClass(apple.ui.UIView, "UITransitionView");
 		objectManager.addClass(apple.ui.UILabel);
 		objectManager.addClass(apple.ui.UIControl);
 		objectManager.addClass(apple.ui.UIButton);
 		
 		objectManager.addClass(apple.ui.UITextField);
 		objectManager.addClass(apple.ui.UIImageView);
+		objectManager.addClass(apple.ui.UIImagePickerController);
 		objectManager.addClass(apple.ui.UIResponder);
 		objectManager.addClass(apple.ui.UIAlertView);
 		objectManager.addClass(apple.ui.UICollectionReusableView);
@@ -71,6 +74,7 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UICollectionViewCell);
 		objectManager.addClass(apple.ui.UICollectionViewCell);
 		objectManager.addClass(apple.ui.UIDatePicker);
+		objectManager.addClass(apple.ui.UINavigationController);
 		objectManager.addClass(apple.ui.UINavigationBar);
 		objectManager.addClass(apple.ui.UINavigationItem);
 		objectManager.addClass(apple.ui.UIPageControl);
@@ -78,11 +82,13 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIPickerView);
 		objectManager.addClass(apple.ui.UIResponder);
 		objectManager.addClass(apple.ui.UIPopoverBackgroundView);
+		objectManager.addClass(apple.ui.UIPopoverController);
 		objectManager.addClass(apple.ui.UIProgressView);
 		objectManager.addClass(apple.ui.UIProgressView);
 		objectManager.addClass(apple.ui.UIRefreshControl);
 		objectManager.addClass(apple.ui.UIScrollView);
 		objectManager.addClass(apple.ui.UISearchBar);
+		objectManager.addClass(apple.ui.UISearchDisplayController);
 		objectManager.addClass(apple.ui.UISegmentedControl);
 		objectManager.addClass(apple.ui.UISlider);
 		objectManager.addClass(apple.ui.UIStepper);
@@ -93,6 +99,7 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UITableViewHeaderFooterView);
 		objectManager.addClass(apple.ui.UITextView);
 		objectManager.addClass(apple.ui.UIView);
+		objectManager.addClass(apple.ui.UIViewController);
 		objectManager.addClass(apple.ui.UIWebView);
 		objectManager.addClass(apple.ui.UIWindow);
 	}
