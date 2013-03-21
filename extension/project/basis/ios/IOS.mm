@@ -12,3 +12,4 @@
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"
 #include "../../apple/ui/UINavigationBarDelegateCFFI.mm"
 #include "../../apple/ui/UIWebViewDelegateCFFI.mm"
+#include "../../apple/ui/UIPopoverControllerDelegateCFFI.mm"

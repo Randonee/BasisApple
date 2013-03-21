@@ -25,6 +25,7 @@
 #import "apple/ui/UITableViewDelegateImp.h"
 #import "apple/ui/UIWebViewDelegateImp.h"
 #import "apple/ui/UIBarButtonItemTarget.h"
+#import "apple/ui/UIPopoverControllerDelegateImp.h"
 
 #import "IOSApplication.h"
 #endif

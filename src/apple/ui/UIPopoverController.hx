@@ -24,14 +24,19 @@ class UIPopoverController extends AbstractObject
 		return null;
 	}
 	private static var uipopovercontroller_initWithContentViewController = Lib.load ("basis", "uipopovercontroller_initWithContentViewController", 1);
-	//Additions
-
+	
+	public var delegate(default, null):UIPopoverControllerDelegate;
+	
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = UIPopoverController;
 		super(type);
+		delegate = new UIPopoverControllerDelegate(this);
 	}
+	
+	//Additions
+
 
 	//Constants
 
