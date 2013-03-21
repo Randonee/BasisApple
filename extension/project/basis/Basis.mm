@@ -26,6 +26,10 @@
 #import "apple/ui/UIWebViewDelegateImp.h"
 #import "apple/ui/UIBarButtonItemTarget.h"
 #import "apple/ui/UIPopoverControllerDelegateImp.h"
+#import "apple/ui/UIImagePickerControllerDelegateImp.h"
+#import "apple/ui/UINavigationControllerDelegateImp.h"
+
+
 
 #import "IOSApplication.h"
 #endif

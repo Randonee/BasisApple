@@ -22,6 +22,8 @@
 		<file name="apple/ui/UINavigationBarDelegateImp.mm"/>
 		<file name="apple/ui/UIWebViewDelegateImp.mm"/>
 		<file name="apple/ui/UIPopoverControllerDelegateImp.mm"/>
+		<file name="apple/ui/UIImagePickerControllerDelegateImp.mm"/>
+		<file name="apple/ui/UINavigationControllerDelegateImp.mm"/>
 		<file name="basis/Basis.mm"/>
     </files>
 

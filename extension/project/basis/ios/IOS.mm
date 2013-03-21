@@ -13,3 +13,5 @@
 #include "../../apple/ui/UINavigationBarDelegateCFFI.mm"
 #include "../../apple/ui/UIWebViewDelegateCFFI.mm"
 #include "../../apple/ui/UIPopoverControllerDelegateCFFI.mm"
+#include "../../apple/ui/UIImagePickerControllerDelegateCFFI.mm"
+#include "../../apple/ui/UINavigationControllerDelegateCFFI.mm"

@@ -34,9 +34,7 @@ class UIPopoverController extends AbstractObject
 		super(type);
 		delegate = new UIPopoverControllerDelegate(this);
 	}
-	
 	//Additions
-
 
 	//Constants
 

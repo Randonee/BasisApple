@@ -9,10 +9,10 @@ class UIPopoverControllerDelegate
 	public var popoverControllerDidDismissPopoverHandler(default,default):UIPopoverController->Void;
 	public var popoverControllerShouldDismissPopoverHandler(default,default):UIPopoverController->Bool;
 	
-	public function new(talbeView:UIPopoverController)
+	public function new(controller:UIPopoverController)
 	{
 		var handlers:Array<Dynamic> = [popoverControllerDidDismissPopover, popoverControllerShouldDismissPopover];
-		uipopovercontrollerdelegate_create(talbeView.basisID, handlers);
+		uipopovercontrollerdelegate_create(controller.basisID, handlers);
 	}
 	private static var uipopovercontrollerdelegate_create = Lib.load("basis", "uipopovercontrollerdelegate_create", 2);
 	

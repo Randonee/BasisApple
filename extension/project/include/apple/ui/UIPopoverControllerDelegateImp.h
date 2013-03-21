@@ -14,3 +14,4 @@ AutoGCRoot *_popoverControllerShouldDismissPopoverHandler;
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController;
 - (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController;
 @end
+
