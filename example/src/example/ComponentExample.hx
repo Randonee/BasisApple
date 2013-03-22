@@ -120,6 +120,13 @@ class ComponentExample extends UIView
 	private function onButtonClick(object:IObject, type):Void
 	{
 		_inputField.text = "Button Clicked";
+		var picker:UIImagePickerController = new UIImagePickerController();
+        picker.sourceType = UIImagePickerController.UIImagePickerControllerSourceTypeSavedPhotosAlbum();
+        
+        var popover:UIPopoverController = UIPopoverController.initWithContentViewController(picker);
+        
+       popover.presentPopoverFromRectInViewPermittedArrowDirectionsAnimated([0.0,0.0, 500, 500], this, UIPopoverController.UIPopoverArrowDirectionAny(), true);
+
 	}
 	
 	private function onInputChanged(object:IObject, type):Void

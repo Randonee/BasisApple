@@ -12,17 +12,17 @@ class XmlAppleSettings extends XmlSettings
 		return new AppleTarget(parentTarget);
 	}
 	
-	override private function parseTarget(targetXML:Fast, currentTarget:Target):Void
+	override private function parseSettings(settingsXML:Fast, currentTarget:Target):Void
 	{
-		if(targetXML.hasNode.os)
-			parseOS(targetXML.node.os, currentTarget);
-		if(targetXML.hasNode.simulator)
-			parseSimulator(targetXML.node.simulator, currentTarget);
+		if(settingsXML.hasNode.os)
+			parseOS(settingsXML.node.os, currentTarget);
+		if(settingsXML.hasNode.simulator)
+			parseSimulator(settingsXML.node.simulator, currentTarget);
 		
-		for( framework in targetXML.nodes.framework )
+		for(framework in settingsXML.nodes.framework )
 			parseFramework(framework, currentTarget);
 		
-		super.parseTarget(targetXML, currentTarget);
+		super.parseSettings(settingsXML, currentTarget);
 	}
 	
 	private function parseOS(xml:Fast, currentTarget:Target):Void
