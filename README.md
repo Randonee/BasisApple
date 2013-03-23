@@ -33,7 +33,14 @@ For the most, part Apple's documentation can be used. Differences are outlined b
 * IOS: http://developer.apple.com/library/ios/navigation/
 * OSX: https://developer.apple.com/library/mac/navigation/
 
-**Methods**
+
+**Deleting Objects**
+
+You must call destroy on any basis object you create and want to remove.
+Because references to objects are stored so communication between hxcpp and objc is possible, objects are not removed until you call their destroy() method.
+
+
+**Method Names**
 
 Method names are a combination of the selector name and all argument descriptors.
 For example:
