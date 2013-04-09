@@ -33,6 +33,21 @@ class BasisApplication
 		_instance = Type.createInstance(applicationType, []);
 	}
 	
+	public static function enableTrace():Void
+	{
+		haxe.Log.trace = function(v : Dynamic, ?posInfo : haxe.PosInfos):Void
+		{
+			var description:String = "";
+			if(posInfo != null)
+				description = posInfo.fileName + " " + Std.string(posInfo.lineNumber) + ": ";
+				
+			basis_log(description + Std.string(v));
+		};
+	}
+	private static var basis_log = Lib.load ("basis", "basis_log", 1);
+	
+	
+	
 	private function new()
 	{
 		objectManager = new ObjectManager();
