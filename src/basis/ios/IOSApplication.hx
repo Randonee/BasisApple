@@ -95,6 +95,7 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UISwitch);
 		objectManager.addClass(apple.ui.UITabBar);
 		objectManager.addClass(apple.ui.UITableView);
+		objectManager.addClass(apple.ui.UITableViewController);
 		objectManager.addClass(apple.ui.UITableViewCell);
 		objectManager.addClass(apple.ui.UITableViewHeaderFooterView);
 		objectManager.addClass(apple.ui.UITextView);
