@@ -85,8 +85,8 @@
 	
 	if([object isKindOfClass:[UIViewController class]])
 	{
-		[self.objectManager destroyObject:((UIImagePickerController *)object).view];
-		[self.objectManager destroyHaxeObject:((UIImagePickerController *)object).view];
+		[self.objectManager destroyObject:((UIViewController *)object).view];
+		[self.objectManager destroyHaxeObject:((UIViewController *)object).view];
 	}
 	
 	if([object isKindOfClass:[UIPopoverController class]])
@@ -160,7 +160,7 @@
 	
 	if([object isKindOfClass:[UIPopoverController class]])
 	{
-		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
+		UIPopoverController *contentViewController = ((UIPopoverController *)object).contentViewController;
 		[self.objectManager addObject:contentViewController];
 		[self.objectManager createHaxeObject:contentViewController];
 		
