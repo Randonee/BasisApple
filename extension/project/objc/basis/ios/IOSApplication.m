@@ -160,7 +160,7 @@
 	
 	if([object isKindOfClass:[UIPopoverController class]])
 	{
-		UIPopoverController *contentViewController = ((UIPopoverController *)object).contentViewController;
+		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
 		[self.objectManager addObject:contentViewController];
 		[self.objectManager createHaxeObject:contentViewController];
 		
