@@ -184,17 +184,24 @@ class AppleBuildTool extends basis.BuildTool
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_INCLUDE", "#include <" + StringTools.replace(mainClass, ".", "/") + ".h>" );
 			basisStartContent = StringTools.replace(basisStartContent, "MAIN_CLASS", "::" + StringTools.replace(mainClass, ".", "::") + "_obj::main();");
 			
-			var args:String = "";
+			var args:Array<String> = ["run", "hxcpp", "BuildBasisStart.xml"];
 			
 			if(osType == IOS_OS())
 			{
-				args = "-D" + deviceTarget.getDeviceTypeCompilerArgument();
+				args.push("-D" + deviceTarget.getDeviceTypeCompilerArgument());
+				if(deviceTarget.getSetting(AppleTarget.SIMULATOR) != "true")
+				{
+					args.push("-Diphone");
+					args.push("-DHXCPP_ARMV7");
+				}
+					
+				
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/ios/IOSApplication.h>");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::ios::IOSApplication >());");
 			}
 			else if(osType == OSX_OS())
 			{
-				args = "-DHXCPP_M64";
+				args.push("-DHXCPP_M64");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/osx/OSXApplication.h>");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::osx::OSXApplication >());");
 			}
@@ -203,7 +210,7 @@ class AppleBuildTool extends basis.BuildTool
 			fout.writeString(basisStartContent);
 			fout.close();
 			
-			ProcessUtil.runCommand(targetPath + "/haxe/cpp", "haxelib", ["run", "hxcpp", "BuildBasisStart.xml", args]);
+			ProcessUtil.runCommand(targetPath + "/haxe/cpp", "haxelib", args);
 			//------------------------------------
 			
 			//------------ Copy Libs -------------
@@ -220,6 +227,8 @@ class AppleBuildTool extends basis.BuildTool
 				}
 				else
 				{
+					FileUtil.copyInto(haxeBuildPath + "cpp/obj/iphoneos-v7/src/", xcodeBin);
+				
 					File.copy(libPath + "bin/iPhone/libbasisapple.iphoneos-v7.a" , xcodeBin + "/libbasisapple.iphoneos-v7.a");
 					File.copy(libPath + "bin/iPhone/libbasisapple.iphoneos.a" , xcodeBin + "/libbasisapple.iphoneos.a");
 						
