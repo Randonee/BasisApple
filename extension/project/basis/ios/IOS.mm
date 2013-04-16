@@ -3,6 +3,7 @@
 #include "../../apple/ui/UITableViewCFFI_additions.mm"
 #include "../../apple/ui/UITableViewCellCFFI_additions.mm"
 #include "../../apple/ui/UIPopoverControllerCFFI_additions.mm"
+#include "../../apple/ui/UIImagePickerControllerCFFI_additions.mm"
 #include "../../apple/ui/UIViewCFFI_additions.mm"
 #include "../../apple/ui/UIScreenCFFI.mm"
 #include "../../apple/ui/UIDeviceCFFI.mm"

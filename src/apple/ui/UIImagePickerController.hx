@@ -25,15 +25,17 @@ class UIImagePickerController extends UINavigationController
 	{
 		delegate = new UIImagePickerControllerDelegate(this);
 	}
+	
+	static function isSourceTypeAvailable(sourceType:Int):Bool
+	{
+		return uitableview_initWithFrameStyle(uiimagepickercontroller_isSourceTypeAvailable(sourceType));
+	}
+	private static var uiimagepickercontroller_isSourceTypeAvailable = Lib.load ("basis", "uiimagepickercontroller_isSourceTypeAvailable", 1);
 	//Additions
 
 	//Constants
 
 	//Static Methods
-	static public function isSourceTypeAvailable( sourceType:Int):Bool
-	{
-		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIImagePickerController", "isSourceTypeAvailable:", [sourceType], [TypeValues.IntVal()], TypeValues.BoolVal());
-	}
 	static public function isCameraDeviceAvailable( cameraDevice:Int):Bool
 	{
 		return BasisApplication.instance.objectManager.callClassMethod("apple.ui.UIImagePickerController", "isCameraDeviceAvailable:", [cameraDevice], [TypeValues.IntVal()], TypeValues.BoolVal());
