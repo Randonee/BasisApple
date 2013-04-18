@@ -88,6 +88,7 @@ class AppleBuildTool extends basis.BuildTool
 			if(osType == IOS_OS())
 			{
 				buildFile.writeString("-D ios\n");
+				buildFile.writeString("-D HXCPP_ARMV7\n");
 				buildFile.writeString("-D " + deviceTarget.getDeviceTypeCompilerArgument() + "\n");
 			}
 			else

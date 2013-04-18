@@ -92,9 +92,6 @@
 	if([object isKindOfClass:[UIPopoverController class]])
 	{
 		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
-		[self.objectManager destroyObject:contentViewController];
-		[self.objectManager destroyHaxeObject:contentViewController];
-		
 		[self.objectManager destroyObject:contentViewController.view];
 		[self.objectManager destroyHaxeObject:contentViewController.view];
 	}
@@ -161,9 +158,6 @@
 	if([object isKindOfClass:[UIPopoverController class]])
 	{
 		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
-		[self.objectManager addObject:contentViewController];
-		[self.objectManager createHaxeObject:contentViewController];
-		
 		[self.objectManager addObject:contentViewController.view];
 		[self.objectManager createHaxeObject:contentViewController.view];
 	}

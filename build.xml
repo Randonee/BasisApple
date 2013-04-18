@@ -17,7 +17,7 @@
 		<delete dir="extension/project/obj" failOnError="false" includeEmptyDirs="true"/>
 						
 		<exec dir="extension/project" failonerror="true" executable="haxelib">
-			<arg line="run hxcpp Build.xml -Dmacos" />
+			<arg line="run hxcpp Build.xml -Dmacos -DHXCPP_M64" />
 		</exec>
 	</target>
 	
