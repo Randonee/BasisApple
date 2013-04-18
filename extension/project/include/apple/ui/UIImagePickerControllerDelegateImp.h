@@ -14,6 +14,7 @@ AutoGCRoot *_imagePickerControllerDidCancelHandler;
 				  :(AutoGCRoot * ) didShowViewControllerHandler
 				  :(AutoGCRoot * ) willShowViewControllerPopoverHandler;
 
+- (value) uiImageToString:(UIImage*) image;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
 @end

@@ -1,5 +1,6 @@
 #import "apple/ui/UIImagePickerControllerDelegateImp.h"
 #import "BasisApplication.h"
+#import "../../include/tools/Base64.h"
 
 
 @implementation UIImagePickerControllerDelegateImp
@@ -16,14 +17,29 @@
 }
 
 
+-(value) uiImageToString:(UIImage*) image
+{
+	NSData *data = UIImageJPEGRepresentation(image, 1.0f);
+	[Base64 initialize];
+	NSString *strEncoded = [Base64 encode:data];
+	return alloc_string([strEncoded cStringUsingEncoding:NSASCIIStringEncoding]);
+}
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	value arr = alloc_array(7); 
 	val_array_set_i(arr, 0, alloc_string([[info objectForKey: UIImagePickerControllerMediaType] cStringUsingEncoding:NSUTF8StringEncoding]));
-	val_array_set_i(arr, 1, alloc_string(""));
-	val_array_set_i(arr, 2, alloc_string(""));
-	val_array_set_i(arr, 3, alloc_string(""));
+	
+	UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
+	if(image != nil)
+		val_array_set_i(arr, 1, [self uiImageToString:image]);
+	
+	image = [info objectForKey: UIImagePickerControllerEditedImage];
+	if(image != nil)
+		val_array_set_i(arr, 2, [self uiImageToString:image]);
+	
+	val_array_set_i(arr, 3, alloc_string("UIImagePickerControllerCropRect"));
 	
 	NSURL *url = [info objectForKey: UIImagePickerControllerMediaURL];
 	if(url != nil)
@@ -37,7 +53,7 @@
 	else
 		val_array_set_i(arr, 5, alloc_string(""));
 		
-	val_array_set_i(arr, 6, alloc_string(""));
+	val_array_set_i(arr, 6, alloc_string("UIImagePickerControllerMediaMetadata"));
 	
 	NSString *objectID = [ObjectManager getObjectID:picker];
 	val_call2(_didFinishPickingMediaWithInfoHandler->get(), alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]), arr);
