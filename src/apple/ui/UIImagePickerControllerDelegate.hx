@@ -3,6 +3,8 @@ package apple.ui;
 import cpp.Lib;
 import basis.BasisApplication;
 import basis.object.AbstractObject;
+import basis.util.BaseCode64;
+import haxe.io.Bytes;
 
 class UIImagePickerControllerDelegate extends UINavigationControllerDelegate
 {
@@ -26,6 +28,8 @@ class UIImagePickerControllerDelegate extends UINavigationControllerDelegate
 	{
 		if(didFinishPickingMediaWithInfoHandler != null)
 		{
+			info[1] = BaseCode64.decodeBytesData(info[1]);
+			info[2] = BaseCode64.decodeBytesData(info[2]);
 			var controller:UIImagePickerController = cast(BasisApplication.instance.objectManager.getObject(controllerID), UIImagePickerController);
 			didFinishPickingMediaWithInfoHandler(controller, info);
 		}

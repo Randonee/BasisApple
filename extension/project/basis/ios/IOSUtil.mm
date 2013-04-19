@@ -1,11 +1,3 @@
-value basis_getBundlePath()
-{
-	NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@""];
-	return alloc_string([filePath cStringUsingEncoding:NSUTF8StringEncoding]);
-}
-DEFINE_PRIM (basis_getBundlePath, 0);
-
-
 
 value uiEdgeInsetsToArray(UIEdgeInsets edgeInset)
 {

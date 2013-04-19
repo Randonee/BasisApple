@@ -21,6 +21,13 @@ class IOSUtil
 		return cpp_basis_getBundlePath() + "/assets/" + fileName;
 	}
 	
+	static public function getDocumentsDirectoryPath():String
+	{
+		return basis_getDocumentsDirectoryPath();
+	}
+	private static var basis_getDocumentsDirectoryPath = Lib.load ("basis", "basis_getDocumentsDirectoryPath", 0);
+	
+	
 	//------ For Unit Tests --------
 	static public function quitForUnitTests():String
 	{

@@ -1,3 +1,18 @@
+value basis_getBundlePath()
+{
+	NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@""];
+	return alloc_string([filePath cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+DEFINE_PRIM (basis_getBundlePath, 0);
+
+
+value basis_getDocumentsDirectoryPath()
+{
+	NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	return alloc_string([docDir cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+DEFINE_PRIM (basis_getDocumentsDirectoryPath, 0);
+
 
 void basis_log(value message)
 {
