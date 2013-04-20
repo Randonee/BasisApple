@@ -13,6 +13,14 @@ import basis.object.TypeValues;
 class UIImageView extends UIView
 {
 
+	//Additions
+	public function setImageFromURL(url:String):Void
+	{
+		uiimageview_setImageFromURL(basisID, url);
+	}
+	private static var uiimageview_setImageFromURL = Lib.load ("basis", "uiimageview_setImageFromURL", 2);
+	//Additions
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
