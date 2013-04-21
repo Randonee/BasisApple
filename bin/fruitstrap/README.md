@@ -1,3 +1,5 @@
+Found at: https://github.com/j3k0/fruitstrap
+
 fruitstrap
 ==========
 Install and debug iPhone apps without using Xcode. Designed to work on unjailbroken devices.
