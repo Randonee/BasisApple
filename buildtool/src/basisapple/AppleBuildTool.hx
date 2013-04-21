@@ -65,6 +65,16 @@ class AppleBuildTool extends basis.BuildTool
 			var appName:String = deviceTarget.getSetting(Target.APP_NAME);
 		
 			var targetPath:String = deviceTarget.getSetting(Target.BUILD_DIR) + "/" + osType;
+			
+			if(osType == IOS_OS())
+			{
+				if(deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
+					targetPath += "/simulator";
+				else
+					targetPath += "/device";
+			}
+			
+			
 			FileUtil.createDirectory(targetPath);
 			
 			var haxeBuildPath:String = targetPath + "/haxe/";
@@ -304,24 +314,34 @@ class AppleBuildTool extends basis.BuildTool
 			ProcessUtil.runCommand(targetPath, "xcodebuild", commands);
 			//------------------------------------
 			
-			
 			//-------- Run Xcode Project ---------
 			if(deviceTarget.getSetting(Target.RUN_WHEN_FINISHED) == "true")
 			{
 				if(osType == IOS_OS())
 				{
-					var launcher:String = libPath + "/bin/ios-sim";
-					Sys.command ("chmod", [ "+x", launcher ]);
-					
-					var family:String = "iphone";
-					if(deviceTarget.getSetting(AppleTarget.SIMULATOR_TYPE) == "ipad")
-						family = "ipad";
-					
-					ProcessUtil.runCommand ("", launcher, [ "launch", FileSystem.fullPath (targetPath + "/build/Debug-iphonesimulator/" + appName + ".app"), "--family", family ] );
+					if (deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
+					{
+						neko.Lib.println("Running On Simulator...");
+						var launcher:String = libPath + "/bin/ios-sim";
+						Sys.command ("chmod", [ "+x", launcher ]);
+						
+						var family:String = "iphone";
+						if(deviceTarget.getSetting(AppleTarget.SIMULATOR_TYPE) == "ipad")
+							family = "ipad";
+						
+							ProcessUtil.runCommand ("", launcher, [ "launch", FileSystem.fullPath (targetPath + "/build/Debug-iphonesimulator/" + appName + ".app"), "--family", family ] );
+					}
+					else
+					{
+						neko.Lib.println("Running On Device...");
+						var launcher:String = libPath + "/bin/fruitstrap/fruitstrap";
+						Sys.command ("chmod", [ "+x", launcher ]);
+						ProcessUtil.runCommand ("", launcher, [ "-d", "-b", FileSystem.fullPath (targetPath + "/build/Debug-iphoneos/" + appName + ".app") ] );
+					}
 				}
 				else
 				{
-				
+					neko.Lib.println("Run when complete not yet supported for osx");
 				}
 			}
 				//------------------------------------
