@@ -653,10 +653,11 @@ class XCodeSettings
 			debugBuildSettings.set("ONLY_ACTIVE_ARCH", "YES");
 			debugBuildSettings.set("SDKROOT", "iphoneos");
 			debugBuildSettings.set("TARGETED_DEVICE_FAMILY", "\"1,2\"");
+			debugBuildSettings.set("VALID_ARCHS", "armv7");
 			
 			releaseBuildSettings.set("ALWAYS_SEARCH_USER_PATHS", "NO");
 			releaseBuildSettings.set("CLANG_CXX_LANGUAGE_STANDARD", "\"gnu++0x\"");
-			releaseBuildSettings.set("CLANG_CXX_LIBRARY", "\"libc++\"");
+			releaseBuildSettings.set("CLANG_CXX_LIBRARY", "\"libstdc++\"");
 			releaseBuildSettings.set("CLANG_ENABLE_OBJC_ARC", "YES");
 			releaseBuildSettings.set("CLANG_WARN_EMPTY_BODY", "YES");
 			releaseBuildSettings.set("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES");
@@ -671,6 +672,7 @@ class XCodeSettings
 			releaseBuildSettings.set("SDKROOT", "iphoneos");
 			releaseBuildSettings.set("TARGETED_DEVICE_FAMILY", "\"1,2\"");
 			releaseBuildSettings.set("VALIDATE_PRODUCT", "YES");
+			releaseBuildSettings.set("VALID_ARCHS", "armv7");
 			
 			debugTargetSettings.set("GCC_PRECOMPILE_PREFIX_HEADER", "YES");
 			debugTargetSettings.set("GCC_PREFIX_HEADER", "\"Files/prefix.pch\"");
@@ -678,6 +680,7 @@ class XCodeSettings
 			debugTargetSettings.set("LIBRARY_SEARCH_PATHS", "(\n\t\"$(inherited)\",\n\t\"$(SRCROOT)/Files/**\",\n)");
 			debugTargetSettings.set("PRODUCT_NAME", "\"$(TARGET_NAME)\"");
 			debugTargetSettings.set("WRAPPER_EXTENSION", "app");
+			debugTargetSettings.set("VALID_ARCHS", "armv7");
 			
 			releaseTargetSettings.set("GCC_PRECOMPILE_PREFIX_HEADER", "YES");
 			releaseTargetSettings.set("GCC_PREFIX_HEADER", "\"Files/prefix.pch\"");
@@ -685,6 +688,7 @@ class XCodeSettings
 			releaseTargetSettings.set("LIBRARY_SEARCH_PATHS", "(\n\t\"$(inherited)\",\n\t\"$(SRCROOT)/Files/**\",\n)");
 			releaseTargetSettings.set("PRODUCT_NAME", "\"$(TARGET_NAME)\"");
 			releaseTargetSettings.set("WRAPPER_EXTENSION", "app");
+			releaseTargetSettings.set("VALID_ARCHS", "armv7");
 		}
 		else
 		{
