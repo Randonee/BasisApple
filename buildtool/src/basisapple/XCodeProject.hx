@@ -85,6 +85,18 @@ class XCodeProject
 		_projectResource = new FileResource(name+".app",  createGUID(), createGUID());
 	}
 	
+	public function setBuildSetting(setting:String, value:String):Void
+	{
+		_xCodeSettings.debugBuildSettings.set(setting, value);
+		_xCodeSettings.releaseBuildSettings.set(setting, value);
+	}
+	
+	public function setTargetSetting(setting:String, value:String):Void
+	{
+		_xCodeSettings.debugTargetSettings.set(setting, value);
+		_xCodeSettings.releaseTargetSettings.set(setting, value);
+	}
+	
 	public function addSouce(name:String):Void
 	{
 		var fileRes:FileResource = new FileResource(name, createGUID(), createGUID(), _filesGroup.path + name);

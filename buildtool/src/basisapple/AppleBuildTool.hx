@@ -296,6 +296,13 @@ class AppleBuildTool extends basis.BuildTool
 			for(b in 0...frameworks.length)
 				xcode.addFramework(frameworks[b]);
 				
+			if (deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
+			{
+				xcode.setBuildSetting("VALID_ARCHS", "i386");
+				xcode.setTargetSetting("VALID_ARCHS", "i386");
+			}
+			
+				
 			xcode.save(targetPath, true);
 			//------------------------------------
 			
