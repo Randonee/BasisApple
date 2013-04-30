@@ -51,6 +51,11 @@ class AppleBuildTool extends basis.BuildTool
 			var assetPaths:Array<String> = deviceTarget.getCollection(Target.ASSET_PATHS, true);
 			var haxeLibs:Array<String> = deviceTarget.getCollection(Target.HAXE_LIBS, true);
 			
+			var plistLocation:String = deviceTarget.getSetting(AppleTarget.PLIST);
+			var configuration:String = deviceTarget.getSetting(AppleTarget.CONFIGURATION);
+			if(configuration == "" || configuration == null)
+				configuration = "Debug";
+				
 			var osType:String = deviceTarget.getSetting(AppleTarget.OS_TYPE);
 			var mainClass:String = deviceTarget.getSetting(Target.MAIN);
 			if(mainClass == "" || mainClass == null)
@@ -265,9 +270,20 @@ class AppleBuildTool extends basis.BuildTool
 			File.copy(libPath + "template/Main.mm", xcodeFiles + "/Main.mm");
 			FileUtil.copyInto(libPath + "template/basis/", xcodeFiles + "/basis/", settingsContenxt);
 			FileUtil.copyInto(libPath + "template/objc_include/", xcodeFiles + "/objc_include/");
+			
+			if(plistLocation == "" || plistLocation == null)
+			{
+				if(osType == IOS_OS())
+					plistLocation = libPath + "template/ios/Info.plist";
+				else
+					plistLocation = libPath + "template/osx/Info.plist";
+			}
+			
+			File.copy(plistLocation , xcodeFiles + appName + "-Info.plist");
+			
 			if(osType == IOS_OS())
 			{
-				File.copy(libPath + "template/ios/Info.plist" , xcodeFiles + appName + "-Info.plist");
+				
 				File.copy(libPath + "template/ios/prefix.pch" , xcodeFiles + "/prefix.pch");
 				FileUtil.deleteDirectoryRecursive(xcodeFiles + "basis/osx");
 				FileSystem.deleteFile(xcodeFiles + "objc_include/OSXApplication.h");
@@ -275,7 +291,6 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			else if(osType == OSX_OS())
 			{
-				File.copy(libPath + "template/osx/Info.plist" , xcodeFiles + appName + "-Info.plist");
 				File.copy(libPath + "template/osx/prefix.pch" , xcodeFiles + "/prefix.pch");
 				FileUtil.deleteDirectoryRecursive(xcodeFiles + "basis/ios");
 				FileSystem.deleteFile(xcodeFiles + "objc_include/IOSApplication.h");
@@ -302,13 +317,16 @@ class AppleBuildTool extends basis.BuildTool
 				xcode.setTargetSetting("VALID_ARCHS", "i386");
 			}
 			
+			for(setting in deviceTarget.xcodeBuildSettings)
+			{
+				xcode.setBuildSetting(setting.name, setting.value);
+			}
 				
 			xcode.save(targetPath, true);
 			//------------------------------------
 			
 			
 			//-------- Build Xcode Project -------
-			var configuration:String = "Debug";
 			var commands = [ "-configuration", configuration ];
 			
 			if (deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
@@ -336,14 +354,14 @@ class AppleBuildTool extends basis.BuildTool
 						if(deviceTarget.getSetting(AppleTarget.SIMULATOR_TYPE) == "ipad")
 							family = "ipad";
 						
-							ProcessUtil.runCommand ("", launcher, [ "launch", FileSystem.fullPath (targetPath + "/build/Debug-iphonesimulator/" + appName + ".app"), "--family", family ] );
+							ProcessUtil.runCommand ("", launcher, [ "launch", FileSystem.fullPath (targetPath + "/build/" + configuration + "-iphonesimulator/" + appName + ".app"), "--family", family ] );
 					}
 					else
 					{
 						neko.Lib.println("Running On Device...");
 						var launcher:String = libPath + "/bin/fruitstrap/fruitstrap";
 						Sys.command ("chmod", [ "+x", launcher ]);
-						ProcessUtil.runCommand ("", launcher, [ "-d", "-b", FileSystem.fullPath (targetPath + "/build/Debug-iphoneos/" + appName + ".app") ] );
+						ProcessUtil.runCommand ("", launcher, [ "-d", "-b", FileSystem.fullPath (targetPath + "/build/" + configuration + "-iphoneos/" + appName + ".app") ] );
 					}
 				}
 				else
