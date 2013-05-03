@@ -157,7 +157,7 @@ class UITableViewDelegate
 			var tableView:UITableView = cast(BasisApplication.instance.objectManager.getObject(tableViewID), UITableView);
 			return editingStyleForRowAtIndexPathHandler(tableView, indexPath);
 		}
-		return UITableViewCell.UITableViewCellStyleDefault();
+		return UITableViewCell.UITableViewCellStyleDefault;
 	}
 	
 	private function heightForFooterInSection(tableViewID:String, section:Int):Float

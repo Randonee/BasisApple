@@ -39,12 +39,12 @@ class UIPopoverController extends AbstractObject
 	
 	private function get_contentSizeForViewInPopover():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentSizeForViewInPopover", [], [], TypeValues.CGSizeVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentSizeForViewInPopover", [], [], TypeValues.CGSizeVal);
 	}
 	
 	private function set_contentSizeForViewInPopover(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentSizeForViewInPopover:", [value], [TypeValues.CGSizeVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentSizeForViewInPopover:", [value], [TypeValues.CGSizeVal], -1 );
 		return contentSizeForViewInPopover;
 	}
 
@@ -58,36 +58,36 @@ class UIPopoverController extends AbstractObject
 	public var popoverContentSize(get_popoverContentSize, set_popoverContentSize):Array<Float>;
 	private function get_popoverContentSize():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popoverContentSize", [], [], TypeValues.CGSizeVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popoverContentSize", [], [], TypeValues.CGSizeVal);
 	}
 
 	private function set_popoverContentSize(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPopoverContentSize:", [value], [TypeValues.CGSizeVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPopoverContentSize:", [value], [TypeValues.CGSizeVal], -1 );
 		return popoverContentSize;
 	}
 
 	public var popoverVisible(get_popoverVisible, null):Bool;
 	private function get_popoverVisible():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isPopoverVisible", [], [], TypeValues.BoolVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isPopoverVisible", [], [], TypeValues.BoolVal);
 	}
 
 	public var popoverArrowDirection(get_popoverArrowDirection, null):Int;
 	private function get_popoverArrowDirection():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popoverArrowDirection", [], [], TypeValues.IntVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popoverArrowDirection", [], [], TypeValues.IntVal);
 	}
 
 	public var popoverLayoutMargins(get_popoverLayoutMargins, set_popoverLayoutMargins):Array<Float>;
 	private function get_popoverLayoutMargins():Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popoverLayoutMargins", [], [], TypeValues.UIEdgeInsetsVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popoverLayoutMargins", [], [], TypeValues.UIEdgeInsetsVal);
 	}
 
 	private function set_popoverLayoutMargins(value:Array<Float>):Array<Float>
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPopoverLayoutMargins:", [value], [TypeValues.UIEdgeInsetsVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPopoverLayoutMargins:", [value], [TypeValues.UIEdgeInsetsVal], -1 );
 		return popoverLayoutMargins;
 	}
 
@@ -95,28 +95,28 @@ class UIPopoverController extends AbstractObject
 	//Methods
 	public function presentPopoverFromRectInViewPermittedArrowDirectionsAnimated( rect:Array<Float>,  view:UIView,  arrowDirections:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "presentPopoverFromRect:inView:permittedArrowDirections:animated:", [rect, view, arrowDirections, animated], [TypeValues.CGRectVal(), TypeValues.ObjectVal(), TypeValues.IntVal(), TypeValues.BoolVal()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "presentPopoverFromRect:inView:permittedArrowDirections:animated:", [rect, view, arrowDirections, animated], [TypeValues.CGRectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
 	}
 	public function presentPopoverFromBarButtonItemPermittedArrowDirectionsAnimated( item:UIBarButtonItem,  arrowDirections:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "presentPopoverFromBarButtonItem:permittedArrowDirections:animated:", [item, arrowDirections, animated], [TypeValues.ObjectVal(), TypeValues.IntVal(), TypeValues.BoolVal()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "presentPopoverFromBarButtonItem:permittedArrowDirections:animated:", [item, arrowDirections, animated], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
 	}
 	public function setPopoverContentSizeAnimated( size:Array<Float>,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPopoverContentSize:animated:", [size, animated], [TypeValues.CGSizeVal(), TypeValues.BoolVal()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPopoverContentSize:animated:", [size, animated], [TypeValues.CGSizeVal, TypeValues.BoolVal], -1);
 	}
 	public function dismissPopoverAnimated( animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissPopoverAnimated:", [animated], [TypeValues.BoolVal()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "dismissPopoverAnimated:", [animated], [TypeValues.BoolVal], -1);
 	}
 
 
-	public static inline function UIPopoverArrowDirectionUp():Int{return  1 << 0;}
-	public static inline function UIPopoverArrowDirectionDown():Int{return  1 << 1;}
-	public static inline function UIPopoverArrowDirectionLeft():Int{return  1 << 2;}
-	public static inline function UIPopoverArrowDirectionRight():Int{return  1 << 3;}
-	public static inline function UIPopoverArrowDirectionAny():Int{return 4;}
-	public static inline function UIPopoverArrowDirectionUnknown():Int{return 5;}
+	public static inline var UIPopoverArrowDirectionUp:Int =  1 << 0;
+	public static inline var UIPopoverArrowDirectionDown:Int =  1 << 1;
+	public static inline var UIPopoverArrowDirectionLeft:Int =  1 << 2;
+	public static inline var UIPopoverArrowDirectionRight:Int =  1 << 3;
+	public static inline var UIPopoverArrowDirectionAny:Int = 4;
+	public static inline var UIPopoverArrowDirectionUnknown:Int = 5;
 
 
 }

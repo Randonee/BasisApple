@@ -13,18 +13,18 @@ class WebViewExample extends UIView
 	{
 		super();
 		
-		autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | 
-							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
-							UIView.UIViewAutoresizingFlexibleBottomMargin();
+		autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin | UIView.UIViewAutoresizingFlexibleWidth | 
+							UIView.UIViewAutoresizingFlexibleRightMargin | UIView.UIViewAutoresizingFlexibleTopMargin | UIView.UIViewAutoresizingFlexibleHeight | 
+							UIView.UIViewAutoresizingFlexibleBottomMargin;
 		
 		backgroundColor = [1.0, 1, 1, 1];
 		_webView = new UIWebView();
 		_webView.loadRequest("http://haxe.org");
-		_webView.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | 
-							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
-							UIView.UIViewAutoresizingFlexibleBottomMargin();
+		_webView.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin | UIView.UIViewAutoresizingFlexibleWidth | 
+							UIView.UIViewAutoresizingFlexibleRightMargin | UIView.UIViewAutoresizingFlexibleTopMargin | UIView.UIViewAutoresizingFlexibleHeight | 
+							UIView.UIViewAutoresizingFlexibleBottomMargin;
 		addSubview(_webView);
-		addEventListener(UIView.UIViewDidMoveToSuperview(), onAddedToSuperView);
+		addEventListener(UIView.UIViewDidMoveToSuperview, onAddedToSuperView);
 		
 		_webView.delegate.didFailLoadWithErrorHandler = didFailLoadWithError;
 		_webView.delegate.shouldStartLoadWithRequestHandler = shouldStartLoadWithRequest;

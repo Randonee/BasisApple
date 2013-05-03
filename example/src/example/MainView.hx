@@ -24,7 +24,7 @@ class MainView extends UIView
 	public function new()
 	{
 		super();
-		addEventListener(UIView.UIViewDidMoveToSuperview(), onAddedToSuperView);
+		addEventListener(UIView.UIViewDidMoveToSuperview, onAddedToSuperView);
 	}
 	
 	private function onAddedToSuperView(object:IObject, type:String):Void
@@ -32,24 +32,25 @@ class MainView extends UIView
 		var screenBounds:Array<Float> = UIScreen.getBounds();
 		this.frame = [0.0, 0, screenBounds[2], screenBounds[3]];
 		
-		this.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | 
-							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
-							UIView.UIViewAutoresizingFlexibleBottomMargin();
+		this.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin | UIView.UIViewAutoresizingFlexibleWidth | 
+							UIView.UIViewAutoresizingFlexibleRightMargin | UIView.UIViewAutoresizingFlexibleTopMargin | UIView.UIViewAutoresizingFlexibleHeight | 
+							UIView.UIViewAutoresizingFlexibleBottomMargin;
 		
 		_navigationBarHeight = 50;
 		
-		_statusBarHeight = UIApplication.statusBarFrame[3];
-		if(UIApplication.statusBarFrame[3] > UIApplication.statusBarFrame[2])
-			_statusBarHeight = UIApplication.statusBarFrame[2];
+		var statusBarFrame:Array<Float> = UIApplication.sharedApplication().statusBarFrame;
+		_statusBarHeight = statusBarFrame[3];
+		if(statusBarFrame[3] > statusBarFrame[2])
+			_statusBarHeight = statusBarFrame[2];
 		
 		_subViewFrame = [0.0, 0, frame[2], frame[3] - (_navigationBarHeight + _statusBarHeight)];
 		_holderFrame = [0.0, _navigationBarHeight + _statusBarHeight, _subViewFrame[2], _subViewFrame[3]];
 		
 		_holderView = new UIView();
 		_holderView.frame = _holderFrame;
-		_holderView.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | 
-							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
-							UIView.UIViewAutoresizingFlexibleBottomMargin();
+		_holderView.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin | UIView.UIViewAutoresizingFlexibleWidth | 
+							UIView.UIViewAutoresizingFlexibleRightMargin | UIView.UIViewAutoresizingFlexibleTopMargin | UIView.UIViewAutoresizingFlexibleHeight | 
+							UIView.UIViewAutoresizingFlexibleBottomMargin;
 		addSubview(_holderView);
 		
 		//----------------- Sub views -----------------
@@ -69,7 +70,7 @@ class MainView extends UIView
 		
 		_navigationBar = new UINavigationBar();
 		_navigationBar.frame = [0.0, _statusBarHeight, screenBounds[2], _navigationBarHeight];
-		_navigationBar.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | UIView.UIViewAutoresizingFlexibleRightMargin();
+		_navigationBar.autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin | UIView.UIViewAutoresizingFlexibleWidth | UIView.UIViewAutoresizingFlexibleRightMargin;
 		addSubview(_navigationBar);
 		
 		var navItem0:UINavigationItem = new UINavigationItem();
@@ -77,7 +78,7 @@ class MainView extends UIView
 		
 		var barButtonItem:UIBarButtonItem = new UIBarButtonItem();
 		barButtonItem.title = "WebView Example";
-		barButtonItem.addEventListener(UIBarButtonItem.UIBarButtonItemActionEvent(), onNextBarItemClick);
+		barButtonItem.addEventListener(UIBarButtonItem.UIBarButtonItemActionEvent, onNextBarItemClick);
 		navItem0.setRightBarButtonItemAnimated(barButtonItem, false);
 		
 		var navItem1:UINavigationItem = new UINavigationItem();
@@ -86,26 +87,26 @@ class MainView extends UIView
 		_navItems = [navItem0, navItem1];
 		_navigationBar.pushNavigationItemAnimated(navItem0, false);
 		_navigationBar.delegate.shouldPopItemHandler = shouldPopItem;
-		BasisApplication.instance.eventManager.addGlobalEventListener(UIDevice.UIDeviceOrientationDidChangeNotification(), onOrientationChange);
+		BasisApplication.instance.eventManager.addGlobalEventListener(UIDevice.UIDeviceOrientationDidChangeNotification, onOrientationChange);
 		//---------------------------------------------
 	}
 	
 	
 	private function onOrientationChange(type:String):Void
 	{
-		if(UIDevice.orientation ==  UIDevice.UIDeviceOrientationUnknown())
+		if(UIDevice.orientation ==  UIDevice.UIDeviceOrientationUnknown)
 			return;
 		
 		var orientation:Int = UIDevice.orientation;
 
 	    var angle:Float = 0;
-	    if ( orientation == UIDevice.UIDeviceOrientationLandscapeLeft() ) angle = (Math.PI/2);
-	    else if ( orientation == UIDevice.UIDeviceOrientationLandscapeRight() ) angle = -(Math.PI/2);
-	    else if ( orientation == UIDevice.UIDeviceOrientationPortraitUpsideDown() ) angle = Math.PI;
+	    if ( orientation == UIDevice.UIDeviceOrientationLandscapeLeft ) angle = (Math.PI/2);
+	    else if ( orientation == UIDevice.UIDeviceOrientationLandscapeRight ) angle = -(Math.PI/2);
+	    else if ( orientation == UIDevice.UIDeviceOrientationPortraitUpsideDown ) angle = Math.PI;
 	
 		var screenBounds:Array<Float> = UIScreen.getBounds();
 	
-		if(orientation == UIDevice.UIDeviceOrientationLandscapeLeft() || orientation == UIDevice.UIDeviceOrientationLandscapeRight())
+		if(orientation == UIDevice.UIDeviceOrientationLandscapeLeft || orientation == UIDevice.UIDeviceOrientationLandscapeRight)
 			_holderFrame = [0, _navigationBarHeight + _statusBarHeight, screenBounds[3], _subViewFrame[2]];
 		else
 			_holderFrame = [0.0, _navigationBarHeight + _statusBarHeight, _subViewFrame[2], _subViewFrame[3]];
@@ -124,7 +125,7 @@ class MainView extends UIView
 		currView.frame = [_holderFrame[2], _subViewFrame[1], _holderFrame[2], _holderFrame[3]];
 		bringSubviewToFront(currView);
 		_navigationBar.pushNavigationItemAnimated(_navItems[_currentViewIndex], true);
-		UIView.animateWithDurationDelayOptionsAnimationsCompletion(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn(), animateNextHandler, animationsCompleteHandler);
+		UIView.animateWithDurationDelayOptionsAnimationsCompletion(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn, animateNextHandler, animationsCompleteHandler);
 	}
 	
 	private function animateNextHandler():Void
@@ -146,7 +147,7 @@ class MainView extends UIView
 		var currView:UIView = _viewOrder[_currentViewIndex];
 		currView.frame = [-_holderFrame[2], _subViewFrame[1], _holderFrame[2], _holderFrame[3]];
 		bringSubviewToFront(currView);
-		UIView.animateWithDurationDelayOptionsAnimationsCompletion(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn(), animatePreviouseHandler, animationsCompleteHandler);
+		UIView.animateWithDurationDelayOptionsAnimationsCompletion(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn, animatePreviouseHandler, animationsCompleteHandler);
 		return true;
 	}
 	

@@ -111,7 +111,7 @@ class ObjectManager
 			
 			if(obj != null)
 				return obj;
-			else if(returnType == TypeValues.ObjectVal())
+			else if(returnType == TypeValues.ObjectVal)
 			{
 				cffi_addObject(returnVar, haxeClassName);
 				return getObject(returnVar);

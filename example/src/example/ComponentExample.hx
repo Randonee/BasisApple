@@ -29,9 +29,9 @@ class ComponentExample extends UIView
 	{
 		super();
 		
-		autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin() | UIView.UIViewAutoresizingFlexibleWidth() | 
-							UIView.UIViewAutoresizingFlexibleRightMargin() | UIView.UIViewAutoresizingFlexibleTopMargin() | UIView.UIViewAutoresizingFlexibleHeight() | 
-							UIView.UIViewAutoresizingFlexibleBottomMargin();
+		autoresizingMask = UIView.UIViewAutoresizingFlexibleLeftMargin | UIView.UIViewAutoresizingFlexibleWidth | 
+							UIView.UIViewAutoresizingFlexibleRightMargin | UIView.UIViewAutoresizingFlexibleTopMargin | UIView.UIViewAutoresizingFlexibleHeight | 
+							UIView.UIViewAutoresizingFlexibleBottomMargin;
 		
 		backgroundColor = [1.0, 1, 1, 1];
 		
@@ -41,10 +41,10 @@ class ComponentExample extends UIView
 		_inputLabel.frame = [5.0, 60, 200, 30];
 	
 		_inputField= new UITextField();
-		_inputField.borderStyle = UITextField.UITextBorderStyleRoundedRect();
+		_inputField.borderStyle = UITextField.UITextBorderStyleRoundedRect;
 		addSubview(_inputField);
 		_inputField.frame = [5.0,90,200,30];
-		_inputField.addEventListener(UITextField.UITextFieldTextDidChange(), onInputChanged);
+		_inputField.addEventListener(UITextField.UITextFieldTextDidChange, onInputChanged);
 		
 		_outputLabel = new UILabel();
 		addSubview(_outputLabel);
@@ -55,13 +55,13 @@ class ComponentExample extends UIView
 		_outputField.font = UIFont.boldSystemFontOfSize(_outputLabel.font.pointSize);
 		addSubview(_outputField);
 		_outputField.frame = [5.0,170,200,30];
-		_outputField.borderStyle = UITextField.UITextBorderStyleRoundedRect();
+		_outputField.borderStyle = UITextField.UITextBorderStyleRoundedRect;
 
-		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect());
+		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_sampleButton.frame = [50.0,220,100,30];
-		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal());
+		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
 		
-		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside(), onButtonClick);
+		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
 		
 		_tableCellLabels = [];
@@ -82,10 +82,10 @@ class ComponentExample extends UIView
 		_tableEventLabel.text  = "";
 		_tableEventLabel.frame = [30.0, 270, 150, 30];
 		
-		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect());
+		_animateButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_animateButton.frame = [380.0,70,150,30];
-		_animateButton.setTitleForState("Animate Button", UIControl.UIControlStateNormal());
-		_animateButton.addEventListener(UIControl.UIControlTouchUpInside(), onAnimateButtonClick);
+		_animateButton.setTitleForState("Animate Button", UIControl.UIControlStateNormal);
+		_animateButton.addEventListener(UIControl.UIControlTouchUpInside, onAnimateButtonClick);
 		addSubview(_animateButton);
 		
 		_haxeImage = new UIImageView();
@@ -94,9 +94,9 @@ class ComponentExample extends UIView
 		addSubview(_haxeImage);
 		
 		
-		_transistionView1Button = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect());
-		_transistionView1Button.setTitleForState("Transition Button", UIControl.UIControlStateNormal());
-		_transistionView1Button.addEventListener(UIControl.UIControlTouchUpInside(), onTransitionButtonClick);
+		_transistionView1Button = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_transistionView1Button.setTitleForState("Transition Button", UIControl.UIControlStateNormal);
+		_transistionView1Button.addEventListener(UIControl.UIControlTouchUpInside, onTransitionButtonClick);
 		_transistionView1Button.frame = [450, 350, 200, 30];
 		addSubview(_transistionView1Button);
 		
@@ -143,7 +143,7 @@ class ComponentExample extends UIView
 	
 	private function onAnimateButtonClick(object:IObject, type:String):Void
 	{
-		UIView.animateWithDurationDelayOptionsAnimationsCompletion(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn(), animationsHandler, animationsCompleteHandler);
+		UIView.animateWithDurationDelayOptionsAnimationsCompletion(.5, 0, UIView.UIViewAnimationOptionCurveEaseIn, animationsHandler, animationsCompleteHandler);
 	}
 	//----------------------------------------
 	
@@ -157,12 +157,12 @@ class ComponentExample extends UIView
 		if(_currTransitionView == _transistionView1)
 		{
 			_currTransitionView = _transistionView2;
-			UIView.transitionFromViewToViewDurationOptionsCompletion(_transistionView1, _transistionView2, 1, UIView.UIViewAnimationOptionTransitionFlipFromRight(), transitionsCompleteHandler);
+			UIView.transitionFromViewToViewDurationOptionsCompletion(_transistionView1, _transistionView2, 1, UIView.UIViewAnimationOptionTransitionFlipFromRight, transitionsCompleteHandler);
 		}
 		else
 		{
 			_currTransitionView = _transistionView1;
-			UIView.transitionFromViewToViewDurationOptionsCompletion(_transistionView2, _transistionView1, 1, UIView.UIViewAnimationOptionTransitionFlipFromLeft(), transitionsCompleteHandler);
+			UIView.transitionFromViewToViewDurationOptionsCompletion(_transistionView2, _transistionView1, 1, UIView.UIViewAnimationOptionTransitionFlipFromLeft, transitionsCompleteHandler);
 		}
 	}
 	//----------------------------------------
@@ -190,7 +190,7 @@ class ComponentExample extends UIView
 		var cell:UITableViewCell = _table.dequeueReusableCellWithIdentifier("TableCell");
 	    if (cell == null)
 	    {
-	        cell = UITableViewCell.initWithStyleReuseIdentifier(UITableViewCell.UITableViewCellStyleDefault(), "TableCell");
+	        cell = UITableViewCell.initWithStyleReuseIdentifier(UITableViewCell.UITableViewCellStyleDefault, "TableCell");
 	    }
 		cell.textLabel.text = _tableCellLabels[indexPath[1]];
 		return cell;

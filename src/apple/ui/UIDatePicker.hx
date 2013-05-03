@@ -28,36 +28,36 @@ class UIDatePicker extends UIControl
 	public var datePickerMode(get_datePickerMode, set_datePickerMode):Int;
 	private function get_datePickerMode():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "datePickerMode", [], [], TypeValues.IntVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "datePickerMode", [], [], TypeValues.IntVal);
 	}
 
 	private function set_datePickerMode(value:Int):Int
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDatePickerMode:", [value], [TypeValues.IntVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDatePickerMode:", [value], [TypeValues.IntVal], -1 );
 		return datePickerMode;
 	}
 
 	public var countDownDuration(get_countDownDuration, set_countDownDuration):Float;
 	private function get_countDownDuration():Float
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "countDownDuration", [], [], TypeValues.FloatVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "countDownDuration", [], [], TypeValues.FloatVal);
 	}
 
 	private function set_countDownDuration(value:Float):Float
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCountDownDuration:", [value], [TypeValues.FloatVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setCountDownDuration:", [value], [TypeValues.FloatVal], -1 );
 		return countDownDuration;
 	}
 
 	public var minuteInterval(get_minuteInterval, set_minuteInterval):Int;
 	private function get_minuteInterval():Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minuteInterval", [], [], TypeValues.IntVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minuteInterval", [], [], TypeValues.IntVal);
 	}
 
 	private function set_minuteInterval(value:Int):Int
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinuteInterval:", [value], [TypeValues.IntVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinuteInterval:", [value], [TypeValues.IntVal], -1 );
 		return minuteInterval;
 	}
 
@@ -65,10 +65,10 @@ class UIDatePicker extends UIControl
 	//Methods
 
 
-	public static inline function UIDatePickerModeTime():Int{return 0;}
-	public static inline function UIDatePickerModeDate():Int{return 1;}
-	public static inline function UIDatePickerModeDateAndTime():Int{return 2;}
-	public static inline function UIDatePickerModeCountDownTimer():Int{return 3;}
+	public static inline var UIDatePickerModeTime:Int = 0;
+	public static inline var UIDatePickerModeDate:Int = 1;
+	public static inline var UIDatePickerModeDateAndTime:Int = 2;
+	public static inline var UIDatePickerModeCountDownTimer:Int = 3;
 
 
 }

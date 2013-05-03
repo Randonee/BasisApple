@@ -28,36 +28,36 @@ class UISearchDisplayController extends AbstractObject
 	public var active(get_active, set_active):Bool;
 	private function get_active():Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isActive", [], [], TypeValues.BoolVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isActive", [], [], TypeValues.BoolVal);
 	}
 
 	private function set_active(value:Bool):Bool
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActive:", [value], [TypeValues.BoolVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActive:", [value], [TypeValues.BoolVal], -1 );
 		return active;
 	}
 
 	public var searchBar(get_searchBar, null):UISearchBar;
 	private function get_searchBar():UISearchBar
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchBar", [], [], TypeValues.ObjectVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchBar", [], [], TypeValues.ObjectVal);
 	}
 
 	public var searchResultsTableView(get_searchResultsTableView, null):UITableView;
 	private function get_searchResultsTableView():UITableView
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsTableView", [], [], TypeValues.ObjectVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsTableView", [], [], TypeValues.ObjectVal);
 	}
 
 	public var searchResultsTitle(get_searchResultsTitle, set_searchResultsTitle):String;
 	private function get_searchResultsTitle():String
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsTitle", [], [], TypeValues.StringVal());
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchResultsTitle", [], [], TypeValues.StringVal);
 	}
 
 	private function set_searchResultsTitle(value:String):String
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchResultsTitle:", [value], [TypeValues.StringVal()], -1 );
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchResultsTitle:", [value], [TypeValues.StringVal], -1 );
 		return searchResultsTitle;
 	}
 
@@ -65,7 +65,7 @@ class UISearchDisplayController extends AbstractObject
 	//Methods
 	public function setActiveAnimated( visible:Bool,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActive:animated:", [visible, animated], [TypeValues.BoolVal(), TypeValues.BoolVal()], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActive:animated:", [visible, animated], [TypeValues.BoolVal, TypeValues.BoolVal], -1);
 	}
 
 

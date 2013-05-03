@@ -5,26 +5,26 @@ import cpp.Lib;
 class UIDevice
 {
 	//events
-	static public inline function UIDeviceOrientationDidChangeNotification():String{return "UIDeviceOrientationDidChangeNotification";};
+	static public inline var UIDeviceOrientationDidChangeNotification:String = "UIDeviceOrientationDidChangeNotification";
 
 	//UIUserInterfaceIdiom
-	static public inline function UIUserInterfaceIdiomPhone():Int{ return  0;}
-	static public inline function UIUserInterfaceIdiomPad():Int{ return  1;}
+	static public inline var UIUserInterfaceIdiomPhone:Int = 0;
+	static public inline var UIUserInterfaceIdiomPad:Int = 1;
 	
 	//UIDeviceBatteryState
-	static public inline function UIDeviceBatteryStateUnknown():Int{ return  0;}
-	static public inline function UIDeviceBatteryStateUnplugged():Int{ return  1;}
-	static public inline function UIDeviceBatteryStateCharging():Int{ return  2;}
-	static public inline function UIDeviceBatteryStateFull():Int{ return  3;}
+	static public inline var UIDeviceBatteryStateUnknown:Int = 0;
+	static public inline var UIDeviceBatteryStateUnplugged:Int = 1;
+	static public inline var UIDeviceBatteryStateCharging:Int = 2;
+	static public inline var UIDeviceBatteryStateFull:Int = 3;
 	
 	//UIDeviceOrientation
-	static public inline function UIDeviceOrientationUnknown():Int{ return  0;}
-	static public inline function UIDeviceOrientationPortrait():Int{ return  1;}
-	static public inline function UIDeviceOrientationPortraitUpsideDown():Int{ return  2;}
-	static public inline function UIDeviceOrientationLandscapeLeft():Int{ return  3;}
-	static public inline function UIDeviceOrientationLandscapeRight():Int{ return  4;}
-	static public inline function UIDeviceOrientationFaceUp():Int{ return  5;}
-	static public inline function UIDeviceOrientationFaceDown():Int{ return  6;}
+	static public inline var UIDeviceOrientationUnknown:Int = 0;
+	static public inline var UIDeviceOrientationPortrait:Int = 1;
+	static public inline var UIDeviceOrientationPortraitUpsideDown:Int = 2;
+	static public inline var UIDeviceOrientationLandscapeLeft:Int = 3;
+	static public inline var UIDeviceOrientationLandscapeRight:Int = 4;
+	static public inline var UIDeviceOrientationFaceUp:Int = 5;
+	static public inline var UIDeviceOrientationFaceDown:Int = 6;
 
 	static public var name(get_name,  null):String;
 	static public var model(get_model,  null):String;

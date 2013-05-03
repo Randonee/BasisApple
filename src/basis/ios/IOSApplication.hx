@@ -22,7 +22,7 @@ class IOSApplication extends BasisApplication
 		super();
 		addClasses();
 		
-		objectManager.addReturnValueHandler(TypeValues.UIFontVal(), handleUIFontReturnValue);
+		objectManager.addReturnValueHandler(TypeValues.UIFontVal, handleUIFontReturnValue);
 		objectManager.addArgumentValueHandler(UIFont, handleUIFontArgumentType);
 	}
 	
@@ -53,6 +53,7 @@ class IOSApplication extends BasisApplication
 	
 	private function addClasses():Void
 	{
+		objectManager.addClass(apple.ui.UIApplication);
 		objectManager.addClass(apple.ui.UIBarItem);
 		objectManager.addClass(apple.ui.UIBarButtonItem);
 	
