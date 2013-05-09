@@ -5,8 +5,12 @@
 
 
 @interface IOSApplication : BasisApplication <ObjectManagerDelegateProtocol, UIApplicationDelegate>
+{
+	id<UIApplicationDelegate> applicationDelegate;
+}
 	+(void) start;
 	-(void) addToRootView:(NSString*) objectID;
+	-(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)delegate;
 	@property (nonatomic, retain) UIWindow *window;
 	@property (nonatomic, retain) UIViewController *controller;
 @end

@@ -16,46 +16,15 @@
 	}
 }
 
+-(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)delegate
+{
+	applicationDelegate = delegate;
+}
+
 -(void) addToRootView:(NSString*) objectID
 {
 	UIView *childView = (UIView *)[self.objectManager getObject:objectID];
 	[self.window addSubview:childView];
-}
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-	[BasisApplication setInstance:self];
-
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	self.window.backgroundColor = [UIColor whiteColor];
-	[self.window makeKeyAndVisible];
-	self.objectManager = [[ObjectManager alloc] init];
-	[self.objectManager addObject:self.window];
-	
-	[self.objectManager setDelegate:self];
-	
-	IOSEventManager* iosEventManager = [[IOSEventManager alloc] init];
-	self.eventManager = iosEventManager;
-	
-	[iosEventManager installAddSubviewListener:(^(id _self, id object)
-	{
-		[self.eventManager callHandlers:[ObjectManager getObjectID:object] :"UIViewDidMoveToSuperview"];
-	})];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceProximityStateDidChangeNotification:) name:UIDeviceProximityStateDidChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceBatteryStateDidChangeNotification:) name:UIDeviceBatteryStateDidChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
- 	[UIDevice.currentDevice beginGeneratingDeviceOrientationNotifications];
-	
-	UIViewController  *c = [[UIViewController alloc] init];
-   	self.controller = c;
-   	self.window.rootViewController = c;
-	
-	self.window = [[UIApplication sharedApplication] keyWindow];
-    self.window.tag = 1;
-   
-   [BasisApplication callStartHandler];
-	return YES;
 }
 
 -(void)objectBeingReturnedByMethod:(id)object
@@ -69,8 +38,6 @@
 
 -(void)objectBeingDestroyed:(id)object
 {
-
-  
 	if([object isKindOfClass:[UITableViewCell class]])
 	{
 		[self.objectManager destroyObject:((UITableViewCell *)object).textLabel];
@@ -163,24 +130,228 @@
 	}
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+//----- UIApplicationDelegate protocol ---------
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[BasisApplication setInstance:self];
+	
+	[self.objectManager addObject:application];
+	[self.objectManager createHaxeObject:application];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.backgroundColor = [UIColor whiteColor];
+	[self.window makeKeyAndVisible];
+	self.objectManager = [[ObjectManager alloc] init];
+	[self.objectManager addObject:self.window];
+	
+	[self.objectManager setDelegate:self];
+	
+	IOSEventManager* iosEventManager = [[IOSEventManager alloc] init];
+	self.eventManager = iosEventManager;
+	
+	[iosEventManager installAddSubviewListener:(^(id _self, id object)
+	{
+		[self.eventManager callHandlers:[ObjectManager getObjectID:object] :"UIViewDidMoveToSuperview"];
+	})];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceProximityStateDidChangeNotification:) name:UIDeviceProximityStateDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceBatteryStateDidChangeNotification:) name:UIDeviceBatteryStateDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:iosEventManager selector:@selector(onUIDeviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
+ 	[UIDevice.currentDevice beginGeneratingDeviceOrientationNotifications];
+	
+	UIViewController  *c = [[UIViewController alloc] init];
+   	self.controller = c;
+   	self.window.rootViewController = c;
+	
+	self.window = [[UIApplication sharedApplication] keyWindow];
+    self.window.tag = 1;
+   
+   [BasisApplication callStartHandler];
+   
+   if(applicationDelegate != nil)
+		return [applicationDelegate application:application didFinishLaunchingWithOptions:launchOptions];
+   
+	return YES;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+
+- (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)oldStatusBarFrame
 {
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didChangeStatusBarFrame: oldStatusBarFrame];
+
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
+- (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation
 {
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didChangeStatusBarOrientation: oldStatusBarOrientation];
+}
+
+- (void)application:(UIApplication *)application didDecodeRestorableStateWithCoder:(NSCoder *)coder
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didDecodeRestorableStateWithCoder: coder];
+}
+
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didFailToRegisterForRemoteNotificationsWithError: error];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didReceiveLocalNotification: notification];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didReceiveRemoteNotification: userInfo];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application didRegisterForRemoteNotificationsWithDeviceToken: deviceToken];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application handleOpenURL: url];
+		
+	return true;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application openURL: url sourceApplication:sourceApplication annotation:annotation];
+		
+	return true;
+}
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application shouldRestoreApplicationState: coder];
+		
+	return true;
+}
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application shouldSaveApplicationState: coder];
+		
+	return true;
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application supportedInterfaceOrientationsForWindow: window];
+		
+	return 0;
+}
+
+- (UIViewController *)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application viewControllerWithRestorationIdentifierPath: identifierComponents coder:coder];
+		
+	return nil;
+}
+
+- (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application willChangeStatusBarFrame: newStatusBarFrame];
+}
+
+- (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application willChangeStatusBarOrientation: newStatusBarOrientation duration:duration];
+}
+
+- (void)application:(UIApplication *)application willEncodeRestorableStateWithCoder:(NSCoder *)coder
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate application:application willEncodeRestorableStateWithCoder: coder];
+}
+
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+	if(applicationDelegate != nil)
+		return [applicationDelegate application:application willFinishLaunchingWithOptions: launchOptions];
+	
+	return true;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationDidBecomeActive: application];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationDidEnterBackground: application];
+}
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationDidFinishLaunching: application];
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationDidReceiveMemoryWarning: application];
+}
+
+- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationProtectedDataDidBecomeAvailable: application];
+}
+
+- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationProtectedDataWillBecomeUnavailable: application];
+}
+
+- (void)applicationSignificantTimeChange:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationSignificantTimeChange: application];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationWillEnterForeground: application];
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationWillResignActive: application];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+	if(applicationDelegate != nil)
+		[applicationDelegate applicationWillTerminate: application];
 }
 
 @end

@@ -1,7 +1,7 @@
 package example;
 
 import basis.BasisApplication;
-import basis.ios.IOSUtil;
+import basis.ios.*;
 import basis.object.IObject;
 import apple.ui.*;
 import apple.ui.UINavigationBar;
@@ -25,6 +25,13 @@ class MainView extends UIView
 	{
 		super();
 		addEventListener(UIView.UIViewDidMoveToSuperview, onAddedToSuperView);
+		
+		IOSApplication.instance.applicationDelegate.applicationDidBecomeActiveHandler = applicationDidBecomeActive;
+	}
+	
+	private function applicationDidBecomeActive(application:UIApplication):Void
+	{
+		trace("ACTIVE!!!");
 	}
 	
 	private function onAddedToSuperView(object:IObject, type:String):Void

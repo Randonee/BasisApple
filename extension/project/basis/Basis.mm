@@ -28,7 +28,7 @@
 #import "apple/ui/UIPopoverControllerDelegateImp.h"
 #import "apple/ui/UIImagePickerControllerDelegateImp.h"
 #import "apple/ui/UINavigationControllerDelegateImp.h"
-
+#import "apple/ui/UIApplicationDelegateImp.h"
 
 
 #import "IOSApplication.h"

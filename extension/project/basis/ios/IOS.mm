@@ -1,5 +1,4 @@
 #include "IOSApplicationCFFI.mm"
-#include "../../apple/ui/UIApplicationCFFI.mm"
 #include "../../apple/ui/UITableViewCFFI_additions.mm"
 #include "../../apple/ui/UITableViewCellCFFI_additions.mm"
 #include "../../apple/ui/UIPopoverControllerCFFI_additions.mm"
@@ -9,6 +8,7 @@
 #include "../../apple/ui/UIScreenCFFI.mm"
 #include "../../apple/ui/UIDeviceCFFI.mm"
 #include "../../apple/ui/UIFontCFFI.mm"
+#include "../../apple/ui/UIApplicationDelegateCFFI.mm"
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 #include "../../apple/ui/UITableViewDataSourceCFFI.mm"
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"

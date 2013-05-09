@@ -16,6 +16,7 @@
         <compilerflag value="-Iinclude"/>
 		<compilerflag value="-Iobjc_include"/>
 		<file name="common/ExternalInterface.cpp"/>
+		<file name="apple/ui/UIApplicationDelegateImp.mm"/>
 		<file name="apple/ui/UITableViewDataSourceImp.mm"/>
 		<file name="apple/ui/UITableViewDelegateImp.mm"/>
 		<file name="apple/ui/UIScrollViewDelegateImp.mm"/>

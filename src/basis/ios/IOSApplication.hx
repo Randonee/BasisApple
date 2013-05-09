@@ -15,12 +15,17 @@ class IOSApplication extends BasisApplication
 	{
 		return cast(BasisApplication.instance, IOSApplication);
 	}
+	
+	
+	public var applicationDelegate(default, null):UIApplicationDelegate;
 
 
 	public function new()
 	{
 		super();
 		addClasses();
+		
+		applicationDelegate = new UIApplicationDelegate();
 		
 		objectManager.addReturnValueHandler(TypeValues.UIFontVal, handleUIFontReturnValue);
 		objectManager.addArgumentValueHandler(UIFont, handleUIFontArgumentType);
