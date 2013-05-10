@@ -31,7 +31,7 @@ class MainView extends UIView
 	
 	private function applicationDidBecomeActive(application:UIApplication):Void
 	{
-		trace("ACTIVE!!!");
+		trace("Application did become active");
 	}
 	
 	private function onAddedToSuperView(object:IObject, type:String):Void
