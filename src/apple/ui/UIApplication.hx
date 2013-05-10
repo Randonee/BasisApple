@@ -14,15 +14,16 @@ class UIApplication extends UIResponder
 {
 
 	//Additions
-
-	//Additions
-
+	public var delegate(default, null):UIApplicationDelegate;
+	
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = UIApplication;
 		super(type);
+		delegate = new UIApplicationDelegate();
 	}
+	//Additions
 
 	//Constants
 	//static public inline function UIBackgroundTaskInvalid():UIBackgroundTaskIdentifier{}

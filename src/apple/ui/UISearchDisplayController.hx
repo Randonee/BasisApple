@@ -43,6 +43,12 @@ class UISearchDisplayController extends AbstractObject
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchBar", [], [], TypeValues.ObjectVal);
 	}
 
+	public var searchContentsController(get_searchContentsController, null):UIViewController;
+	private function get_searchContentsController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchContentsController", [], [], TypeValues.ObjectVal);
+	}
+
 	public var searchResultsTableView(get_searchResultsTableView, null):UITableView;
 	private function get_searchResultsTableView():UITableView
 	{
@@ -66,6 +72,10 @@ class UISearchDisplayController extends AbstractObject
 	public function setActiveAnimated( visible:Bool,  animated:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setActive:animated:", [visible, animated], [TypeValues.BoolVal, TypeValues.BoolVal], -1);
+	}
+	public function initWithSearchBarContentsController( searchBar:UISearchBar,  viewController:UIViewController):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithSearchBar:contentsController:", [searchBar, viewController], [TypeValues.ObjectVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
 
 

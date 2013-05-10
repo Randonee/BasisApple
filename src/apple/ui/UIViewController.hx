@@ -75,6 +75,24 @@ class UIViewController extends UIResponder
 		return title;
 	}
 
+	public var parentViewController(get_parentViewController, null):UIViewController;
+	private function get_parentViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "parentViewController", [], [], TypeValues.ObjectVal);
+	}
+
+	public var presentedViewController(get_presentedViewController, null):UIViewController;
+	private function get_presentedViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "presentedViewController", [], [], TypeValues.ObjectVal);
+	}
+
+	public var presentingViewController(get_presentingViewController, null):UIViewController;
+	private function get_presentingViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "presentingViewController", [], [], TypeValues.ObjectVal);
+	}
+
 	public var definesPresentationContext(get_definesPresentationContext, set_definesPresentationContext):Bool;
 	private function get_definesPresentationContext():Bool
 	{
@@ -193,6 +211,10 @@ class UIViewController extends UIResponder
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shouldAutomaticallyForwardRotationMethods", [], [], TypeValues.BoolVal);
 	}
+	public function willMoveToParentViewController( parent:UIViewController):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "willMoveToParentViewController:", [parent], [TypeValues.ObjectVal], -1);
+	}
 	public function viewDidLayoutSubviews():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "viewDidLayoutSubviews", [], [], -1);
@@ -257,6 +279,10 @@ class UIViewController extends UIResponder
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "preferredInterfaceOrientationForPresentation", [], [], TypeValues.IntVal);
 	}
+	public function addChildViewController( childController:UIViewController):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "addChildViewController:", [childController], [TypeValues.ObjectVal], -1);
+	}
 	public function shouldAutorotate():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shouldAutorotate", [], [], TypeValues.BoolVal);
@@ -284,6 +310,10 @@ class UIViewController extends UIResponder
 	public function rotatingHeaderView():UIView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rotatingHeaderView", [], [], TypeValues.ObjectVal);
+	}
+	public function didMoveToParentViewController( parent:UIViewController):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "didMoveToParentViewController:", [parent], [TypeValues.ObjectVal], -1);
 	}
 	public function loadView():Void
 	{

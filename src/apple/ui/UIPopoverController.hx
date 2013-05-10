@@ -55,6 +55,18 @@ class UIPopoverController extends AbstractObject
 	//Static Methods
 
 	//Properties
+	public var contentViewController(get_contentViewController, set_contentViewController):UIViewController;
+	private function get_contentViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentViewController", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_contentViewController(value:UIViewController):UIViewController
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentViewController:", [value], [TypeValues.ObjectVal], -1 );
+		return contentViewController;
+	}
+
 	public var popoverContentSize(get_popoverContentSize, set_popoverContentSize):Array<Float>;
 	private function get_popoverContentSize():Array<Float>
 	{
@@ -100,6 +112,10 @@ class UIPopoverController extends AbstractObject
 	public function presentPopoverFromBarButtonItemPermittedArrowDirectionsAnimated( item:UIBarButtonItem,  arrowDirections:Int,  animated:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "presentPopoverFromBarButtonItem:permittedArrowDirections:animated:", [item, arrowDirections, animated], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
+	}
+	public function setContentViewControllerAnimated( viewController:UIViewController,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentViewController:animated:", [viewController, animated], [TypeValues.ObjectVal, TypeValues.BoolVal], -1);
 	}
 	public function setPopoverContentSizeAnimated( size:Array<Float>,  animated:Bool):Void
 	{

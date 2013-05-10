@@ -46,6 +46,18 @@ class UIWindow extends UIView
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isKeyWindow", [], [], TypeValues.BoolVal);
 	}
 
+	public var rootViewController(get_rootViewController, set_rootViewController):UIViewController;
+	private function get_rootViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rootViewController", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_rootViewController(value:UIViewController):UIViewController
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setRootViewController:", [value], [TypeValues.ObjectVal], -1 );
+		return rootViewController;
+	}
+
 
 	//Methods
 	public function becomeKeyWindow():Void

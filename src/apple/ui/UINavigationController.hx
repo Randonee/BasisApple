@@ -35,6 +35,18 @@ class UINavigationController extends UIViewController
 	//Static Methods
 
 	//Properties
+	public var topViewController(get_topViewController, null):UIViewController;
+	private function get_topViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "topViewController", [], [], TypeValues.ObjectVal);
+	}
+
+	public var visibleViewController(get_visibleViewController, null):UIViewController;
+	private function get_visibleViewController():UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "visibleViewController", [], [], TypeValues.ObjectVal);
+	}
+
 	public var navigationBarHidden(get_navigationBarHidden, set_navigationBarHidden):Bool;
 	private function get_navigationBarHidden():Bool
 	{
@@ -73,9 +85,21 @@ class UINavigationController extends UIViewController
 
 
 	//Methods
+	public function initWithRootViewController( rootViewController:UIViewController):Dynamic
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithRootViewController:", [rootViewController], [TypeValues.ObjectVal], TypeValues.ObjectVal);
+	}
+	public function popViewControllerAnimated( animated:Bool):UIViewController
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "popViewControllerAnimated:", [animated], [TypeValues.BoolVal], TypeValues.ObjectVal);
+	}
 	public function setToolbarHiddenAnimated( hidden:Bool,  animated:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setToolbarHidden:animated:", [hidden, animated], [TypeValues.BoolVal, TypeValues.BoolVal], -1);
+	}
+	public function pushViewControllerAnimated( viewController:UIViewController,  animated:Bool):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "pushViewController:animated:", [viewController, animated], [TypeValues.ObjectVal, TypeValues.BoolVal], -1);
 	}
 	public function setNavigationBarHiddenAnimated( hidden:Bool,  animated:Bool):Void
 	{
