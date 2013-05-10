@@ -16,9 +16,9 @@
 	}
 }
 
--(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)delegate
+-(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)appDelegate
 {
-	applicationDelegate = delegate;
+	applicationDelegate = appDelegate	;
 }
 
 -(void) addToRootView:(NSString*) objectID
@@ -61,6 +61,8 @@
 		UIViewController *contentViewController = ((UIPopoverController *)object).contentViewController;
 		[self.objectManager destroyObject:contentViewController.view];
 		[self.objectManager destroyHaxeObject:contentViewController.view];
+		
+		[self.objectManager destroyHaxeObject:contentViewController];
 	}
 }
 
@@ -252,10 +254,10 @@
 	return true;
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)appWindow
 {
 	if(applicationDelegate != nil)
-		return [applicationDelegate application:application supportedInterfaceOrientationsForWindow: window];
+		return [applicationDelegate application:application supportedInterfaceOrientationsForWindow: appWindow];
 		
 	return 0;
 }

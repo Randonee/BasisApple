@@ -10,7 +10,7 @@
 }
 	+(void) start;
 	-(void) addToRootView:(NSString*) objectID;
-	-(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)delegate;
+	-(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)appDelegate;
 	@property (nonatomic, retain) UIWindow *window;
 	@property (nonatomic, retain) UIViewController *controller;
 @end

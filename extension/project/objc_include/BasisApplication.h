@@ -13,8 +13,6 @@
 	+(void)setStartHandler:(void(*)())handler;
 	+(void)callStartHandler;
 	
-	-(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)delegate;
-	
 	@property (nonatomic, retain) ObjectManager *objectManager;
 	@property (nonatomic, retain) EventManager *eventManager;
 @end
