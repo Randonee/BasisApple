@@ -12,10 +12,13 @@ class ObjectManager
 	private var _returnValueHandlers:Map<Int, Dynamic->Dynamic>;
 	private var _argumentValueHandlers:Map<String, Dynamic->Dynamic>;
 	
+	private var _objectsDestroyedFromCFFI:Map<String, Bool>;
+	
 
 	public function new():Void
 	{
 		_creatingFromCFFI = false;
+		_objectsDestroyedFromCFFI = new Map();
 		_classTypes = new Map<String, Class<Dynamic>>();
 		_objects = new Map<String, IObject>();
 		_returnValueHandlers = new Map<Int, Dynamic->Dynamic>();
@@ -133,7 +136,11 @@ class ObjectManager
 	**/
 	public function destroyObject(object:IObject):String
 	{
-		objectmanager_destroyObject(object.basisID);
+		if(_objectsDestroyedFromCFFI.exists(object.basisID))
+			_objectsDestroyedFromCFFI.remove(object.basisID);
+		else
+			objectmanager_destroyObject(object.basisID);
+			
 		_objects.remove(object.basisID);
 		return object.basisID;
 	}
@@ -196,7 +203,8 @@ class ObjectManager
 	
 	public function cffi_destroyObject(id:String):Void
 	{
-		_objects.remove(id);
+		_objectsDestroyedFromCFFI.set(id, true);
+		_objects.get(id).destroy();
 	}
 	//-------------------------
 	
