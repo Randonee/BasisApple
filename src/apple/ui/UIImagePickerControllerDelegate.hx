@@ -8,14 +8,22 @@ import haxe.io.Bytes;
 
 class UIImagePickerControllerDelegate extends UINavigationControllerDelegate
 {
-
 	public var didFinishPickingMediaWithInfoHandler(default, default):UIImagePickerController->Array<Dynamic>->Void;
 	public var imagePickerControllerDidCancelHandler(default, default):UIImagePickerController->Void;
+	
+	private var _controller:UIImagePickerController;
 	
 	public function new(controller:UIImagePickerController)
 	{
 		super(controller);
+		_controller = controller;
 	}
+	
+	public function setJPEGQuality(quailty:Float):Void
+	{
+		uiimagepickercontrollerdelegate_setJPEGQuality(_controller.basisID, quailty);
+	}
+	private static var uiimagepickercontrollerdelegate_setJPEGQuality = Lib.load("basis", "uiimagepickercontrollerdelegate_setJPEGQuality", 2);
 	
 	override private function init(controller:UINavigationController):Void
 	{

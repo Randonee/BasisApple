@@ -14,12 +14,20 @@
 	_imagePickerControllerDidCancelHandler = imagePickerControllerDidCancelHandler;
 	_didShowViewControllerHandler = didShowViewControllerHandler;
 	_willShowViewControllerPopoverHandler = willShowViewControllerPopoverHandler;
+	
+	_quality = 1;
+}
+
+
+- (value) setJPEGQuality:(float) quality
+{
+	_quality = quality;
 }
 
 
 -(value) uiImageToString:(UIImage*) image
 {
-	NSData *data = UIImageJPEGRepresentation(image, 1.0f);
+	NSData *data = UIImageJPEGRepresentation(image, _quality);
 	[Base64 initialize];
 	NSString *strEncoded = [Base64 encode:data];
 	return alloc_string([strEncoded cStringUsingEncoding:NSASCIIStringEncoding]);
