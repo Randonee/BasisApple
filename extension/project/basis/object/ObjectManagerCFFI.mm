@@ -44,6 +44,11 @@ namespace basis
     }
     DEFINE_PRIM (objectmanager_createObject, 1);
     
+    value objectmanager_getObjcObjectCount()
+    {
+    	return alloc_int([[BasisApplication getObjectManager] getObjectCount]);
+    }
+    DEFINE_PRIM (objectmanager_getObjcObjectCount, 0);
     
     void objectmanager_destroyObject(value objectID)
     {

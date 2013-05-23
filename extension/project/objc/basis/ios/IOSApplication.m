@@ -62,6 +62,7 @@
 		[self.objectManager destroyObject:contentViewController.view];
 		[self.objectManager destroyHaxeObject:contentViewController.view];
 		
+		[self.objectManager destroyObject:contentViewController];
 		[self.objectManager destroyHaxeObject:contentViewController];
 	}
 }

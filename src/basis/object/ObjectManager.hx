@@ -5,6 +5,8 @@ import cpp.Lib;
 
 class ObjectManager
 {
+	public var objcObjectCount(get_objcObjectCount, null):Int;
+
 	private var _classTypes:Map<String, Class<Dynamic>>;
 	private var _objects:Map<String, IObject>;
 	private var _creatingFromCFFI:Bool;
@@ -12,13 +14,10 @@ class ObjectManager
 	private var _returnValueHandlers:Map<Int, Dynamic->Dynamic>;
 	private var _argumentValueHandlers:Map<String, Dynamic->Dynamic>;
 	
-	private var _objectsDestroyedFromCFFI:Map<String, Bool>;
-	
 
 	public function new():Void
 	{
 		_creatingFromCFFI = false;
-		_objectsDestroyedFromCFFI = new Map();
 		_classTypes = new Map<String, Class<Dynamic>>();
 		_objects = new Map<String, IObject>();
 		_returnValueHandlers = new Map<Int, Dynamic->Dynamic>();
@@ -134,15 +133,13 @@ class ObjectManager
 	* 
 	* @param object The object to be destroyed
 	**/
-	public function destroyObject(object:IObject):String
+	public function destroyObject(object:IObject):Void
 	{
-		if(_objectsDestroyedFromCFFI.exists(object.basisID))
-			_objectsDestroyedFromCFFI.remove(object.basisID);
-		else
+		if(_objects.exists(object.basisID))
+		{
 			objectmanager_destroyObject(object.basisID);
-			
-		_objects.remove(object.basisID);
-		return object.basisID;
+			_objects.remove(object.basisID);
+		}
 	}
 	private static var objectmanager_destroyObject = Lib.load ("basis", "objectmanager_destroyObject", 1);
 	
@@ -203,12 +200,17 @@ class ObjectManager
 	
 	public function cffi_destroyObject(id:String):Void
 	{
-		_objectsDestroyedFromCFFI.set(id, true);
-		_objects.get(id).destroy();
+		if(_objects.exists(id))
+			_objects.get(id).destroy();
 	}
 	//-------------------------
 	
 	
+	private function get_objcObjectCount():Int
+	{
+		return objectmanager_getObjcObjectCount();
+	}
+	private static var objectmanager_getObjcObjectCount = Lib.load ("basis", "objectmanager_getObjcObjectCount", 0);
 	
 	private function createArguments(args:Array<Dynamic>):Array<Dynamic>
 	{

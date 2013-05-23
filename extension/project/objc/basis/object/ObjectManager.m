@@ -178,9 +178,18 @@ void (*_destroyHaxeObjectFunction)(id);
 
 -(void) destroyObject:(id) object
 {
-	[_objects removeObjectForKey:[ObjectManager getObjectID:object]];
-	if(_delegate != nil)
-		[_delegate objectBeingDestroyed:object];
+	NSString *objectID = [ObjectManager getObjectID:object];
+	if(object == nil || objectID == nil)
+		return;
+		
+	id storedObject = [_objects objectForKey:objectID];
+	
+	if(storedObject != nil)
+	{
+		[_objects removeObjectForKey:objectID];
+		if(_delegate != nil)
+			[_delegate objectBeingDestroyed:object];
+	}
 }
 
 -(void) destroyHaxeObject:(id) object
@@ -193,6 +202,11 @@ void (*_destroyHaxeObjectFunction)(id);
 {
     if(_createHaxeObjectFunction != nil)
         _createHaxeObjectFunction(object);
+}
+
+-(int) getObjectCount
+{
+	return _objects.count;
 }
 
 @end

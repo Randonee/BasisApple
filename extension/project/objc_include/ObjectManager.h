@@ -27,5 +27,6 @@
 -(void) destroyObjectWithID:(NSString *) objectID;
 -(void) destroyHaxeObject:(id) object;
 -(void) createHaxeObject:(id) object;
+-(int) getObjectCount;
 	
 @end
