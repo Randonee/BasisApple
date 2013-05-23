@@ -7,6 +7,7 @@ namespace basis
 		UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:controller];
 		NSString *objectID = [[BasisApplication getObjectManager] addObject:popover];
 		[[BasisApplication getObjectManager] createHaxeObject:popover];
+		[popover release];
 		return alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uipopovercontroller_initWithContentViewController, 1);

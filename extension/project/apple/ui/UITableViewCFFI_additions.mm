@@ -5,6 +5,7 @@ namespace basis
 		UITableView *table = [[UITableView alloc] initWithFrame: arrayToCGRect(frame) style:val_int(style)];
 		NSString *objectID = [[BasisApplication getObjectManager] addObject:table];
 		[[BasisApplication getObjectManager] createHaxeObject:table];
+		[table release];
 		return alloc_string([objectID cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	DEFINE_PRIM (uitableview_initWithFrameStyle, 2);
@@ -27,6 +28,8 @@ namespace basis
 			[nsArr addObject:[NSIndexPath indexPathWithIndexes:pathItems length:length2]];
 		}
 		[table deleteRowsAtIndexPaths:nsArr withRowAnimation:val_bool(animate)];
+		
+		[nsArr release];
 	}
 	DEFINE_PRIM (uitableview_deleteRowsAtIndexPathsWithRowAnimation, 3);
 }

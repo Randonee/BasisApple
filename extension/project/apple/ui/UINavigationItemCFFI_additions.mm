@@ -29,8 +29,8 @@ namespace basis
 			UIBarButtonItem *barItem = [[BasisApplication getObjectManager] getObject:[NSString stringWithCString:val_string(val_array_i(items, a)) encoding:NSUTF8StringEncoding]];
 			[arr addObject:barItem];
 		}
-	
 		[item setRightBarButtonItems:arr animated:val_bool(animated)];
+		[arr release];
 	}
 	DEFINE_PRIM (uinavigationitem_setRightBarButtonItemsAnimated, 3);
 }

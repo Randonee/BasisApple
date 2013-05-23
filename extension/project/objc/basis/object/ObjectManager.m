@@ -178,7 +178,7 @@ void (*_destroyHaxeObjectFunction)(id);
 
 -(void) destroyObject:(id) object
 {
-	[_objects removeObjectForKey:object];
+	[_objects removeObjectForKey:[ObjectManager getObjectID:object]];
 	if(_delegate != nil)
 		[_delegate objectBeingDestroyed:object];
 }
