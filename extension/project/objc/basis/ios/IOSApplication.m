@@ -38,6 +38,12 @@
 
 -(void)objectBeingDestroyed:(id)object
 {
+	if([object isKindOfClass:[UIView class]])
+	{
+		[self.objectManager destroyObject:((UIView *)object).layer];
+		[self.objectManager destroyHaxeObject:((UIView *)object).layer];
+	}
+
 	if([object isKindOfClass:[UITableViewCell class]])
 	{
 		[self.objectManager destroyObject:((UITableViewCell *)object).textLabel];
@@ -69,6 +75,12 @@
 
 -(void)objectBeingAdded:(id)object
 {
+	if([object isKindOfClass:[UIView class]])
+	{
+		[self.objectManager addObject:((UIView *)object).layer];
+		[self.objectManager createHaxeObject:((UIView *)object).layer];
+	}
+	
 	if([object isKindOfClass:[UIControl class]])
 	{
 		UIControl *view = (UIControl *)[self.objectManager getObject:[ObjectManager getObjectID:object]];

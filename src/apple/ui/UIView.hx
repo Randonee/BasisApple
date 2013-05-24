@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.quartzcore.CALayer;
 
 class UIView extends UIResponder
 {
@@ -138,6 +139,12 @@ class UIView extends UIResponder
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTag:", [value], [TypeValues.IntVal], -1 );
 		return tag;
+	}
+
+	public var layer(get_layer, null):CALayer;
+	private function get_layer():CALayer
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "layer", [], [], TypeValues.ObjectVal);
 	}
 
 	public var frame(get_frame, set_frame):Array<Float>;

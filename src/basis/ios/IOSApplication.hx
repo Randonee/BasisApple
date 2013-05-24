@@ -109,5 +109,8 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIViewController);
 		objectManager.addClass(apple.ui.UIWebView);
 		objectManager.addClass(apple.ui.UIWindow);
+		
+		objectManager.addClass(apple.quartzcore.CALayer);
+		
 	}
 }
