@@ -1,4 +1,8 @@
 <project basedir=".">
+	
+	<property name="version" value="0.0.3-alpha"/>
+	<property name="versionDir" value="0,0,3-alpha"/>
+	
 	<target name="ios">
 		<delete dir="extension/project/obj" failOnError="false" includeEmptyDirs="true"/>
 						
@@ -26,9 +30,9 @@
 		
 		<mkdir dir="build/"/>
 		<mkdir dir="build/BasisApple"/>
-		<mkdir dir="build/BasisApple/0,0,2"/>
-		<mkdir dir="build/BasisApple/0,0,2/bin"/>
-		<mkdir dir="build/BasisApple/0,0,2/template"/>
+		<mkdir dir="build/BasisApple/${versionDir}"/>
+		<mkdir dir="build/BasisApple/${versionDir}/bin"/>
+		<mkdir dir="build/BasisApple/${versionDir}/template"/>
 		
 		<exec dir="." failonerror="true" executable="haxe">
 			<arg line="build.hxml" />
@@ -36,50 +40,50 @@
 		
 		<antcall target="copyTests" />
 		
-		<copy todir="build/BasisApple/0,0,2/template/basis">
+		<copy todir="build/BasisApple/${versionDir}/template/basis">
 			<fileset dir="extension/project/objc/basis/"/>
 		</copy>
-		<copy todir="build/BasisApple/0,0,2/template/objc_include">
+		<copy todir="build/BasisApple/${versionDir}/template/objc_include">
 			<fileset dir="extension/project/objc_include/"/>
 		</copy>
 		
-		<copy todir="build/BasisApple/0,0,2">
+		<copy todir="build/BasisApple/${versionDir}">
 			<fileset dir="src"/>
 		</copy>
 		
-		<copy todir="build/BasisApple/0,0,2/bin">
+		<copy todir="build/BasisApple/${versionDir}/bin">
 			<fileset dir="extension/ndll"/>
 		</copy>
 		
-		<copy todir="build/BasisApple/0,0,2/bin">
+		<copy todir="build/BasisApple/${versionDir}/bin">
 			<fileset dir="bin"/>
 		</copy>
 	
-		<copy todir="build/BasisApple/0,0,2/template">
+		<copy todir="build/BasisApple/${versionDir}/template">
 			<fileset dir="template"/>
 		</copy>
 	
-		<copy file="haxelib.xml" tofile="build/BasisApple/0,0,2/haxelib.xml"/>
-		<copy file="build/run.n" tofile="build/BasisApple/0,0,2/run.n"/>
+		<copy file="haxelib.json" tofile="build/BasisApple/${versionDir}/haxelib.json"/>
+		<copy file="build/run.n" tofile="build/BasisApple/${versionDir}/run.n"/>
 		
-		<echo file="build/BasisApple/.current" >0.0.2</echo>
+		<echo file="build/BasisApple/.current" >${version}</echo>
 		
 		<zip destfile="build/BasisApple.zip" basedir="build/BasisApple" />
 	</target>
 	
 	<target name="copyTests" if="buildProps.installTests"> 
-		<copy todir="build/BasisApple/0,0,2">
+		<copy todir="build/BasisApple/${versionDir}">
 			<fileset dir="src_test"/>
 		</copy>
 	</target> 
 
-	<target name="installib">
+	<target name="install">
 		<exec dir="." failonerror="false" executable="haxelib">
 			<arg line="remove BasisApple" />
 		</exec>
 		<antcall target="buildHaxelib" />
 		<exec dir="." failonerror="true" executable="haxelib">
-			<arg line="install build/BasisApple.zip" />
+			<arg line="local build/BasisApple.zip" />
 		</exec>
 	</target>
 	

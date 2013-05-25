@@ -1,5 +1,4 @@
 -cp buildtool/src
 -lib Basis
--lib xapi
 -neko build/run.n
 -main basisapple.Main

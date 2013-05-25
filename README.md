@@ -14,16 +14,15 @@ Installation
 
 1. Install BasisApple haxelib with instructions found here: https://github.com/Randonee/Basis
 2. Install xcode
+3. Install xcode command line tools
 	
 
 Running the Example
 -------------------
 
-**There is a bug with 0.0.2 of BasisApple. To run the example you will need the latest trunk code**
-See https://github.com/Randonee/Basis for build instructions.
 
 * First download and install from trunk
-* Then, from the example directory run the command: haxelib run Basis build.basis ios
+* Then, from the example directory run the command: haxelib run basis build.basis ios
 
 Documentation
 -------------

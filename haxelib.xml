@@ -1,8 +1,0 @@
-<project name="BasisApple" url="https://github.com/Randonee/BasisApple" license="MIT">
-    <user name="randonee"/>
-    <tag v="apple"/>
-    <tag v="ios"/>
-    <tag v="cross"/>
-    <description>BasisApple</description>
-    <version name="0.0.2">alpha</version>
-</project>

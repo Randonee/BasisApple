@@ -1,0 +1,11 @@
+{
+  "name": "basisApple",
+  "url" : "https://github.com/Randonee/BasisApple",
+  "license": "MIT",
+  "tags": ["apple", "ios"],
+  "description": "Haxe Native Apple Development",
+  "version": "0.0.3-alpha",
+  "releasenote": "alpha",
+  "contributors": [],
+  "dependencies": {}
+}
