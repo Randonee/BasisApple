@@ -336,6 +336,10 @@ class AppleBuildTool extends basis.BuildTool
 	            commands.push ("-sdk");
 	            commands.push ("iphonesimulator");
 			}
+			var cleanCommands:Array<String> = commands.copy();
+			cleanCommands.push("clean");
+			ProcessUtil.runCommand(targetPath, "xcodebuild", cleanCommands);
+			commands.push ("build");
 			ProcessUtil.runCommand(targetPath, "xcodebuild", commands);
 			//------------------------------------
 			
