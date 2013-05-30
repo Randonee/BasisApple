@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSData;
 
 class UIWebView extends UIView
 {
@@ -157,6 +158,10 @@ class UIWebView extends UIView
 	public function stringByEvaluatingJavaScriptFromString( script:String):String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "stringByEvaluatingJavaScriptFromString:", [script], [TypeValues.StringVal], TypeValues.StringVal);
+	}
+	public function loadDataMIMETypeTextEncodingNameBaseURL( data:NSData,  MIMEType:String,  textEncodingName:String,  baseURL:String):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "loadData:MIMEType:textEncodingName:baseURL:", [data, MIMEType, textEncodingName, baseURL], [TypeValues.ObjectVal, TypeValues.StringVal, TypeValues.StringVal, TypeValues.NSURLVal], -1);
 	}
 	public function stopLoading():Void
 	{

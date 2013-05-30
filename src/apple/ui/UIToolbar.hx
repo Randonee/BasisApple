@@ -63,13 +63,21 @@ class UIToolbar extends UIView
 
 
 	//Methods
-	public function setShadowImageForToolbarPosition( shadowImage:String,  topOrBottom:Int):Void
+	public function setShadowImageForToolbarPosition( shadowImage:UIImage,  topOrBottom:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:forToolbarPosition:", [shadowImage, topOrBottom], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:forToolbarPosition:", [shadowImage, topOrBottom], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
-	public function setBackgroundImageForToolbarPositionBarMetrics( backgroundImage:String,  topOrBottom:Int,  barMetrics:Int):Void
+	public function setBackgroundImageForToolbarPositionBarMetrics( backgroundImage:UIImage,  topOrBottom:Int,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forToolbarPosition:barMetrics:", [backgroundImage, topOrBottom, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forToolbarPosition:barMetrics:", [backgroundImage, topOrBottom, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+	}
+	public function backgroundImageForToolbarPositionBarMetrics( topOrBottom:Int,  barMetrics:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForToolbarPosition:barMetrics:", [topOrBottom, barMetrics], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function shadowImageForToolbarPosition( topOrBottom:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowImageForToolbarPosition:", [topOrBottom], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 
 

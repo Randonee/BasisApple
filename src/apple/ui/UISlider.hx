@@ -61,20 +61,28 @@ class UISlider extends UIControl
 		return maximumValue;
 	}
 
-	public var minimumValueImage(null, set_minimumValueImage):String;
-
-	private function set_minimumValueImage(value:String):String
+	public var minimumValueImage(get_minimumValueImage, set_minimumValueImage):UIImage;
+	private function get_minimumValueImage():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumValueImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumValueImage", [], [], TypeValues.ObjectVal);
 	}
 
-	public var maximumValueImage(null, set_maximumValueImage):String;
-
-	private function set_maximumValueImage(value:String):String
+	private function set_minimumValueImage(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumValueImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumValueImage:", [value], [TypeValues.ObjectVal], -1 );
+		return minimumValueImage;
+	}
+
+	public var maximumValueImage(get_maximumValueImage, set_maximumValueImage):UIImage;
+	private function get_maximumValueImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumValueImage", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_maximumValueImage(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumValueImage:", [value], [TypeValues.ObjectVal], -1 );
+		return maximumValueImage;
 	}
 
 	public var continuous(get_continuous, set_continuous):Bool;
@@ -125,25 +133,37 @@ class UISlider extends UIControl
 		return thumbTintColor;
 	}
 
-	public var currentThumbImage(null, null):String;
+	public var currentThumbImage(get_currentThumbImage, null):UIImage;
+	private function get_currentThumbImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentThumbImage", [], [], TypeValues.ObjectVal);
+	}
 
-	public var currentMinimumTrackImage(null, null):String;
+	public var currentMinimumTrackImage(get_currentMinimumTrackImage, null):UIImage;
+	private function get_currentMinimumTrackImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentMinimumTrackImage", [], [], TypeValues.ObjectVal);
+	}
 
-	public var currentMaximumTrackImage(null, null):String;
+	public var currentMaximumTrackImage(get_currentMaximumTrackImage, null):UIImage;
+	private function get_currentMaximumTrackImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentMaximumTrackImage", [], [], TypeValues.ObjectVal);
+	}
 
 
 	//Methods
-	public function setThumbImageForState( image:String,  state:Int):Void
+	public function setThumbImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setThumbImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
-	public function setMinimumTrackImageForState( image:String,  state:Int):Void
+	public function setMinimumTrackImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumTrackImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMinimumTrackImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
-	public function setMaximumTrackImageForState( image:String,  state:Int):Void
+	public function setMaximumTrackImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumTrackImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setMaximumTrackImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 	public function setValueAnimated( value:Float,  animated:Bool):Void
 	{
@@ -152,6 +172,18 @@ class UISlider extends UIControl
 	public function trackRectForBounds( bounds:Array<Float>):Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "trackRectForBounds:", [bounds], [TypeValues.CGRectVal], TypeValues.CGRectVal);
+	}
+	public function thumbImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "thumbImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function minimumTrackImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "minimumTrackImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function maximumTrackImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "maximumTrackImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function minimumValueImageRectForBounds( bounds:Array<Float>):Array<Float>
 	{

@@ -21,7 +21,7 @@
 -(id) callMethod:(id)object :(NSString *)selectorString :(NSArray *)args :(BOOL)isObject;
 -(void) addClass:(NSString *) haxeName :(NSString *) objcName;
 -(id) getObject:(NSString *) objectID;
--(NSString *) addObject:(NSObject*)object;
+-(NSString *) addObject:(id)object;
 -(NSString *) createObjectWithClassName:(NSString*)haxeClassName;
 -(void) destroyObject:(id) object;
 -(void) destroyObjectWithID:(NSString *) objectID;

@@ -5,6 +5,7 @@ import basis.ios.IOSUtil;
 import basis.object.IObject;
 import apple.ui.*;
 import apple.ui.UINavigationBar;
+import apple.foundation.NSData;
 
 class ComponentExample extends UIView
 {
@@ -89,7 +90,8 @@ class ComponentExample extends UIView
 		addSubview(_animateButton);
 		
 		_haxeImage = new UIImageView();
-		_haxeImage.image = IOSUtil.getAssetPath("haxe.png");
+		
+		_haxeImage.image = UIImage.imageWithData(NSData.dataWithContentsOfFile( IOSUtil.getAssetPath("haxe.png") ));
 		_haxeImage.frame = [400.0, 120, 100, 100];
 		addSubview(_haxeImage);
 		

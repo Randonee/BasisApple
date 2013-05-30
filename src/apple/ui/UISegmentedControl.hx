@@ -101,13 +101,17 @@ class UISegmentedControl extends UIControl
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "widthForSegmentAtIndex:", [segment], [TypeValues.IntVal], TypeValues.FloatVal);
 	}
-	public function insertSegmentWithImageAtIndexAnimated( image:String,  segment:Int,  animated:Bool):Void
+	public function insertSegmentWithImageAtIndexAnimated( image:UIImage,  segment:Int,  animated:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithImage:atIndex:animated:", [image, segment, animated], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertSegmentWithImage:atIndex:animated:", [image, segment, animated], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
 	}
-	public function setBackgroundImageForStateBarMetrics( backgroundImage:String,  state:Int,  barMetrics:Int):Void
+	public function setBackgroundImageForStateBarMetrics( backgroundImage:UIImage,  state:Int,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+	}
+	public function backgroundImageForStateBarMetrics( state:Int,  barMetrics:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForState:barMetrics:", [state, barMetrics], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function contentPositionAdjustmentForSegmentTypeBarMetrics( leftCenterRightOrAlone:Int,  barMetrics:Int):Array<Int>
 	{
@@ -125,9 +129,9 @@ class UISegmentedControl extends UIControl
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabledForSegmentAtIndex:", [segment], [TypeValues.IntVal], TypeValues.BoolVal);
 	}
-	public function setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics( dividerImage:String,  leftState:Int,  rightState:Int,  barMetrics:Int):Void
+	public function setDividerImageForLeftSegmentStateRightSegmentStateBarMetrics( dividerImage:UIImage,  leftState:Int,  rightState:Int,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDividerImage:forLeftSegmentState:rightSegmentState:barMetrics:", [dividerImage, leftState, rightState, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDividerImage:forLeftSegmentState:rightSegmentState:barMetrics:", [dividerImage, leftState, rightState, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal], -1);
 	}
 	public function setEnabledForSegmentAtIndex( enabled:Bool,  segment:Int):Void
 	{
@@ -141,13 +145,17 @@ class UISegmentedControl extends UIControl
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeSegmentAtIndex:animated:", [segment, animated], [TypeValues.IntVal, TypeValues.BoolVal], -1);
 	}
-	public function setImageForSegmentAtIndex( image:String,  segment:Int):Void
+	public function setImageForSegmentAtIndex( image:UIImage,  segment:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forSegmentAtIndex:", [image, segment], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forSegmentAtIndex:", [image, segment], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 	public function contentOffsetForSegmentAtIndex( segment:Int):Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentOffsetForSegmentAtIndex:", [segment], [TypeValues.IntVal], TypeValues.CGSizeVal);
+	}
+	public function dividerImageForLeftSegmentStateRightSegmentStateBarMetrics( leftState:Int,  rightState:Int,  barMetrics:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dividerImageForLeftSegmentState:rightSegmentState:barMetrics:", [leftState, rightState, barMetrics], [TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function removeAllSegments():Void
 	{
@@ -156,6 +164,10 @@ class UISegmentedControl extends UIControl
 	public function setContentPositionAdjustmentForSegmentTypeBarMetrics( adjustment:Array<Int>,  leftCenterRightOrAlone:Int,  barMetrics:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContentPositionAdjustment:forSegmentType:barMetrics:", [adjustment, leftCenterRightOrAlone, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+	}
+	public function imageForSegmentAtIndex( segment:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageForSegmentAtIndex:", [segment], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function setContentOffsetForSegmentAtIndex( offset:Array<Float>,  segment:Int):Void
 	{

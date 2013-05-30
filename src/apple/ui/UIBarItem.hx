@@ -49,20 +49,28 @@ class UIBarItem extends AbstractObject
 		return title;
 	}
 
-	public var image(null, set_image):String;
-
-	private function set_image(value:String):String
+	public var image(get_image, set_image):UIImage;
+	private function get_image():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "image", [], [], TypeValues.ObjectVal);
 	}
 
-	public var landscapeImagePhone(null, set_landscapeImagePhone):String;
-
-	private function set_landscapeImagePhone(value:String):String
+	private function set_image(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLandscapeImagePhone:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [TypeValues.ObjectVal], -1 );
+		return image;
+	}
+
+	public var landscapeImagePhone(get_landscapeImagePhone, set_landscapeImagePhone):UIImage;
+	private function get_landscapeImagePhone():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "landscapeImagePhone", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_landscapeImagePhone(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLandscapeImagePhone:", [value], [TypeValues.ObjectVal], -1 );
+		return landscapeImagePhone;
 	}
 
 	public var imageInsets(get_imageInsets, set_imageInsets):Array<Float>;

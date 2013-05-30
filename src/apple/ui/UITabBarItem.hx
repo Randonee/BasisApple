@@ -39,17 +39,25 @@ class UITabBarItem extends UIBarItem
 
 
 	//Methods
+	public function finishedSelectedImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "finishedSelectedImage", [], [], TypeValues.ObjectVal);
+	}
 	public function setTitlePositionAdjustment( adjustment:Array<Int>):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitlePositionAdjustment:", [adjustment], [TypeValues.ObjectVal], -1);
 	}
-	public function initWithTitleImageTag( title:String,  image:String,  tag:Int):Dynamic
+	public function initWithTitleImageTag( title:String,  image:UIImage,  tag:Int):Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithTitle:image:tag:", [title, image, tag], [TypeValues.StringVal, TypeValues.UIImageVal, TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithTitle:image:tag:", [title, image, tag], [TypeValues.StringVal, TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.ObjectVal);
 	}
-	public function setFinishedSelectedImageWithFinishedUnselectedImage( selectedImage:String,  unselectedImage:String):Void
+	public function setFinishedSelectedImageWithFinishedUnselectedImage( selectedImage:UIImage,  unselectedImage:UIImage):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFinishedSelectedImage:withFinishedUnselectedImage:", [selectedImage, unselectedImage], [TypeValues.UIImageVal, TypeValues.UIImageVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFinishedSelectedImage:withFinishedUnselectedImage:", [selectedImage, unselectedImage], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+	}
+	public function finishedUnselectedImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "finishedUnselectedImage", [], [], TypeValues.ObjectVal);
 	}
 	public function initWithTabBarSystemItemTag( systemItem:Int,  tag:Int):Dynamic
 	{

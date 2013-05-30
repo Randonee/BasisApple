@@ -8,7 +8,7 @@ import haxe.io.Bytes;
 
 class UIImagePickerControllerDelegate extends UINavigationControllerDelegate
 {
-	public var didFinishPickingMediaWithInfoHandler(default, default):UIImagePickerController->Array<Dynamic>->Void;
+	public var didFinishPickingMediaWithInfoHandler(default, default):UIImagePickerController->UIImagePickerInfo->Void;
 	public var imagePickerControllerDidCancelHandler(default, default):UIImagePickerController->Void;
 	
 	private var _controller:UIImagePickerController;
@@ -18,12 +18,6 @@ class UIImagePickerControllerDelegate extends UINavigationControllerDelegate
 		super(controller);
 		_controller = controller;
 	}
-	
-	public function setJPEGQuality(quailty:Float):Void
-	{
-		uiimagepickercontrollerdelegate_setJPEGQuality(_controller.basisID, quailty);
-	}
-	private static var uiimagepickercontrollerdelegate_setJPEGQuality = Lib.load("basis", "uiimagepickercontrollerdelegate_setJPEGQuality", 2);
 	
 	override private function init(controller:UINavigationController):Void
 	{
@@ -36,10 +30,16 @@ class UIImagePickerControllerDelegate extends UINavigationControllerDelegate
 	{
 		if(didFinishPickingMediaWithInfoHandler != null)
 		{
-			info[1] = BaseCode64.decodeBytesData(info[1]);
-			info[2] = BaseCode64.decodeBytesData(info[2]);
+			var pickerInfo:UIImagePickerInfo = new UIImagePickerInfo(info[0],
+																cast(BasisApplication.instance.objectManager.getObject(info[1]), UIImage), 
+																cast(BasisApplication.instance.objectManager.getObject(info[2]), UIImage), 
+																info[3], 
+																info[4], 
+																info[5], 
+																info[6]);
+
 			var controller:UIImagePickerController = cast(BasisApplication.instance.objectManager.getObject(controllerID), UIImagePickerController);
-			didFinishPickingMediaWithInfoHandler(controller, info);
+			didFinishPickingMediaWithInfoHandler(controller, pickerInfo);
 		}
 	}
 	

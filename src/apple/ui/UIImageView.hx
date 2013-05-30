@@ -33,20 +33,28 @@ class UIImageView extends UIView
 	//Static Methods
 
 	//Properties
-	public var image(null, set_image):String;
-
-	private function set_image(value:String):String
+	public var image(get_image, set_image):UIImage;
+	private function get_image():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "image", [], [], TypeValues.ObjectVal);
 	}
 
-	public var highlightedImage(null, set_highlightedImage):String;
-
-	private function set_highlightedImage(value:String):String
+	private function set_image(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:", [value], [TypeValues.ObjectVal], -1 );
+		return image;
+	}
+
+	public var highlightedImage(get_highlightedImage, set_highlightedImage):UIImage;
+	private function get_highlightedImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "highlightedImage", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_highlightedImage(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setHighlightedImage:", [value], [TypeValues.ObjectVal], -1 );
+		return highlightedImage;
 	}
 
 	public var highlighted(get_highlighted, set_highlighted):Bool;
@@ -87,13 +95,13 @@ class UIImageView extends UIView
 
 
 	//Methods
-	public function initWithImage( image:String):Dynamic
+	public function initWithImage( image:UIImage):Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:", [image], [TypeValues.UIImageVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:", [image], [TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
-	public function initWithImageHighlightedImage( image:String,  highlightedImage:String):Dynamic
+	public function initWithImageHighlightedImage( image:UIImage,  highlightedImage:UIImage):Dynamic
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:highlightedImage:", [image, highlightedImage], [TypeValues.UIImageVal, TypeValues.UIImageVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithImage:highlightedImage:", [image, highlightedImage], [TypeValues.ObjectVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
 	public function stopAnimating():Void
 	{

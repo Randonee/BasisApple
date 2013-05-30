@@ -141,20 +141,28 @@ class UITextField extends UIControl
 		return minimumFontSize;
 	}
 
-	public var background(null, set_background):String;
-
-	private function set_background(value:String):String
+	public var background(get_background, set_background):UIImage;
+	private function get_background():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackground:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "background", [], [], TypeValues.ObjectVal);
 	}
 
-	public var disabledBackground(null, set_disabledBackground):String;
-
-	private function set_disabledBackground(value:String):String
+	private function set_background(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDisabledBackground:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackground:", [value], [TypeValues.ObjectVal], -1 );
+		return background;
+	}
+
+	public var disabledBackground(get_disabledBackground, set_disabledBackground):UIImage;
+	private function get_disabledBackground():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "disabledBackground", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_disabledBackground(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDisabledBackground:", [value], [TypeValues.ObjectVal], -1 );
+		return disabledBackground;
 	}
 
 	public var editing(get_editing, null):Bool;

@@ -1,6 +1,5 @@
 #import "apple/ui/UIImagePickerControllerDelegateImp.h"
 #import "BasisApplication.h"
-#import "../../include/tools/Base64.h"
 
 
 @implementation UIImagePickerControllerDelegateImp
@@ -15,22 +14,6 @@
 	_didShowViewControllerHandler = didShowViewControllerHandler;
 	_willShowViewControllerPopoverHandler = willShowViewControllerPopoverHandler;
 	
-	_quality = 1;
-}
-
-
-- (value) setJPEGQuality:(float) quality
-{
-	_quality = quality;
-}
-
-
--(value) uiImageToString:(UIImage*) image
-{
-	NSData *data = UIImageJPEGRepresentation(image, _quality);
-	[Base64 initialize];
-	NSString *strEncoded = [Base64 encode:data];
-	return alloc_string([strEncoded cStringUsingEncoding:NSASCIIStringEncoding]);
 }
 
 
@@ -41,11 +24,21 @@
 	
 	UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
 	if(image != nil)
-		val_array_set_i(arr, 1, [self uiImageToString:image]);
+	{
+		[[BasisApplication getObjectManager] addObject:image];
+		[[BasisApplication getObjectManager] createHaxeObject:image];
+		NSString *imageID = [ObjectManager getObjectID:image];
+		val_array_set_i(arr, 1, alloc_string([imageID cStringUsingEncoding:NSUTF8StringEncoding]));
+	}
 	
 	image = [info objectForKey: UIImagePickerControllerEditedImage];
 	if(image != nil)
-		val_array_set_i(arr, 2, [self uiImageToString:image]);
+	{
+		[[BasisApplication getObjectManager] addObject:image];
+		[[BasisApplication getObjectManager] createHaxeObject:image];
+		NSString *imageID = [ObjectManager getObjectID:image];
+		val_array_set_i(arr, 2, alloc_string([imageID cStringUsingEncoding:NSUTF8StringEncoding]));
+	}
 	
 	val_array_set_i(arr, 3, alloc_string("UIImagePickerControllerCropRect"));
 	

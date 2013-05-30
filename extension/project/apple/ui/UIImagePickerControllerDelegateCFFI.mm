@@ -12,13 +12,4 @@ namespace basis
 	}
 	DEFINE_PRIM(uiimagepickercontrollerdelegate_create, 2);
 	
-	
-	void uiimagepickercontrollerdelegate_setJPEGQuality(value controllerID, value quality)
-	{
-		NSString *nsControllerID = [NSString stringWithCString:val_string(controllerID) encoding:NSUTF8StringEncoding];
-		UIImagePickerController *controller = (UIImagePickerController *)[[BasisApplication getObjectManager] getObject:nsControllerID];
-		UIImagePickerControllerDelegateImp *delegate = (UIImagePickerControllerDelegateImp *)controller.delegate;
-		[delegate setJPEGQuality:val_float(quality)];
-	}
-	DEFINE_PRIM(uiimagepickercontrollerdelegate_setJPEGQuality, 2);
 }

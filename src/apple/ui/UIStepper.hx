@@ -123,21 +123,37 @@ class UIStepper extends UIControl
 
 
 	//Methods
-	public function setDividerImageForLeftSegmentStateRightSegmentState( image:String,  leftState:Int,  rightState:Int):Void
+	public function setDividerImageForLeftSegmentStateRightSegmentState( image:UIImage,  leftState:Int,  rightState:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDividerImage:forLeftSegmentState:rightSegmentState:", [image, leftState, rightState], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDividerImage:forLeftSegmentState:rightSegmentState:", [image, leftState, rightState], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
 	}
-	public function setIncrementImageForState( image:String,  state:Int):Void
+	public function setIncrementImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setIncrementImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setIncrementImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
-	public function setBackgroundImageForState( image:String,  state:Int):Void
+	public function setBackgroundImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
-	public function setDecrementImageForState( image:String,  state:Int):Void
+	public function backgroundImageForState( state:Int):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDecrementImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function incrementImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "incrementImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function dividerImageForLeftSegmentStateRightSegmentState( state:Int,  state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "dividerImageForLeftSegmentState:rightSegmentState:", [state, state], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function decrementImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "decrementImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function setDecrementImageForState( image:UIImage,  state:Int):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setDecrementImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 
 

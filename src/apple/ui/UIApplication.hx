@@ -236,9 +236,9 @@ class UIApplication extends UIResponder
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "enabledRemoteNotificationTypes", [], [], TypeValues.IntVal);
 	}
-	public function setNewsstandIconImage( image:String):Void
+	public function setNewsstandIconImage( image:UIImage):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNewsstandIconImage:", [image], [TypeValues.UIImageVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setNewsstandIconImage:", [image], [TypeValues.ObjectVal], -1);
 	}
 
 

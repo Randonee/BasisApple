@@ -106,13 +106,21 @@ class UIBarButtonItem extends UIBarItem
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackButtonBackgroundVerticalPositionAdjustment:forBarMetrics:", [adjustment, barMetrics], [TypeValues.FloatVal, TypeValues.IntVal], -1);
 	}
-	public function setBackgroundImageForStateBarMetrics( backgroundImage:String,  state:Int,  barMetrics:Int):Void
+	public function setBackgroundImageForStateBarMetrics( backgroundImage:UIImage,  state:Int,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
 	}
-	public function setBackgroundImageForStateStyleBarMetrics( backgroundImage:String,  state:Int,  style:Int,  barMetrics:Int):Void
+	public function setBackgroundImageForStateStyleBarMetrics( backgroundImage:UIImage,  state:Int,  style:Int,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:style:barMetrics:", [backgroundImage, state, style, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:style:barMetrics:", [backgroundImage, state, style, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+	}
+	public function backgroundImageForStateBarMetrics( state:Int,  barMetrics:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForState:barMetrics:", [state, barMetrics], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function backgroundImageForStateStyleBarMetrics( state:Int,  style:Int,  barMetrics:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForState:style:barMetrics:", [state, style, barMetrics], [TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function titlePositionAdjustmentForBarMetrics( barMetrics:Int):Array<Int>
 	{
@@ -142,9 +150,13 @@ class UIBarButtonItem extends UIBarItem
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundVerticalPositionAdjustment:forBarMetrics:", [adjustment, barMetrics], [TypeValues.FloatVal, TypeValues.IntVal], -1);
 	}
-	public function setBackButtonBackgroundImageForStateBarMetrics( backgroundImage:String,  state:Int,  barMetrics:Int):Void
+	public function backButtonBackgroundImageForStateBarMetrics( state:Int,  barMetrics:Int):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackButtonBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backButtonBackgroundImageForState:barMetrics:", [state, barMetrics], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function setBackButtonBackgroundImageForStateBarMetrics( backgroundImage:UIImage,  state:Int,  barMetrics:Int):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackButtonBackgroundImage:forState:barMetrics:", [backgroundImage, state, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
 	}
 	public function backButtonBackgroundVerticalPositionAdjustmentForBarMetrics( barMetrics:Int):Float
 	{

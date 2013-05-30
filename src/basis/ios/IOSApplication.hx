@@ -72,6 +72,7 @@ class IOSApplication extends BasisApplication
 		
 		objectManager.addClass(apple.ui.UITextField);
 		objectManager.addClass(apple.ui.UIImageView);
+		objectManager.addClass(apple.ui.UIImage);
 		objectManager.addClass(apple.ui.UIImagePickerController);
 		objectManager.addClass(apple.ui.UIResponder);
 		objectManager.addClass(apple.ui.UIAlertView);
@@ -111,6 +112,9 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIWindow);
 		
 		objectManager.addClass(apple.quartzcore.CALayer);
+		
+		objectManager.addClass(apple.foundation.NSData);
+		objectManager.addClass(apple.foundation.NSError);
 		
 	}
 }

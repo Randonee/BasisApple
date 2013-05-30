@@ -17,6 +17,7 @@
 #include "object/ObjectManagerCFFI.mm"
 #include "EventManagerCFFI.mm"
 #import "BasisStart.h"
+#import "../include/tools/Base64.h"
 
 
 #ifdef IPHONE

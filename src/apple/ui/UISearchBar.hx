@@ -217,20 +217,28 @@ class UISearchBar extends UIView
 		return showsScopeBar;
 	}
 
-	public var backgroundImage(null, set_backgroundImage):String;
-
-	private function set_backgroundImage(value:String):String
+	public var backgroundImage(get_backgroundImage, set_backgroundImage):UIImage;
+	private function get_backgroundImage():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImage", [], [], TypeValues.ObjectVal);
 	}
 
-	public var scopeBarBackgroundImage(null, set_scopeBarBackgroundImage):String;
-
-	private function set_scopeBarBackgroundImage(value:String):String
+	private function set_backgroundImage(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarBackgroundImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:", [value], [TypeValues.ObjectVal], -1 );
+		return backgroundImage;
+	}
+
+	public var scopeBarBackgroundImage(get_scopeBarBackgroundImage, set_scopeBarBackgroundImage):UIImage;
+	private function get_scopeBarBackgroundImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scopeBarBackgroundImage", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_scopeBarBackgroundImage(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarBackgroundImage:", [value], [TypeValues.ObjectVal], -1 );
+		return scopeBarBackgroundImage;
 	}
 
 	public var searchFieldBackgroundPositionAdjustment(get_searchFieldBackgroundPositionAdjustment, set_searchFieldBackgroundPositionAdjustment):Array<Int>;
@@ -259,9 +267,13 @@ class UISearchBar extends UIView
 
 
 	//Methods
-	public function setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState( dividerImage:String,  leftState:Int,  rightState:Int):Void
+	public function imageForSearchBarIconState( icon:Int,  state:Int):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:", [dividerImage, leftState, rightState], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageForSearchBarIcon:state:", [icon, state], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function setScopeBarButtonDividerImageForLeftSegmentStateRightSegmentState( dividerImage:UIImage,  leftState:Int,  rightState:Int):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:", [dividerImage, leftState, rightState], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
 	}
 	public function setPositionAdjustmentForSearchBarIcon( adjustment:Array<Int>,  icon:Int):Void
 	{
@@ -271,21 +283,33 @@ class UISearchBar extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShowsCancelButton:animated:", [showsCancelButton, animated], [TypeValues.BoolVal, TypeValues.BoolVal], -1);
 	}
-	public function setImageForSearchBarIconState( iconImage:String,  icon:Int,  state:Int):Void
+	public function scopeBarButtonBackgroundImageForState( state:Int):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forSearchBarIcon:state:", [iconImage, icon, state], [TypeValues.UIImageVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scopeBarButtonBackgroundImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
-	public function setScopeBarButtonBackgroundImageForState( backgroundImage:String,  state:Int):Void
+	public function setImageForSearchBarIconState( iconImage:UIImage,  icon:Int,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarButtonBackgroundImage:forState:", [backgroundImage, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forSearchBarIcon:state:", [iconImage, icon, state], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal], -1);
+	}
+	public function setScopeBarButtonBackgroundImageForState( backgroundImage:UIImage,  state:Int):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setScopeBarButtonBackgroundImage:forState:", [backgroundImage, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
+	}
+	public function scopeBarButtonDividerImageForLeftSegmentStateRightSegmentState( leftState:Int,  rightState:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:", [leftState, rightState], [TypeValues.IntVal, TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function positionAdjustmentForSearchBarIcon( icon:Int):Array<Int>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "positionAdjustmentForSearchBarIcon:", [icon], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
-	public function setSearchFieldBackgroundImageForState( backgroundImage:String,  state:Int):Void
+	public function setSearchFieldBackgroundImageForState( backgroundImage:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchFieldBackgroundImage:forState:", [backgroundImage, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSearchFieldBackgroundImage:forState:", [backgroundImage, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
+	}
+	public function searchFieldBackgroundImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "searchFieldBackgroundImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 
 

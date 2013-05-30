@@ -61,20 +61,28 @@ class UISwitch extends UIControl
 		return thumbTintColor;
 	}
 
-	public var onImage(null, set_onImage):String;
-
-	private function set_onImage(value:String):String
+	public var onImage(get_onImage, set_onImage):UIImage;
+	private function get_onImage():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOnImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "onImage", [], [], TypeValues.ObjectVal);
 	}
 
-	public var offImage(null, set_offImage):String;
-
-	private function set_offImage(value:String):String
+	private function set_onImage(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOffImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOnImage:", [value], [TypeValues.ObjectVal], -1 );
+		return onImage;
+	}
+
+	public var offImage(get_offImage, set_offImage):UIImage;
+	private function get_offImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "offImage", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_offImage(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setOffImage:", [value], [TypeValues.ObjectVal], -1 );
+		return offImage;
 	}
 
 	public var on(get_on, set_on):Bool;

@@ -73,20 +73,28 @@ class UIProgressView extends UIView
 		return trackTintColor;
 	}
 
-	public var progressImage(null, set_progressImage):String;
-
-	private function set_progressImage(value:String):String
+	public var progressImage(get_progressImage, set_progressImage):UIImage;
+	private function get_progressImage():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "progressImage", [], [], TypeValues.ObjectVal);
 	}
 
-	public var trackImage(null, set_trackImage):String;
-
-	private function set_trackImage(value:String):String
+	private function set_progressImage(value:UIImage):UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTrackImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setProgressImage:", [value], [TypeValues.ObjectVal], -1 );
+		return progressImage;
+	}
+
+	public var trackImage(get_trackImage, set_trackImage):UIImage;
+	private function get_trackImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "trackImage", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_trackImage(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTrackImage:", [value], [TypeValues.ObjectVal], -1 );
+		return trackImage;
 	}
 
 

@@ -149,9 +149,17 @@ class UIButton extends UIControl
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentTitleShadowColor", [], [], TypeValues.UIColorVal);
 	}
 
-	public var currentImage(null, null):String;
+	public var currentImage(get_currentImage, null):UIImage;
+	private function get_currentImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentImage", [], [], TypeValues.ObjectVal);
+	}
 
-	public var currentBackgroundImage(null, null):String;
+	public var currentBackgroundImage(get_currentBackgroundImage, null):UIImage;
+	private function get_currentBackgroundImage():UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentBackgroundImage", [], [], TypeValues.ObjectVal);
+	}
 
 	public var titleLabel(get_titleLabel, null):UILabel;
 	private function get_titleLabel():UILabel
@@ -179,21 +187,25 @@ class UIButton extends UIControl
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "contentRectForBounds:", [bounds], [TypeValues.CGRectVal], TypeValues.CGRectVal);
 	}
-	public function setBackgroundImageForState( image:String,  state:Int):Void
+	public function setBackgroundImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 	public function titleShadowColorForState( state:Int):Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleShadowColorForState:", [state], [TypeValues.IntVal], TypeValues.UIColorVal);
 	}
+	public function backgroundImageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
 	public function setTitleForState( title:String,  state:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:forState:", [title, state], [TypeValues.StringVal, TypeValues.IntVal], -1);
 	}
-	public function setImageForState( image:String,  state:Int):Void
+	public function setImageForState( image:UIImage,  state:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forState:", [image, state], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setImage:forState:", [image, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 	public function titleColorForState( state:Int):Array<Float>
 	{
@@ -202,6 +214,10 @@ class UIButton extends UIControl
 	public function backgroundRectForBounds( bounds:Array<Float>):Array<Float>
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundRectForBounds:", [bounds], [TypeValues.CGRectVal], TypeValues.CGRectVal);
+	}
+	public function imageForState( state:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "imageForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function imageRectForContentRect( contentRect:Array<Float>):Array<Float>
 	{

@@ -212,10 +212,6 @@ namespace basis
 							[objcArgs addObject:arrayToUIColor(arg)];
 						break;
 						
-						case UIImageVal:
-							[objcArgs addObject:pathToUIImage(arg)];
-						break;
-						
 						case UIFontVal:
 							[objcArgs addObject:arrayToUIFont(arg)];
 						break;
@@ -348,10 +344,6 @@ namespace basis
 				}
 				break;
 			
-				case UIImageVal:
-					return nil;
-				break;
-				
 				case UIColorVal:
 					return uiColorToArray(returnVar);
 				break;

@@ -78,12 +78,16 @@ class UINavigationBar extends UIView
 		return tintColor;
 	}
 
-	public var shadowImage(null, set_shadowImage):String;
-
-	private function set_shadowImage(value:String):String
+	public var shadowImage(get_shadowImage, set_shadowImage):UIImage;
+	private function get_shadowImage():UIImage
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [TypeValues.UIImageVal], -1 );
-		return null;
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shadowImage", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_shadowImage(value:UIImage):UIImage
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setShadowImage:", [value], [TypeValues.ObjectVal], -1 );
+		return shadowImage;
 	}
 
 
@@ -92,9 +96,13 @@ class UINavigationBar extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "pushNavigationItem:animated:", [item, animated], [TypeValues.ObjectVal, TypeValues.BoolVal], -1);
 	}
-	public function setBackgroundImageForBarMetrics( backgroundImage:String,  barMetrics:Int):Void
+	public function setBackgroundImageForBarMetrics( backgroundImage:UIImage,  barMetrics:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forBarMetrics:", [backgroundImage, barMetrics], [TypeValues.UIImageVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBackgroundImage:forBarMetrics:", [backgroundImage, barMetrics], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
+	}
+	public function backgroundImageForBarMetrics( barMetrics:Int):UIImage
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "backgroundImageForBarMetrics:", [barMetrics], [TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function setTitleVerticalPositionAdjustmentForBarMetrics( adjustment:Float,  barMetrics:Int):Void
 	{

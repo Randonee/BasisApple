@@ -72,9 +72,13 @@ void (*_destroyHaxeObjectFunction)(id);
 /**
 * Adds an object to the basis system
 **/
--(NSString *) addObject:(NSObject*)object
+-(NSString *) addObject:(id)object
 {
 	NSString* objectID = [ObjectManager getObjectID:object];
+	
+	if([_objects objectForKey:objectID] != nil)
+		return objectID;
+		
 	[_objects setObject:object forKey:objectID];
 	if(_delegate != nil)
 		[_delegate objectBeingAdded:object];
