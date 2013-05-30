@@ -192,6 +192,9 @@ class ObjectManager
 	//---- Called from cffi
 	public function cffi_addObject(id:String, className:String):Void
 	{
+		if(_objects.exists(id))
+			return;
+	
 		_creatingFromCFFI = true;
 		_cffiID = id;
 		var object:IObject = Type.createInstance(_classTypes.get(className), []);
