@@ -19,6 +19,9 @@ namespace basis
 		NSData *nsData = [Base64 decode:val_string(data) length:val_int(length)];
 		UIImage *newimage = [UIImage imageWithData:nsData];
 		
+		if(newimage == nil)
+			return nil;
+
 		NSString *imageID = [[BasisApplication getObjectManager] addObject:newimage];
 		[[BasisApplication getObjectManager] createHaxeObject:newimage];
 		
