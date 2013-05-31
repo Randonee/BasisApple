@@ -12,4 +12,18 @@ namespace basis
 		return alloc_string([strEncoded cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
 	DEFINE_PRIM (uiimage_imageToBase64JPEG, 2);
+	
+	value uiimage_imageFromBase64JPEG(value data, value length)
+	{
+		[Base64 initialize];
+		NSData *nsData = [Base64 decode:val_string(data) length:val_int(length)];
+		UIImage *newimage = [UIImage imageWithData:nsData];
+		
+		NSString *imageID = [[BasisApplication getObjectManager] addObject:newimage];
+		[[BasisApplication getObjectManager] createHaxeObject:newimage];
+		
+		return alloc_string([imageID cStringUsingEncoding:NSASCIIStringEncoding]);
+		
+	}
+	DEFINE_PRIM (uiimage_imageFromBase64JPEG, 2);
 }
