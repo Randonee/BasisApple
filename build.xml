@@ -88,7 +88,7 @@
 	</target>
 	
 	<target name="runtests">
-		<antcall target="installib" >
+		<antcall target="install" >
 			<param name="buildProps.installTests" value="true"/>
 		</antcall>
 		
@@ -112,7 +112,7 @@
 		<get src="https://github.com/Randonee/Basis/archive/master.zip" dest="build/basis.zip"/>
 		<unzip src="build/basis.zip" dest="build"/>
 		<exec dir="build/Basis-master" failonerror="true" executable="ant">
-			<arg line="installib" />
+			<arg line="install" />
 		</exec>
 
 		<antcall target="ios" />
