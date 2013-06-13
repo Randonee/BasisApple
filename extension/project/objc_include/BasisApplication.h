@@ -4,7 +4,7 @@
 
 @interface BasisApplication : NSObject
 {
-	id<UIApplicationDelegate> delegate;
+	
 }
 
 	+(void) setInstance:(BasisApplication *)value;

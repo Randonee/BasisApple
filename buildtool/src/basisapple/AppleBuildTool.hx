@@ -110,7 +110,8 @@ class AppleBuildTool extends basis.BuildTool
 			{
 				buildFile.writeString("-D osx\n");
 				buildFile.writeString("-D HXCPP_M64\n");
-				buildFile.writeString("-D static\n");
+				buildFile.writeString("-D static_link\n");
+				buildFile.writeString("-D macos\n");
 			}
 				
 			buildFile.writeString("-lib BasisApple\n");
@@ -218,6 +219,8 @@ class AppleBuildTool extends basis.BuildTool
 			else if(osType == OSX_OS())
 			{
 				args.push("-DHXCPP_M64");
+				args.push("-Dstatic_link");
+				args.push("-Dmacos");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION_INCLUDE", "#include <basis/BasisApplication.h>\n#include <basis/osx/OSXApplication.h>");
 				basisStartContent = StringTools.replace(basisStartContent, "BASIS_APPLICATION", "::basis::BasisApplication_obj::init(hx::ClassOf< ::basis::osx::OSXApplication >());");
 			}
@@ -259,9 +262,11 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			else if(osType == OSX_OS())
 			{
-				FileUtil.copyInto(haxeBuildPath + "cpp/obj/darwin64/src/", xcodeBin);
-				FileUtil.copyInto(FileUtil.getHaxelib("hxcpp") + "bin/Mac64/", xcodeBin + "/hxcpp/");
-				File.copy(libPath + "bin/Mac/basisapple.ndll" , xcodeBin + "basisapple.ndll");
+				FileUtil.copyInto(haxeBuildPath + "cpp/obj/darwin64-stat/src/", xcodeBin);
+				File.copy(FileUtil.getHaxelib("hxcpp") + "bin/Mac64/regexp.a" , xcodeBin + "/hxcpp/regexp.a");
+				File.copy(FileUtil.getHaxelib("hxcpp") + "bin/Mac64/std.a" , xcodeBin + "/hxcpp/std.a");
+				File.copy(FileUtil.getHaxelib("hxcpp") + "bin/Mac64/zlib.a" , xcodeBin + "/hxcpp/zlib.a");
+				File.copy(libPath + "bin/Mac64/basisapple.ndll" , xcodeBin + "basisapple.ndll");
 			}
 			//------------------------------------
 			

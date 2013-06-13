@@ -26,6 +26,7 @@
 		<framework name="Foundation" />
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
+		<framework name="AppKit" />
 		<main classpath="example.ApplicationMain" />
 		<debug value="true" />
 		<runWhenFinished value="true" />

@@ -33,11 +33,11 @@
 
 
 #import "IOSApplication.h"
+
+#else
+#import "OSXApplication.h"
 #endif
 
-#ifdef OSX
-#import "BasisOSXApplication.h"
-#endif
 
 
 namespace basis
@@ -65,11 +65,10 @@ namespace basis
 		[BasisApplication setStartHandler:&startBasisHandler];
 		#ifdef IPHONE
 			[IOSApplication start];
+		#else
+			[OSXApplication start];
 		#endif
 		
-		#ifdef OSX
-			[BasisOSXApplication start];
-		#endif
 	}
 	DEFINE_PRIM (basis_initBasis, 0);
 }
