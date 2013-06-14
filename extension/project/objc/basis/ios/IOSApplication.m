@@ -151,16 +151,16 @@
 {
 	[BasisApplication setInstance:self];
 	
+	self.objectManager = [[ObjectManager alloc] init];
+	[self.objectManager setDelegate:self];
+	
 	[self.objectManager addObject:application];
 	[self.objectManager createHaxeObject:application];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
-	self.objectManager = [[ObjectManager alloc] init];
 	[self.objectManager addObject:self.window];
-	
-	[self.objectManager setDelegate:self];
 	
 	IOSEventManager* iosEventManager = [[IOSEventManager alloc] init];
 	self.eventManager = iosEventManager;

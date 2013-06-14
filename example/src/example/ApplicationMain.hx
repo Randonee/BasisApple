@@ -13,7 +13,7 @@ class ApplicationMain
 		#if ios
 		IOSApplication.instance.addToRootView(new MainView());
 		#elseif osx
-		OSXApplication;
+		trace("Hello Cocoa!");
 		#end
 	}
 }
