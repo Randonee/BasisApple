@@ -297,6 +297,7 @@ class AppleBuildTool extends basis.BuildTool
 			else if(osType == OSX_OS())
 			{
 				File.copy(libPath + "template/osx/prefix.pch" , xcodeFiles + "/prefix.pch");
+				FileUtil.copyInto(libPath + "template/osx/en.lproj", xcodeFiles + "/en.lproj/", settingsContenxt);
 				FileUtil.deleteDirectoryRecursive(xcodeFiles + "basis/ios");
 				FileSystem.deleteFile(xcodeFiles + "objc_include/IOSApplication.h");
 				FileSystem.deleteFile(xcodeFiles + "objc_include/IOSEventManager.h");
@@ -311,6 +312,7 @@ class AppleBuildTool extends basis.BuildTool
 			
 			xcode.addSourceDirectory("bin", xcodeBin);
 			xcode.addSourceDirectory("assets", xcodeAssets, true);
+			xcode.addSourceDirectory("en.lproj", xcodeFiles + "/en.lproj");
 			xcode.addPlist(appName + "-Info.plist");
 			
 			for(b in 0...frameworks.length)

@@ -8,7 +8,7 @@
 
 +(void) start
 {
-	//NSApplicationMain(0, nil);
+	NSApplicationMain(0, nil);
 }
 
 
