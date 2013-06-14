@@ -5,7 +5,7 @@
 #import "ObjectManager.h"
 
 
-@interface OSXApplication : BasisApplication <ObjectManagerDelegateProtocol>
+@interface OSXApplication : BasisApplication <ObjectManagerDelegateProtocol, NSApplicationDelegate>
 	+(void) start;
 	@property (retain) IBOutlet NSWindow *window;
 @end
