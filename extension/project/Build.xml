@@ -26,7 +26,7 @@
 	<files id="osx">
         <compilerflag value="-Iinclude"/>
 		<compilerflag value="-Iobjc_include"/>
-		<file name="common/ExternalInterfaceOSX.cpp"/>
+		<file name="common/ExternalInterface.cpp"/>
 		<file name="basis/Basis.mm"/>
     </files>
 

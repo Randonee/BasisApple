@@ -312,8 +312,10 @@ class AppleBuildTool extends basis.BuildTool
 			
 			xcode.addSourceDirectory("bin", xcodeBin);
 			xcode.addSourceDirectory("assets", xcodeAssets, true);
-			xcode.addSourceDirectory("en.lproj", xcodeFiles + "/en.lproj");
 			xcode.addPlist(appName + "-Info.plist");
+			
+			if(osType == OSX_OS())
+				xcode.addSourceDirectory("en.lproj", xcodeFiles + "/en.lproj");
 			
 			for(b in 0...frameworks.length)
 				xcode.addFramework(frameworks[b]);
@@ -328,7 +330,6 @@ class AppleBuildTool extends basis.BuildTool
 			{
 				xcode.setBuildSetting(setting.name, setting.value);
 			}
-				
 			xcode.save(targetPath, true);
 			//------------------------------------
 			

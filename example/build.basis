@@ -15,11 +15,6 @@
 			<debug value="true" />
 			<runWhenFinished value="true" />
 		</target>
-		<target name="ipaddev">
-			<simulator use="false" type="ipad"/>
-			<haxeArg value="-D HXCPP_ARMV7" />
-			<debug value="true" />
-		</target>
 	</target>
 	<target name="osx" type="Apple">
 		<os type="osx" />
