@@ -16,14 +16,11 @@
 {
 	[BasisApplication setInstance:self];
 	self.objectManager = [[ObjectManager alloc] init];
-	
-	//[self.objectManager addObject:self.window];
-	
 	[self.objectManager setDelegate:self];
+    [self.objectManager addObject:window];
 	
 	OSXEventManager* osxEventManager = [[OSXEventManager alloc] init];
 	self.eventManager = osxEventManager;
-	
    [BasisApplication callStartHandler];
 }
 

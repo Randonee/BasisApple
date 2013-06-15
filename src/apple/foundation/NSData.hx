@@ -13,13 +13,6 @@ import basis.object.TypeValues;
 class NSData extends AbstractObject
 {
 
-	//Additions
-	static public function data():Dynamic
-	{
-		return BasisApplication.instance.objectManager.callClassMethod("apple.foundation.NSData", "data", [], [], TypeValues.ObjectVal);
-	}
-	//Additions
-
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -53,6 +46,10 @@ class NSData extends AbstractObject
 	static public function dataWithContentsOfURL( url:String):Dynamic
 	{
 		return BasisApplication.instance.objectManager.callClassMethod("apple.foundation.NSData", "dataWithContentsOfURL:", [url], [TypeValues.NSURLVal], TypeValues.ObjectVal);
+	}
+	static public function data():Dynamic
+	{
+		return BasisApplication.instance.objectManager.callClassMethod("apple.foundation.NSData", "data", [], [], TypeValues.ObjectVal);
 	}
 	static public function dataWithContentsOfFileOptionsError( path:String,  readOptionsMask:Int,  errorPtr:NSError):Dynamic
 	{

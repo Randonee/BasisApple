@@ -7,5 +7,5 @@
 
 @interface OSXApplication : BasisApplication <ObjectManagerDelegateProtocol, NSApplicationDelegate>
 	+(void) start;
-	@property (retain) IBOutlet NSWindow *window;
+	@property (assign) IBOutlet NSWindow *window;
 @end
