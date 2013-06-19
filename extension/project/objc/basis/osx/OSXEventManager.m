@@ -5,4 +5,7 @@
 
 @implementation OSXEventManager
 
+
+-(void) onMenuItemActionEvent:(id)sender{[self callHandlers:[ObjectManager getObjectID:sender] :"NSMenuItemActionEvent"];}
+
 @end

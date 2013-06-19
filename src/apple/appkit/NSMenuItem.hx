@@ -13,6 +13,10 @@ import basis.object.TypeValues;
 class NSMenuItem extends AbstractObject
 {
 
+	//Additions
+	static public inline var NSMenuItemActionEvent:String = "NSMenuItemActionEvent";
+	//Additions
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)

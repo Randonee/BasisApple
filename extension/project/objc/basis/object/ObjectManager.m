@@ -1,4 +1,5 @@
 #import "ObjectManager.h"
+#import <objc/runtime.h>
 
 @interface ObjectManager()
 {

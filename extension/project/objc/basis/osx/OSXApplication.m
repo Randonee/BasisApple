@@ -5,8 +5,6 @@
 
 @implementation OSXApplication
 
-@synthesize window;
-
 +(void) start
 {
 	NSApplicationMain(0, nil);
@@ -17,7 +15,6 @@
 	[BasisApplication setInstance:self];
 	self.objectManager = [[ObjectManager alloc] init];
 	[self.objectManager setDelegate:self];
-    [self.objectManager addObject:window];
 	
 	OSXEventManager* osxEventManager = [[OSXEventManager alloc] init];
 	self.eventManager = osxEventManager;
@@ -35,6 +32,26 @@
 
 -(void)objectBeingAdded:(id)object
 {
+	if([object isKindOfClass:[NSApplication class]])
+	{
+		NSMenu *menu = [NSApplication sharedApplication].mainMenu;
+		[self.objectManager addObject:menu];
+		[self.objectManager createHaxeObject:menu];
+		
+		NSMenuItem *item = [menu itemAtIndex:0];
+		[self.objectManager addObject:item];
+		[self.objectManager createHaxeObject:item];
+		
+		[self.objectManager addObject:item.submenu];
+		[self.objectManager createHaxeObject:item.submenu];
+	}
+
+	if([object isKindOfClass:[NSMenuItem class]])
+	{
+		NSMenuItem *item = (NSMenuItem *)[self.objectManager getObject:[ObjectManager getObjectID:object]];
+		[item setTarget:[BasisApplication getInstance].eventManager];
+		[item setAction:@selector(onMenuItemActionEvent:)];
+	}
 }
 
 

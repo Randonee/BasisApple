@@ -15,7 +15,20 @@ class NSWindow extends NSResponder
 {
 
 	//Additions
+	static public function initWithContentRectStyleMaskBackingDefer(rect:Array<Float>, windowStyle:Int, bufferingType:Int, deferCreation:Bool)
+	{
+		var objectID:String = nswindow_initWithContentRectStyleMaskBackingDefer(rect, windowStyle, bufferingType, deferCreation);
+		var object:IObject = BasisApplication.instance.objectManager.getObject(objectID);
+		
+		if(object != null)
+			return cast(object, NSWindow);
+
+		return null;
+	}
+	private static var nswindow_initWithContentRectStyleMaskBackingDefer = Lib.load ("basis", "nswindow_initWithContentRectStyleMaskBackingDefer", 4);
+	
 	public var delegate(default, null):Dynamic;
+	
 	//Additions
 
 	public function new(?type:Class<IObject>=null)
@@ -335,10 +348,6 @@ class NSWindow extends NSResponder
 	public function print( sender:Dynamic):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "print:", [sender], [TypeValues.ObjectVal], -1);
-	}
-	public function initWithContentRectStyleMaskBackingDefer( contentRect:Array<Float>,  aStyle:Int,  bufferingType:Int,  flag:Bool):Dynamic
-	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithContentRect:styleMask:backing:defer:", [contentRect, aStyle, bufferingType, flag], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.BoolVal], TypeValues.ObjectVal);
 	}
 	public function initWithContentRectStyleMaskBackingDeferScreen( contentRect:Array<Float>,  aStyle:Int,  bufferingType:Int,  flag:Bool,  screen:NSScreen):Dynamic
 	{

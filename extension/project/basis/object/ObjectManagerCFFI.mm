@@ -112,8 +112,8 @@ namespace basis
 	    		{
 					case intVal:
 					{
-						int val = val_int(arg);
-						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(int)]];
+						NSInteger val = val_int(arg);
+						[objcArgs addObject:[NSValue value:&val withObjCType:@encode(NSInteger)]];
 					}
 					break;
 					

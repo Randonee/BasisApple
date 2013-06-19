@@ -1,4 +1,4 @@
-package example;
+package example.ios;
 
 import basis.BasisApplication;
 import basis.ios.IOSUtil;

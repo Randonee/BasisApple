@@ -1,19 +1,15 @@
 package example;
 
-#if ios
-import basis.ios.IOSApplication;
-#elseif osx
-import basis.osx.OSXApplication;
-#end
 
 class ApplicationMain
 {
 	static public function main():Void
 	{
 		#if ios
-		IOSApplication.instance.addToRootView(new MainView());
+		basis.ios.IOSApplication.instance.addToRootView(new example.ios.MainView());
 		#elseif osx
-		trace("Hello Cocoa!");
+		new example.osx.OSXExample();
 		#end
 	}
+	
 }

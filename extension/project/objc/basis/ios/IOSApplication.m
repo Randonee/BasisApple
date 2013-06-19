@@ -18,7 +18,7 @@
 
 -(void)setUIApplicationDelegate:(id <UIApplicationDelegate>)appDelegate
 {
-	applicationDelegate = appDelegate	;
+	applicationDelegate = appDelegate;
 }
 
 -(void) addToRootView:(NSString*) objectID

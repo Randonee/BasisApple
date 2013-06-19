@@ -39,7 +39,6 @@
 #endif
 
 
-
 namespace basis
 {
 	void startBasisHandler();
@@ -55,9 +54,8 @@ namespace basis
 	
 	#ifdef IPHONE
 	#include "ios/IOS.mm"
-	#endif
-	#ifdef MAC
-	#include "ios/OSX.mm"
+	#else
+	#include "osx/OSX.mm"
 	#endif
 	
 	void basis_initBasis()
