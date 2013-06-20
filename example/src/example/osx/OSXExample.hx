@@ -14,7 +14,7 @@ class OSXExample
 		firstMenuItem.setSubmenu(submenu);
 		
 		var aboutMenuItem:NSMenuItem = new NSMenuItem();
-		aboutMenuItem.setTitle("About");
+		aboutMenuItem.setTitle("New Window");
 		aboutMenuItem.addEventListener(NSMenuItem.NSMenuItemActionEvent, onAboutMenuItemSelected);
 		submenu.addItem(aboutMenuItem);
 		
@@ -28,10 +28,22 @@ class OSXExample
 	
 	private function onAboutMenuItemSelected(object:basis.object.IObject, type:String):Void
 	{
-		var aboutWindow:apple.appkit.NSWindow = apple.appkit.NSWindow.initWithContentRectStyleMaskBackingDefer([200,200,600,700], 1 << 0, 2, false);
-		aboutWindow.setBackgroundColor(NSColor.whiteColor());
-		aboutWindow.makeKeyAndOrderFront(NSApplication.sharedApplication());
-		aboutWindow.setTitle("About");
+		var textWindow:apple.appkit.NSWindow = apple.appkit.NSWindow.initWithContentRectStyleMaskBackingDefer([200,200,600,700], 1 << 0, 2, false);
+		textWindow.setBackgroundColor(NSColor.whiteColor());
+		textWindow.makeKeyAndOrderFront(NSApplication.sharedApplication());
+		textWindow.setTitle("Text Window");
+		
+		
+		var frame:Array<Float> = textWindow.contentView().frame();
+		
+		var textView:NSTextView = new NSTextView();
+		
+		textView.setFrame(frame);
+		
+		textWindow.contentView().addSubview(textView);
+		textWindow.setContentView(textView);
+		textWindow.makeKeyAndOrderFront(null);
+		textWindow.makeFirstResponder(textView);
 	}
 	
 	private function onQuitMenuItemSelected(object:basis.object.IObject, type:String):Void

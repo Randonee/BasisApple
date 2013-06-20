@@ -52,6 +52,12 @@
 		[item setTarget:[BasisApplication getInstance].eventManager];
 		[item setAction:@selector(onMenuItemActionEvent:)];
 	}
+	
+	if([object isKindOfClass:[NSWindow class]])
+	{
+        [self.objectManager addObject:((NSWindow *)object).contentView];
+		[self.objectManager createHaxeObject:((NSWindow *)object).contentView];
+    }
 }
 
 
