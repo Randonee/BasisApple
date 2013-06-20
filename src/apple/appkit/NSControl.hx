@@ -9,7 +9,9 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 import apple.foundation.NSFormatter;
+import apple.appkit.NSPasteboard;
 
 class NSControl extends NSView
 {
@@ -156,6 +158,10 @@ class NSControl extends NSView
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "objectValue", [], [], TypeValues.ObjectVal);
 	}
+	public function setAttributedStringValue( obj:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedStringValue:", [obj], [TypeValues.ObjectVal], -1);
+	}
 	public function setContinuous( flag:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [flag], [TypeValues.BoolVal], -1);
@@ -211,6 +217,10 @@ class NSControl extends NSView
 	public function stringValue():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "stringValue", [], [], TypeValues.StringVal);
+	}
+	public function attributedStringValue():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedStringValue", [], [], TypeValues.ObjectVal);
 	}
 	public function isContinuous():Bool
 	{

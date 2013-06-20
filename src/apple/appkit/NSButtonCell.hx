@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
+import apple.appkit.NSPasteboard;
 
 class NSButtonCell extends NSActionCell
 {
@@ -67,9 +69,17 @@ class NSButtonCell extends NSActionCell
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "mouseEntered:", [event], [TypeValues.ObjectVal], -1);
 	}
+	public function attributedAlternateTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedAlternateTitle", [], [], TypeValues.ObjectVal);
+	}
 	public function setAlternateTitle( aString:String):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAlternateTitle:", [aString], [TypeValues.StringVal], -1);
+	}
+	public function drawTitleWithFrameInView( title:NSAttributedString,  frame:Array<Float>,  controlView:NSView):Array<Float>
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "drawTitle:withFrame:inView:", [title, frame, controlView], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
 	public function setShowsBorderOnlyWhileMouseInside( show:Bool):Void
 	{
@@ -91,9 +101,17 @@ class NSButtonCell extends NSActionCell
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyEquivalentFont:size:", [fontName, fontSize], [TypeValues.StringVal, TypeValues.FloatVal], -1);
 	}
+	public function setAttributedTitle( obj:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedTitle:", [obj], [TypeValues.ObjectVal], -1);
+	}
 	public function setGradientType( type:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setGradientType:", [type], [TypeValues.IntVal], -1);
+	}
+	public function setAttributedAlternateTitle( obj:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedAlternateTitle:", [obj], [TypeValues.ObjectVal], -1);
 	}
 	public function setKeyEquivalent( aKeyEquivalent:String):Void
 	{
@@ -171,8 +189,41 @@ class NSButtonCell extends NSActionCell
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBezelStyle:", [bezelStyle], [TypeValues.IntVal], -1);
 	}
+	public function attributedTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedTitle", [], [], TypeValues.ObjectVal);
+	}
 
 
+	public static inline var NSMomentaryLightButton:Int = 0;
+	public static inline var NSPushOnPushOffButton:Int = 1;
+	public static inline var NSToggleButton:Int = 2;
+	public static inline var NSSwitchButton:Int = 3;
+	public static inline var NSRadioButton:Int = 4;
+	public static inline var NSMomentaryChangeButton:Int = 5;
+	public static inline var NSOnOffButton:Int = 6;
+	public static inline var NSMomentaryPushInButton:Int = 7;
+	public static inline var NSMomentaryPushButton:Int = 8;
+	public static inline var NSMomentaryLight:Int = 9;
+	public static inline var NSRoundedBezelStyle:Int = 0;
+	public static inline var NSRegularSquareBezelStyle:Int = 1;
+	public static inline var NSThickSquareBezelStyle:Int = 2;
+	public static inline var NSThickerSquareBezelStyle:Int = 3;
+	public static inline var NSDisclosureBezelStyle:Int = 4;
+	public static inline var NSShadowlessSquareBezelStyle:Int = 5;
+	public static inline var NSCircularBezelStyle:Int = 6;
+	public static inline var NSTexturedSquareBezelStyle:Int = 7;
+	public static inline var NSHelpButtonBezelStyle:Int = 8;
+	public static inline var NSSmallSquareBezelStyle:Int = 9;
+	public static inline var NSTexturedRoundedBezelStyle:Int = 10;
+	public static inline var NSRoundRectBezelStyle:Int = 11;
+	public static inline var NSRecessedBezelStyle:Int = 12;
+	public static inline var NSRoundedDisclosureBezelStyle:Int = 13;
+	public static inline var NSGradientNone:Int = 0;
+	public static inline var NSGradientConcaveWeak:Int = 1;
+	public static inline var NSGradientConcaveStrong:Int = 2;
+	public static inline var NSGradientConvexWeak:Int = 3;
+	public static inline var NSGradientConvexStrong:Int = 4;
 
 
 }

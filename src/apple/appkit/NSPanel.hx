@@ -49,6 +49,16 @@ class NSPanel extends NSWindow
 	}
 
 
+	public static inline var NSAlertDefaultReturn:Int = 0;
+	public static inline var NSAlertAlternateReturn:Int = 1;
+	public static inline var NSAlertOtherReturn:Int = 2;
+	public static inline var NSAlertErrorReturn:Int = 3;
+	public static inline var NSOKButton:Int = 0;
+	public static inline var NSCancelButton:Int = 1;
+	public static inline var NSUtilityWindowMask:Int =  1 << 4;
+	public static inline var NSDocModalWindowMask:Int =  1 << 6;
+	public static inline var NSNonactivatingPanelMask:Int =  1 << 7;
+	public static inline var NSHUDWindowMask:Int =  1 << 13;
 
 
 }

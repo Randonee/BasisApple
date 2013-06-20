@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSApplication;
 
 class NSGraphicsContext extends AbstractObject
 {
@@ -123,6 +124,9 @@ class NSGraphicsContext extends AbstractObject
 	}
 
 
+	public static inline var NSImageInterpolationDefault:Int = 0;
+	public static inline var NSImageInterpolationNone:Int = 1;
+	public static inline var NSImageInterpolationLow:Int = 2;
 
 
 }

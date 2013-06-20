@@ -9,6 +9,9 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSMenuItem extends AbstractObject
 {
@@ -78,6 +81,10 @@ class NSMenuItem extends AbstractObject
 	public function isEnabled():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "isEnabled", [], [], TypeValues.BoolVal);
+	}
+	public function setAttributedTitle( string:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedTitle:", [string], [TypeValues.ObjectVal], -1);
 	}
 	public function setKeyEquivalentModifierMask( mask:Int):Void
 	{
@@ -194,6 +201,10 @@ class NSMenuItem extends AbstractObject
 	public function image():NSImage
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "image", [], [], TypeValues.ObjectVal);
+	}
+	public function attributedTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedTitle", [], [], TypeValues.ObjectVal);
 	}
 
 

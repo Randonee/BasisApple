@@ -10,6 +10,7 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSException;
+import apple.appkit.NSPasteboard;
 
 class NSApplication extends NSResponder
 {
@@ -259,6 +260,37 @@ class NSApplication extends NSResponder
 	}
 
 
+	public static inline var NSRunStoppedResponse:Int = 0;
+	public static inline var NSRunAbortedResponse:Int = 1;
+	public static inline var NSRunContinuesResponse:Int = 2;
+	public static inline var NSUpdateWindowsRunLoopOrdering:Int = 0;
+	public static inline var NSApplicationPresentationDefault:Int = 0;
+	public static inline var NSApplicationPresentationAutoHideDock:Int =  1 << 0;
+	public static inline var NSApplicationPresentationHideDock:Int =  1 << 1;
+	public static inline var NSApplicationPresentationAutoHideMenuBar:Int =  1 << 2;
+	public static inline var NSApplicationPresentationHideMenuBar:Int =  1 << 3;
+	public static inline var NSApplicationPresentationDisableAppleMenu:Int =  1 << 4;
+	public static inline var NSApplicationPresentationDisableProcessSwitching:Int =  1 << 5;
+	public static inline var NSApplicationPresentationDisableForceQuit:Int =  1 << 6;
+	public static inline var NSApplicationPresentationDisableSessionTermination:Int =  1 << 7;
+	public static inline var NSApplicationPresentationDisableHideApplication:Int =  1 << 8;
+	public static inline var NSApplicationPresentationDisableMenuBarTransparency:Int =  1 << 9;
+	public static inline var NSApplicationPresentationFullScreen:Int =  1 << 10;
+	public static inline var NSApplicationPresentationAutoHideToolbar:Int =  1 << 11;
+	public static inline var NSCriticalRequest:Int = 0;
+	public static inline var NSInformationalRequest:Int = 1;
+	public static inline var NSApplicationDelegateReplySuccess:Int = 0;
+	public static inline var NSApplicationDelegateReplyCancel:Int = 1;
+	public static inline var NSApplicationDelegateReplyFailure:Int = 2;
+	public static inline var NSTerminateCancel:Int = 0;
+	public static inline var NSTerminateNow:Int = 1;
+	public static inline var NSTerminateLater:Int = 2;
+	public static inline var NSPrintingCancelled:Int = 0;
+	public static inline var NSPrintingSuccess:Int = 1;
+	public static inline var NSPrintingFailure:Int = 2;
+	public static inline var NSPrintingReplyLater:Int = 3;
+	public static inline var NSUserInterfaceLayoutDirectionLeftToRight:Int = 0;
+	public static inline var NSUserInterfaceLayoutDirectionRightToLeft:Int = 1;
 
 
 }

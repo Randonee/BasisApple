@@ -10,6 +10,8 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSSound extends AbstractObject
 {

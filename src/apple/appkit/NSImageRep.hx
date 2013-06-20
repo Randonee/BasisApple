@@ -10,6 +10,8 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSImageRep extends AbstractObject
 {
@@ -118,6 +120,7 @@ class NSImageRep extends AbstractObject
 	}
 
 
+	public static inline var NSImageRepMatchesDevice:Int = 0;
 
 
 }

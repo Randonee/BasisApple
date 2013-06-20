@@ -285,6 +285,12 @@ class NSScrollView extends NSView
 	}
 
 
+	public static inline var NSScrollElasticityAutomatic:Int = 0;
+	public static inline var NSScrollElasticityNone:Int = 1;
+	public static inline var NSScrollElasticityAllowed:Int = 2;
+	public static inline var NSScrollViewFindBarPositionAboveHorizontalRuler:Int = 0;
+	public static inline var NSScrollViewFindBarPositionAboveContent:Int = 1;
+	public static inline var NSScrollViewFindBarPositionBelowContent:Int = 2;
 
 
 }

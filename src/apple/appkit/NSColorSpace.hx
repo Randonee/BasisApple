@@ -10,6 +10,8 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSColorSpace extends AbstractObject
 {
@@ -74,6 +76,14 @@ class NSColorSpace extends AbstractObject
 	}
 
 
+	public static inline var NSUnknownColorSpaceModel:Int = 0;
+	public static inline var NSGrayColorSpaceModel:Int = 1;
+	public static inline var NSRGBColorSpaceModel:Int = 2;
+	public static inline var NSCMYKColorSpaceModel:Int = 3;
+	public static inline var NSLABColorSpaceModel:Int = 4;
+	public static inline var NSDeviceNColorSpaceModel:Int = 5;
+	public static inline var NSIndexedColorSpaceModel:Int = 6;
+	public static inline var NSPatternColorSpaceModel:Int = 7;
 
 
 }

@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
 
 class NSSavePanel extends NSPanel
 {
@@ -129,6 +130,8 @@ class NSSavePanel extends NSPanel
 	}
 
 
+	public static inline var NSFileHandlingPanelCancelButton:Int = 0;
+	public static inline var NSFileHandlingPanelOKButton:Int = 1;
 
 
 }

@@ -2,6 +2,8 @@ package basis.osx;
 
 import basis.object.ObjectManager;
 
+import apple.foundation.NSAttributedString;
+
 import cpp.Lib;
 
 class OSXApplication extends BasisApplication
@@ -51,6 +53,14 @@ class OSXApplication extends BasisApplication
 		objectManager.addClass(apple.appkit.NSPanel);
 		objectManager.addClass(apple.appkit.NSSound);
 		objectManager.addClass(apple.appkit.NSMenuItem);
+		objectManager.addClass(apple.appkit.NSTextView);
+		objectManager.addClass(apple.appkit.NSLayoutManager);
+		objectManager.addClass(apple.appkit.NSImageView);
+		objectManager.addClass(apple.appkit.NSTextTable);
+		objectManager.addClass(apple.appkit.NSTextStorage);
+		objectManager.addClass(apple.appkit.NSText);
+		objectManager.addClass(apple.appkit.NSParagraphStyle);
+		
 		
 		objectManager.addClass(apple.foundation.NSException);
 		objectManager.addClass(apple.foundation.NSFileWrapper);
@@ -58,6 +68,7 @@ class OSXApplication extends BasisApplication
 		objectManager.addClass(apple.foundation.NSData);
 		objectManager.addClass(apple.foundation.NSFormatter);
 		objectManager.addClass(apple.foundation.NSNotification);
-		
+		objectManager.addClass(NSMutableAttributedString);
+		objectManager.addClass(NSAttributedString);
 	}
 }

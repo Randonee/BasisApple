@@ -12,6 +12,8 @@ import basis.object.TypeValues;
 import apple.foundation.NSFileWrapper;
 import apple.foundation.NSData;
 import apple.foundation.NSError;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSDocument extends AbstractObject
 {
@@ -220,6 +222,11 @@ class NSDocument extends AbstractObject
 	}
 
 
+	public static inline var NSChangeDone:Int = 0;
+	public static inline var NSChangeUndone:Int = 1;
+	public static inline var NSSaveOperation:Int = 0;
+	public static inline var NSSaveAsOperation:Int = 1;
+	public static inline var NSSaveToOperation:Int = 2;
 
 
 }

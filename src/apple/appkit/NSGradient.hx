@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSApplication;
 
 class NSGradient extends AbstractObject
 {
@@ -69,6 +70,8 @@ class NSGradient extends AbstractObject
 	}
 
 
+	public static inline var NSGradientDrawsBeforeStartingLocation:Int =  1 << 0;
+	public static inline var NSGradientDrawsAfterEndingLocation:Int =  1 << 1;
 
 
 }

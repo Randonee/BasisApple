@@ -10,6 +10,8 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSImage extends AbstractObject
 {
@@ -246,6 +248,15 @@ class NSImage extends AbstractObject
 	}
 
 
+	public static inline var NSImageLoadStatusCompleted:Int = 0;
+	public static inline var NSImageLoadStatusCancelled:Int = 1;
+	public static inline var NSImageLoadStatusInvalidData:Int = 2;
+	public static inline var NSImageLoadStatusUnexpectedEOF:Int = 3;
+	public static inline var NSImageLoadStatusReadError:Int = 4;
+	public static inline var NSImageCacheDefault:Int = 0;
+	public static inline var NSImageCacheAlways:Int = 1;
+	public static inline var NSImageCacheBySize:Int = 2;
+	public static inline var NSImageCacheNever:Int = 3;
 
 
 }

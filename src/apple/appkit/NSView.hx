@@ -9,7 +9,9 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
 
 class NSView extends NSResponder
 {
@@ -556,6 +558,10 @@ class NSView extends NSResponder
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "bitmapImageRepForCachingDisplayInRect:", [rect], [TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
+	public function pageHeader():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pageHeader", [], [], TypeValues.ObjectVal);
+	}
 	public function removeFromSuperview():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeFromSuperview", [], [], -1);
@@ -579,6 +585,10 @@ class NSView extends NSResponder
 	public function setFocusRingType( focusRingType:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFocusRingType:", [focusRingType], [TypeValues.IntVal], -1);
+	}
+	public function pageFooter():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "pageFooter", [], [], TypeValues.ObjectVal);
 	}
 	public function setFrameSize( newSize:Array<Float>):Void
 	{
@@ -630,6 +640,33 @@ class NSView extends NSResponder
 	}
 
 
+	public static inline var NSViewNotSizable:Int = 0;
+	public static inline var NSViewMinXMargin:Int = 1;
+	public static inline var NSViewWidthSizable:Int = 2;
+	public static inline var NSViewMaxXMargin:Int = 3;
+	public static inline var NSViewMinYMargin:Int = 4;
+	public static inline var NSViewHeightSizable:Int = 5;
+	public static inline var NSViewMaxYMargin:Int = 6;
+	public static inline var NSNoBorder:Int = 0;
+	public static inline var NSLineBorder:Int = 1;
+	public static inline var NSBezelBorder:Int = 2;
+	public static inline var NSGrooveBorder:Int = 3;
+	public static inline var NSViewLayerContentsRedrawNever:Int = 0;
+	public static inline var NSViewLayerContentsRedrawOnSetNeedsDisplay:Int = 1;
+	public static inline var NSViewLayerContentsRedrawDuringViewResize:Int = 2;
+	public static inline var NSViewLayerContentsRedrawBeforeViewResize:Int = 3;
+	public static inline var NSViewLayerContentsPlacementScaleAxesIndependently:Int = 0;
+	public static inline var NSViewLayerContentsPlacementScaleProportionallyToFit:Int = 1;
+	public static inline var NSViewLayerContentsPlacementScaleProportionallyToFill:Int = 2;
+	public static inline var NSViewLayerContentsPlacementCenter:Int = 3;
+	public static inline var NSViewLayerContentsPlacementTop:Int = 4;
+	public static inline var NSViewLayerContentsPlacementTopRight:Int = 5;
+	public static inline var NSViewLayerContentsPlacementRight:Int = 6;
+	public static inline var NSViewLayerContentsPlacementBottomRight:Int = 7;
+	public static inline var NSViewLayerContentsPlacementBottom:Int = 8;
+	public static inline var NSViewLayerContentsPlacementBottomLeft:Int = 9;
+	public static inline var NSViewLayerContentsPlacementLeft:Int = 10;
+	public static inline var NSViewLayerContentsPlacementTopLeft:Int = 11;
 
 
 }

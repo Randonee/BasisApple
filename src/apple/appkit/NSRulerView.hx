@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
 
 class NSRulerView extends NSView
 {
@@ -141,6 +142,8 @@ class NSRulerView extends NSView
 	}
 
 
+	public static inline var NSHorizontalRuler:Int = 0;
+	public static inline var NSVerticalRuler:Int = 1;
 
 
 }

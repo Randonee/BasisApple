@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 import apple.foundation.NSAffineTransform;
 
 class NSFontDescriptor extends AbstractObject
@@ -78,6 +80,25 @@ class NSFontDescriptor extends AbstractObject
 	}
 
 
+	public static inline var NSFontUnknownClass:Int =  0 << 28;
+	public static inline var NSFontOldStyleSerifsClass:Int =  1 << 28;
+	public static inline var NSFontTransitionalSerifsClass:Int =  2 << 28;
+	public static inline var NSFontModernSerifsClass:Int =  3 << 28;
+	public static inline var NSFontClarendonSerifsClass:Int =  4 << 28;
+	public static inline var NSFontSlabSerifsClass:Int =  5 << 28;
+	public static inline var NSFontFreeformSerifsClass:Int =  7 << 28;
+	public static inline var NSFontSansSerifClass:Int =  8 << 28;
+	public static inline var NSFontOrnamentalsClass:Int =  9 << 28;
+	public static inline var NSFontScriptsClass:Int =  10 << 28;
+	public static inline var NSFontSymbolicClass:Int =  12 << 28;
+	public static inline var NSFontFamilyClassMask:Int = 0;
+	public static inline var NSFontItalicTrait:Int =  1 << 0;
+	public static inline var NSFontBoldTrait:Int =  1 << 1;
+	public static inline var NSFontExpandedTrait:Int =  1 << 5;
+	public static inline var NSFontCondensedTrait:Int =  1 << 6;
+	public static inline var NSFontMonoSpaceTrait:Int =  1 << 10;
+	public static inline var NSFontVerticalTrait:Int =  1 << 11;
+	public static inline var NSFontUIOptimizedTrait:Int =  1 << 12;
 
 
 }

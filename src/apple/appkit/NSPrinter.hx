@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSPrinter extends AbstractObject
 {
@@ -85,6 +87,9 @@ class NSPrinter extends AbstractObject
 	}
 
 
+	public static inline var NSPrinterTableOK:Int = 0;
+	public static inline var NSPrinterTableNotFound:Int = 1;
+	public static inline var NSPrinterTableError:Int = 2;
 
 
 }

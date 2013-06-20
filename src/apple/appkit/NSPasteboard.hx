@@ -11,6 +11,8 @@ import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSFileWrapper;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSPasteboard extends AbstractObject
 {

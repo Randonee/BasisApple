@@ -10,6 +10,7 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
 
 class NSWindow extends NSResponder
 {
@@ -26,9 +27,8 @@ class NSWindow extends NSResponder
 		return null;
 	}
 	private static var nswindow_initWithContentRectStyleMaskBackingDefer = Lib.load ("basis", "nswindow_initWithContentRectStyleMaskBackingDefer", 4);
-	
+
 	public var delegate(default, null):Dynamic;
-	
 	//Additions
 
 	public function new(?type:Class<IObject>=null)
@@ -855,6 +855,50 @@ class NSWindow extends NSResponder
 	}
 
 
+	public static inline var NSBorderlessWindowMask:Int = 0;
+	public static inline var NSTitledWindowMask:Int =  1 << 0;
+	public static inline var NSClosableWindowMask:Int =  1 << 1;
+	public static inline var NSMiniaturizableWindowMask:Int =  1 << 2;
+	public static inline var NSResizableWindowMask:Int =  1 << 3;
+	public static inline var NSTexturedBackgroundWindowMask:Int =  1 << 8;
+	public static inline var NSUnscaledWindowMask:Int =  1 << 11;
+	public static inline var NSUnifiedTitleAndToolbarWindowMask:Int =  1 << 12;
+	public static inline var NSFullScreenWindowMask:Int =  1 << 14;
+	public static inline var NSDisplayWindowRunLoopOrdering:Int = 0;
+	public static inline var NSResetCursorRectsRunLoopOrdering:Int = 1;
+	public static inline var NSWindowSharingNone:Int = 0;
+	public static inline var NSWindowSharingReadOnly:Int = 1;
+	public static inline var NSWindowSharingReadWrite:Int = 2;
+	public static inline var NSWindowBackingLocationDefault:Int = 0;
+	public static inline var NSWindowBackingLocationVideoMemory:Int = 1;
+	public static inline var NSWindowBackingLocationMainMemory:Int = 2;
+	public static inline var NSWindowCollectionBehaviorDefault:Int = 0;
+	public static inline var NSWindowCollectionBehaviorCanJoinAllSpaces:Int =  1 << 0;
+	public static inline var NSWindowCollectionBehaviorMoveToActiveSpace:Int =  1 << 1;
+	public static inline var NSWindowCollectionBehaviorManaged:Int =  1 << 2;
+	public static inline var NSWindowCollectionBehaviorTransient:Int =  1 << 3;
+	public static inline var NSWindowCollectionBehaviorStationary:Int =  1 << 4;
+	public static inline var NSWindowCollectionBehaviorParticipatesInCycle:Int =  1 << 5;
+	public static inline var NSWindowCollectionBehaviorIgnoresCycle:Int =  1 << 6;
+	public static inline var NSWindowCollectionBehaviorFullScreenPrimary:Int =  1 << 7;
+	public static inline var NSWindowCollectionBehaviorFullScreenAuxiliary:Int =  1 << 8;
+	public static inline var NSWindowAnimationBehaviorDefault:Int = 0;
+	public static inline var NSWindowAnimationBehaviorNone:Int = 1;
+	public static inline var NSWindowAnimationBehaviorDocumentWindow:Int = 2;
+	public static inline var NSWindowAnimationBehaviorUtilityWindow:Int = 3;
+	public static inline var NSWindowAnimationBehaviorAlertPanel:Int = 4;
+	public static inline var NSWindowNumberListAllApplications:Int =  1 << 0;
+	public static inline var NSWindowNumberListAllSpaces:Int =  1 << 4;
+	public static inline var NSDirectSelection:Int = 0;
+	public static inline var NSSelectingNext:Int = 1;
+	public static inline var NSSelectingPrevious:Int = 2;
+	public static inline var NSWindowCloseButton:Int = 0;
+	public static inline var NSWindowMiniaturizeButton:Int = 1;
+	public static inline var NSWindowZoomButton:Int = 2;
+	public static inline var NSWindowToolbarButton:Int = 3;
+	public static inline var NSWindowDocumentIconButton:Int = 4;
+	public static inline var NSWindowDocumentVersionsButton:Int = 0;
+	public static inline var NSWindowFullScreenButton:Int = 1;
 
 
 }

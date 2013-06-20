@@ -10,6 +10,7 @@ import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.foundation.NSData;
+import apple.appkit.NSPasteboard;
 
 class NSBitmapImageRep extends NSImageRep
 {
@@ -150,6 +151,29 @@ class NSBitmapImageRep extends NSImageRep
 	}
 
 
+	public static inline var NSTIFFCompressionNone:Int = 0;
+	public static inline var NSTIFFCompressionCCITTFAX3:Int = 1;
+	public static inline var NSTIFFCompressionCCITTFAX4:Int = 2;
+	public static inline var NSTIFFCompressionLZW:Int = 3;
+	public static inline var NSTIFFCompressionJPEG:Int = 4;
+	public static inline var NSTIFFCompressionNEXT:Int = 5;
+	public static inline var NSTIFFCompressionPackBits:Int = 6;
+	public static inline var NSTIFFCompressionOldJPEG:Int = 7;
+	public static inline var NSTIFFFileType:Int = 0;
+	public static inline var NSBMPFileType:Int = 1;
+	public static inline var NSGIFFileType:Int = 2;
+	public static inline var NSJPEGFileType:Int = 3;
+	public static inline var NSPNGFileType:Int = 4;
+	public static inline var NSJPEG2000FileType:Int = 5;
+	public static inline var NSImageRepLoadStatusUnknownType:Int = 0;
+	public static inline var NSImageRepLoadStatusReadingHeader:Int = 1;
+	public static inline var NSImageRepLoadStatusWillNeedAllData:Int = 2;
+	public static inline var NSImageRepLoadStatusInvalidData:Int = 3;
+	public static inline var NSImageRepLoadStatusUnexpectedEOF:Int = 4;
+	public static inline var NSImageRepLoadStatusCompleted:Int = 5;
+	public static inline var NSAlphaFirstBitmapFormat:Int =  1 << 0;
+	public static inline var NSAlphaNonpremultipliedBitmapFormat:Int =  1 << 1;
+	public static inline var NSFloatingPointSamplesBitmapFormat:Int =  1 << 2;
 
 
 }

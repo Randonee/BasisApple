@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 import apple.foundation.NSAffineTransform;
 
 class NSFont extends AbstractObject
@@ -235,6 +237,18 @@ class NSFont extends AbstractObject
 	}
 
 
+	public static inline var NSControlGlyph:Int = 0;
+	public static inline var NSNullGlyph:Int = 1;
+	public static inline var NSNativeShortGlyphPacking:Int = 0;
+	public static inline var NSFontDefaultRenderingMode:Int = 0;
+	public static inline var NSFontAntialiasedRenderingMode:Int = 1;
+	public static inline var NSFontIntegerAdvancementsRenderingMode:Int = 2;
+	public static inline var NSFontAntialiasedIntegerAdvancementsRenderingMode:Int = 3;
+	public static inline var NSOneByteGlyphPacking:Int = 0;
+	public static inline var NSJapaneseEUCGlyphPacking:Int = 1;
+	public static inline var NSAsciiWithDoubleByteEUCGlyphPacking:Int = 2;
+	public static inline var NSTwoByteGlyphPacking:Int = 3;
+	public static inline var NSFourByteGlyphPacking:Int = 4;
 	public static inline var NSGlyphBelow:Int = 0;
 	public static inline var NSGlyphAbove:Int = 1;
 

@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSPrintInfo extends AbstractObject
 {
@@ -157,6 +159,11 @@ class NSPrintInfo extends AbstractObject
 	}
 
 
+	public static inline var NSPortraitOrientation:Int = 0;
+	public static inline var NSLandscapeOrientation:Int = 1;
+	public static inline var NSAutoPagination:Int = 0;
+	public static inline var NSFitPagination:Int = 1;
+	public static inline var NSClipPagination:Int = 2;
 
 
 }

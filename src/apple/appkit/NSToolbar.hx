@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSToolbar extends AbstractObject
 {
@@ -122,6 +124,13 @@ class NSToolbar extends AbstractObject
 	}
 
 
+	public static inline var NSToolbarDisplayModeDefault:Int = 0;
+	public static inline var NSToolbarDisplayModeIconAndLabel:Int = 1;
+	public static inline var NSToolbarDisplayModeIconOnly:Int = 2;
+	public static inline var NSToolbarDisplayModeLabelOnly:Int = 3;
+	public static inline var NSToolbarSizeModeDefault:Int = 0;
+	public static inline var NSToolbarSizeModeRegular:Int = 1;
+	public static inline var NSToolbarSizeModeSmall:Int = 2;
 
 
 }

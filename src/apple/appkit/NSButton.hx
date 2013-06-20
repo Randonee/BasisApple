@@ -9,6 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
+import apple.appkit.NSPasteboard;
 
 class NSButton extends NSControl
 {
@@ -51,6 +53,10 @@ class NSButton extends NSControl
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "allowsMixedState", [], [], TypeValues.BoolVal);
 	}
+	public function attributedAlternateTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedAlternateTitle", [], [], TypeValues.ObjectVal);
+	}
 	public function state():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "state", [], [], TypeValues.IntVal);
@@ -75,6 +81,10 @@ class NSButton extends NSControl
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setKeyEquivalentModifierMask:", [mask], [TypeValues.IntVal], -1);
 	}
+	public function setAttributedTitle( aString:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedTitle:", [aString], [TypeValues.ObjectVal], -1);
+	}
 	public function keyEquivalent():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "keyEquivalent", [], [], TypeValues.StringVal);
@@ -82,6 +92,10 @@ class NSButton extends NSControl
 	public function title():String
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "title", [], [], TypeValues.StringVal);
+	}
+	public function setAttributedAlternateTitle( obj:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedAlternateTitle:", [obj], [TypeValues.ObjectVal], -1);
 	}
 	public function isBordered():Bool
 	{
@@ -158,6 +172,10 @@ class NSButton extends NSControl
 	public function setBezelStyle( bezelStyle:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBezelStyle:", [bezelStyle], [TypeValues.IntVal], -1);
+	}
+	public function attributedTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedTitle", [], [], TypeValues.ObjectVal);
 	}
 
 

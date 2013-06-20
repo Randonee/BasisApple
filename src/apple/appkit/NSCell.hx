@@ -9,7 +9,10 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 import apple.foundation.NSFormatter;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSCell extends AbstractObject
 {
@@ -252,6 +255,10 @@ class NSCell extends AbstractObject
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "stringValue", [], [], TypeValues.StringVal);
 	}
+	public function attributedStringValue():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedStringValue", [], [], TypeValues.ObjectVal);
+	}
 	public function image():NSImage
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "image", [], [], TypeValues.ObjectVal);
@@ -408,6 +415,10 @@ class NSCell extends AbstractObject
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "titleRectForBounds:", [theRect], [TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
+	public function setAttributedStringValue( obj:NSAttributedString):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedStringValue:", [obj], [TypeValues.ObjectVal], -1);
+	}
 	public function setContinuous( flag:Bool):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setContinuous:", [flag], [TypeValues.BoolVal], -1);
@@ -506,6 +517,70 @@ class NSCell extends AbstractObject
 	}
 
 
+	public static inline var NSAnyType:Int = 0;
+	public static inline var NSIntType:Int = 1;
+	public static inline var NSPositiveIntType:Int = 2;
+	public static inline var NSFloatType:Int = 3;
+	public static inline var NSPositiveFloatType:Int = 4;
+	public static inline var NSDoubleType:Int = 5;
+	public static inline var NSPositiveDoubleType:Int = 6;
+	public static inline var NSNullCellType:Int = 0;
+	public static inline var NSTextCellType:Int = 1;
+	public static inline var NSImageCellType:Int = 2;
+	public static inline var NSCellDisabled:Int = 0;
+	public static inline var NSCellState:Int = 1;
+	public static inline var NSPushInCell:Int = 2;
+	public static inline var NSCellEditable:Int = 3;
+	public static inline var NSChangeGrayCell:Int = 4;
+	public static inline var NSCellHighlighted:Int = 5;
+	public static inline var NSCellLightsByContents:Int = 6;
+	public static inline var NSCellLightsByGray:Int = 7;
+	public static inline var NSChangeBackgroundCell:Int = 8;
+	public static inline var NSCellLightsByBackground:Int = 9;
+	public static inline var NSCellIsBordered:Int = 10;
+	public static inline var NSCellHasOverlappingImage:Int = 11;
+	public static inline var NSCellHasImageHorizontal:Int = 12;
+	public static inline var NSCellHasImageOnLeftOrBottom:Int = 13;
+	public static inline var NSCellChangesContents:Int = 14;
+	public static inline var NSCellIsInsetButton:Int = 15;
+	public static inline var NSCellAllowsMixedState:Int = 16;
+	public static inline var NSNoImage:Int = 0;
+	public static inline var NSImageOnly:Int = 1;
+	public static inline var NSImageLeft:Int = 2;
+	public static inline var NSImageRight:Int = 3;
+	public static inline var NSImageBelow:Int = 4;
+	public static inline var NSImageAbove:Int = 5;
+	public static inline var NSImageOverlaps:Int = 6;
+	public static inline var NSImageScaleProportionallyDown:Int = 0;
+	public static inline var NSImageScaleAxesIndependently:Int = 1;
+	public static inline var NSImageScaleNone:Int = 2;
+	public static inline var NSImageScaleProportionallyUpOrDown:Int = 3;
+	public static inline var NSMixedState:Int = 0;
+	public static inline var NSOffState:Int = 1;
+	public static inline var NSOnState:Int = 2;
+	public static inline var NSNoCellMask:Int = 0;
+	public static inline var NSContentsCellMask:Int = 1;
+	public static inline var NSPushInCellMask:Int = 2;
+	public static inline var NSChangeGrayCellMask:Int = 3;
+	public static inline var NSChangeBackgroundCellMask:Int = 4;
+	public static inline var NSDefaultControlTint:Int = 0;
+	public static inline var NSBlueControlTint:Int = 1;
+	public static inline var NSGraphiteControlTint:Int = 2;
+	public static inline var NSClearControlTint:Int = 3;
+	public static inline var NSRegularControlSize:Int = 0;
+	public static inline var NSSmallControlSize:Int = 1;
+	public static inline var NSMiniControlSize:Int = 2;
+	public static inline var NSCellHitNone:Int = 0;
+	public static inline var NSCellHitContentArea:Int =  1 << 0;
+	public static inline var NSCellHitEditableTextArea:Int =  1 << 1;
+	public static inline var NSCellHitTrackableArea:Int =  1 << 2;
+	public static inline var NSBackgroundStyleLight:Int = 0;
+	public static inline var NSBackgroundStyleDark:Int = 1;
+	public static inline var NSBackgroundStyleRaised:Int = 2;
+	public static inline var NSBackgroundStyleLowered:Int = 3;
+	public static inline var NSScaleProportionally:Int = 0;
+	public static inline var NSScaleToFit:Int = 1;
+	public static inline var NSScaleNone:Int = 2;
 
 
 }

@@ -105,6 +105,27 @@ class NSScroller extends NSControl
 	}
 
 
+	public static inline var NSScrollerArrowsMaxEnd:Int = 0;
+	public static inline var NSScrollerArrowsMinEnd:Int = 1;
+	public static inline var NSScrollerArrowsDefaultSetting:Int = 2;
+	public static inline var NSScrollerArrowsNone:Int = 3;
+	public static inline var NSNoScrollerParts:Int = 0;
+	public static inline var NSOnlyScrollerArrows:Int = 1;
+	public static inline var NSAllScrollerParts:Int = 2;
+	public static inline var NSScrollerNoPart:Int = 0;
+	public static inline var NSScrollerDecrementPage:Int = 1;
+	public static inline var NSScrollerKnob:Int = 2;
+	public static inline var NSScrollerIncrementPage:Int = 3;
+	public static inline var NSScrollerDecrementLine:Int = 4;
+	public static inline var NSScrollerIncrementLine:Int = 5;
+	public static inline var NSScrollerKnobSlot:Int = 6;
+	public static inline var NSScrollerIncrementArrow:Int = 0;
+	public static inline var NSScrollerDecrementArrow:Int = 1;
+	public static inline var NSScrollerStyleLegacy:Int = 0;
+	public static inline var NSScrollerStyleOverlay:Int = 1;
+	public static inline var NSScrollerKnobStyleDefault:Int = 0;
+	public static inline var NSScrollerKnobStyleDark:Int = 1;
+	public static inline var NSScrollerKnobStyleLight:Int = 2;
 
 
 }
