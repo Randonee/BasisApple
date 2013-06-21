@@ -9,7 +9,8 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
-import apple.foundation.NSError;
+import apple.appkit.NSPasteboard;
+import apple.appkit.NSApplication;
 
 class NSData extends AbstractObject
 {
@@ -86,7 +87,7 @@ class NSData extends AbstractObject
 	}
 	public function subdataWithRange( range:Array<Int>):NSData
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "subdataWithRange:", [range], [TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "subdataWithRange:", [range], [TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function writeToURLAtomically( url:String,  atomically:Bool):Bool
 	{
@@ -102,7 +103,7 @@ class NSData extends AbstractObject
 	}
 	public function getBytesRange( buffer:Dynamic,  range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "getBytes:range:", [buffer, range], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "getBytes:range:", [buffer, range], [TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function getBytes( buffer:Dynamic):Void
 	{
@@ -220,15 +221,15 @@ class NSMutableData extends NSData
 	}
 	public function replaceBytesInRangeWithBytes( range:Array<Int>,  bytes:Dynamic):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceBytesInRange:withBytes:", [range, bytes], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceBytesInRange:withBytes:", [range, bytes], [TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function replaceBytesInRangeWithBytesLength( range:Array<Int>,  replacementBytes:Dynamic,  replacementLength:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceBytesInRange:withBytes:length:", [range, replacementBytes, replacementLength], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceBytesInRange:withBytes:length:", [range, replacementBytes, replacementLength], [TypeValues.NSRangeVal, TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 	public function resetBytesInRange( range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "resetBytesInRange:", [range], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "resetBytesInRange:", [range], [TypeValues.NSRangeVal], -1);
 	}
 	public function initWithLength( length:Int):Dynamic
 	{

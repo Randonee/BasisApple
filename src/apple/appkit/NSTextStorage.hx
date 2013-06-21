@@ -51,15 +51,15 @@ class NSTextStorage extends NSMutableAttributedString
 	}
 	public function invalidateAttributesInRange( range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateAttributesInRange:", [range], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateAttributesInRange:", [range], [TypeValues.NSRangeVal], -1);
 	}
 	public function editedRangeChangeInLength( editedMask:Int,  range:Array<Int>,  delta:Int):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "edited:range:changeInLength:", [editedMask, range, delta], [TypeValues.IntVal, TypeValues.ObjectVal, TypeValues.IntVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "edited:range:changeInLength:", [editedMask, range, delta], [TypeValues.IntVal, TypeValues.NSRangeVal, TypeValues.IntVal], -1);
 	}
 	public function ensureAttributesAreFixedInRange( range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "ensureAttributesAreFixedInRange:", [range], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "ensureAttributesAreFixedInRange:", [range], [TypeValues.NSRangeVal], -1);
 	}
 	public function processEditing():Void
 	{
@@ -71,7 +71,7 @@ class NSTextStorage extends NSMutableAttributedString
 	}
 	public function editedRange():Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editedRange", [], [], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "editedRange", [], [], TypeValues.NSRangeVal);
 	}
 	public function editedMask():Int
 	{

@@ -53,7 +53,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function invalidateDisplayForCharacterRange( charRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateDisplayForCharacterRange:", [charRange], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateDisplayForCharacterRange:", [charRange], [TypeValues.NSRangeVal], -1);
 	}
 	public function setHyphenationFactor( factor:Float):Void
 	{
@@ -61,7 +61,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function strikethroughGlyphRangeStrikethroughTypeLineFragmentRectLineFragmentGlyphRangeContainerOrigin( glyphRange:Array<Int>,  strikethroughVal:Int,  lineRect:Array<Float>,  lineGlyphRange:Array<Int>,  containerOrigin:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "strikethroughGlyphRange:strikethroughType:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, strikethroughVal, lineRect, lineGlyphRange, containerOrigin], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "strikethroughGlyphRange:strikethroughType:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, strikethroughVal, lineRect, lineGlyphRange, containerOrigin], [TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function setDefaultAttachmentScaling( scaling:Int):Void
 	{
@@ -89,7 +89,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function setBoundsRectForTextBlockGlyphRange( rect:Array<Float>,  block:NSTextBlock,  glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBoundsRect:forTextBlock:glyphRange:", [rect, block, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setBoundsRect:forTextBlock:glyphRange:", [rect, block, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function setUsesFontLeading( flag:Bool):Void
 	{
@@ -117,7 +117,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function layoutRectForTextBlockGlyphRange( block:NSTextBlock,  glyphRange:Array<Int>):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "layoutRectForTextBlock:glyphRange:", [block, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "layoutRectForTextBlock:glyphRange:", [block, glyphRange], [TypeValues.ObjectVal, TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function setExtraLineFragmentRectUsedRectTextContainer( fragmentRect:Array<Float>,  usedRect:Array<Float>,  container:NSTextContainer):Void
 	{
@@ -125,19 +125,19 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function getGlyphsInRangeGlyphsCharacterIndexesGlyphInscriptionsElasticBits( glyphRange:Array<Int>,  glyphBuffer:Int,  charIndexBuffer:Int,  inscribeBuffer:Int,  elasticBuffer:Bool):Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "getGlyphsInRange:glyphs:characterIndexes:glyphInscriptions:elasticBits:", [glyphRange, glyphBuffer, charIndexBuffer, inscribeBuffer, elasticBuffer], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.BoolVal], TypeValues.IntVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "getGlyphsInRange:glyphs:characterIndexes:glyphInscriptions:elasticBits:", [glyphRange, glyphBuffer, charIndexBuffer, inscribeBuffer, elasticBuffer], [TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.BoolVal], TypeValues.IntVal);
 	}
 	public function getGlyphsInRangeGlyphsCharacterIndexesGlyphInscriptionsElasticBitsBidiLevels( glyphRange:Array<Int>,  glyphBuffer:Int,  charIndexBuffer:Int,  inscribeBuffer:Int,  elasticBuffer:Bool,  bidiLevelBuffer:String):Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "getGlyphsInRange:glyphs:characterIndexes:glyphInscriptions:elasticBits:bidiLevels:", [glyphRange, glyphBuffer, charIndexBuffer, inscribeBuffer, elasticBuffer, bidiLevelBuffer], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.BoolVal, TypeValues.StringVal], TypeValues.IntVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "getGlyphsInRange:glyphs:characterIndexes:glyphInscriptions:elasticBits:bidiLevels:", [glyphRange, glyphBuffer, charIndexBuffer, inscribeBuffer, elasticBuffer, bidiLevelBuffer], [TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.IntVal, TypeValues.BoolVal, TypeValues.StringVal], TypeValues.IntVal);
 	}
 	public function getGlyphsRange( glyphArray:Int,  glyphRange:Array<Int>):Int
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "getGlyphs:range:", [glyphArray, glyphRange], [TypeValues.IntVal, TypeValues.ObjectVal], TypeValues.IntVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "getGlyphs:range:", [glyphArray, glyphRange], [TypeValues.IntVal, TypeValues.NSRangeVal], TypeValues.IntVal);
 	}
 	public function underlineGlyphRangeUnderlineTypeLineFragmentRectLineFragmentGlyphRangeContainerOrigin( glyphRange:Array<Int>,  underlineVal:Int,  lineRect:Array<Float>,  lineGlyphRange:Array<Int>,  containerOrigin:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "underlineGlyphRange:underlineType:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, underlineVal, lineRect, lineGlyphRange, containerOrigin], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "underlineGlyphRange:underlineType:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, underlineVal, lineRect, lineGlyphRange, containerOrigin], [TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function usesScreenFonts():Bool
 	{
@@ -145,7 +145,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function glyphRangeForBoundingRectInTextContainer( bounds:Array<Float>,  container:NSTextContainer):Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "glyphRangeForBoundingRect:inTextContainer:", [bounds, container], [TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "glyphRangeForBoundingRect:inTextContainer:", [bounds, container], [TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.NSRangeVal);
 	}
 	public function textStorage():NSTextStorage
 	{
@@ -153,7 +153,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function textStorageEditedRangeChangeInLengthInvalidatedRange( str:NSTextStorage,  editedMask:Int,  newCharRange:Array<Int>,  delta:Int,  invalidatedCharRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "textStorage:edited:range:changeInLength:invalidatedRange:", [str, editedMask, newCharRange, delta, invalidatedCharRange], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "textStorage:edited:range:changeInLength:invalidatedRange:", [str, editedMask, newCharRange, delta, invalidatedCharRange], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.NSRangeVal], -1);
 	}
 	public function intAttributeForGlyphAtIndex( attributeTag:Int,  glyphIndex:Int):Int
 	{
@@ -165,11 +165,11 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function invalidateDisplayForGlyphRange( glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateDisplayForGlyphRange:", [glyphRange], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "invalidateDisplayForGlyphRange:", [glyphRange], [TypeValues.NSRangeVal], -1);
 	}
 	public function setLayoutRectForTextBlockGlyphRange( rect:Array<Float>,  block:NSTextBlock,  glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLayoutRect:forTextBlock:glyphRange:", [rect, block, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLayoutRect:forTextBlock:glyphRange:", [rect, block, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function setCharacterIndexForGlyphAtIndex( charIndex:Int,  glyphIndex:Int):Void
 	{
@@ -181,7 +181,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function boundingRectForGlyphRangeInTextContainer( glyphRange:Array<Int>,  container:NSTextContainer):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundingRectForGlyphRange:inTextContainer:", [glyphRange, container], [TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundingRectForGlyphRange:inTextContainer:", [glyphRange, container], [TypeValues.NSRangeVal, TypeValues.IntVal], TypeValues.ObjectVal);
 	}
 	public function firstTextView():NSTextView
 	{
@@ -201,7 +201,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function drawStrikethroughForGlyphRangeStrikethroughTypeBaselineOffsetLineFragmentRectLineFragmentGlyphRangeContainerOrigin( glyphRange:Array<Int>,  strikethroughVal:Int,  baselineOffset:Float,  lineRect:Array<Float>,  lineGlyphRange:Array<Int>,  containerOrigin:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawStrikethroughForGlyphRange:strikethroughType:baselineOffset:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, strikethroughVal, baselineOffset, lineRect, lineGlyphRange, containerOrigin], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.FloatVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawStrikethroughForGlyphRange:strikethroughType:baselineOffset:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, strikethroughVal, baselineOffset, lineRect, lineGlyphRange, containerOrigin], [TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.FloatVal, TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function setNotShownAttributeForGlyphAtIndex( flag:Bool,  glyphIndex:Int):Void
 	{
@@ -213,7 +213,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function setAttachmentSizeForGlyphRange( attachmentSize:Array<Float>,  glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttachmentSize:forGlyphRange:", [attachmentSize, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttachmentSize:forGlyphRange:", [attachmentSize, glyphRange], [TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function firstUnlaidCharacterIndex():Int
 	{
@@ -221,7 +221,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function removeTemporaryAttributeForCharacterRange( attrName:String,  charRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeTemporaryAttribute:forCharacterRange:", [attrName, charRange], [TypeValues.StringVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "removeTemporaryAttribute:forCharacterRange:", [attrName, charRange], [TypeValues.StringVal, TypeValues.NSRangeVal], -1);
 	}
 	public function attributedString():NSAttributedString
 	{
@@ -233,7 +233,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function glyphRangeForBoundingRectWithoutAdditionalLayoutInTextContainer( bounds:Array<Float>,  container:NSTextContainer):Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "glyphRangeForBoundingRectWithoutAdditionalLayout:inTextContainer:", [bounds, container], [TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "glyphRangeForBoundingRectWithoutAdditionalLayout:inTextContainer:", [bounds, container], [TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.NSRangeVal);
 	}
 	public function replaceTextStorage( newTextStorage:NSTextStorage):Void
 	{
@@ -245,11 +245,11 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function drawBackgroundForGlyphRangeAtPoint( glyphsToShow:Array<Int>,  origin:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawBackgroundForGlyphRange:atPoint:", [glyphsToShow, origin], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawBackgroundForGlyphRange:atPoint:", [glyphsToShow, origin], [TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function setLocationForStartOfGlyphRange( location:Array<Float>,  glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLocation:forStartOfGlyphRange:", [location, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLocation:forStartOfGlyphRange:", [location, glyphRange], [TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function locationForGlyphAtIndex( glyphIndex:Int):Array<Float>
 	{
@@ -265,7 +265,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function boundsRectForTextBlockGlyphRange( block:NSTextBlock,  glyphRange:Array<Int>):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundsRectForTextBlock:glyphRange:", [block, glyphRange], [TypeValues.ObjectVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundsRectForTextBlock:glyphRange:", [block, glyphRange], [TypeValues.ObjectVal, TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function glyphIndexForPointInTextContainerFractionOfDistanceThroughGlyph( point:Array<Float>,  container:NSTextContainer,  partialFraction:Float):Int
 	{
@@ -277,7 +277,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function deleteGlyphsInRange( glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "deleteGlyphsInRange:", [glyphRange], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "deleteGlyphsInRange:", [glyphRange], [TypeValues.NSRangeVal], -1);
 	}
 	public function addTextContainer( container:NSTextContainer):Void
 	{
@@ -305,11 +305,11 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function rangeOfNominallySpacedGlyphsContainingIndex( glyphIndex:Int):Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeOfNominallySpacedGlyphsContainingIndex:", [glyphIndex], [TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeOfNominallySpacedGlyphsContainingIndex:", [glyphIndex], [TypeValues.IntVal], TypeValues.NSRangeVal);
 	}
 	public function drawUnderlineForGlyphRangeUnderlineTypeBaselineOffsetLineFragmentRectLineFragmentGlyphRangeContainerOrigin( glyphRange:Array<Int>,  underlineVal:Int,  baselineOffset:Float,  lineRect:Array<Float>,  lineGlyphRange:Array<Int>,  containerOrigin:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawUnderlineForGlyphRange:underlineType:baselineOffset:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, underlineVal, baselineOffset, lineRect, lineGlyphRange, containerOrigin], [TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.FloatVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawUnderlineForGlyphRange:underlineType:baselineOffset:lineFragmentRect:lineFragmentGlyphRange:containerOrigin:", [glyphRange, underlineVal, baselineOffset, lineRect, lineGlyphRange, containerOrigin], [TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.FloatVal, TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function setBackgroundLayoutEnabled( flag:Bool):Void
 	{
@@ -341,7 +341,7 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function glyphRangeForTextContainer( container:NSTextContainer):Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "glyphRangeForTextContainer:", [container], [TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "glyphRangeForTextContainer:", [container], [TypeValues.IntVal], TypeValues.NSRangeVal);
 	}
 	public function usesFontLeading():Bool
 	{
@@ -349,15 +349,15 @@ class NSLayoutManager extends AbstractObject
 	}
 	public function drawGlyphsForGlyphRangeAtPoint( glyphsToShow:Array<Int>,  origin:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawGlyphsForGlyphRange:atPoint:", [glyphsToShow, origin], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawGlyphsForGlyphRange:atPoint:", [glyphsToShow, origin], [TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function setTextContainerForGlyphRange( container:NSTextContainer,  glyphRange:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextContainer:forGlyphRange:", [container, glyphRange], [TypeValues.IntVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextContainer:forGlyphRange:", [container, glyphRange], [TypeValues.IntVal, TypeValues.NSRangeVal], -1);
 	}
 	public function setLineFragmentRectForGlyphRangeUsedRect( fragmentRect:Array<Float>,  glyphRange:Array<Int>,  usedRect:Array<Float>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLineFragmentRect:forGlyphRange:usedRect:", [fragmentRect, glyphRange, usedRect], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLineFragmentRect:forGlyphRange:usedRect:", [fragmentRect, glyphRange, usedRect], [TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function drawsOutsideLineFragmentForGlyphAtIndex( glyphIndex:Int):Bool
 	{

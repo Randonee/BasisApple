@@ -55,7 +55,7 @@ class NSText extends NSView
 	}
 	public function setFontRange( font:NSFont,  range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFont:range:", [font, range], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setFont:range:", [font, range], [TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function sizeToFit():Void
 	{
@@ -67,19 +67,19 @@ class NSText extends NSView
 	}
 	public function setTextColorRange( color:NSColor,  range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:range:", [color, range], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTextColor:range:", [color, range], [TypeValues.ObjectVal, TypeValues.NSRangeVal], -1);
 	}
 	public function replaceCharactersInRangeWithString( range:Array<Int>,  aString:String):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceCharactersInRange:withString:", [range, aString], [TypeValues.ObjectVal, TypeValues.StringVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceCharactersInRange:withString:", [range, aString], [TypeValues.NSRangeVal, TypeValues.StringVal], -1);
 	}
 	public function replaceCharactersInRangeWithRTF( range:Array<Int>,  rtfData:NSData):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceCharactersInRange:withRTF:", [range, rtfData], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceCharactersInRange:withRTF:", [range, rtfData], [TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function replaceCharactersInRangeWithRTFD( range:Array<Int>,  rtfdData:NSData):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceCharactersInRange:withRTFD:", [range, rtfdData], [TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "replaceCharactersInRange:withRTFD:", [range, rtfdData], [TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function copyFont( sender:Dynamic):Void
 	{
@@ -95,7 +95,7 @@ class NSText extends NSView
 	}
 	public function setSelectedRange( range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedRange:", [range], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setSelectedRange:", [range], [TypeValues.NSRangeVal], -1);
 	}
 	public function copy( sender:Dynamic):Void
 	{
@@ -107,7 +107,7 @@ class NSText extends NSView
 	}
 	public function RTFFromRange( range:Array<Int>):NSData
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "RTFFromRange:", [range], [TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "RTFFromRange:", [range], [TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function isFieldEditor():Bool
 	{
@@ -243,7 +243,7 @@ class NSText extends NSView
 	}
 	public function scrollRangeToVisible( range:Array<Int>):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollRangeToVisible:", [range], [TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "scrollRangeToVisible:", [range], [TypeValues.NSRangeVal], -1);
 	}
 	public function alignRight( sender:Dynamic):Void
 	{
@@ -259,7 +259,7 @@ class NSText extends NSView
 	}
 	public function RTFDFromRange( range:Array<Int>):NSData
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "RTFDFromRange:", [range], [TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "RTFDFromRange:", [range], [TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function setVerticallyResizable( flag:Bool):Void
 	{
@@ -271,7 +271,7 @@ class NSText extends NSView
 	}
 	public function selectedRange():Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedRange", [], [], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectedRange", [], [], TypeValues.NSRangeVal);
 	}
 	public function isRichText():Bool
 	{

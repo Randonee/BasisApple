@@ -25,6 +25,9 @@ class NSTextView extends NSText
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertString:", [text], [TypeValues.StringVal], -1);
 	}
+	
+	
+
 	//Additions
 
 	public function new(?type:Class<IObject>=null)
@@ -91,7 +94,7 @@ class NSTextView extends NSText
 	}
 	public function rangeForUserCompletion():Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserCompletion", [], [], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserCompletion", [], [], TypeValues.NSRangeVal);
 	}
 	public function invalidateTextContainerOrigin():Void
 	{
@@ -99,7 +102,7 @@ class NSTextView extends NSText
 	}
 	public function rangeForUserParagraphAttributeChange():Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserParagraphAttributeChange", [], [], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserParagraphAttributeChange", [], [], TypeValues.NSRangeVal);
 	}
 	public function setAllowsDocumentBackgroundColorChange( flag:Bool):Void
 	{
@@ -127,7 +130,7 @@ class NSTextView extends NSText
 	}
 	public function shouldChangeTextInRangeReplacementString( affectedCharRange:Array<Int>,  replacementString:String):Bool
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shouldChangeTextInRange:replacementString:", [affectedCharRange, replacementString], [TypeValues.ObjectVal, TypeValues.StringVal], TypeValues.BoolVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "shouldChangeTextInRange:replacementString:", [affectedCharRange, replacementString], [TypeValues.NSRangeVal, TypeValues.StringVal], TypeValues.BoolVal);
 	}
 	public function toggleTraditionalCharacterShape( sender:Dynamic):Void
 	{
@@ -155,7 +158,7 @@ class NSTextView extends NSText
 	}
 	public function rangeForUserTextChange():Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserTextChange", [], [], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserTextChange", [], [], TypeValues.NSRangeVal);
 	}
 	public function textContainerInset():Array<Float>
 	{
@@ -223,7 +226,7 @@ class NSTextView extends NSText
 	}
 	public function smartDeleteRangeForProposedRange( proposedCharRange:Array<Int>):Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "smartDeleteRangeForProposedRange:", [proposedCharRange], [TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "smartDeleteRangeForProposedRange:", [proposedCharRange], [TypeValues.NSRangeVal], TypeValues.NSRangeVal);
 	}
 	public function clickedOnLinkAtIndex( link:Dynamic,  charIndex:Int):Void
 	{
@@ -287,11 +290,11 @@ class NSTextView extends NSText
 	}
 	public function smartInsertBeforeStringForStringReplacingRange( pasteString:String,  charRangeToReplace:Array<Int>):String
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "smartInsertBeforeStringForString:replacingRange:", [pasteString, charRangeToReplace], [TypeValues.StringVal, TypeValues.ObjectVal], TypeValues.StringVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "smartInsertBeforeStringForString:replacingRange:", [pasteString, charRangeToReplace], [TypeValues.StringVal, TypeValues.NSRangeVal], TypeValues.StringVal);
 	}
 	public function selectionRangeForProposedRangeGranularity( proposedCharRange:Array<Int>,  granularity:Int):Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectionRangeForProposedRange:granularity:", [proposedCharRange, granularity], [TypeValues.ObjectVal, TypeValues.IntVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "selectionRangeForProposedRange:granularity:", [proposedCharRange, granularity], [TypeValues.NSRangeVal, TypeValues.IntVal], TypeValues.NSRangeVal);
 	}
 	public function performFindPanelAction( sender:Dynamic):Void
 	{
@@ -327,15 +330,15 @@ class NSTextView extends NSText
 	}
 	public function insertCompletionForPartialWordRangeMovementIsFinal( word:String,  charRange:Array<Int>,  movement:Int,  flag:Bool):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertCompletion:forPartialWordRange:movement:isFinal:", [word, charRange, movement, flag], [TypeValues.StringVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertCompletion:forPartialWordRange:movement:isFinal:", [word, charRange, movement, flag], [TypeValues.StringVal, TypeValues.NSRangeVal, TypeValues.IntVal, TypeValues.BoolVal], -1);
 	}
 	public function smartInsertAfterStringForStringReplacingRange( pasteString:String,  charRangeToReplace:Array<Int>):String
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "smartInsertAfterStringForString:replacingRange:", [pasteString, charRangeToReplace], [TypeValues.StringVal, TypeValues.ObjectVal], TypeValues.StringVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "smartInsertAfterStringForString:replacingRange:", [pasteString, charRangeToReplace], [TypeValues.StringVal, TypeValues.NSRangeVal], TypeValues.StringVal);
 	}
 	public function smartInsertForStringReplacingRangeBeforeStringAfterString( pasteString:String,  charRangeToReplace:Array<Int>,  beforeString:String,  afterString:String):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "smartInsertForString:replacingRange:beforeString:afterString:", [pasteString, charRangeToReplace, beforeString, afterString], [TypeValues.StringVal, TypeValues.ObjectVal, TypeValues.StringVal, TypeValues.StringVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "smartInsertForString:replacingRange:beforeString:afterString:", [pasteString, charRangeToReplace, beforeString, afterString], [TypeValues.StringVal, TypeValues.NSRangeVal, TypeValues.StringVal, TypeValues.StringVal], -1);
 	}
 	public function setRulerVisible( flag:Bool):Void
 	{
@@ -383,7 +386,7 @@ class NSTextView extends NSText
 	}
 	public function rangeForUserCharacterAttributeChange():Array<Int>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserCharacterAttributeChange", [], [], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rangeForUserCharacterAttributeChange", [], [], TypeValues.NSRangeVal);
 	}
 	public function setSmartInsertDeleteEnabled( flag:Bool):Void
 	{

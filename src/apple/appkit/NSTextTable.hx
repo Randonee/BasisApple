@@ -30,7 +30,7 @@ class NSTextTable extends NSTextBlock
 	//Methods
 	public function boundsRectForBlockContentRectInRectTextContainerCharacterRange( block:NSTextTableBlock,  contentRect:Array<Float>,  rect:Array<Float>,  textContainer:NSTextContainer,  charRange:Array<Int>):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundsRectForBlock:contentRect:inRect:textContainer:characterRange:", [block, contentRect, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundsRectForBlock:contentRect:inRect:textContainer:characterRange:", [block, contentRect, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function setNumberOfColumns( numCols:Int):Void
 	{
@@ -50,7 +50,7 @@ class NSTextTable extends NSTextBlock
 	}
 	public function rectForBlockLayoutAtPointInRectTextContainerCharacterRange( block:NSTextTableBlock,  startingPoint:Array<Float>,  rect:Array<Float>,  textContainer:NSTextContainer,  charRange:Array<Int>):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rectForBlock:layoutAtPoint:inRect:textContainer:characterRange:", [block, startingPoint, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rectForBlock:layoutAtPoint:inRect:textContainer:characterRange:", [block, startingPoint, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function numberOfColumns():Int
 	{
@@ -66,7 +66,7 @@ class NSTextTable extends NSTextBlock
 	}
 	public function drawBackgroundForBlockWithFrameInViewCharacterRangeLayoutManager( block:NSTextTableBlock,  frameRect:Array<Float>,  controlView:NSView,  charRange:Array<Int>,  layoutManager:NSLayoutManager):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawBackgroundForBlock:withFrame:inView:characterRange:layoutManager:", [block, frameRect, controlView, charRange, layoutManager], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawBackgroundForBlock:withFrame:inView:characterRange:layoutManager:", [block, frameRect, controlView, charRange, layoutManager], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function setLayoutAlgorithm( algorithm:Int):Void
 	{
@@ -118,7 +118,7 @@ class NSTextBlock extends AbstractObject
 	}
 	public function boundsRectForContentRectInRectTextContainerCharacterRange( contentRect:Array<Float>,  rect:Array<Float>,  textContainer:NSTextContainer,  charRange:Array<Int>):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundsRectForContentRect:inRect:textContainer:characterRange:", [contentRect, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "boundsRectForContentRect:inRect:textContainer:characterRange:", [contentRect, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function setBackgroundColor( color:NSColor):Void
 	{
@@ -130,7 +130,7 @@ class NSTextBlock extends AbstractObject
 	}
 	public function rectForLayoutAtPointInRectTextContainerCharacterRange( startingPoint:Array<Float>,  rect:Array<Float>,  textContainer:NSTextContainer,  charRange:Array<Int>):Array<Float>
 	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rectForLayoutAtPoint:inRect:textContainer:characterRange:", [startingPoint, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "rectForLayoutAtPoint:inRect:textContainer:characterRange:", [startingPoint, rect, textContainer, charRange], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.IntVal, TypeValues.NSRangeVal], TypeValues.ObjectVal);
 	}
 	public function setBorderColorForEdge( color:NSColor,  edge:Int):Void
 	{
@@ -158,7 +158,7 @@ class NSTextBlock extends AbstractObject
 	}
 	public function drawBackgroundWithFrameInViewCharacterRangeLayoutManager( frameRect:Array<Float>,  controlView:NSView,  charRange:Array<Int>,  layoutManager:NSLayoutManager):Void
 	{
-		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawBackgroundWithFrame:inView:characterRange:layoutManager:", [frameRect, controlView, charRange, layoutManager], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.ObjectVal], -1);
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "drawBackgroundWithFrame:inView:characterRange:layoutManager:", [frameRect, controlView, charRange, layoutManager], [TypeValues.ObjectVal, TypeValues.ObjectVal, TypeValues.NSRangeVal, TypeValues.ObjectVal], -1);
 	}
 	public function valueForDimension( dimension:Int):Float
 	{
