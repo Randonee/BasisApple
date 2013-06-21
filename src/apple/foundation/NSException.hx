@@ -9,8 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
-import apple.appkit.NSPasteboard;
-import apple.appkit.NSApplication;
+import apple.foundation.NSError;
 
 class NSException extends AbstractObject
 {

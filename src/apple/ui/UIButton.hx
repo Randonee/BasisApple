@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 
 class UIButton extends UIControl
 {
@@ -161,6 +162,12 @@ class UIButton extends UIControl
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentBackgroundImage", [], [], TypeValues.ObjectVal);
 	}
 
+	public var currentAttributedTitle(get_currentAttributedTitle, null):NSAttributedString;
+	private function get_currentAttributedTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "currentAttributedTitle", [], [], TypeValues.ObjectVal);
+	}
+
 	public var titleLabel(get_titleLabel, null):UILabel;
 	private function get_titleLabel():UILabel
 	{
@@ -202,6 +209,14 @@ class UIButton extends UIControl
 	public function setTitleForState( title:String,  state:Int):Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTitle:forState:", [title, state], [TypeValues.StringVal, TypeValues.IntVal], -1);
+	}
+	public function attributedTitleForState( state:Int):NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedTitleForState:", [state], [TypeValues.IntVal], TypeValues.ObjectVal);
+	}
+	public function setAttributedTitleForState( title:NSAttributedString,  state:Int):Void
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedTitle:forState:", [title, state], [TypeValues.ObjectVal, TypeValues.IntVal], -1);
 	}
 	public function setImageForState( image:UIImage,  state:Int):Void
 	{

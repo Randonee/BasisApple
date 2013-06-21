@@ -9,12 +9,11 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
-import apple.appkit.NSPasteboard;
-import apple.appkit.NSApplication;
+import apple.foundation.NSError;
 
 class NSAttributedString extends AbstractObject
 {
-	
+
 	//Additions
 	static public function initWithString( text:String):NSMutableAttributedString
 	{
@@ -30,7 +29,7 @@ class NSAttributedString extends AbstractObject
 	}
 	private static var nsattributedstring_initWithAttributedString = Lib.load ("basis", "nsattributedstring_initWithAttributedString", 1);
 	//Additions
-	
+
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)

@@ -7,6 +7,9 @@ import apple.ui.*;
 import apple.ui.UINavigationBar;
 import apple.applicationservices.CGAffineTransform;
 
+import apple.quartzcore.CADisplayLink;
+import apple.foundation.NSRunLoop;
+
 class MainView extends UIView
 {
 	private var _holderView:UIView;
@@ -27,7 +30,19 @@ class MainView extends UIView
 		addEventListener(UIView.UIViewDidMoveToSuperview, onAddedToSuperView);
 		
 		IOSApplication.instance.applicationDelegate.applicationDidBecomeActiveHandler = applicationDidBecomeActive;
+		
+		
+		var handler:IObject->String->Void = function(object:IObject, type:String):Void
+		{
+			trace("Handler called");
+		}
+		
+		var link:CADisplayLink = CADisplayLink.displayLinkWithHandler(handler);
+		var loop:NSRunLoop = NSRunLoop.currentRunLoop();
+		link.addToRunLoopForMode(loop, CADisplayLink.getNSDefaultRunLoopMode());
 	}
+	
+	
 	
 	private function applicationDidBecomeActive(application:UIApplication):Void
 	{

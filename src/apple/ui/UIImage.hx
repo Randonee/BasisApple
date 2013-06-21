@@ -9,9 +9,9 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
-import apple.foundation.NSData;
-import basis.util.BaseCode64;
-import haxe.io.Bytes;
+import basis.util.BaseCode64;import haxe.io.Bytes;import apple.foundation.NSData;
+import apple.foundation.NSError;
+import apple.ui.UIImage;
 
 class UIImage extends AbstractObject
 {
@@ -22,14 +22,6 @@ class UIImage extends AbstractObject
 		return BaseCode64.decodeBytesData(uiimage_imageToBase64JPEG(image.basisID, quality));
 	}
 	private static var uiimage_imageToBase64JPEG = Lib.load ("basis", "uiimage_imageToBase64JPEG", 2);
-	
-	static public function imageFromJPEG(bytes:Bytes):UIImage
-	{
-		var data:String = BaseCode64.enocdeBytesData(bytes.getData());
-		var imageID:String = uiimage_imageFromBase64JPEG(data, data.length);
-		return cast(BasisApplication.instance.objectManager.getObject(imageID), UIImage);
-	}
-	private static var uiimage_imageFromBase64JPEG = Lib.load ("basis", "uiimage_imageFromBase64JPEG", 2);
 	//Additions
 
 	public function new(?type:Class<IObject>=null)

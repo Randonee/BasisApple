@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 
 class UIRefreshControl extends UIControl
 {
@@ -41,6 +42,18 @@ class UIRefreshControl extends UIControl
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setTintColor:", [value], [TypeValues.UIColorVal], -1 );
 		return tintColor;
+	}
+
+	public var attributedTitle(get_attributedTitle, set_attributedTitle):NSAttributedString;
+	private function get_attributedTitle():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedTitle", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_attributedTitle(value:NSAttributedString):NSAttributedString
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedTitle:", [value], [TypeValues.ObjectVal], -1 );
+		return attributedTitle;
 	}
 
 

@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 
 class UITextView extends UIScrollView
 {
@@ -119,6 +120,18 @@ class UITextView extends UIScrollView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAllowsEditingTextAttributes:", [value], [TypeValues.BoolVal], -1 );
 		return allowsEditingTextAttributes;
+	}
+
+	public var attributedText(get_attributedText, set_attributedText):NSAttributedString;
+	private function get_attributedText():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedText", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_attributedText(value:NSAttributedString):NSAttributedString
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedText:", [value], [TypeValues.ObjectVal], -1 );
+		return attributedText;
 	}
 
 	public var clearsOnInsertion(get_clearsOnInsertion, set_clearsOnInsertion):Bool;

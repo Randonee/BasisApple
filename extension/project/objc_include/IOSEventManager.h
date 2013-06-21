@@ -25,5 +25,6 @@
 -(void) onUIControlEventApplicationReserved:(id) view :(id) event;
 -(void) onUIControlEventSystemReserved:(id) view :(id) event;
 -(void) onUIControlEventAllEvents:(id) view :(id) event;
+-(void) onBarButtonItemActionEvent:(id)sender;
 
 @end

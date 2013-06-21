@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 
 class UITextField extends UIControl
 {
@@ -43,6 +44,18 @@ class UITextField extends UIControl
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setText:", [value], [TypeValues.StringVal], -1 );
 		return text;
+	}
+
+	public var attributedText(get_attributedText, set_attributedText):NSAttributedString;
+	private function get_attributedText():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedText", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_attributedText(value:NSAttributedString):NSAttributedString
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedText:", [value], [TypeValues.ObjectVal], -1 );
+		return attributedText;
 	}
 
 	public var textColor(get_textColor, set_textColor):Array<Float>;
@@ -103,6 +116,18 @@ class UITextField extends UIControl
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setPlaceholder:", [value], [TypeValues.StringVal], -1 );
 		return placeholder;
+	}
+
+	public var attributedPlaceholder(get_attributedPlaceholder, set_attributedPlaceholder):NSAttributedString;
+	private function get_attributedPlaceholder():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedPlaceholder", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_attributedPlaceholder(value:NSAttributedString):NSAttributedString
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedPlaceholder:", [value], [TypeValues.ObjectVal], -1 );
+		return attributedPlaceholder;
 	}
 
 	public var clearsOnBeginEditing(get_clearsOnBeginEditing, set_clearsOnBeginEditing):Bool;

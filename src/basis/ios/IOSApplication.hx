@@ -6,6 +6,7 @@ import cpp.Lib;
 import apple.ui.*;
 import apple.ui.UICollectionViewCell;
 import apple.ui.UINavigationBar;
+import apple.foundation.NSAttributedString;
 
 class IOSApplication extends BasisApplication
 {
@@ -112,9 +113,17 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(apple.ui.UIWindow);
 		
 		objectManager.addClass(apple.quartzcore.CALayer);
+		objectManager.addClass(apple.quartzcore.CADisplayLink);
 		
+		objectManager.addClass(apple.foundation.NSRunLoop);
+		objectManager.addClass(apple.foundation.NSException);
+		objectManager.addClass(apple.foundation.NSFileWrapper);
+		objectManager.addClass(apple.foundation.NSAffineTransform);
 		objectManager.addClass(apple.foundation.NSData);
-		objectManager.addClass(apple.foundation.NSError);
+		objectManager.addClass(apple.foundation.NSFormatter);
+		objectManager.addClass(apple.foundation.NSNotification);
+		objectManager.addClass(NSMutableAttributedString);
+		objectManager.addClass(NSMutableAttributedString, "NSConcreteMutableAttributedString");
 		
 	}
 }

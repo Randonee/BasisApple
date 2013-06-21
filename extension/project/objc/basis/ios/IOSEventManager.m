@@ -21,6 +21,8 @@
 
 -(void) onBarButtonItemActionEvent:(id)sender{[self callHandlers:[ObjectManager getObjectID:sender] :"UIBarButtonItemActionEvent"];}
 
+-(void) onCADisplayLinkActionEvent:(id)sender{[self callHandlers:[ObjectManager getObjectID:sender] :"CADisplayLinkActionEvent"];}
+
 //Device Events
 -(void) onUIDeviceBatteryStateDidChangeNotification:(NSNotification *) notification{[self callGlobalHandlers:"UIDeviceBatteryStateDidChangeNotification"];}
 -(void) onUIDeviceOrientationDidChangeNotification:(NSNotification *) notification{[self callGlobalHandlers:"UIDeviceOrientationDidChangeNotification"];}

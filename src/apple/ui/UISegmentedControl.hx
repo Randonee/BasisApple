@@ -179,6 +179,7 @@ class UISegmentedControl extends UIControl
 	public static inline var UISegmentedControlStyleBordered:Int = 1;
 	public static inline var UISegmentedControlStyleBar:Int = 2;
 	public static inline var UISegmentedControlStyleBezeled:Int = 3;
+	public static inline var UISegmentedControlNoSegment:Int = 0;
 	public static inline var UISegmentedControlSegmentAny:Int = 0;
 	public static inline var UISegmentedControlSegmentLeft:Int = 1;
 	public static inline var UISegmentedControlSegmentCenter:Int = 2;

@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.foundation.NSAttributedString;
 
 class UILabel extends UIView
 {
@@ -107,6 +108,18 @@ class UILabel extends UIView
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "setLineBreakMode:", [value], [TypeValues.IntVal], -1 );
 		return lineBreakMode;
+	}
+
+	public var attributedText(get_attributedText, set_attributedText):NSAttributedString;
+	private function get_attributedText():NSAttributedString
+	{
+		return BasisApplication.instance.objectManager.callInstanceMethod(this, "attributedText", [], [], TypeValues.ObjectVal);
+	}
+
+	private function set_attributedText(value:NSAttributedString):NSAttributedString
+	{
+		BasisApplication.instance.objectManager.callInstanceMethod(this, "setAttributedText:", [value], [TypeValues.ObjectVal], -1 );
+		return attributedText;
 	}
 
 	public var highlightedTextColor(get_highlightedTextColor, set_highlightedTextColor):Array<Float>;

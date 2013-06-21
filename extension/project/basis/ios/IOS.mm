@@ -20,3 +20,7 @@
 #include "../../apple/ui/UIPopoverControllerDelegateCFFI.mm"
 #include "../../apple/ui/UIImagePickerControllerDelegateCFFI.mm"
 #include "../../apple/ui/UINavigationControllerDelegateCFFI.mm"
+
+#include "../../apple/quartzcore/CADisplayLinkCFFI.mm"
+
+#include "../../apple/foundation/NSAttributedStringCFFI.mm"

@@ -9,6 +9,7 @@ import apple.appkit.*;
 import apple.ui.*;
 import basis.BasisApplication;
 import basis.object.TypeValues;
+import apple.ui.UINavigationBar;
 
 class UINavigationBar extends UIView
 {

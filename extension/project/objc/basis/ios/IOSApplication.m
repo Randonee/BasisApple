@@ -156,6 +156,9 @@
 	
 	[self.objectManager addObject:application];
 	[self.objectManager createHaxeObject:application];
+	
+	[self.objectManager addObject:[NSRunLoop currentRunLoop]];
+	[self.objectManager createHaxeObject:[NSRunLoop currentRunLoop]];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window.backgroundColor = [UIColor whiteColor];
