@@ -14,7 +14,23 @@ import apple.appkit.NSApplication;
 
 class NSAttributedString extends AbstractObject
 {
-
+	
+	//Additions
+	static public function initWithString( text:String):NSMutableAttributedString
+	{
+		var id:String = nsattributedstring_initWithString(text);
+		return cast(BasisApplication.instance.objectManager.getObject(id), NSMutableAttributedString);
+	}
+	private static var nsattributedstring_initWithString = Lib.load ("basis", "nsattributedstring_initWithString", 1);
+	
+	static public function initWithAttributedString( text:NSAttributedString):NSMutableAttributedString
+	{
+		var id:String = nsattributedstring_initWithAttributedString(text.basisID);
+		return cast(BasisApplication.instance.objectManager.getObject(id), NSMutableAttributedString);
+	}
+	private static var nsattributedstring_initWithAttributedString = Lib.load ("basis", "nsattributedstring_initWithAttributedString", 1);
+	//Additions
+	
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
@@ -40,14 +56,6 @@ class NSAttributedString extends AbstractObject
 	public function length():Int
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "length", [], [], TypeValues.IntVal);
-	}
-	public function initWithString( str:String):Dynamic
-	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithString:", [str], [TypeValues.StringVal], TypeValues.ObjectVal);
-	}
-	public function initWithAttributedString( attrStr:NSAttributedString):Dynamic
-	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithAttributedString:", [attrStr], [TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
 	public function string():String
 	{

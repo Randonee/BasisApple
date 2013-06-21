@@ -13,10 +13,10 @@ class OSXExample
 		var submenu:NSMenu = new NSMenu();
 		firstMenuItem.setSubmenu(submenu);
 		
-		var aboutMenuItem:NSMenuItem = new NSMenuItem();
-		aboutMenuItem.setTitle("New Window");
-		aboutMenuItem.addEventListener(NSMenuItem.NSMenuItemActionEvent, onAboutMenuItemSelected);
-		submenu.addItem(aboutMenuItem);
+		var newWindowMenuItem:NSMenuItem = new NSMenuItem();
+		newWindowMenuItem.setTitle("New Window");
+		newWindowMenuItem.addEventListener(NSMenuItem.NSMenuItemActionEvent, onNewWindowMenuItemSelected);
+		submenu.addItem(newWindowMenuItem);
 		
 		
 		var quitMenuItem:NSMenuItem = new NSMenuItem();
@@ -26,9 +26,15 @@ class OSXExample
 		submenu.addItem(quitMenuItem);
 	}
 	
-	private function onAboutMenuItemSelected(object:basis.object.IObject, type:String):Void
+	private function onNewWindowMenuItemSelected(object:basis.object.IObject, type:String):Void
 	{
-		var textWindow:apple.appkit.NSWindow = apple.appkit.NSWindow.initWithContentRectStyleMaskBackingDefer([200,200,600,700], 1 << 0, 2, false);
+		var textWindow:apple.appkit.NSWindow = NSWindow.initWithContentRectStyleMaskBackingDefer([200,200,600,700], 
+																									NSWindow.NSTitledWindowMask | 
+																									NSWindow.NSClosableWindowMask | 
+																									NSWindow.NSMiniaturizableWindowMask | 
+																									NSWindow.NSResizableWindowMask, 
+																									NSWindow.NSBackingStoreBuffered, 
+																									false);
 		textWindow.setBackgroundColor(NSColor.whiteColor());
 		textWindow.makeKeyAndOrderFront(NSApplication.sharedApplication());
 		textWindow.setTitle("Text Window");

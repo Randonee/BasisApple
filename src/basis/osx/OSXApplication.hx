@@ -69,6 +69,8 @@ class OSXApplication extends BasisApplication
 		objectManager.addClass(apple.foundation.NSFormatter);
 		objectManager.addClass(apple.foundation.NSNotification);
 		objectManager.addClass(NSMutableAttributedString);
+		objectManager.addClass(NSMutableAttributedString, "NSConcreteMutableAttributedString");
+		
 		objectManager.addClass(NSAttributedString);
 	}
 }
