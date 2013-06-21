@@ -30,16 +30,6 @@ class MainView extends UIView
 		addEventListener(UIView.UIViewDidMoveToSuperview, onAddedToSuperView);
 		
 		IOSApplication.instance.applicationDelegate.applicationDidBecomeActiveHandler = applicationDidBecomeActive;
-		
-		
-		var handler:IObject->String->Void = function(object:IObject, type:String):Void
-		{
-			trace("Handler called");
-		}
-		
-		var link:CADisplayLink = CADisplayLink.displayLinkWithHandler(handler);
-		var loop:NSRunLoop = NSRunLoop.currentRunLoop();
-		link.addToRunLoopForMode(loop, CADisplayLink.getNSDefaultRunLoopMode());
 	}
 	
 	
