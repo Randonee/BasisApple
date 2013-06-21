@@ -11,6 +11,7 @@ import basis.BasisApplication;
 import basis.object.TypeValues;
 import apple.appkit.NSPasteboard;
 
+
 class NSTextView extends NSText
 {
 
@@ -26,16 +27,16 @@ class NSTextView extends NSText
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "insertString:", [text], [TypeValues.StringVal], -1);
 	}
 	
+	public var delegate(default, null):NSTextViewDelegate;
 	
-
-	//Additions
-
 	public function new(?type:Class<IObject>=null)
 	{
 		if(type == null)
 			type = NSTextView;
 		super(type);
+		delegate = new NSTextViewDelegate(this);
 	}
+	//Additions
 
 	//Constants
 

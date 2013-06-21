@@ -103,8 +103,8 @@ class NSAttributedString extends AbstractObject
 	static public function getNSVerticalGlyphFormAttributeName():String{return nsattributedstring_getNSVerticalGlyphFormAttributeName();}
 	private static var nsattributedstring_getNSVerticalGlyphFormAttributeName = Lib.load ("basis", "nsattributedstring_getNSVerticalGlyphFormAttributeName", 0);
 	
-	static public function getNSTextAlternativesAttributeName():String{return nsattributedstring_getNSTextAlternativesAttributeName();}
-	private static var nsattributedstring_getNSTextAlternativesAttributeName = Lib.load ("basis", "nsattributedstring_getNSTextAlternativesAttributeName", 0);
+	//static public function getNSTextAlternativesAttributeName():String{return nsattributedstring_getNSTextAlternativesAttributeName();}
+	//private static var nsattributedstring_getNSTextAlternativesAttributeName = Lib.load ("basis", "nsattributedstring_getNSTextAlternativesAttributeName", 0);
 #end
 	//Additions
 

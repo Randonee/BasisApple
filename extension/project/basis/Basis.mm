@@ -19,7 +19,6 @@
 #import "BasisStart.h"
 #import "../include/tools/Base64.h"
 
-
 #ifdef IPHONE
 #import "apple/ui/UINavigationBarDelegateImp.h"
 #import "apple/ui/UITableViewDataSourceImp.h"
@@ -30,11 +29,10 @@
 #import "apple/ui/UIImagePickerControllerDelegateImp.h"
 #import "apple/ui/UINavigationControllerDelegateImp.h"
 #import "apple/ui/UIApplicationDelegateImp.h"
-
-
 #import "IOSApplication.h"
 
 #else
+#import "apple/appkit/NSTextViewDelegateImp.h"
 #import "OSXApplication.h"
 #endif
 

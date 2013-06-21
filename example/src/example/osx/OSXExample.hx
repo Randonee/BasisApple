@@ -33,7 +33,7 @@ class OSXExample
 																									NSWindow.NSClosableWindowMask | 
 																									NSWindow.NSMiniaturizableWindowMask | 
 																									NSWindow.NSResizableWindowMask, 
-																									NSWindow.NSBackingStoreBuffered, 
+																									2, 
 																									false);
 		textWindow.setBackgroundColor(NSColor.whiteColor());
 		textWindow.makeKeyAndOrderFront(NSApplication.sharedApplication());

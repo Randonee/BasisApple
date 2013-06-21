@@ -100,8 +100,8 @@ namespace basis
 	value nsattributedstring_getNSVerticalGlyphFormAttributeName() {return alloc_string([NSVerticalGlyphFormAttributeName cStringUsingEncoding:NSUTF8StringEncoding]);}
 	DEFINE_PRIM (nsattributedstring_getNSVerticalGlyphFormAttributeName, 0);
 	
-	value nsattributedstring_getNSTextAlternativesAttributeName() {return alloc_string([NSTextAlternativesAttributeName cStringUsingEncoding:NSUTF8StringEncoding]);}
-	DEFINE_PRIM (nsattributedstring_getNSTextAlternativesAttributeName, 0);
+	//value nsattributedstring_getNSTextAlternativesAttributeName() {return alloc_string([NSTextAlternativesAttributeName cStringUsingEncoding:NSUTF8StringEncoding]);}
+	//DEFINE_PRIM (nsattributedstring_getNSTextAlternativesAttributeName, 0);
 #endif	
 	
 	
