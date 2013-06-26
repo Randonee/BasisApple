@@ -19,6 +19,8 @@
 		<file name="apple/ui/UIPopoverControllerDelegateImp.mm"/>
 		<file name="apple/ui/UIImagePickerControllerDelegateImp.mm"/>
 		<file name="apple/ui/UINavigationControllerDelegateImp.mm"/>
+		<file name="apple/ui/UIPickerViewDataSourceImp.mm"/>
+		<file name="apple/ui/UIPickerViewDelegateImp.mm"/>
 		<file name="tools/Base64.mm"/>
 		<file name="basis/Basis.mm"/>
     </files>

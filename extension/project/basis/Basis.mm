@@ -29,6 +29,8 @@
 #import "apple/ui/UIImagePickerControllerDelegateImp.h"
 #import "apple/ui/UINavigationControllerDelegateImp.h"
 #import "apple/ui/UIApplicationDelegateImp.h"
+#import "apple/ui/UIPickerViewDataSourceImp.h"
+#import "apple/ui/UIPickerViewDelegateImp.h"
 #import "IOSApplication.h"
 
 #else
