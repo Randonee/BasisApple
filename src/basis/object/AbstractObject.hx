@@ -33,6 +33,17 @@ class AbstractObject implements basis.object.IObject
 	}
 	
 	/**
+	* Removes an event listener from the basis system
+	*
+	* @param type The event type
+	* @param handler a method to be called when the even occurs.
+	**/
+	public function removeEventListener(type:String, handler:IObject->String->Void):Void
+	{
+		BasisApplication.instance.eventManager.removeEventListener(type, this, handler);
+	}
+	
+	/**
 	* Removes object reference from basis system.
 	* Any subclass that creates other basis objects should override this method
 	* and call destroy on those objects.
