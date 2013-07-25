@@ -31,6 +31,8 @@
 #import "apple/ui/UIApplicationDelegateImp.h"
 #import "apple/ui/UIPickerViewDataSourceImp.h"
 #import "apple/ui/UIPickerViewDelegateImp.h"
+#import "apple/avfoundation/AVAudioRecorderDelegateImp.h"
+
 #import "IOSApplication.h"
 
 #else

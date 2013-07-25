@@ -125,5 +125,8 @@ class IOSApplication extends BasisApplication
 		objectManager.addClass(NSMutableAttributedString);
 		objectManager.addClass(NSMutableAttributedString, "NSConcreteMutableAttributedString");
 		
+		objectManager.addClass(apple.avfoundation.AVAudioRecorder);
+		objectManager.addClass(apple.avfoundation.AVAudioPlayer);
+		
 	}
 }
