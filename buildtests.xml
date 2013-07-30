@@ -8,6 +8,7 @@
 		<framework name="Foundation" />
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
+		<framework name="AVFoundation" />
 		<target name="ipad">
 			<os type="ios" />
 			<simulator use="true" type="ipad"/>
