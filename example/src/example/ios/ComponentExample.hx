@@ -21,7 +21,8 @@ class ComponentExample extends UIView
 	private var _tableEventLabel:UILabel;
 	private var _tableCellLabels:Array<String>;
 	private var _haxeImage:UIImageView;
-	private var _recordudioButton:UIButton;
+	private var _recordAudioButton:UIButton;
+	private var _playAudioButton:UIButton;
 	
 	private var _transistionView1Button:UIButton;
 	private var _transistionViewHolder:UIView;
@@ -29,6 +30,7 @@ class ComponentExample extends UIView
 	private var _transistionView2:UIView;
 	private var _currTransitionView:UIView;
 	private var _audioRecorder:AVAudioRecorder;
+	private var _audioPlayer:AVAudioPlayer;
 	
 	private var _alertView:UIAlertView;
 	
@@ -70,11 +72,18 @@ class ComponentExample extends UIView
 		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
 		
-		_recordudioButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
-		_recordudioButton.frame = [50.0,620,200,30];
-		_recordudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
-		_recordudioButton.addEventListener(UIControl.UIControlTouchUpInside, onRecordClick);
-		addSubview(_recordudioButton);
+		_recordAudioButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_recordAudioButton.frame = [50.0,620,200,30];
+		_recordAudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
+		_recordAudioButton.addEventListener(UIControl.UIControlTouchUpInside, onRecordClick);
+		addSubview(_recordAudioButton);
+		
+		_playAudioButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_playAudioButton.frame = [260.0,620,100,30];
+		_playAudioButton.hidden = true;
+		_playAudioButton.setTitleForState("Play", UIControl.UIControlStateNormal);
+		_playAudioButton.addEventListener(UIControl.UIControlTouchUpInside, onAudioPlayClick);
+		addSubview(_playAudioButton);
 		
 		_showAlertButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_showAlertButton.frame = [50.0,720,200,30];
@@ -168,20 +177,29 @@ class ComponentExample extends UIView
 	
 	
 	//----------- Auido Handlers -------------
+	private function onAudioPlayClick(object:IObject, type):Void
+	{
+		var filePath:String = IOSUtil.getDocumentsDirectoryPath() + "/test.caf";
+		_audioPlayer = AVAudioPlayer.initWithContentsOfURLError(filePath);
+		if (_audioPlayer != null)
+			_audioPlayer.play();			
+	}
+	
 	private function onRecordClick(object:IObject, type):Void
 	{
 		if(_audioRecorder == null || !_audioRecorder.recording)
 		{
 			startRecording();
-			_recordudioButton.setTitleForState("Stop", UIControl.UIControlStateNormal);
+			_playAudioButton.hidden = true;
+			_recordAudioButton.setTitleForState("Stop", UIControl.UIControlStateNormal);
 		}
 		else
 		{
 			stopRecording();
-			_recordudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
+			_playAudioButton.hidden = false;
+			_recordAudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
 		}
 	}
-	
 	
 	private function startRecording():Void
 	{
@@ -197,7 +215,7 @@ class ComponentExample extends UIView
 		settings.linearPCMIsBigEndianKey = false;
 		settings.linearPCMIsFloatKey = false;
 		var filePath:String = IOSUtil.getDocumentsDirectoryPath() + "/test.caf";
-		trace(filePath);
+
 		_audioRecorder = AVAudioRecorder.initWithURLSettings(filePath, settings);
 		if(_audioRecorder == null)
 		{
@@ -210,13 +228,15 @@ class ComponentExample extends UIView
 		_audioRecorder.delegate.audioRecorderEndInterruptionHandler = audioRecorderEndInterruption;
 		_audioRecorder.prepareToRecord();
 		_audioRecorder.meteringEnabled = true;
-
-		_audioRecorder.recordForDuration(10);
+			
+		_audioRecorder.record();
 	}
 		
 	private function stopRecording()
 	{
 		_audioRecorder.stop();
+		_audioRecorder.destroy();
+		_audioRecorder = null;
 	}
 		
 	private function audioRecorderDidFinishRecording(recorder:AVAudioRecorder, successfully:Bool):Void

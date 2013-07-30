@@ -26,6 +26,7 @@
 #include "../../apple/avfoundation/AVAudioRecorderCFFI.mm"
 #include "../../apple/avfoundation/AVAudioRecorderDelegateCFFI.mm"
 #include "../../apple/avfoundation/AVAudioSessionCFFI.mm"
+#include "../../apple/avfoundation/AVAudioPlayerCFFI.mm"
 
 #include "../../apple/quartzcore/CADisplayLinkCFFI.mm"
 

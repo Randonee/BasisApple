@@ -16,6 +16,17 @@ class AVAudioPlayer extends AbstractObject
 {
 
 	//Additions
+	static public function initWithContentsOfURLError(url:String):AVAudioPlayer
+	{
+		var objectID:String = avaudioplayer_initWithContentsOfURLError(url);
+		var object:IObject = BasisApplication.instance.objectManager.getObject(objectID);
+		if(object != null)
+			return cast(object, AVAudioPlayer);
+
+		return null;
+	}
+	private static var avaudioplayer_initWithContentsOfURLError = Lib.load ("basis", "avaudioplayer_initWithContentsOfURLError", 1);
+	
 	public var delegate(default, null):AVAudioPlayerDelegate;
 	
 	public function new(?type:Class<IObject>=null)
@@ -154,10 +165,6 @@ class AVAudioPlayer extends AbstractObject
 
 
 	//Methods
-	public function initWithDataError( data:NSData,  outError:NSError):Dynamic
-	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithData:error:", [data, outError], [TypeValues.ObjectVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
-	}
 	public function prepareToPlay():Bool
 	{
 		return BasisApplication.instance.objectManager.callInstanceMethod(this, "prepareToPlay", [], [], TypeValues.BoolVal);
@@ -185,10 +192,6 @@ class AVAudioPlayer extends AbstractObject
 	public function updateMeters():Void
 	{
 		BasisApplication.instance.objectManager.callInstanceMethod(this, "updateMeters", [], [], -1);
-	}
-	public function initWithContentsOfURLError( url:String,  outError:NSError):Dynamic
-	{
-		return BasisApplication.instance.objectManager.callInstanceMethod(this, "initWithContentsOfURL:error:", [url, outError], [TypeValues.NSURLVal, TypeValues.ObjectVal], TypeValues.ObjectVal);
 	}
 
 
