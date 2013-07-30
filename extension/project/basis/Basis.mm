@@ -21,6 +21,7 @@
 #import "../include/tools/Base64.h"
 
 #ifdef IPHONE
+#import "apple/ui/UIAlertViewDelegateImp.h"
 #import "apple/ui/UINavigationBarDelegateImp.h"
 #import "apple/ui/UITableViewDataSourceImp.h"
 #import "apple/ui/UITableViewDelegateImp.h"

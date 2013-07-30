@@ -12,6 +12,7 @@
 #include "../../apple/ui/UIDeviceCFFI.mm"
 #include "../../apple/ui/UIFontCFFI.mm"
 #include "../../apple/ui/UIApplicationDelegateCFFI.mm"
+#include "../../apple/ui/UIAlertViewDelegateCFFI.mm"
 #include "../../apple/applicationservices/CGAffineTransform.mm"
 #include "../../apple/ui/UITableViewDataSourceCFFI.mm"
 #include "../../apple/ui/UITableViewDelegateCFFI.mm"

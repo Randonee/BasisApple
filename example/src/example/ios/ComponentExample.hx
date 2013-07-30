@@ -16,6 +16,7 @@ class ComponentExample extends UIView
 	private var _outputLabel:UILabel;
 	private var _sampleButton:UIButton;
 	private var _animateButton:UIButton;
+	private var _showAlertButton:UIButton;
 	private var _table:UITableView;
 	private var _tableEventLabel:UILabel;
 	private var _tableCellLabels:Array<String>;
@@ -28,6 +29,8 @@ class ComponentExample extends UIView
 	private var _transistionView2:UIView;
 	private var _currTransitionView:UIView;
 	private var _audioRecorder:AVAudioRecorder;
+	
+	private var _alertView:UIAlertView;
 	
 	public function new()
 	{
@@ -64,16 +67,20 @@ class ComponentExample extends UIView
 		_sampleButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_sampleButton.frame = [50.0,220,100,30];
 		_sampleButton.setTitleForState("Button", UIControl.UIControlStateNormal);
-		
 		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
 		
 		_recordudioButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
 		_recordudioButton.frame = [50.0,620,200,30];
 		_recordudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
-		
 		_recordudioButton.addEventListener(UIControl.UIControlTouchUpInside, onRecordClick);
 		addSubview(_recordudioButton);
+		
+		_showAlertButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_showAlertButton.frame = [50.0,720,200,30];
+		_showAlertButton.setTitleForState("Show Alert", UIControl.UIControlStateNormal);
+		_showAlertButton.addEventListener(UIControl.UIControlTouchUpInside, onShowAlertButtonClick);
+		addSubview(_showAlertButton);
 		
 		_tableCellLabels = [];
 		for(a in 1...101)
@@ -127,6 +134,13 @@ class ComponentExample extends UIView
 		_transistionViewHolder.addSubview(_transistionView2);
 		
 		_currTransitionView = _transistionView1;
+		
+		_alertView = new UIAlertView();
+		_alertView.title = "Alert Test";
+		_alertView.message = "Test message\n1\n2\n3";
+		_alertView.addButtonWithTitle("cancel");
+		_alertView.addButtonWithTitle("ok");
+		_alertView.delegate.clickedButtonAtIndexHandler = clickedButtonAtIndex;
 	}
 	
 	private function onButtonClick(object:IObject, type):Void
@@ -138,6 +152,19 @@ class ComponentExample extends UIView
 	{
 		_outputField.text = _inputField.text;
 	}
+	
+	//-------------- AlertView ---------------
+	private function onShowAlertButtonClick(object:IObject, type):Void
+	{
+		_alertView.show();
+	}
+	
+	private function clickedButtonAtIndex(alertView:UIAlertView, buttonIndex:Int):Void
+	{
+		trace("Alert Button Clicked: " + buttonIndex);
+	}
+	
+	//----------------------------------------
 	
 	
 	//----------- Auido Handlers -------------
@@ -211,7 +238,6 @@ class ComponentExample extends UIView
 	{
 		trace ("audioRecorderEndInterruption");
 	}
-	
 	//----------------------------------------
 	
 	//---------- Animation Handlers ----------
