@@ -22,7 +22,9 @@
 #include "../../apple/ui/UINavigationControllerDelegateCFFI.mm"
 #include "../../apple/ui/UIPickerViewDataSourceCFFI.mm"
 #include "../../apple/ui/UIPickerViewDelegateCFFI.mm"
+#include "../../apple/avfoundation/AVAudioRecorderCFFI.mm"
 #include "../../apple/avfoundation/AVAudioRecorderDelegateCFFI.mm"
+#include "../../apple/avfoundation/AVAudioSessionCFFI.mm"
 
 #include "../../apple/quartzcore/CADisplayLinkCFFI.mm"
 

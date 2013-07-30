@@ -8,6 +8,7 @@
 		<os type="ios" />
 		<framework name="UIKit" />
 		<framework name="Foundation" />
+		<framework name="AVFoundation" />
 		<framework name="CoreGraphics" />
 		<framework name="QuartzCore" />
 		<target name="ipad">

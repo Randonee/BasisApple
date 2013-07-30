@@ -127,6 +127,7 @@ class IOSApplication extends BasisApplication
 		
 		objectManager.addClass(apple.avfoundation.AVAudioRecorder);
 		objectManager.addClass(apple.avfoundation.AVAudioPlayer);
+		objectManager.addClass(apple.avfoundation.AVAudioSession);
 		
 	}
 }

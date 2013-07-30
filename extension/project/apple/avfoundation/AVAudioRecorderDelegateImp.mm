@@ -26,12 +26,10 @@
 	val_call2(_audioRecorderBeginInterruptionHandler->get(), alloc_string([[ObjectManager getObjectID:recorder] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_bool(flag));
 }
 
-
 - (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
 {
-	//val_call2(_audioRecorderBeginInterruptionHandler->get(), alloc_string([[ObjectManager getObjectID:recorder] cStringUsingEncoding:NSUTF8StringEncoding]));
+	val_call2(_audioRecorderBeginInterruptionHandler->get(), alloc_string([[ObjectManager getObjectID:recorder] cStringUsingEncoding:NSUTF8StringEncoding]), alloc_string([[error domain] cStringUsingEncoding:NSUTF8StringEncoding]));
 }
-
 
 - (void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder withOptions:(NSUInteger)flags
 {

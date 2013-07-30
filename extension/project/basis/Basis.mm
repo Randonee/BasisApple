@@ -1,5 +1,6 @@
 #ifdef IPHONE
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #else
 #import <IOKit/IOKitLib.h> 
 #import <Cocoa/Cocoa.h>

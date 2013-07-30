@@ -4,6 +4,7 @@ import basis.BasisApplication;
 import basis.ios.IOSUtil;
 import basis.object.IObject;
 import apple.ui.*;
+import apple.avfoundation.*;
 import apple.ui.UINavigationBar;
 import apple.foundation.NSData;
 
@@ -19,12 +20,14 @@ class ComponentExample extends UIView
 	private var _tableEventLabel:UILabel;
 	private var _tableCellLabels:Array<String>;
 	private var _haxeImage:UIImageView;
+	private var _recordudioButton:UIButton;
 	
 	private var _transistionView1Button:UIButton;
 	private var _transistionViewHolder:UIView;
 	private var _transistionView1:UIView;
 	private var _transistionView2:UIView;
 	private var _currTransitionView:UIView;
+	private var _audioRecorder:AVAudioRecorder;
 	
 	public function new()
 	{
@@ -64,6 +67,13 @@ class ComponentExample extends UIView
 		
 		_sampleButton.addEventListener(UIControl.UIControlTouchUpInside, onButtonClick);
 		addSubview(_sampleButton);
+		
+		_recordudioButton = UIButton.buttonWithType(UIButton.UIButtonTypeRoundedRect);
+		_recordudioButton.frame = [50.0,620,200,30];
+		_recordudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
+		
+		_recordudioButton.addEventListener(UIControl.UIControlTouchUpInside, onRecordClick);
+		addSubview(_recordudioButton);
 		
 		_tableCellLabels = [];
 		for(a in 1...101)
@@ -130,6 +140,80 @@ class ComponentExample extends UIView
 	}
 	
 	
+	//----------- Auido Handlers -------------
+	private function onRecordClick(object:IObject, type):Void
+	{
+		if(_audioRecorder == null || !_audioRecorder.recording)
+		{
+			startRecording();
+			_recordudioButton.setTitleForState("Stop", UIControl.UIControlStateNormal);
+		}
+		else
+		{
+			stopRecording();
+			_recordudioButton.setTitleForState("Record Audio", UIControl.UIControlStateNormal);
+		}
+	}
+	
+	
+	private function startRecording():Void
+	{
+		var audioSession:AVAudioSession = AVAudioSession.sharedInstance();
+		audioSession.setCategoryError(AVAudioSession.AVAudioSessionCategoryPlayAndRecord(), null);
+		audioSession.setActiveError(true, null);
+		var settings:AVAudioSettings = new AVAudioSettings();
+		
+		settings.formatIDKey = AVAudioSettings.kAudioFormatLinearPCM;
+		settings.sampleRateKey = 44100.0;
+		settings.numberOfChannelsKey = 2;
+		settings.linearPCMBitDepthKey = 16;
+		settings.linearPCMIsBigEndianKey = false;
+		settings.linearPCMIsFloatKey = false;
+		var filePath:String = IOSUtil.getDocumentsDirectoryPath() + "/test.caf";
+		trace(filePath);
+		_audioRecorder = AVAudioRecorder.initWithURLSettings(filePath, settings);
+		if(_audioRecorder == null)
+		{
+		    return;
+		}
+		
+		_audioRecorder.delegate.audioRecorderDidFinishRecordingHandler = audioRecorderDidFinishRecording;
+		_audioRecorder.delegate.audioRecorderEncodeErrorDidOccurHandler = audioRecorderEncodeErrorDidOccur;
+		_audioRecorder.delegate.audioRecorderBeginInterruptionHandler = audioRecorderBeginInterruption;
+		_audioRecorder.delegate.audioRecorderEndInterruptionHandler = audioRecorderEndInterruption;
+		_audioRecorder.prepareToRecord();
+		_audioRecorder.meteringEnabled = true;
+
+		_audioRecorder.recordForDuration(10);
+	}
+		
+	private function stopRecording()
+	{
+		_audioRecorder.stop();
+	}
+		
+	private function audioRecorderDidFinishRecording(recorder:AVAudioRecorder, successfully:Bool):Void
+	{
+		trace ("audioRecorderDidFinishRecording:successfully: " + successfully);
+	}
+	
+	private function audioRecorderEncodeErrorDidOccur(recorder:AVAudioRecorder, message:String):Void
+	{
+		trace ("audioRecorderEncodeErrorDidOccur: " + message);
+	}
+	
+	private function audioRecorderBeginInterruption(recorder:AVAudioRecorder):Void
+	{
+		trace ("audioRecorderBeginInterruption");
+	}
+	
+	private function audioRecorderEndInterruption(recorder:AVAudioRecorder, flags:Int):Void
+	{
+		trace ("audioRecorderEndInterruption");
+	}
+	
+	//----------------------------------------
+	
 	//---------- Animation Handlers ----------
 	private function animationsHandler():Void
 	{
@@ -168,7 +252,6 @@ class ComponentExample extends UIView
 		}
 	}
 	//----------------------------------------
-	
 	
 	//---------- Table Handlers ----------
 	//Datasource
