@@ -8,6 +8,13 @@ https://github.com/Randonee/Basis
 
 This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
+Installation
+------------
+
+Haxe is being compiled to c++ then CFFI is used to communicate with objc. This incurs an overhead for any objc method called.
+Inheritance is also missing functionality. Overriding methods on haxe equivalent objc classes will not override the objc class method. This is because the haxe classes are just bridges to objc classes rather than sub classes. If inheriting from an objc class is needed you will need to create an objc class and use CFFI to communicate with it.
+This CFFI approach is hopefully a temporary solution. Once an objc haxe target is complete AppleBasis will use it.
+
 
 Installation
 ------------
