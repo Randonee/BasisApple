@@ -8,7 +8,7 @@ https://github.com/Randonee/Basis
 
 This project uses hxcpp and CFFI to allow the use of native Apple UI components.
 
-Installation
+Limitations
 ------------
 
 Haxe is being compiled to c++ then CFFI is used to communicate with objc. This incurs an overhead for any objc method called.
