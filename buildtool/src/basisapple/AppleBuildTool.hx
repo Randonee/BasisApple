@@ -47,6 +47,7 @@ class AppleBuildTool extends basis.BuildTool
 		
 			var haxeArgs:Array<String> = deviceTarget.getCollection(Target.HAXE_ARGS, true);
 			var sourcePaths:Array<String> = deviceTarget.getCollection(Target.SOURCE_PATHS, true);
+			var nativeSourcePaths:Array<String> = deviceTarget.getCollection(Target.NATIVE_SOURCE_PATHS, true);
 			var frameworks:Array<String> = deviceTarget.getCollection(AppleTarget.FRAMEWORKS, true);
 			var assetPaths:Array<String> = deviceTarget.getCollection(Target.ASSET_PATHS, true);
 			var haxeLibs:Array<String> = deviceTarget.getCollection(Target.HAXE_LIBS, true);
@@ -157,7 +158,6 @@ class AppleBuildTool extends basis.BuildTool
 				throw("Error: main file not found: " + mainClass);
 			//------------------------------------
 			
-			
 			//-------- Add asset paths -----------
 			for(a in 0...assetPaths.length)
 			{
@@ -181,6 +181,7 @@ class AppleBuildTool extends basis.BuildTool
 				}
 			}
 			//------------------------------------
+			
 			
 			//-------- Main haxe class -----------
 			var basisMainContent:String = File.getContent(libPath + "template/BasisMain.hx");
@@ -304,11 +305,21 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			//------------------------------------
 			
+			
+			//-------- Add Native Source ---------
+			for(sourcePath in nativeSourcePaths)
+			{
+				FileUtil.copyInto(sourcePath, xcodeFiles + "/nativeSource/");
+			}
+			//------------------------------------
+			
+			
 			//-------- Create XCode Project -------
 			var xcode:XCodeProject = new XCodeProject(appName, osType);
 			xcode.addSouce("Main.mm");
 			xcode.addSourceDirectory("basis", xcodeFiles + "/basis/");
 			xcode.addSourceDirectory("objc_include", xcodeFiles + "/objc_include/");
+			xcode.addSourceDirectory("nativeSource", xcodeFiles + "/nativeSource/");
 			
 			xcode.addSourceDirectory("bin", xcodeBin);
 			xcode.addSourceDirectory("assets", xcodeAssets, true);
