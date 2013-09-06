@@ -313,13 +313,14 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			//------------------------------------
 			
-			
 			//-------- Create XCode Project -------
 			var xcode:XCodeProject = new XCodeProject(appName, osType);
 			xcode.addSouce("Main.mm");
 			xcode.addSourceDirectory("basis", xcodeFiles + "/basis/");
 			xcode.addSourceDirectory("objc_include", xcodeFiles + "/objc_include/");
-			xcode.addSourceDirectory("nativeSource", xcodeFiles + "/nativeSource/");
+			
+			if(nativeSourcePaths.length > 0)
+				xcode.addSourceDirectory("nativeSource", xcodeFiles + "/nativeSource/");
 			
 			xcode.addSourceDirectory("bin", xcodeBin);
 			xcode.addSourceDirectory("assets", xcodeAssets, true);
@@ -343,7 +344,6 @@ class AppleBuildTool extends basis.BuildTool
 			}
 			xcode.save(targetPath, true);
 			//------------------------------------
-			
 			
 			//-------- Build Xcode Project -------
 			var commands = [ "-configuration", configuration ];
