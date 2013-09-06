@@ -39,6 +39,7 @@
 
 #else
 #import "apple/appkit/NSTextViewDelegateImp.h"
+#import "apple/appkit/NSSpeechRecognizerDelegateImp.h"
 #import "OSXApplication.h"
 #endif
 

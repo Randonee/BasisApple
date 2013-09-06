@@ -60,6 +60,7 @@ class OSXApplication extends BasisApplication
 		objectManager.addClass(apple.appkit.NSTextStorage);
 		objectManager.addClass(apple.appkit.NSText);
 		objectManager.addClass(apple.appkit.NSParagraphStyle);
+		objectManager.addClass(apple.appkit.NSSpeechRecognizer);
 		
 		
 		objectManager.addClass(apple.foundation.NSException);

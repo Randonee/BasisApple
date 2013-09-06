@@ -32,6 +32,8 @@
 		<compilerflag value="-Iobjc_include"/>
 		<file name="common/ExternalInterface.cpp"/>
 		<file name="apple/appkit/NSTextViewDelegateImp.mm"/>
+		<file name="apple/appkit/NSSpeechRecognizerDelegateImp.mm"/>
+
 		<file name="basis/Basis.mm"/>
     </files>
 
