@@ -23,8 +23,6 @@ Installation
 2. Install xcode
 3. Install xcode command line tools
 4. Build the needed hxcpp libs for osx by running the command:
-
-		haxelib run hxcpp /usr/lib/haxe/lib/hxcpp/3,0,2/runtime/BuildLibs.xml -DHXCPP_M64 -Dstatic_link Ddll_import
 	
 
 Running the Example
