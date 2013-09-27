@@ -30,7 +30,7 @@ Running the Example
 * First download and install from trunk
 * The example can be built for ios or osx. To run either example go to the example directory and run one of the following commands
 	* haxelib run basis build.basis ios
-	* haxelib run basis build.basis osx
+	* haxelib run basis build.basis osx 
 
 
 
