@@ -22,7 +22,6 @@ Installation
 1. Install BasisApple haxelib with instructions found here: https://github.com/Randonee/Basis
 2. Install xcode
 3. Install xcode command line tools
-4. Build the needed hxcpp libs for osx by running the command:
 	
 
 Running the Example
