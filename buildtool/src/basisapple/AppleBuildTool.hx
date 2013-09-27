@@ -79,7 +79,14 @@ class AppleBuildTool extends basis.BuildTool
 				else
 					targetPath += "/device";
 			}
-			
+			else
+			{
+				//Build hxcpp libs for osx
+				if(!FileSystem.exists(FileUtil.getHaxelib("hxcpp") + "bin/Mac64/regexp.a"))
+				{
+					ProcessUtil.runCommand(FileUtil.getHaxelib("hxcpp") + "runtime", "haxelib", ["run", "hxcpp", "BuildLibs.xml", "-DHXCPP_M64", "-Dstatic_link", "-Dstatic_link"]);
+				}
+			}
 			
 			FileUtil.createDirectory(targetPath);
 			
