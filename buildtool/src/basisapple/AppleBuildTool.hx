@@ -245,7 +245,7 @@ class AppleBuildTool extends basis.BuildTool
 			{
 				if(deviceTarget.getSetting(AppleTarget.SIMULATOR) == "true")
 				{
-					FileUtil.copyInto(haxeBuildPath + "cpp/obj/iphonesim/src/", xcodeBin);
+					FileUtil.copyInto(haxeBuildPath + "cpp/obj/iphonesim/", xcodeBin);
 					File.copy(libPath + "/bin/iPhone/libbasisapple.iphonesim.a" , xcodeBin + "/libbasisapple.iphonesim.a");
 				
 					File.copy(FileUtil.getHaxelib("hxcpp") + "bin/iPhone/libregexp.iphonesim.a" , xcodeBin + "/hxcpp/libregexp.iphonesim.a");
